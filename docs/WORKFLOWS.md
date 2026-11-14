@@ -8,15 +8,29 @@ own verification. [Creative reframing](../addons/creative-reframing/SKILL.md)
 can improve a weak assumption or approach without adding a controller or
 requiring a brainstorming block in every answer.
 
+For agent applications, the existing OpenAI Developers `agents` skill covers
+the [Agents API and SDK](https://developers.openai.com/api/docs/guides/agents-api/overview),
+while [LangChain/LangGraph](../integrations/ai-workflows/README.md) provides the
+tested offline tool and durable-state route. Use the installed Eve method for a
+product needing persistent sessions/channels; commission it in that project.
+[Native Codex integration](https://developers.openai.com/codex/app-server) can
+reuse subscription access. Eve's local subscription adapter is source-supported
+but unaccepted against the current Codex protocol and cannot be deployed. Current
+Lang checks use a scripted model, not inference. Verify the real app's chosen
+inference route and model/effort; API billing and deployment are separate choices.
+
 [terminal-mac](https://github.com/govijr/terminal-mac) remains reference-only for
 separately provisioned guest-desktop workflows. Source reviewed at
 `74c548f27910ba2d228637780740e5fd3f9e0450`; published `v0.2.0-6` trails that
 source. It runs a real macOS VM with separate apps/accounts/permissions, not
 the host's current windows or signed-in sessions. Default guest RAM is at least
-4 GiB and disk is 64 GiB logical; multiple guests are unsuitable for an 8 GiB
-host. The release is self-signed, not Apple-notarized, and clean-guest acceptance
-is pending. No installer, VM, account or MCP activation is included in nstack.
-This is a potential isolation option, not repair of a host input bug.
+4 GiB and disk is 64 GiB logical. The reviewed Mac has 32 GiB RAM; 8 GiB is its
+Docker VM allocation. A single capped guest is resource-feasible as a future
+trial, subject to actual host load. The current release's apps and executables
+failed native execution assessment despite valid self-signatures. Clean-guest
+acceptance is also pending. No trust override, installer, VM, account or MCP
+activation is included in nstack. This is a potential isolation option, not
+repair of a host input bug.
 
 These integrations build applications and execute explicitly selected jobs. They do not replace the Codex/OpenCode harness, canonical Obsidian vault or host-owned memory. No service starts automatically. The installer supplies portable recipes; each recipe has its own source locks and acceptance checks. An installed recipe is not proof its runtime is commissioned on another Mac.
 

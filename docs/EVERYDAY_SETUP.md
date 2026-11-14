@@ -81,6 +81,13 @@ activation or a geometry change, capture again before pixel input. Same-desktop
 arrangement is a conditional workaround, not a prerequisite for all workflows.
 Avoid blind retries; actual permission and target denials remain binding.
 
+On the reviewed Mac, a stale windowless `Obsidian help` process also caused
+native reads to time out while another process owned the actual window. After
+verifying its exact command and lack of windows, stopping only that stuck CLI
+restored native reads without restarting the helper. This is separate from the
+off-desktop pointer failure. Do not terminate an unknown duplicate or the live
+window owner. Bounded CLI timeouts must clean up their own child processes.
+
 An existing official Cua Driver 0.49.3 also passed real background pixel
 arithmetic and AX Clear on Calculator, with inspected screenshots and an
 independent value check. Its Obsidian input remained unverified, so this is
@@ -126,7 +133,7 @@ route; a route or cached source is not proof that a tool ran.
 | Scrapling | 0.5.1 / 3a4bb5b0a008233c85269a0a38a6d08edd4ce329 | Local parser field/unit/cardinality checks and duplicate negative |
 | agent-browser | 0.41.2 / 6682da310c75bed8af340b39cc10b7f71bded155 | Exact-source Rust build, form once, isolated second session |
 | ChromeDevTools | 1.12.0 / 0877ee00d2e43c1c04bba275e7d08cc1033e36e9 | Exact-source/submodule bundle, console/network diagnostics, measured trace comparison |
-| Obsidian | 1.14.4 | Native create/read/search, Base query, note correction and private Git history |
+| Obsidian | App/installer 1.15.1, Electron 43.8.9 | Native create/read/search, Base query, note correction and private Git history |
 
 Same-number published agent-browser and ChromeDevTools packages differed from
 the selected revisions. The actual Mac uses source builds, not those packages.
@@ -186,6 +193,13 @@ Check both app and installer versions in **Settings → General**. App updates c
 leave the underlying installer behind; follow Obsidian's [installer update
 instructions](https://obsidian.md/help/updates) when it reports that an update is
 needed, then reopen the vault and check its views and CLI again.
+
+The reviewed November 14 update separately verified the official contained
+app's signature, stapled notarization and native execution assessment, backed
+up the actual old bundle, and rehearsed restoration before replacement. Fresh
+CLI version/help, targeted note reads, Base and links passed; protected vault
+bytes were unchanged. Updating Electron did not repair the native helper's
+off-desktop pointer error, so it is not advertised as that fix.
 
 Keep Obsidian core Markdown, Bases, Canvas, search and links. Enable link updates
 if desired through the ordinary app setting. No community plugin, remote sync,
