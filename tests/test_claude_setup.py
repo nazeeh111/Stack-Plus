@@ -127,6 +127,20 @@ class ClaudeSetup(unittest.TestCase):
             self.assertFalse((state / 'claude-profile.json').exists())
             self.assertEqual((home / 'new-note.md').read_text(), 'Useful new work.\n')
 
+    def test_creative_addition_is_implicit_and_keeps_unrelated_entries_on_rollback(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            base=Path(temporary).resolve();home=base/'home';home.mkdir();state=base/'state'
+            own=home/'.claude/skills/own';own.mkdir(parents=True);(own/'SKILL.md').write_text('Unrelated dirty bytes.\n');before=fingerprint(own)
+            source,leaf,receipt=self.fixture(base);p1,p2=self.source_patches(source,leaf,receipt)
+            with p1,p2:
+                args=self.args(home,state,creative_reframing=True);result=claude.apply(args)
+                entry=home/'.claude/skills/creative-reframing';self.assertEqual(result['skills'],2)
+                self.assertEqual(len(list((entry/'references/techniques').glob('*.md'))),15)
+                self.assertNotIn('disable-model-invocation: true',(entry/'SKILL.md').read_text())
+                self.assertEqual(fingerprint(own),before);self.assertFalse(claude.apply(args)['changed'])
+            subprocess.run([str(state/'rollback.sh')],check=True,capture_output=True)
+            self.assertFalse(entry.exists());self.assertEqual(fingerprint(own),before)
+
     def test_collision_linked_parent_and_managed_edit_are_preserved(self):
         with tempfile.TemporaryDirectory() as temporary:
             base = Path(temporary).resolve()

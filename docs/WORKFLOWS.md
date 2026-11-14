@@ -1,5 +1,23 @@
 # On-demand workflows
 
+For CPU quantum circuits, open-system physics and differentiable models, use
+the existing Qiskit, QuTiP and PennyLane skills with the optional shared
+[local quantum environment](../integrations/quantum/README.md). Its small
+analytic checks are real acceptance; hardware and large algorithms need their
+own verification. [Creative reframing](../addons/creative-reframing/SKILL.md)
+can improve a weak assumption or approach without adding a controller or
+requiring a brainstorming block in every answer.
+
+[terminal-mac](https://github.com/govijr/terminal-mac) remains reference-only for
+separately provisioned guest-desktop workflows. Source reviewed at
+`74c548f27910ba2d228637780740e5fd3f9e0450`; published `v0.2.0-6` trails that
+source. It runs a real macOS VM with separate apps/accounts/permissions, not
+the host's current windows or signed-in sessions. Default guest RAM is at least
+4 GiB and disk is 64 GiB logical; multiple guests are unsuitable for an 8 GiB
+host. The release is self-signed, not Apple-notarized, and clean-guest acceptance
+is pending. No installer, VM, account or MCP activation is included in nstack.
+This is a potential isolation option, not repair of a host input bug.
+
 These integrations build applications and execute explicitly selected jobs. They do not replace the Codex/OpenCode harness, canonical Obsidian vault or host-owned memory. No service starts automatically. The installer supplies portable recipes; each recipe has its own source locks and acceptance checks. An installed recipe is not proof its runtime is commissioned on another Mac.
 
 | Need | Integration | What was checked on the author's Mac |

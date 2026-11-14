@@ -1,0 +1,141 @@
+{
+  "repository": "KorroAi/claude-creativity",
+  "revision": "2e7aaa496c5c7824e5fdcb466b8cfb05a333817e",
+  "source_path": "SKILL.md",
+  "license": "MIT",
+  "installation_adaptation": "Purposeful per-aspect creative exploration, source-backed techniques and feasibility/convergence. Replaces broad response injection, persona, fixed quotas and unsupported superiority with bounded useful-result checks. Complete original support retained; no code/runtime/provider or mandatory output activated.",
+  "upstream_files": {
+    "LICENSE": {
+      "source_path": "LICENSE",
+      "sha256": "218df4683fa2d2492619db8696c8f0822b3a73a5b31716653d63a609a6b7363e",
+      "git_blob": "f6cd5276496b34a77ca46888aee79a8900720440",
+      "modification": "Unchanged bytes; support relocated where stated"
+    },
+    "upstream/ORIGINAL-SKILL.md": {
+      "source_path": "SKILL.md",
+      "sha256": "df5a105bdca6acd25ef5ea30a151897f1ebff8fe87c943dfc9ef369f9a9b431f",
+      "git_blob": "2cbce41e9dc988db296fd646235b800c8afedf52",
+      "modification": "Unchanged bytes; support relocated where stated"
+    },
+    "upstream/references/persona.md": {
+      "source_path": "references/persona.md",
+      "sha256": "55b1443f6cc57a2cc1ed8c5633add3173c2a4b6be3d8db7cfb03bc2a0426ce76",
+      "git_blob": "be3cec94155d5dbfa283cbdc3d43d72d6b39aaad",
+      "modification": "Unchanged bytes; support relocated where stated"
+    },
+    "upstream/references/drunk-fusion.md": {
+      "source_path": "references/drunk-fusion.md",
+      "sha256": "88fca368512350c132b443f53a1ec0ab8a3b725556312b4cdc9e3b6373f66bd4",
+      "git_blob": "10c68b4b2ef5aa8604c20cdb27cb51531abcc229",
+      "modification": "Unchanged bytes; support relocated where stated"
+    },
+    "upstream/TECHNICAL.md": {
+      "source_path": "TECHNICAL.md",
+      "sha256": "80f0580794ccc6c399c5f29879ff308937da4eb0c139236add12a4e1b53067eb",
+      "git_blob": "90881d2de619ff3465c08631165d6b98e5fc45d5",
+      "modification": "Unchanged bytes; support relocated where stated"
+    },
+    "upstream/evals/evals.json": {
+      "source_path": "evals/evals.json",
+      "sha256": "a643b1e6a3528d34e94a363a1241930189f6c3fdfee813f6b6a186b704ae310f",
+      "git_blob": "f4bf7c94e08ea2e2df9d84b316952658e868435d",
+      "modification": "Unchanged bytes; support relocated where stated"
+    },
+    "references/techniques/combination.md": {
+      "source_path": "references/techniques/combination.md",
+      "sha256": "cf99dd501612924c7d06e087a01df5407a424fd2df0db75caedb91efd4e20a5a",
+      "git_blob": "6eaf942291b2a280a6bc503ddf5a27884b0f17f9",
+      "modification": "Unchanged bytes; support relocated where stated"
+    },
+    "references/techniques/constraints.md": {
+      "source_path": "references/techniques/constraints.md",
+      "sha256": "2a7d64bb959280b29525f8d5a6af32b9213093b7e7ea3f250311e399b198361b",
+      "git_blob": "4f3f1bb9c559e0a69acc66454e1a1d912e94b8ed",
+      "modification": "Unchanged bytes; support relocated where stated"
+    },
+    "references/techniques/first-principles.md": {
+      "source_path": "references/techniques/first-principles.md",
+      "sha256": "41ee4719cc133834013876307830b31f6811f4a2d2441250c2055cb410b76509",
+      "git_blob": "26e672003fda2efe0816f5737e7e0574e4b6d77c",
+      "modification": "Unchanged bytes; support relocated where stated"
+    },
+    "references/techniques/forced-analogies.md": {
+      "source_path": "references/techniques/forced-analogies.md",
+      "sha256": "b82be057e08787fcc7d33377a180e9004b16b922c5e7245950e09b4f9d606001",
+      "git_blob": "4c2fa7885664647f4f88cd64a19b2d7fe8a3b844",
+      "modification": "Unchanged bytes; support relocated where stated"
+    },
+    "references/techniques/inversion.md": {
+      "source_path": "references/techniques/inversion.md",
+      "sha256": "bd2198a91874401f94dad29d910e438b7837e2b2caf74b1b221714d33946bb84",
+      "git_blob": "26cf9b4460ffbb7942073aa8f7bedf1d98d55724",
+      "modification": "Unchanged bytes; support relocated where stated"
+    },
+    "references/techniques/lateral-thinking.md": {
+      "source_path": "references/techniques/lateral-thinking.md",
+      "sha256": "804b78eeb3bb61e03a5be143dadb610b754a3ab84cd8a1a94580cf46875ee657",
+      "git_blob": "3903f94539d6b209dd14c726b26f62f4a7169533",
+      "modification": "Unchanged bytes; support relocated where stated"
+    },
+    "references/techniques/negative-space.md": {
+      "source_path": "references/techniques/negative-space.md",
+      "sha256": "f5fac4558379e5d2e8874c75c50a0360639c33fd7f5311f1d123902ba948d615",
+      "git_blob": "1aa2f8b1802450528a321480b0c4d7763fd0e889",
+      "modification": "Unchanged bytes; support relocated where stated"
+    },
+    "references/techniques/oblique-strategies.md": {
+      "source_path": "references/techniques/oblique-strategies.md",
+      "sha256": "a206dc29a5d5aa07cc78cff96e4827476f2575e8743f44c6bac1a00cfe82c481",
+      "git_blob": "011eac224bd625da132bf584c1793781f2479742",
+      "modification": "Unchanged bytes; support relocated where stated"
+    },
+    "references/techniques/provocation.md": {
+      "source_path": "references/techniques/provocation.md",
+      "sha256": "7baf564e0719751e70cd546b7c1efac0b4c1b192060c670ff9cb022b67318d4b",
+      "git_blob": "dd3ddd57f182f70920cdb2a1e22f3bc54699a2bb",
+      "modification": "Unchanged bytes; support relocated where stated"
+    },
+    "references/techniques/random-stimulus.md": {
+      "source_path": "references/techniques/random-stimulus.md",
+      "sha256": "edac991864423d2444e146cbb78c541c41373e5d4aaa2eeac0033bba1277a0b6",
+      "git_blob": "c50d9d3e23a9170f7a7f977e809418e4e0f213c5",
+      "modification": "Unchanged bytes; support relocated where stated"
+    },
+    "references/techniques/reversal.md": {
+      "source_path": "references/techniques/reversal.md",
+      "sha256": "d6d8f8e671a4135c4f4534cec5a2e0c620fcdfb56ea60d93297f6c30f61a8d77",
+      "git_blob": "9b626d36983b70da260e41f105e9bca7372e5ef7",
+      "modification": "Unchanged bytes; support relocated where stated"
+    },
+    "references/techniques/role-swap.md": {
+      "source_path": "references/techniques/role-swap.md",
+      "sha256": "26b3497079d7d5d94be3571e9dd2d0b892cffdfd5757fb4da24c604c1c0e7d40",
+      "git_blob": "593814848ec047ebfd99a097d0275101f66782b3",
+      "modification": "Unchanged bytes; support relocated where stated"
+    },
+    "references/techniques/synthesis.md": {
+      "source_path": "references/techniques/synthesis.md",
+      "sha256": "2dab732f1d290cfbb07e4981a37ae0a3f17ac979dfebc32f0bd4fc667e4c8d19",
+      "git_blob": "caf8821a2baf25d9b9ff8a69004bb5cc6e8354b9",
+      "modification": "Unchanged bytes; support relocated where stated"
+    },
+    "references/techniques/time-travel.md": {
+      "source_path": "references/techniques/time-travel.md",
+      "sha256": "d4a0ba489fdcbc7c51950a82fa7e2e675929dce3b39e51708dd8b9788a9d5725",
+      "git_blob": "775dcaa356bf147d42a15e5cc628343985475ec7",
+      "modification": "Unchanged bytes; support relocated where stated"
+    },
+    "references/techniques/what-if.md": {
+      "source_path": "references/techniques/what-if.md",
+      "sha256": "f10a7c5616db6927ed3a236adab95b5000f1e2bd229da3448ce9e2622657acfe",
+      "git_blob": "a8d2edd37811f5efd7b23fa20d4afefa31631ced",
+      "modification": "Unchanged bytes; support relocated where stated"
+    }
+  },
+  "port_patch_sha256": "7c3e7a8fc578b9d7658daeeafe7946024cfbadaf767eab4a8494ec34502f3c04",
+  "native_files": [
+    "SKILL.md",
+    "PORT.patch"
+  ],
+  "readiness": "Method adaptation; bounded behavioral validation recorded separately; no universal creativity claim."
+}

@@ -16,7 +16,8 @@ This includes the reviewed base selection plus `01`. The optional switches match
 `native_setup.py`: `--agent-reach`, `--repository-docs`, `--academic-research`,
 `--ecc`, `--unslop`, `--maps-scraper`, `--untangle-codebase`, `--raea`,
 `--llm-council`, `--cloudflare-security-audit`, `--strix`, `--skillspector`,
-`--roast-room`, `--council-of-high-intelligence` and `--craft-anything`. Keep every desired switch on
+`--roast-room`, `--council-of-high-intelligence`, `--craft-anything` and
+`--creative-reframing`. Keep every desired switch on
 later installs; an omitted addon is removed only from this adapter's owned links.
 `--only NAME` can be repeated for a deliberately limited base selection. With no
 `--only`, the full reviewed base is selected. Use `--home` and `--state` only for

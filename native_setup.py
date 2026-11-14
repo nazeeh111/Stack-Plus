@@ -354,6 +354,8 @@ def apply(args):
         addons.append("01")
     if getattr(args, "craft_anything", False):
         addons.append("craft-anything")
+    if getattr(args, "creative_reframing", False):
+        addons.append("creative-reframing")
     if getattr(args, "raea", False):
         addons.append("raea")
     if getattr(args, "llm_council", False):
@@ -501,6 +503,7 @@ def main():
     a.add_argument("--untangle-codebase", action="store_true", help="Add the pinned, explicitly invoked codebase refactoring skill")
     a.add_argument("--adaptive-routing", action="store_true", help="Add explicit 01 for adaptive skill/tool selection throughout a session")
     a.add_argument("--craft-anything", action="store_true", help="Add reviewed local binary/app analysis guidance; notarized runtime installed separately, rebuild and MCP remain explicit")
+    a.add_argument("--creative-reframing", action="store_true", help="Add reviewed creative techniques for useful alternatives, assumptions and synthesis; no automatic response injection")
     a.add_argument("--raea", action="store_true", help="Add RAEA guidance for offline local GPU rendering; pinned runtime installed separately")
     a.add_argument("--llm-council", action="store_true", help="Add native council and offline blinded evaluation; no provider or server activation")
     a.add_argument("--cloudflare-security-audit", action="store_true", help="Add the pinned repository audit method and offline validators; no account or scan activation")

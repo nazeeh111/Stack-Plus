@@ -58,6 +58,11 @@ complementary expertise across disciplines, instead of mapping a task noun to
 one skill. Categories are temporary views of the current capabilities, not a
 maintained task-to-skill table or a requirement to use every available tool.
 
+It searches by the needed improvement in a consequential aspect, including
+expertise outside the artifact's usual discipline. A useful method may change
+one decision or verification. Familiarity, novelty and skill counts do not
+justify loading a method; a changed artifact or check is the evidence of use.
+
 The six selected pstack specialists are available for relevance-based automatic
 selection. Their upstream manual-only header is removed in the shared native
 adaptation; method bodies and original source remain intact. This avoids hiding
@@ -100,6 +105,12 @@ Additional trials exercise real native process restart/resume, changed input,
 an interrupted operation and independently owned specialist work with an
 integration review. Report first-attempt results and trace evidence separately;
 these examples do not establish universal reliability or every tool's readiness.
+
+The [November 14 workflow checks](../evals/01/BEHAVIOR_RESULTS.md) additionally
+exercise scientific calibration, browser race repair, changed requirements and
+scientific hypothesis/experiment reframing. They record actual complementary
+method application and executable results, not an installation count or proof
+that these instructions outperform every other route.
 
 A skill supplies guidance in the conversation context. It cannot guarantee a
 host's future summarization, grant unavailable tools, bypass permissions or

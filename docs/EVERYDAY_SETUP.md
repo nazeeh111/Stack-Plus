@@ -73,11 +73,13 @@ November14, native reads worked while pointer calls returned `noWindowsAvailable
 After the user placed Codex and Obsidian side by side, three native coordinate
 open/close cycles passed with actual dialog and screenshot readback. The helper
 also restarted across the wait, so this establishes current recovery without
-isolating the cause or proving a cross-desktop fix. For this error, check that
-the target is on the same macOS desktop as the host, then take a fresh capture
-and verify one harmless action. Avoid repeated blind input. Refresh stale
-targets and choose a supported operation that satisfies the task. Actual
-permission and target denials remain binding.
+isolating the cause or proving a cross-desktop fix. A later off-desktop trial
+still reproduced the native error. Reacquire the exact app/window; if a bundle
+ID is ambiguous, use the verified application's full path. Choose a supported
+semantic or authorized foreground operation when it satisfies the task. After
+activation or a geometry change, capture again before pixel input. Same-desktop
+arrangement is a conditional workaround, not a prerequisite for all workflows.
+Avoid blind retries; actual permission and target denials remain binding.
 
 An existing official Cua Driver 0.49.3 also passed real background pixel
 arithmetic and AX Clear on Calculator, with inspected screenshots and an
@@ -89,6 +91,13 @@ the live schema: a supplied capture ID is consumed by one pixel action; refresh
 the PNG between captured actions. A failed batch or UNKNOWN predicate needs
 actual readback. Use a temporary owned service/session and clean it up; no
 duplicate skill, global MCP registration or automatic downgrade is needed.
+
+The later off-Space Obsidian Cua trial had valid exact captures but no immediate
+background-click effect. Foreground input encountered a correctly refused
+capture-frame change; a subsequently visible modal had ambiguous attribution.
+Keyboard acknowledgements also did not establish reliable immediate effects.
+It is not accepted as a general fix for the native helper. All trial services
+were stopped; the target returned to Home. No grant or signed host binary changed.
 
 ChromeDevTools stays an explicit per-task tool, not another globally active
 browser. Use isolated/headless profiles, no usage statistics/performance CrUX,

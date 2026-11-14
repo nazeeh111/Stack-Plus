@@ -100,6 +100,17 @@ class NativeSetup(unittest.TestCase):
     for p,value in before.items():self.assertEqual(fingerprint(p),value)
    subprocess.run([str(state/'rollback.sh')],check=True,capture_output=True)
    self.assertFalse(shared.exists());self.assertFalse((home/'.codex/AGENTS.md').exists())
+ def test_creative_addition_keeps_all_methods_repeat_and_dirty_recovery(self):
+  with tempfile.TemporaryDirectory() as temp:
+   base=pathlib.Path(temp).resolve();home=base/'home';home.mkdir();state=base/'state';source,leaf,r=self.fixture(base)
+   legacy=home/'.agents/skills/own';legacy.mkdir(parents=True);(legacy/'SKILL.md').write_text('Original dirty bytes.\n');before=fingerprint(legacy.parent)
+   args=self.args(home,state);args.creative_reframing=True
+   with patch.object(native.nstack,'build',return_value=source),patch.object(native.nstack,'registered_release',return_value=(r,{},leaf)):
+    result=native.apply(args);entry=home/'.agents/skills/creative-reframing'
+    self.assertEqual(result['skills'],2);self.assertEqual(len(list((entry/'references/techniques').glob('*.md'))),15)
+    for rel,record in json.loads((entry/'SOURCE.json').read_text())['upstream_files'].items():self.assertEqual(native.sha((entry/rel).read_bytes()),record['sha256'])
+    self.assertFalse(native.apply(args)['changed'])
+   subprocess.run([str(state/'rollback.sh')],check=True,capture_output=True);self.assertEqual(fingerprint(legacy.parent),before)
  def test_01_addition_preserves_selected_skill_dirty_original_and_manual_policy(self):
   with tempfile.TemporaryDirectory() as temp:
    base=pathlib.Path(temp).resolve();home=base/'home';home.mkdir();state=base/'state';source,leaf,r=self.fixture(base)
