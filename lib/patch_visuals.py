@@ -8,7 +8,7 @@ def change(s,old,new):
 def patch(id,source,out):
  p=out/'SKILL.md';s=p.read_text()
  if id=='P200':
-  s=re.sub(r'description: >-\n(?:  .*\n)+', 'description: Reference-led art direction for a public-facing persuasive or editorial page whose brief explicitly calls for strong visual direction or redesign. Use the supplied brand/reference and retain the complete taste library, scripts and screenshot critique. Ordinary apps, dashboards and bounded fixes stay native.\n',s,count=1)
+  s=re.sub(r'description: >-\n(?:  .*\n)+', 'description: Reference-led art direction for a public page or app screen needing a strong visual identity or redesign. Use the matching page/app workflow and supplied brand; routine UI fixes stay direct.\n',s,count=1)
  elif id=='P328':
   start=s.index('## 0. First-time setup');end=s.index('## 1. Philosophy',start)
   s=s[:start]+'''## 0. Project style

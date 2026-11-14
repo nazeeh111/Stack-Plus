@@ -39,3 +39,7 @@ memories and the private knowledge vault are never publication inputs.
 See [Council](COUNCIL.md) and [SkillSpector](SKILLSPECTOR.md) for their specific
 source and activation boundaries. Static review, file integrity and actual runtime
 acceptance are different checks; keep each one's coverage limits.
+
+Functional exposure names are recorded in [SKILL_NAMES.md](SKILL_NAMES.md).
+Upstream repository, revision, source paths and original method identity remain
+in the receipts. Renaming does not admit another method or create an alias skill.

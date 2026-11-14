@@ -4,6 +4,11 @@ ROOT=pathlib.Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT),str(ROO
 import academic_addon as a
 import native_setup as native
 class AcademicAddon(unittest.TestCase):
+ def setUp(self):
+  # These synthetic trees isolate the original host-binding adapter. The
+  # reviewed English source/hash guards have pinned-source tests of their own.
+  english=patch('patch_english.academic_overrides',return_value={})
+  english.start();self.addCleanup(english.stop)
  def fixture(self,base):
   for name in a.DESCRIPTIONS:
    d=base/name;d.mkdir();(d/'SKILL.md').write_text('---\nname: '+name+'\ndescription: upstream broad trigger\n---\n# Skill\n'+('Roles 3-5 and the QC rechecks use Claude.\n---\n' if name=='sr-screener' else '')+'<!-- routing-core:begin -->\nOriginal cross-phase routing and screening boundary.\n<!-- routing-core:end -->\nUse DOI or WebSearch in a fresh Claude Code session.\n')

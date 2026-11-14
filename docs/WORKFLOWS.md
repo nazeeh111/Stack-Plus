@@ -55,6 +55,12 @@ These integrations build applications and execute explicitly selected jobs. They
 | Application tracing and evaluation | [Langfuse](../integrations/ai-workflows/README.md#optional-langfuse) | Six official pinned images pulled and Compose profile validated. Not started: the existing Docker VM has approximately 8 GiB; the stack needs more resources and private operator configuration. No automatic tracing enabled. |
 | Repeated structural mapping of a codebase | [Graphify](../integrations/graphify/README.md) | Source-exact 0.9.106 CLI, independent AST comparison, repeat/rename/deletion, queries, paths and explanations. Code-only, offline, project-scoped; semantic enrichment and upstream host hooks stay unconfigured. |
 
+Graphify can support Obsidian by turning a verified code relationship into a
+short source-linked project note. Keep generated graphs with their project,
+rather than exporting every symbol into the canonical vault. The existing
+[Graphify guide](../integrations/graphify/README.md#connect-useful-findings-to-obsidian)
+describes this connection and the upstream export limits.
+
 Use the complete linked instructions and actual command interface. LangChain/LangGraph are application libraries, not extra background services. Langfuse is optional observability for an application that needs it. Narrow code navigation can keep its existing semantic tools instead of building a graph.
 
 On this private deployment, 01's live runtime search includes descriptions and activation conditions from the installed tool index. New records become discoverable without editing 01 or maintaining a second category list. Readiness and permissions still require inspection; search results do not execute anything.

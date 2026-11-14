@@ -1,13 +1,15 @@
-# 维护
+# Maintenance
 
-更新失败、浏览器起不来、渠道报错或用户要卸载时读这份。
+Read when an update fails, a browser cannot start, a channel errors, or the user asks to uninstall.
 
-- 更新：`agent-reach update` 升级 Agent Reach、已加渠道的工具和 skill；`agent-reach update --check` 只查有没有新版本。只在用户同意后执行。
-- 状态：`agent-reach doctor --text` 读本地状态，不联网；`agent-reach check <渠道> --text` 联网实测一次（`--search` 只测搜索/职位）。安装成功不等于实测通过。
-- 浏览器：`agent-reach browser status` 看状态，`browser setup` 准备内核和扩展，`browser stop` 关闭；CloakBrowser 下载失败后修好网络可 `browser setup --retry-cloak`。
-- 分清失败环节：依赖下载、浏览器连接、登录、网页加载、平台限流各是各的；网络超时不要说成登录失效。
-- 上游工具出错：记下错误和版本，用户同意后 `agent-reach update` 一次；不改上游工具的安装文件，不循环重试。
-- `PLATFORM_BLOCKED`、`RATE_LIMITED`、`NEED_LOGIN`、`BUSY` 停止本次尝试，等用户处理后再继续，不反复开窗。
-- 密钥和代理：`agent-reach configure groq-key | openai-key | proxy | github-token`，值由用户本人提供。
-- 端口冲突（`Port <n> belongs to an unmanaged browser`）：别的程序占了专用浏览器端口（默认 9222）。不要关掉用户的那个程序；用户同意后 `agent-reach configure browser-port <空闲端口>`。
-- 卸载：先 `agent-reach uninstall --dry-run` 给用户看范围，确认后 `agent-reach uninstall`。只删 Reach 自己装的东西，用户的其他文件和浏览器保留。
+The installed SKILL.md's anonymous-access and credential restrictions control this reference. Setup, browser/account, configure, update and uninstall commands below describe upstream maintenance interfaces; this reference does not authorize running them in this installation.
+
+- Update: `agent-reach update` upgrades Agent Reach, tools for added channels and the skill; `agent-reach update --check` only checks for a newer version. Upstream requires user agreement before an update.
+- Status: `agent-reach doctor --text` reads local status without networking; `agent-reach check <channel> --text` performs one live network check (`--search` checks only search/jobs). Installation success is not a passed live check.
+- Browser: `agent-reach browser status` reads status, `browser setup` prepares the engine and extension, and `browser stop` closes it. If a CloakBrowser download failed, upstream offers `browser setup --retry-cloak` after the network is repaired.
+- Distinguish the failed stage: dependency download, browser connection, login, page loading and platform rate limits are different failures. A network timeout does not establish an expired login.
+- Upstream tool errors: record the error and version. Upstream permits one `agent-reach update` after user agreement; do not modify the upstream tool's installation or retry in a loop.
+- `PLATFORM_BLOCKED`, `RATE_LIMITED`, `NEED_LOGIN` and `BUSY` end this attempt. Wait for the user to resolve the issue; do not repeatedly open windows.
+- Keys and proxies: upstream exposes `agent-reach configure groq-key | openai-key | proxy | github-token`, with values supplied by the user. These credential/configuration routes remain unadmitted here.
+- Port conflict (`Port <n> belongs to an unmanaged browser`): another program owns the dedicated browser port (default 9222). Do not close that program. Upstream offers `agent-reach configure browser-port <free-port>` with user agreement.
+- Uninstall: upstream first shows `agent-reach uninstall --dry-run`, then runs `agent-reach uninstall` after confirmation. Only Reach-owned files are removed; the user's other files and browsers are preserved.

@@ -141,44 +141,45 @@ class ClaudeSetup(unittest.TestCase):
             subprocess.run([str(state/'rollback.sh')],check=True,capture_output=True)
             self.assertFalse(entry.exists());self.assertEqual(fingerprint(own),before)
 
-    def test_playwright_mcp_keeps_support_implicit_discovery_repeat_and_rollback_without_config(self):
-        with tempfile.TemporaryDirectory() as temporary:
-            base = Path(temporary).resolve()
-            home, state = base / 'home', base / 'state'
-            home.mkdir()
-            own = home / '.claude/skills/own'
-            own.mkdir(parents=True)
-            (own / 'SKILL.md').write_text('Unrelated dirty user skill.\n')
-            before = fingerprint(own)
-            settings = home / '.claude/settings.json'
-            settings.write_text('{"model":"keep-model","permissions":{"deny":["Bash(rm:*)"]}}\n')
-            settings_before = fingerprint(settings)
-            source, leaf, receipt = self.fixture(base)
-            p1, p2 = self.source_patches(source, leaf, receipt)
-            with p1, p2:
-                args = self.args(home, state, playwright_mcp=True)
-                result = claude.apply(args)
-                entry = home / '.claude/skills/playwright-mcp'
-                self.assertEqual(result['skills'], 2)
-                self.assertEqual((entry / 'references/runtime.md').read_bytes(),
-                                 (ROOT / 'addons/playwright-mcp/references/runtime.md').read_bytes())
-                self.assertEqual((entry / 'SOURCE.json').read_bytes(),
-                                 (ROOT / 'addons/playwright-mcp/SOURCE.json').read_bytes())
-                row = next(row for row in json.loads((state / 'claude-skill-index.json').read_text())
-                           if row['name'] == 'playwright-mcp')
-                self.assertFalse(row['manual_only'])
+    def test_guidance_addons_keep_support_implicit_discovery_repeat_and_rollback_without_config(self):
+        for addon, reference in [('playwright-mcp', 'runtime.md'), ('agent-orchestration', 'hosts.md')]:
+            with tempfile.TemporaryDirectory() as temporary:
+                base = Path(temporary).resolve()
+                home, state = base / 'home', base / 'state'
+                home.mkdir()
+                own = home / '.claude/skills/own'
+                own.mkdir(parents=True)
+                (own / 'SKILL.md').write_text('Unrelated dirty user skill.\n')
+                before = fingerprint(own)
+                settings = home / '.claude/settings.json'
+                settings.write_text('{"model":"keep-model","permissions":{"deny":["Bash(rm:*)"]}}\n')
+                settings_before = fingerprint(settings)
+                source, leaf, receipt = self.fixture(base)
+                p1, p2 = self.source_patches(source, leaf, receipt)
+                with p1, p2:
+                    args = self.args(home, state, **{addon.replace('-', '_'): True})
+                    result = claude.apply(args)
+                    entry = home / '.claude/skills' / addon
+                    self.assertEqual(result['skills'], 2)
+                    self.assertEqual((entry / 'references' / reference).read_bytes(),
+                                     (ROOT / 'addons' / addon / 'references' / reference).read_bytes())
+                    self.assertEqual((entry / 'SOURCE.json').read_bytes(),
+                                     (ROOT / 'addons' / addon / 'SOURCE.json').read_bytes())
+                    row = next(row for row in json.loads((state / 'claude-skill-index.json').read_text())
+                               if row['name'] == addon)
+                    self.assertFalse(row['manual_only'])
+                    self.assertEqual(fingerprint(own), before)
+                    self.assertEqual(fingerprint(settings), settings_before)
+                    journal = Path(result['run']) / 'journal.json'
+                    journal_before = journal.read_bytes()
+                    self.assertFalse(claude.apply(args)['changed'])
+                    self.assertEqual(journal.read_bytes(), journal_before)
+                    self.assertFalse((state / 'runtimes').exists())
+                    self.assertFalse((home / '.claude/.mcp.json').exists())
+                subprocess.run([str(state / 'rollback.sh')], check=True, capture_output=True)
+                self.assertFalse(entry.exists())
                 self.assertEqual(fingerprint(own), before)
                 self.assertEqual(fingerprint(settings), settings_before)
-                journal = Path(result['run']) / 'journal.json'
-                journal_before = journal.read_bytes()
-                self.assertFalse(claude.apply(args)['changed'])
-                self.assertEqual(journal.read_bytes(), journal_before)
-                self.assertFalse((state / 'runtimes').exists())
-                self.assertFalse((home / '.claude/.mcp.json').exists())
-            subprocess.run([str(state / 'rollback.sh')], check=True, capture_output=True)
-            self.assertFalse(entry.exists())
-            self.assertEqual(fingerprint(own), before)
-            self.assertEqual(fingerprint(settings), settings_before)
 
     def test_collision_linked_parent_and_managed_edit_are_preserved(self):
         with tempfile.TemporaryDirectory() as temporary:

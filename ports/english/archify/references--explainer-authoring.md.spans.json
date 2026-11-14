@@ -1,0 +1,12 @@
+{
+  "repository": "tt-a1i/archify",
+  "revision": "a4065941f12be7967436261d9934784e381d423c",
+  "license": "Apache-2.0 for current package, except where specified. Preserve LICENSE, NOTICE, historical LICENSE-MIT (pre-transition grants), THIRD_PARTY_NOTICES.md and bundled component terms. Historical MIT is not blanket alternative licensing for the current distribution. Simple Icons collection CC0 does not clear underlying logo/trademark rights; use neutral labels if needed.",
+  "adaptation_notice": "English translation/gloss of these short instruction spans. Underlying method and notices retain the upstream license.",
+  "replacements": [
+    {
+      "old": "\n中文：短句，每句不超过约 50 字；动词直接用（检查、决定，而不是进行检查、做出决定）；一句话里的“的”不超过两个；数字后写清边界（超过 3 次、不超过 1 秒）；用具体结果代替套话（赋能、全方位、至关重要）。\n",
+      "new": "\n中文：短句，每句不超过约 50 字；动词直接用（检查、决定，而不是进行检查、做出决定）；一句话里的“的”不超过两个；数字后写清边界（超过 3 次、不超过 1 秒）；用具体结果代替套话（赋能、全方位、至关重要）。\n\nFor Chinese: use short sentences of no more than about 50 characters. Use verbs directly (检查, 决定: check, decide), rather than light-verb phrases (进行检查, 做出决定). Use no more than two instances of 的 in one sentence. State numeric bounds explicitly (超过 3 次: more than 3 times; 不超过 1 秒: no more than 1 second). Replace stock phrases (赋能, 全方位, 至关重要: empower, comprehensive, crucial) with concrete results.\n"
+    }
+  ]
+}

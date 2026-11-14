@@ -1,0 +1,13 @@
+{
+  "repository": "Imbad0202/academic-research-skills",
+  "revision": "6d9388674de1ad0437ad95db3d52f92b92204d84",
+  "license": "CC-BY-NC-4.0",
+  "copyright_notice": "Copyright (c) 2026 Cheng-I Wu",
+  "adaptation_notice": "English translation of the listed short Chinese instruction spans only; all other fetched source content remains unchanged.",
+  "replacements": [
+    {
+      "old": "不確定？先用 `socratic` 模式——它會幫你釐清你需要什麼。",
+      "new": "If you are unsure, start in `socratic` mode; it will help clarify what you need."
+    }
+  ]
+}

@@ -20,19 +20,13 @@ messages. The active host executes work with the user's existing model,
 reasoning effort, account and permissions; 01 does not switch harnesses. No daemon, hook or compulsory plan,
 team, report, global memory store or automatic self-edit is installed.
 
-For a weak match or concrete capability gap, 01 applies the installed find-skills method. A justified addition stays project-scoped and proceeds through source review, verification and actual task use within existing authority. No second skill invocation is required.
+01 refines weak metadata matches first and applies find-skills for a remaining concrete capability gap. A justified addition stays project-scoped and proceeds through source review, verification and actual task use within existing authority. No second skill invocation is required.
 
 ## Install
 
-Add `--adaptive-routing` to your existing complete native selection. For the
-currently documented optional collection:
-
-```sh
-python3 native_setup.py install --replace --agent-reach --repository-docs --academic-research --ecc --unslop --maps-scraper --untangle-codebase --adaptive-routing
-```
-
-Keep your other explicitly selected flags; omitting them requests a different
-collection. The transaction backs up the actual skill root and instructions,
+Include `--adaptive-routing` in the single complete selection from
+[ONBOARDING.md](ONBOARDING.md), keeping every addition you intend to retain.
+The transaction backs up the actual skill root and instructions,
 rehearses restoration and preserves other selected bundles and support. A
 second install with unchanged inputs is a no-op. Terminal recovery remains:
 
@@ -45,6 +39,13 @@ The shared collection also exposes01 to OpenCode. Its
 OpenCode. Codex uses `policy.allow_implicit_invocation: false` in
 `agents/openai.yaml`. Use the host's own skill selector; sharing the files does
 not merge generated memories or conversations.
+
+## Functional names
+
+The [name changes](SKILL_NAMES.md) make contributions easier to distinguish.
+Names remain labels, not exclusive task assignments. Compare the methods and
+combine useful expertise as the work changes. Legacy names remain lookup and
+installer metadata, without duplicate active skills.
 
 ## Capability lookup
 
@@ -83,6 +84,9 @@ use Codex/OpenCode entries, and derived Claude releases use Claude entries.
 `--host native` or `--host claude` can request an explicit metadata scope. This
 keeps coexisting variants from crowding the same result list; it does not grant
 tools from one host to another.
+
+The helper matches literal terms; short concepts and synonyms can recover a
+weak phrase query before a missing capability is assumed.
 
 This file discovery does not establish host enablement, permissions, current
 runtime callability or that a method actually ran. Native connected-tool/plugin

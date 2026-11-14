@@ -3705,7 +3705,7 @@
   "P200": {
     "id": "P200",
     "deployment": "on demand",
-    "activation": "A public-facing persuasive or editorial brief explicitly calls for strong art direction or a visual redesign.",
+    "activation": "A public page or app screen explicitly needs strong reference-led visual identity or a redesign.",
     "non_use": "Do not activate for unrelated tasks; preserve the project incumbent when it already meets the requirement.",
     "rights": {
       "spdx_metadata": "MIT",
@@ -3718,7 +3718,7 @@
       "locator": "https://github.com/Leonxlnx/taste-skill/tree/12af471f627f866411b4bd785b19646d3672784c"
     },
     "required_adaptations": [
-      "Keep the whole skills/taste-skill directory, library, scripts and references together. Narrow the trigger; skip unrelated application/dashboard default.",
+      "Keep the whole skills/taste-skill directory, library, scripts and references together. Use the matching page or app-screen workflow; skip ordinary UI fixes and unsolicited brand changes.",
       "Use --keep palette,type when specified; pin a seed if re-comparing. House image quotas and aesthetic FAIL rules yield to supplied brand, functional UI, asset rights and truthful content. Keep the designed project and screenshot evidence in the task."
     ],
     "task_acceptance": [

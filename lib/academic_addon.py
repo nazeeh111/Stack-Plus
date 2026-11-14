@@ -51,4 +51,10 @@ def definition(n,name):
  port=''.join(difflib.unified_diff(original.splitlines(keepends=True),adapted.splitlines(keepends=True),fromfile=str(entry),tofile=str(entry)))
  provenance={'repository':REPOSITORY,'revision':REVISION,'source_path':str(entry),'license':'CC-BY-NC-4.0','adaptation':'Upstream metadata and complete workflow retained; one host-session wording generalized and a separate native-execution binding linked.','source_tree_sha256':SOURCE_TREE_SHA256}
  overrides={str(entry):adapted.encode(),str(P(name)/'UPSTREAM_SKILL.md'):original.encode(),str(P(name)/'NATIVE-PORT.patch'):port.encode(),'NATIVE-BINDINGS.md':BOUNDARY.encode(),'SOURCE.json':(json.dumps(provenance,sort_keys=True,indent=2)+'\n').encode()}
+ from patch_english import academic_overrides
+ english=academic_overrides(frozen,overrides,REPOSITORY,REVISION)
+ if english:
+  overrides.update(english)
+  provenance['english_instruction_adaptation']='Small attributed English routing spans; complete bilingual guidance and exact private upstream source retained. See ENGLISH-PORT/SOURCE-FIDELITY.json.'
+  overrides['SOURCE.json']=(json.dumps(provenance,sort_keys=True,indent=2)+'\n').encode()
  return {'source':source,'entry':P(name),'provenance':provenance,'overrides':overrides,'frozen_files':frozen}

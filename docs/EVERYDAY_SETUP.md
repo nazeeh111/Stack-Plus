@@ -12,11 +12,11 @@ for the current user it also honors `CODEX_HOME`. The optional
 Repository Docs guides public repository lookups and strict version handling in Context7.
 
 `--unslop` adds Unslop by Damir Sokolovsky, pinned at
-`97daa3eb365670ea3f87ed85356cbfcee18105a5`, under CC BY 4.0. Use `$unslop` or
+`97daa3eb365670ea3f87ed85356cbfcee18105a5`, under CC BY 4.0. Use `$ui-polish` or
 ask for polish of an existing interface. It preserves product identity and behavior;
-its source's style recipes are examples. New UI design stays with frontend-design,
-reference-led art direction with taste-skill, and independent production audits
-with impeccable-audit. Full visual references and original source are retained;
+its source's style recipes are examples. New UI design stays with web-ui-design,
+reference-led art direction with ui-art-direction, and independent production audits
+with ui-quality-audit. Full visual references and original source are retained;
 upstream snapshot/story helpers stay reference-only. No extra plugin, browser,
 video runtime or image provider is installed. Include previously chosen addon flags
 when replacing a collection; omitted optional additions are not silently retained.

@@ -9,7 +9,8 @@ opencode api skill.list
 opencode mcp list
 ```
 
-The adapter was checked against OpenCode 2.2.6. It uses the installed desktop
+The adapter baseline was checked against OpenCode 2.2.6. Shared skill discovery,
+including Playwright MCP and explicit 01 selection, was also checked in 2.3.0. It uses the installed desktop
 CLI, not another package installation. Pass `--cli /absolute/executable` for a
 different existing V2 installation. The selected model, provider, effort,
 credentials, conversations and native permissions are untouched.
@@ -124,6 +125,17 @@ consistent; legacy sandbox settings override mixed modern defaults. Preserve the
 current effective permissions when cleaning up redundant fields.
 
 ## Permissions and secrets
+
+OpenCode 2.3.0 already has a permission chooser in its **terminal interface**:
+`/settings` (or Ctrl+P → Open settings), then **Session → Permissions**:
+**prompt** or **auto accept**. This saves the CLI preference, despite the
+Session label. For a temporary launch use `opencode --auto`; for one scripted
+run use `opencode run --auto "Your task"`. Auto approval answers once within
+that client's session tree and leaves explicit denials in force. Ordinary prompts
+also offer once, project-pattern always, or reject. No extra skill or approval
+wrapper is required. These controls do not grant macOS privacy permissions;
+desktop-menu equivalence was not tested. [Pinned native chooser](https://github.com/anomalyco/opencode/blob/a6b15d33daf6ab7d35569f6d711fdb630b9f04e7/packages/tui/src/component/dialog-config.tsx#L155),
+[approval semantics](https://opencode.ai/docs/permissions/#approvals).
 
 Shared instructions do not give OpenCode Codex's operating-system sandbox.
 [OpenCode permissions](https://opencode.ai/docs/permissions/) and

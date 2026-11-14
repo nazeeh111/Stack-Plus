@@ -1,0 +1,29 @@
+{
+  "repository": "Panniantong/Agent-Reach",
+  "revision": "c70ae6da5d39bc90e09ad2ae0575ccc89f31e284",
+  "license": "MIT",
+  "adaptation": "English support prose; anonymous native admission boundary unchanged; upstream capabilities remain descriptions, not permission.",
+  "files": [
+    {
+      "target": "references/capabilities.md",
+      "native_before_sha256": "36105d4686493e67eb2f6d7cb47479e06bef6fbfe7159f08d3a6b64314b1cd79",
+      "archival_native_before": "ENGLISH-PORT/native-before/references/capabilities.md.reference.txt",
+      "active_sha256": "9b3b510dd24c7cceeeaee6e02649dc56beb204f235f04c5e8fc8640c5983446f",
+      "upstream_original_status": "Pre-English native support bytes; not asserted to be a byte-exact upstream source snapshot."
+    },
+    {
+      "target": "references/maintenance.md",
+      "native_before_sha256": "316585c8837f3e12fd88cb1769cf9b00eed9c83c2fc70f46a6dcb791012121e1",
+      "archival_native_before": "ENGLISH-PORT/native-before/references/maintenance.md.reference.txt",
+      "active_sha256": "e4859dd17f5659bfe05cf3e206a94fe8c3f900e8a2bdf07140b6abaf4168c079",
+      "upstream_original_status": "Pre-English native support bytes; not asserted to be a byte-exact upstream source snapshot."
+    },
+    {
+      "target": "references/sessions.md",
+      "native_before_sha256": "2b15b340db21838680659b4694a419f6799036e49ddb4b8042e7b893a4dbadd3",
+      "archival_native_before": "ENGLISH-PORT/native-before/references/sessions.md.reference.txt",
+      "active_sha256": "dcb7657e1d42299aad701a4405a8661632f1a7b410435b797818b0276bb24cc4",
+      "upstream_original_status": "Pre-English native support bytes; not asserted to be a byte-exact upstream source snapshot."
+    }
+  ]
+}

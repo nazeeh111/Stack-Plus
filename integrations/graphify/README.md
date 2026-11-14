@@ -34,6 +34,22 @@ The actual admitted extraction is:
 
 It produces `<output>/graphify-out/graph.json`, caches, and per-run receipts/logs. In this mode there is no community analysis, generated report, or HTML renderer. Graph and cache contents are private derived project data. Retain them with the owning task and check relevant edges against current source before relying on them.
 
+## Connect useful findings to Obsidian
+
+Use the graph to answer a concrete code question, verify relevant relationships
+in the current source, and save a short source-linked conclusion in the owning
+Obsidian project note. Keep the derived graph and detailed receipts with the
+project. Core links, Bases and Canvas already provide vault navigation; a symbol
+note for every graph node is unnecessary for a small knowledge vault.
+
+The pinned upstream exporter is outside this commissioned route. Its Markdown
+ownership checks do not protect an existing `graph.canvas` from replacement;
+exports are regenerable artifacts, not a safe merge into a human-authored vault.
+No vault export or extra plugin is enabled here. Prefer exact `path` or `explain`
+queries for focused questions: the default neighborhood query can exceed its
+requested output budget. This is structural assistance, not semantic memory or
+a demonstrated token-saving guarantee.
+
 ## Isolation and fidelity
 
 Each run constructs a fresh empty HOME and environment, sets `GRAPHIFY_BACKEND=none`, disables query logging and Google shortcut access, and omits all provider/proxy/account variables. It invokes no upstream `graphify install` mode. There are no AGENTS edits, hooks, OpenCode plugins, watcher, post-commit rebuild, daemon, HTTP/MCP server, database, Cloud connection, vault export, or browser/CDN execution.

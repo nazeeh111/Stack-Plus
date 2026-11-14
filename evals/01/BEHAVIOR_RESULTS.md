@@ -1,8 +1,10 @@
 # Observed adaptive workflow use
 
-November 14, 2026. Separate native-host workers received synthetic outcomes
-without suggested specialist names. They read complete selected methods before
-implementation. Later requirements changed the weak aspect of each task.
+November 14, 2026. Separate native-host workers received synthetic outcomes.
+The calibration and browser workers received no suggested specialist names;
+the final scientific case included creative-reframing metadata as stated below.
+Workers read complete selected methods before implementation. Later
+requirements changed the weak aspect of each task.
 
 | Workflow | Methods actually applied | Observed result |
 |---|---|---|

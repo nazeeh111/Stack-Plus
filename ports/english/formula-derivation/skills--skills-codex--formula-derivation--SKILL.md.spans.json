@@ -1,0 +1,16 @@
+{
+  "repository": "wanshuiyin/Auto-claude-code-research-in-sleep",
+  "revision": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+  "license": "MIT",
+  "adaptation_notice": "English translation/gloss of these short instruction spans. Underlying method and notices retain the upstream license.",
+  "replacements": [
+    {
+      "old": "description: Structures and derives research formulas when the user wants to 推导公式, build a theory line, organize assumptions, turn scattered equations into a coherent derivation, or rewrite theory notes into a paper-ready formula document. Use when the derivation target is not yet fully fixed, the main object still needs to be chosen, or the user needs a coherent derivation package rather than a finished theorem proof.\n",
+      "new": "description: Structures and derives research formulas when the user wants to derive formulas, build a theory line, organize assumptions, turn scattered equations into a coherent derivation, or rewrite theory notes into a paper-ready formula document. Use when the derivation target is not yet fully fixed, the main object still needs to be chosen, or the user needs a coherent derivation package rather than a finished theorem proof.\n"
+    },
+    {
+      "old": "- “我不知道怎么起这条推导主线”\n- “这个公式到底该从哪个量出发”\n- “帮我把理论搭顺”\n- “把说明文档变成可写进论文的公式文档”\n- “这几段公式之间逻辑不通”\n",
+      "new": "- “I do not know how to start this line of derivation” (Chinese trigger alias: “我不知道怎么起这条推导主线”)\n- “Which quantity should this formula start from?” (Chinese trigger alias: “这个公式到底该从哪个量出发”)\n- “Help me make the theory coherent” (Chinese trigger alias: “帮我把理论搭顺”)\n- “Turn these explanatory notes into a formula document suitable for a paper” (Chinese trigger alias: “把说明文档变成可写进论文的公式文档”)\n- “The logic connecting these groups of formulas does not hold together” (Chinese trigger alias: “这几段公式之间逻辑不通”)\n"
+    }
+  ]
+}

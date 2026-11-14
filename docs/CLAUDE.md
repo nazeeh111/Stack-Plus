@@ -12,13 +12,10 @@ checkout, choose the complete set of addons you want:
 python3 claude_setup.py install --adaptive-routing
 ```
 
-This includes the reviewed base selection plus `01`. The optional switches match
-`native_setup.py`: `--agent-reach`, `--repository-docs`, `--academic-research`,
-`--ecc`, `--unslop`, `--maps-scraper`, `--untangle-codebase`, `--raea`,
-`--llm-council`, `--cloudflare-security-audit`, `--strix`, `--skillspector`,
-`--roast-room`, `--council-of-high-intelligence`, `--craft-anything` and
-`--creative-reframing`. Keep every desired switch on
-later installs; an omitted addon is removed only from this adapter's owned links.
+This example includes the reviewed base selection plus `01`. Optional switches
+match `native_setup.py`; use [ONBOARDING.md](ONBOARDING.md) for the complete
+selection, including Playwright MCP. Keep every desired switch on later installs;
+an omitted addon is removed only from this adapter's owned links.
 `--only NAME` can be repeated for a deliberately limited base selection. With no
 `--only`, the full reviewed base is selected. Use `--home` and `--state` only for
 an explicitly chosen target installation. `--claude-home /absolute/config-dir`

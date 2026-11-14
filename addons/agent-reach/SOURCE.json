@@ -5,5 +5,6 @@
   "license": "MIT",
   "adaptation": "Original announce/session scope and content method retained; template version/channel table instantiated. Known automatic cookie/session import and credential/setup/update routes remain restricted separately for privacy; no automatic setup.",
   "upstream_skill_sha256": "f22bae507f150547f5ddef367ff65d503842c6315033309a1b1cc57c820216c2",
-  "native_skill_sha256": "07ba4ae4a1b3344270bf923bbfabcd1ebcf64743831649f0980e2ac3467d8e26"
+  "native_skill_sha256": "07ba4ae4a1b3344270bf923bbfabcd1ebcf64743831649f0980e2ac3467d8e26",
+  "english_support_adaptation": "Three support references translated into English; pre-English native bytes and hashes retained in ENGLISH-PORT/SOURCE-FIDELITY.json. Underlying upstream method remains MIT, with existing account/credential restrictions controlling."
 }

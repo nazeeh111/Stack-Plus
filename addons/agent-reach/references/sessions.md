@@ -1,41 +1,43 @@
-# 会话与专用浏览器
+# Sessions and the dedicated browser
 
-用户要登录、退出、换账号，或结果返回 `NEED_LOGIN` 时读这份。
+Upstream routes to this reference for login, logout, account changes or `NEED_LOGIN` results.
 
-## 专用浏览器
+The installed SKILL.md's anonymous-access and credential restrictions control this reference. Its session import, login, cookie access, browser backend and configuration routes remain unadmitted here. The following preserves the upstream capability description; it does not authorize those operations.
 
-- 所有浏览器渠道共用一个专用浏览器配置，和用户日常的 Chrome 分开；程序不关闭、不修改用户的日常浏览器。
-- 内核优先 CloakBrowser；下载或安装失败时用本机已装的 Chrome，并记住这个回退，不每次重下。网络修好后可 `agent-reach browser setup --retry-cloak` 重试。
-- `agent-reach add <渠道>` 自动准备 Node、OpenCLI、内核和扩展。工具按本版测试过的版本安装。Windows 上用 Chrome 回退时，可能需要用户点一次"添加至 Chrome"。
-- 默认无头，不弹窗。只有 `agent-reach login <渠道>` 会显示窗口；窗口开着时查询直接用这个窗口，不会收掉它，用户登录期间等用户说登好了再查。窗口关闭后，之后的查询回到无头。
-- 闲置 10 分钟自动关闭，下次调用自动重开；真实页面操作和 Reach 调用会重置计时。登录期间定期保存，用户不用关窗。
-- 可以并行：同一平台最多同时 2 条，所有平台合计 4 条，多出来的排队，最多等 2 分钟，等不到才返回 `BUSY`。同一平台的两次搜索之间至少隔 10 秒。打开登录窗口、退出登录、重装浏览器会等正在跑的查询结束再做。
-- `agent-reach browser status` 查看状态，`browser setup` 准备内核和扩展，`browser stop` 关闭程序管理的浏览器。
+## Dedicated browser
 
-## 自动复用已有登录
+- All browser channels share one dedicated profile, separate from the user's everyday Chrome. The program does not close or modify the everyday browser.
+- CloakBrowser is preferred. A download/install failure falls back to an installed local Chrome and remembers the fallback instead of downloading on every call. Upstream offers `agent-reach browser setup --retry-cloak` once the network is repaired.
+- `agent-reach add <channel>` automatically prepares Node, OpenCLI, the engine and extension using versions tested for this release. With the Chrome fallback on Windows, the user may need to click “Add to Chrome” once.
+- Headless by default. Only `agent-reach login <channel>` shows a window. Queries use an already open login window without closing it; wait for the user to say login is finished. After the window closes, later queries return to headless mode.
+- The browser closes after 10 idle minutes and reopens on the next call. Actual page operations and Reach calls reset the timer. Login progress is saved periodically; the user need not close the window.
+- Parallel calls: at most 2 per platform and 4 overall; excess calls queue for at most 2 minutes, then return `BUSY`. Searches on one platform start at least 10 seconds apart. Opening login, logging out and browser reinstallation wait for active queries to finish.
+- `agent-reach browser status` reads status; `browser setup` prepares the engine/extension; `browser stop` closes the program-managed browser.
 
-1. 第一次用某个网站时，如果用户的 Chrome 已连接 OpenCLI 扩展，程序把该站的登录（只限该站 Cookie）复制一次到专用浏览器。不复制整个浏览器目录、其他网站或密码库，也不改动来源浏览器。
-2. 复制成功后一直复用保存的会话，不按时间重新复制。Cookie 在不代表登录有效，以真实动作结果为准。
-3. 用户 Chrome 没连扩展时，不能承诺自动复用，也不能据此认定用户没登录；此时用 Reach 已保存的会话。
-4. 本机有多个浏览器都登录了该站时：`agent-reach browser profiles` 列出来源，`agent-reach browser use <ID>` 选定一个，不随机切换。
-5. `agent-reach login <渠道> --import-existing` 主动重新复制一次该站登录，不打开窗口。没找到可复制的登录，或 OpenCLI Bridge 没在运行时，返回 `NEED_SETUP`，已保存的会话不变。
-6. 用户本人在专用窗口里登录过，或执行过 `logout` / `remove`，就不再自动复制，避免已退出的登录复活。
+## Automatic reuse of an existing login
 
-## 需要本人登录时
+1. On first use of a site, if the user's Chrome is connected to the OpenCLI extension, upstream copies that site's login cookies once to the dedicated browser. It does not copy the whole profile, other sites or a password store, or modify the source browser.
+2. A successful copy is reused without timed recopying. Cookie presence is not proof of a valid login; inspect actual action results.
+3. If Chrome is not connected to the extension, do not promise automatic reuse or infer that the user is logged out. Upstream then uses the saved Reach session.
+4. If several local browsers have the site logged in, upstream lists sources with `agent-reach browser profiles` and selects one with `agent-reach browser use <ID>`; it does not switch randomly.
+5. `agent-reach login <channel> --import-existing` explicitly recopies only that site's login without opening a window. If no login can be copied or OpenCLI Bridge is not running, it returns `NEED_SETUP` and preserves the saved session.
+6. After the user logs in personally in the dedicated window, or runs `logout`/`remove`, automatic copying stops so a logged-out session cannot reappear.
 
-- 只有实际返回 `NEED_LOGIN`、且剩下的任务确实需要这条路径时，才请用户登录。正文旁边有个登录按钮不算要求登录。
-- `agent-reach login <渠道>` 打开专用浏览器到该站登录页，用户本人完成登录。你不代登、不要密码、不输出 Cookie。
-- 返回结果里的 `next` 写了后续步骤就照做；部分原生工具渠道（如雪球）登录后要再跑 `agent-reach login <渠道> --sync`。
-- 用户完成后，重新执行原来的动作验证。
+## When personal login is actually required
 
-## 平台差异
+- Request login only after an actual `NEED_LOGIN` response and only when the remaining task needs that route. A login button beside public body text is not a login requirement.
+- Upstream `agent-reach login <channel>` opens the site's login page in the dedicated browser for the user to complete personally. Never log in for them, request a password or print cookies.
+- Follow a result's `next` steps where admitted. Some native-tool channels, such as Xueqiu, require `agent-reach login <channel> --sync` after login.
+- After the user finishes, repeat the original action to verify its actual effect.
 
-- Boss 直聘站内搜索走 OpenCLI，共用专用浏览器。职位详情若因上游误报要求登录，不要让用户反复登录。
-- B 站只在读字幕时把已有登录交给 B 站官方命令行工具；普通搜索不准备浏览器。
-- 雪球社区动作需要登录；会话几小时内过期，过期后重复登录步骤。
+## Platform differences
 
-## 退出和删除
+- BOSS Zhipin's site search uses OpenCLI and the shared dedicated browser. Do not repeatedly ask for login when an upstream job-detail error misreports it as required.
+- Bilibili passes an existing login to its official CLI only when reading subtitles; ordinary search does not prepare a browser.
+- Xueqiu community actions need login. Sessions expire after several hours; upstream repeats the login flow after expiry.
 
-- `agent-reach logout <渠道>`：清除专用浏览器里该站的登录和渠道自己的状态，其他网站保留。
-- `agent-reach remove <渠道>`：去掉渠道，同时清该站登录和存储，其他网站保留。清理失败时渠道记录保留并返回错误，用户可重试。
-- 两者之后都不再自动复制该站登录。
+## Logout and removal
+
+- `agent-reach logout <channel>` clears that site's dedicated-browser login and the channel's own state, preserving other sites.
+- `agent-reach remove <channel>` removes the channel and clears that site's login/storage, preserving other sites. If cleanup fails, the channel record remains and an error is returned for a retry.
+- Neither operation subsequently recopies an existing login automatically.

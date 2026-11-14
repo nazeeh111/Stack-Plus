@@ -7,6 +7,7 @@ ROOT = P(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "lib"))
 import nstack
 import install as profile_install
+import skill_names
 from transaction import Transaction, atomic_json, copy, fingerprint, same
 from native_copy import copy_generated_tree
 
@@ -38,13 +39,14 @@ def selection():
         if not name.startswith(prefix):
             raise ValueError("Unexpected source skill name")
         name = name[len(prefix):]
-        rows.append((name, s))
+        rows.append((skill_names.canonical(name), s))
     names = [name for name, _ in rows]
     if len(names) != len(set(names)):
         raise ValueError("Natural skill names collide")
     return rows
 
 def addon_definition(name):
+    name = skill_names.source_name(name)
     import academic_addon, ecc_addon
     if name == "unslop":
         import unslop_addon
@@ -84,7 +86,7 @@ def index_rows(originals, addons, release):
     rows = []
     for name, s, _, r in originals:
         rows.append({
-            "name": name, "candidate_id": s["candidate_id"],
+            "name": name, **skill_names.metadata(name), "candidate_id": s["candidate_id"],
             "repository": s["source_repository"], "revision": s["revision"],
             "source_path": s["source_path"], "license": s["rights"],
             "skill_path": str(release / "bundles" / name / r.get("entry_dir", ".") / "SKILL.md"),
@@ -94,7 +96,7 @@ def index_rows(originals, addons, release):
     for name in sorted(addons):
         spec = addons[name]
         rows.append({"name": name, "skill_path": str(release / "bundles" / name / spec["entry"] / "SKILL.md"),
-                     "deployment": "on demand", **spec["provenance"]})
+                     "deployment": "on demand", **spec["provenance"], **skill_names.metadata(name)})
     return rows
 
 def expected_tree(originals, addons, release, index):
@@ -111,9 +113,7 @@ def expected_tree(originals, addons, release, index):
         original_entry = (source / entry).read_bytes()
         if sha(original_entry) != receipt["files"][str(entry)]:
             raise ValueError("Original selected entry changed during preparation")
-        adapted, count = re.subn(r"(?m)^name:.*$", "name: " + name, original_entry.decode(), count=1)
-        if count != 1:
-            raise ValueError("Selected entry lacks a unique name")
+        adapted = skill_names.entry_name(original_entry, name)
         for file in source.rglob("*"):
             rel = file.relative_to(source)
             if file.is_dir():
@@ -122,7 +122,7 @@ def expected_tree(originals, addons, release, index):
                 raw = (json.dumps(receipt, sort_keys=True, indent=2, ensure_ascii=False) + "\n").encode()
                 expected[str(prefix / "UPSTREAM-RELEASE.json")] = {"sha256": sha(raw), "mode": 0o444}
             elif file.is_file():
-                digest = sha(adapted.encode()) if rel == entry else receipt["files"][str(rel)]
+                digest = sha(adapted) if rel == entry else receipt["files"][str(rel)]
                 expected[str(prefix / rel)] = {"sha256": digest, "mode": 0o555 if file.stat().st_mode & 0o111 else 0o444}
         expected[str(P("skills") / name)] = {"link": str(release / prefix / receipt.get("entry_dir", "."))}
     for name in addons:
@@ -142,7 +142,19 @@ def expected_tree(originals, addons, release, index):
     return expected
 
 def prepare(state, chosen, addons):
-    addons = {name: addon_definition(name) for name in addons}
+    chosen = [(skill_names.canonical(name), spec) for name, spec in chosen]
+    addon_names = [skill_names.canonical(name) for name in addons]
+    all_names = [name for name, _ in chosen] + addon_names
+    if len(all_names) != len(set(all_names)):
+        raise ValueError("Canonical skill names collide")
+    addons = {name: addon_definition(skill_names.source_name(name)) for name in addon_names}
+    for name, spec in addons.items():
+        if name != skill_names.source_name(name):
+            # Rename only the exposed entry. Preserve all source paths, support,
+            # attribution, receipts and authored adapter originals.
+            entry = str(spec["entry"] / "SKILL.md")
+            raw = addon_files(spec)[entry][0]
+            spec["overrides"] = {**spec["overrides"], entry: skill_names.entry_name(raw, name)}
     originals = []
     for name, s in chosen:
         release = nstack.build(s["candidate_id"], s["source_path"])
@@ -152,6 +164,7 @@ def prepare(state, chosen, addons):
         "leaves": [(name, r["content_sha256"], r["builder_sha256"]) for name, _, _, r in originals],
         "addons": {name: {rel: {"sha256": sha(data), "mode": mode} for rel, (data, mode) in addon_files(spec).items()} for name, spec in addons.items()},
         "adaptation": "full-bundle-natural-entry-v2",
+        "naming_policy": skill_names.policy(),
     }
     digest = sha(json.dumps(inputs, sort_keys=True).encode())
     release = state / "native-releases" / digest
@@ -178,10 +191,7 @@ def prepare(state, chosen, addons):
             entry = dest / r.get("entry_dir", ".")
             skill = entry / "SKILL.md"
             skill.chmod(0o600)
-            text, count = re.subn(r"(?m)^name:.*$", "name: " + name, skill.read_text(), count=1)
-            if count != 1:
-                raise ValueError("Selected entry lacks a unique name")
-            skill.write_text(text)
+            skill.write_bytes(skill_names.entry_name(skill.read_bytes(), name))
             skill.chmod(0o444)
             # Keep the original recipe receipt as provenance, not a seal on renamed bytes.
             (dest / ".nstack-release.json").rename(dest / "UPSTREAM-RELEASE.json")
@@ -333,7 +343,7 @@ def apply(args):
             raise ValueError("Native state belongs to another Codex instructions path; reconcile before changing it")
     chosen = selection()
     if args.only:
-        names = set(args.only)
+        names = {skill_names.canonical(name) for name in args.only}
         if names - {name for name, _ in chosen}:
             raise ValueError("Unknown or non-installable selected skill name")
         chosen = [(name, s) for name, s in chosen if name in names]
@@ -350,6 +360,8 @@ def apply(args):
         addons.append("google-maps-scraper")
     if getattr(args, "playwright_mcp", False):
         addons.append("playwright-mcp")
+    if getattr(args, "agent_orchestration", False):
+        addons.append("agent-orchestration")
     if getattr(args, "untangle_codebase", False):
         addons.append("untangle-codebase")
     if getattr(args, "adaptive_routing", False):
@@ -494,7 +506,7 @@ def main():
     a.add_argument("--state", default=str(nstack.STATE))
     a.add_argument("--home", default=str(P.home()))
     a.add_argument("--codex-home", help="Codex instructions directory; defaults to CODEX_HOME for the current user, otherwise HOME/.codex")
-    a.add_argument("--only", action="append", help="Exact natural name, for a deliberately limited install")
+    a.add_argument("--only", action="append", help="Exact canonical or legacy base-skill name, for a deliberately limited install")
     a.add_argument("--replace", action="store_true")
     a.add_argument("--agent-reach", action="store_true", help="Explicitly add the separately reviewed Agent Reach skill")
     a.add_argument("--repository-docs", action="store_true")
@@ -503,6 +515,7 @@ def main():
     a.add_argument("--unslop", action="store_true", help="Add pinned Unslop for existing-screen polish using native Codex tools")
     a.add_argument("--maps-scraper", action="store_true", help="Add public-place extraction guidance; install the pinned runtime on demand")
     a.add_argument("--playwright-mcp", action="store_true", help="Add task-scoped Microsoft Playwright MCP guidance; reuse the existing runtime without activating a connection")
+    a.add_argument("--agent-orchestration", action="store_true", help="Add model-agnostic lead/worker guidance; no model, provider, runtime or configuration activation")
     a.add_argument("--untangle-codebase", action="store_true", help="Add the pinned, explicitly invoked codebase refactoring skill")
     a.add_argument("--adaptive-routing", action="store_true", help="Add explicit 01 for adaptive skill/tool selection throughout a session")
     a.add_argument("--craft-anything", action="store_true", help="Add reviewed local binary/app analysis guidance; notarized runtime installed separately, rebuild and MCP remain explicit")

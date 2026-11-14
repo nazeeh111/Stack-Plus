@@ -1,0 +1,12 @@
+{
+  "repository": "tt-a1i/archify",
+  "revision": "a4065941f12be7967436261d9934784e381d423c",
+  "license": "Apache-2.0 for current package, except where specified. Preserve LICENSE, NOTICE, historical LICENSE-MIT (pre-transition grants), THIRD_PARTY_NOTICES.md and bundled component terms. Historical MIT is not blanket alternative licensing for the current distribution. Simple Icons collection CC0 does not clear underlying logo/trademark rights; use neutral labels if needed.",
+  "adaptation_notice": "English translation/gloss of these short instruction spans. Underlying method and notices retain the upstream license.",
+  "replacements": [
+    {
+      "old": "  自动补出的主干桥接还会检查无关关系及已接受的其他桥接；出现交叉、接触或\n  重叠时保留分离的主干段，避免把独立关系画成同一条总线。检查按双方描边的\n  半宽之和留出间隔，并计入无关关系的显式 `width`；中心线未相交但描边接触\n  也会阻止桥接。这个回退不移动\n  实体、显式途经点或端口，也不改变关系基数；无障碍的同簇分支仍可共享主干。\n",
+      "new": "  Automatically added trunk bridges are also checked against unrelated\n  relationships and other accepted bridges. Where they cross, touch, or overlap,\n  the trunk segments remain separate so independent relationships are not drawn\n  as one bus. The check leaves clearance equal to the sum of the two strokes'\n  half-widths and accounts for an unrelated relationship's explicit `width`;\n  touching strokes prevent bridging even when their centerlines do not intersect.\n  This fallback does not move entities, explicit waypoints, or ports, and does\n  not change relationship cardinalities. Unobstructed branches in the same\n  cluster may still share a trunk.\n"
+    }
+  ]
+}

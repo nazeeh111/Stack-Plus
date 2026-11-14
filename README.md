@@ -2,8 +2,9 @@
 
 A native-first Codex setup with optional Claude Code and OpenCode adapters, and
 170 reviewed base specialist skills available across
-ordinary projects. Skills use their actual names, retain their required support
-files, and load their full instructions when needed. Routine work stays native.
+ordinary projects. Skills use clear functional names, retain their source identities and required
+support files, and load full instructions when needed. See the
+[name changes](docs/SKILL_NAMES.md). Routine work stays native.
 Agent Reach, public repository documentation and five academic research skills
 are explicit optional additions. Two reviewed ECC additions provide scoped codebase onboarding and agent evaluation with offline evidence utilities.
 Unslop is an optional existing-screen polish skill using the same native tools.
@@ -58,7 +59,7 @@ running successive replacements: `--academic-research`, `--ecc`, `--unslop`,
 `--maps-scraper`, `--untangle-codebase`, `--raea`, `--adaptive-routing`,
 `--llm-council`, `--roast-room`, `--council-of-high-intelligence`,
 `--cloudflare-security-audit`, `--strix`, `--skillspector`, `--craft-anything`,
-`--creative-reframing` and `--playwright-mcp`.
+`--creative-reframing`, `--playwright-mcp` and `--agent-orchestration`.
 Academic sources are fetched privately under their noncommercial license.
 [Source fidelity](docs/SOURCE_FIDELITY.md) explains upstream methods, native ports and private source packs.
 When replacing a collection, include all additions you intend to retain.

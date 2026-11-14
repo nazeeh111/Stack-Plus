@@ -179,7 +179,11 @@ def materialize(source,out,s,c):
    # discovery name and a separate host binding differ from that original.
    if s['candidate_id']=='P202':
     shutil.copytree(method.parent,leaf,dirs_exist_ok=True)
-    active='---\nname: '+s['candidate_id'].lower()+'-'+name+'\ndescription: '+json.dumps('Run the upstream Impeccable '+rel.stem+' command on a requested interface.')+'\n---\n'+original
+    descriptions={
+     'audit':'Audit interface implementation for accessibility, performance, theming, responsive layout and consistency. Report prioritized technical findings; use the native-platform reference where applicable.',
+     'harden':'Improve interface reliability under failed requests, racing updates, loading or empty states, long text, localization and interrupted interactions. Verify recovery and preserve user input.',
+    }
+    active='---\nname: '+s['candidate_id'].lower()+'-'+name+'\ndescription: '+json.dumps(descriptions[rel.stem])+'\n---\n'+original
    else:
     shutil.copytree(method.parent,leaf,dirs_exist_ok=True)
     active=re.sub(r'(?m)^name:.*$', 'name: '+s['candidate_id'].lower()+'-'+name,original,count=1)

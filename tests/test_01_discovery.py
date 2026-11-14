@@ -17,6 +17,26 @@ spec.loader.exec_module(module)
 
 
 class DiscoveryTests(unittest.TestCase):
+    def test_legacy_names_search_canonical_record_without_extra_skill_or_invocation_alias(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            state = Path(tmp).resolve()
+            for host in ('native', 'claude'):
+                entry = state / (host + '-releases/fixture/bundles/web-ui-design/SKILL.md')
+                entry.parent.mkdir(parents=True)
+                entry.write_text('---\nname: web-ui-design\ndescription: Compose an interface\n---\n')
+                index = state / (host + '-skill-index.json')
+                index.write_text(json.dumps([{'name': 'web-ui-design', 'source_name': 'frontend-design',
+                                             'aliases': ['frontend-design'], 'skill_path': str(entry)}]))
+                found = module.search(state, ['frontend-design'], host=host)
+                self.assertEqual(found['total_matches'], 1)
+                self.assertEqual(found['matches'][0]['name'], 'web-ui-design')
+                self.assertEqual(found['matches'][0]['aliases'], ['frontend-design'])
+                self.assertEqual(module.search(state, ['web-ui-design'], host=host)['matches'], found['matches'])
+                # Alias fields are optional inert metadata, never an invocation API.
+                index.write_text(json.dumps([{'name': 'web-ui-design', 'aliases': {'command': 'must-not-emit'},
+                                             'skill_path': str(entry)}]))
+                self.assertNotIn('must-not-emit', json.dumps(module.search(state, ['web-ui-design'], host=host)))
+
     def test_later_addon_description_runtime_and_no_irrelevant_or_private_reads(self):
         with tempfile.TemporaryDirectory() as tmp:
             state = Path(tmp)

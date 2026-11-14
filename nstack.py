@@ -105,8 +105,12 @@ def shelf_name(id,path,repo):
  return id.lower()+'-'+re.sub(r'[^a-z0-9-]+','-',raw.lower()).strip('-')
 
 def builder_identity():
- paths=[ROOT/'nstack.py',ROOT/'lib/skill_build.py',ROOT/'lib/publish_scope.py',ROOT/'lib/claim_evidence.py',ROOT/'lib/closure.py',ROOT/'lib/voltage_check.py',ROOT/'lib/gh_comments.py',ROOT/'lib/unreal_two_shot_probe.py',ROOT/'lib/gp_delivery_guard.py',ROOT/'lib/unreal_animation_probe.py']+sorted((ROOT/'lib').glob('patch_*.py'))
- return sha(json.dumps({p.name:sha(p.read_bytes()) for p in paths},sort_keys=True).encode())
+ paths=[ROOT/'nstack.py',ROOT/'lib/skill_build.py',ROOT/'lib/academic_addon.py',ROOT/'lib/publish_scope.py',ROOT/'lib/claim_evidence.py',ROOT/'lib/closure.py',ROOT/'lib/voltage_check.py',ROOT/'lib/gh_comments.py',ROOT/'lib/unreal_two_shot_probe.py',ROOT/'lib/gp_delivery_guard.py',ROOT/'lib/unreal_animation_probe.py']+sorted((ROOT/'lib').glob('patch_*.py'))
+ # Readable English assets are build inputs, including text-only corrections.
+ paths+=sorted(p for p in (ROOT/'ports/english').rglob('*') if p.is_file())
+ paths+=[ROOT/'addons/agent-reach/SOURCE.json']+sorted((ROOT/'addons/agent-reach/references').glob('*.md'))
+ paths+=sorted(p for p in (ROOT/'addons/agent-reach/ENGLISH-PORT').rglob('*') if p.is_file())
+ return sha(json.dumps({str(p.relative_to(ROOT)):sha(p.read_bytes()) for p in paths},sort_keys=True).encode())
 
 def build(id,path):
  c=component(id);s=leaf(id,path)
@@ -124,6 +128,8 @@ def build(id,path):
     for ref in manifest()['skills']:
      if ref['candidate_id']==id and ref['delivery']=='selective-merge reference':support[ref['source_repository']]=acquire(ref['source_repository'],ref['revision'])
    entry_dir=materialize(source,out,s,c,manifest(),support) or '.'
+   from patch_english import apply as english_port
+   english_port(source,out,s)
    for f in out.rglob('*'):
     if f.is_symlink():raise ValueError('Linked closure is not allowed')
    files=tree(out);digest=sha(json.dumps(files,sort_keys=True).encode());name=shelf_name(id,path,s['source_repository'])

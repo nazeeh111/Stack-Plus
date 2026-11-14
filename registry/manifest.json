@@ -2212,8 +2212,8 @@
       "id": "P200",
       "repository": "Leonxlnx/taste-skill",
       "revision": "12af471f627f866411b4bd785b19646d3672784c",
-      "role": "Reference-led landing-page art direction",
-      "activation": "A public-facing persuasive or editorial brief explicitly calls for strong art direction or a visual redesign.",
+      "role": "Reference-led page and app-screen art direction",
+      "activation": "A public page or app screen explicitly needs strong reference-led visual identity or a redesign.",
       "non_use": "Do not activate for unrelated tasks; preserve the project incumbent when it already meets the requirement.",
       "implementation_mode": "upstream skill with narrow patch",
       "dependencies": "Install in task-specific locked environment; no global server unless task requires it.",
@@ -2222,7 +2222,7 @@
         "note": "Pinned root MIT license inspected. Fonts, photos and reference artwork still need individual asset terms and credits."
       },
       "adaptations": [
-        "Keep the whole skills/taste-skill directory, library, scripts and references together. Narrow the trigger; skip unrelated application/dashboard default.",
+        "Keep the whole skills/taste-skill directory, library, scripts and references together. Use the matching page or app-screen workflow; skip ordinary UI fixes and unsolicited brand changes.",
         "Use --keep palette,type when specified; pin a seed if re-comparing. House image quotas and aesthetic FAIL rules yield to supplied brand, functional UI, asset rights and truthful content. Keep the designed project and screenshot evidence in the task."
       ],
       "acceptance_checks": [

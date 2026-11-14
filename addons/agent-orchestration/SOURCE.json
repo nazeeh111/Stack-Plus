@@ -1,0 +1,16 @@
+{
+  "repository": "nazeeh111/nstack",
+  "revision": null,
+  "source_path": "addons/agent-orchestration",
+  "license": "MIT",
+  "installation_adaptation": "Authored, normally discoverable model-agnostic lead/worker method with pinned host/application references. Installs no runtime, model, provider, configuration, service or credentials; ordinary delegation remains native.",
+  "reviewed_at": "2026-11-14",
+  "upstream_references": [
+    {"repository": "anomalyco/opencode", "revision": "a6b15d33daf6ab7d35569f6d711fdb630b9f04e7", "ref": "v2.3.0", "license": "MIT"},
+    {"repository": "openai/openai-agents-python", "revision": "64fbde5d02b42ae5f9db668eb0184cdb3fc9d775", "license": "MIT"},
+    {"repository": "langchain-ai/langgraph", "revision": "08a2016953789a4f579b4d36bd1967941ec62012", "license": "MIT"},
+    {"repository": "langchain-ai/langgraph-supervisor-py", "revision": "88859b34017ac3569bbd4a3092c7e77593a0a960", "license": "MIT"},
+    {"repository": "pydantic/pydantic-ai", "revision": "7689e1b2d1541c8d77f50039bf8273fb092e905d", "license": "MIT"}
+  ],
+  "reference_use": "Primary documentation and pinned source mechanisms informed this authored method; no upstream implementation or skill bundle is copied. References do not prove configured endpoints, provider access, billing entitlement or mixed-model execution."
+}

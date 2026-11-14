@@ -1,0 +1,17 @@
+{
+  "repository": "Imbad0202/academic-research-skills",
+  "revision": "6d9388674de1ad0437ad95db3d52f92b92204d84",
+  "license": "CC-BY-NC-4.0",
+  "copyright_notice": "Copyright (c) 2026 Cheng-I Wu",
+  "adaptation_notice": "English translation of the listed short Chinese instruction spans only; all other fetched source content remains unchanged.",
+  "replacements": [
+    {
+      "old": "使用者需要互動式引導，不是直接產出",
+      "new": "The user needs interactive guidance rather than direct generation"
+    },
+    {
+      "old": "新手需要蘇格拉底式逐章引導",
+      "new": "A beginner needs Socratic guidance chapter by chapter"
+    }
+  ]
+}

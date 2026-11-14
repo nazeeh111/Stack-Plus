@@ -1,0 +1,300 @@
+{
+  "format": 1,
+  "scope": "Explicit reviewed English operative-core adaptations only; unchanged reference libraries and source pins retained. Academic full source remains privately fetched under its existing CC-BY-NC route.",
+  "files": [
+    {
+      "skill": "formula-derivation",
+      "repository": "wanshuiyin/Auto-claude-code-research-in-sleep",
+      "revision": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+      "entry_source": "skills/skills-codex/formula-derivation/SKILL.md",
+      "source_path": "skills/skills-codex/formula-derivation/SKILL.md",
+      "source_sha256": "1958b1fe25459c36ab937ea41650c743d829d83539d23c6bd19382e436cb5d8e",
+      "target": "skills/skills-codex/formula-derivation/SKILL.md",
+      "input_sha256": [
+        "1958b1fe25459c36ab937ea41650c743d829d83539d23c6bd19382e436cb5d8e"
+      ],
+      "license": "MIT",
+      "candidate_id": "P119",
+      "kind": "spans",
+      "english": "formula-derivation/skills--skills-codex--formula-derivation--SKILL.md.spans.json"
+    },
+    {
+      "skill": "video-shotcraft",
+      "repository": "Vincentwei1021/video-shotcraft",
+      "revision": "1266a3ec4831289c4d893d42dd5102723658039a",
+      "entry_source": "SKILL.md",
+      "source_path": "SKILL.md",
+      "source_sha256": "9e6b2d68f50cae3d5405178d35d2bd305ee2045691fa726b63bae3ab8bb62e6b",
+      "target": "source/SKILL.md",
+      "input_sha256": [
+        "57bda4016727f498482f53d4f4d5bb26ac3a5cfbe78139027d5ca1be0e875ac9"
+      ],
+      "license": "Apache-2.0 code; screenshot, audio, fonts and third-party assets separately evidenced.",
+      "candidate_id": "P224",
+      "english": "video-shotcraft/source/SKILL.md",
+      "additional": [
+        {
+          "target": "source/references/production-method.md",
+          "english": "video-shotcraft/source/references/production-method.md"
+        }
+      ]
+    },
+    {
+      "skill": "video-shotcraft",
+      "repository": "Vincentwei1021/video-shotcraft",
+      "revision": "1266a3ec4831289c4d893d42dd5102723658039a",
+      "entry_source": "SKILL.md",
+      "source_path": "references/pipeline.md",
+      "source_sha256": "2e09dd100f77c40d7f27edbf29a7e46a2fc72ba1eaabe17a3ee2cb43c6036bb6",
+      "target": "source/references/pipeline.md",
+      "input_sha256": [
+        "2e09dd100f77c40d7f27edbf29a7e46a2fc72ba1eaabe17a3ee2cb43c6036bb6"
+      ],
+      "license": "Apache-2.0 code; screenshot, audio, fonts and third-party assets separately evidenced.",
+      "candidate_id": "P224",
+      "english": "video-shotcraft/source/references/pipeline.md"
+    },
+    {
+      "skill": "video-shotcraft",
+      "repository": "Vincentwei1021/video-shotcraft",
+      "revision": "1266a3ec4831289c4d893d42dd5102723658039a",
+      "entry_source": "SKILL.md",
+      "source_path": "references/music-beat-sync.md",
+      "source_sha256": "dcf10f532fe729e053c3f4cbfb1dfd6fdb676bca7bd04d68b8e0806cdb5fa138",
+      "target": "source/references/music-beat-sync.md",
+      "input_sha256": [
+        "dcf10f532fe729e053c3f4cbfb1dfd6fdb676bca7bd04d68b8e0806cdb5fa138"
+      ],
+      "license": "Apache-2.0 code; screenshot, audio, fonts and third-party assets separately evidenced.",
+      "candidate_id": "P224",
+      "english": "video-shotcraft/source/references/music-beat-sync.md"
+    },
+    {
+      "skill": "video-shotcraft",
+      "repository": "Vincentwei1021/video-shotcraft",
+      "revision": "1266a3ec4831289c4d893d42dd5102723658039a",
+      "entry_source": "SKILL.md",
+      "source_path": "references/sound-design.md",
+      "source_sha256": "acb82721845ea6c59b2d5c48dc5da36e798e44693370e3c2ee59eda0304e3667",
+      "target": "source/references/sound-design.md",
+      "input_sha256": [
+        "acb82721845ea6c59b2d5c48dc5da36e798e44693370e3c2ee59eda0304e3667"
+      ],
+      "license": "Apache-2.0 code; screenshot, audio, fonts and third-party assets separately evidenced.",
+      "candidate_id": "P224",
+      "english": "video-shotcraft/source/references/sound-design.md"
+    },
+    {
+      "skill": "video-shotcraft",
+      "repository": "Vincentwei1021/video-shotcraft",
+      "revision": "1266a3ec4831289c4d893d42dd5102723658039a",
+      "entry_source": "SKILL.md",
+      "source_path": "references/final-review.md",
+      "source_sha256": "708729d45e4d9fb9499d87a4bd39bf7e42de82dd37acf7b1b4e07f9c7ff88a56",
+      "target": "source/references/final-review.md",
+      "input_sha256": [
+        "708729d45e4d9fb9499d87a4bd39bf7e42de82dd37acf7b1b4e07f9c7ff88a56"
+      ],
+      "license": "Apache-2.0 code; screenshot, audio, fonts and third-party assets separately evidenced.",
+      "candidate_id": "P224",
+      "english": "video-shotcraft/source/references/final-review.md"
+    },
+    {
+      "skill": "video-shotcraft",
+      "repository": "Vincentwei1021/video-shotcraft",
+      "revision": "1266a3ec4831289c4d893d42dd5102723658039a",
+      "entry_source": "SKILL.md",
+      "source_path": "references/aesthetic-rules.md",
+      "source_sha256": "615ee6685aeaee22e81370a4ce2200d142b3ab30fbb3dada87b3002d4f5d7345",
+      "target": "source/references/aesthetic-rules.md",
+      "input_sha256": [
+        "615ee6685aeaee22e81370a4ce2200d142b3ab30fbb3dada87b3002d4f5d7345"
+      ],
+      "license": "Apache-2.0 code; screenshot, audio, fonts and third-party assets separately evidenced.",
+      "candidate_id": "P224",
+      "english": "video-shotcraft/source/references/aesthetic-rules.md"
+    },
+    {
+      "skill": "video-shotcraft",
+      "repository": "Vincentwei1021/video-shotcraft",
+      "revision": "1266a3ec4831289c4d893d42dd5102723658039a",
+      "entry_source": "SKILL.md",
+      "source_path": "references/sfx-sourcing.md",
+      "source_sha256": "75b149084ac52ab9b8dc813e13ace575138ee60c40124342c610a541868146a5",
+      "target": "source/references/sfx-sourcing.md",
+      "input_sha256": [
+        "75b149084ac52ab9b8dc813e13ace575138ee60c40124342c610a541868146a5"
+      ],
+      "license": "Apache-2.0 code; screenshot, audio, fonts and third-party assets separately evidenced.",
+      "candidate_id": "P224",
+      "english": "video-shotcraft/source/references/sfx-sourcing.md"
+    },
+    {
+      "skill": "video-shotcraft",
+      "repository": "Vincentwei1021/video-shotcraft",
+      "revision": "1266a3ec4831289c4d893d42dd5102723658039a",
+      "entry_source": "SKILL.md",
+      "source_path": "references/sequences/promo-energy-arc.md",
+      "source_sha256": "0bad18a5661a24ec6dc5913665a3c92a682a3fa05f0e43448643b193e3c29a8b",
+      "target": "source/references/sequences/promo-energy-arc.md",
+      "input_sha256": [
+        "0bad18a5661a24ec6dc5913665a3c92a682a3fa05f0e43448643b193e3c29a8b"
+      ],
+      "license": "Apache-2.0 code; screenshot, audio, fonts and third-party assets separately evidenced.",
+      "candidate_id": "P224",
+      "english": "video-shotcraft/source/references/sequences/promo-energy-arc.md"
+    },
+    {
+      "skill": "infographic-creator",
+      "repository": "antvis/Infographic",
+      "revision": "5ae0d9394ac6280cb688eb4b4345881e291b9209",
+      "entry_source": "skills/infographic-creator/SKILL.md",
+      "source_path": "skills/infographic-creator/SKILL.md",
+      "source_sha256": "00d0f5da0d7f17e8d23e9e06ce67f31d187b0c190f118aed50fa7cc736dcbc8b",
+      "target": "SKILL.md",
+      "input_sha256": [
+        "8111b88eb02e2707909b6989d313cc63128e6a4bbcbfd39eb15b9ea08aa07711"
+      ],
+      "license": "MIT",
+      "candidate_id": "P403",
+      "english": "infographic-creator/SKILL.md"
+    },
+    {
+      "skill": "archify",
+      "repository": "tt-a1i/archify",
+      "revision": "a4065941f12be7967436261d9934784e381d423c",
+      "entry_source": "archify/SKILL.md",
+      "source_path": "archify/references/explainer-authoring.md",
+      "source_sha256": "722c126f05192da499f75468e9c1b3001daa4a844894ebf45a854b6687a4af18",
+      "target": "references/explainer-authoring.md",
+      "input_sha256": [
+        "722c126f05192da499f75468e9c1b3001daa4a844894ebf45a854b6687a4af18"
+      ],
+      "license": "Apache-2.0 for current package, except where specified. Preserve LICENSE, NOTICE, historical LICENSE-MIT (pre-transition grants), THIRD_PARTY_NOTICES.md and bundled component terms. Historical MIT is not blanket alternative licensing for the current distribution. Simple Icons collection CC0 does not clear underlying logo/trademark rights; use neutral labels if needed.",
+      "candidate_id": "X-CREATIVE-ARCHIFY",
+      "kind": "spans",
+      "english": "archify/references--explainer-authoring.md.spans.json"
+    },
+    {
+      "skill": "archify",
+      "repository": "tt-a1i/archify",
+      "revision": "a4065941f12be7967436261d9934784e381d423c",
+      "entry_source": "archify/SKILL.md",
+      "source_path": "archify/renderers/class/README.md",
+      "source_sha256": "33074161e184a98dbb2b65d0ee308779b216a3c97dda4dfaa2bd6e2fb2e9f526",
+      "target": "renderers/class/README.md",
+      "input_sha256": [
+        "33074161e184a98dbb2b65d0ee308779b216a3c97dda4dfaa2bd6e2fb2e9f526"
+      ],
+      "license": "Apache-2.0 for current package, except where specified. Preserve LICENSE, NOTICE, historical LICENSE-MIT (pre-transition grants), THIRD_PARTY_NOTICES.md and bundled component terms. Historical MIT is not blanket alternative licensing for the current distribution. Simple Icons collection CC0 does not clear underlying logo/trademark rights; use neutral labels if needed.",
+      "candidate_id": "X-CREATIVE-ARCHIFY",
+      "kind": "spans",
+      "english": "archify/renderers--class--README.md.spans.json"
+    },
+    {
+      "skill": "archify",
+      "repository": "tt-a1i/archify",
+      "revision": "a4065941f12be7967436261d9934784e381d423c",
+      "entry_source": "archify/SKILL.md",
+      "source_path": "archify/renderers/erd/README.md",
+      "source_sha256": "2dce4b5da474d2b1f4190d34f5f3b625e2a479460da8ee89b8dbe0481e9245f4",
+      "target": "renderers/erd/README.md",
+      "input_sha256": [
+        "2dce4b5da474d2b1f4190d34f5f3b625e2a479460da8ee89b8dbe0481e9245f4"
+      ],
+      "license": "Apache-2.0 for current package, except where specified. Preserve LICENSE, NOTICE, historical LICENSE-MIT (pre-transition grants), THIRD_PARTY_NOTICES.md and bundled component terms. Historical MIT is not blanket alternative licensing for the current distribution. Simple Icons collection CC0 does not clear underlying logo/trademark rights; use neutral labels if needed.",
+      "candidate_id": "X-CREATIVE-ARCHIFY",
+      "kind": "spans",
+      "english": "archify/renderers--erd--README.md.spans.json"
+    },
+    {
+      "skill": "academic-paper",
+      "repository": "Imbad0202/academic-research-skills",
+      "revision": "6d9388674de1ad0437ad95db3d52f92b92204d84",
+      "entry_source": "academic-paper/SKILL.md",
+      "source_path": "academic-paper/references/mode_selection_guide.md",
+      "source_sha256": "3edff1dacbc6bbceab9ad32c5b94506f6022e7362e64b887a37a35759b6ebd68",
+      "target": "academic-paper/references/mode_selection_guide.md",
+      "input_sha256": [
+        "3edff1dacbc6bbceab9ad32c5b94506f6022e7362e64b887a37a35759b6ebd68"
+      ],
+      "license": "CC-BY-NC-4.0",
+      "kind": "spans",
+      "english": "academic-paper/academic-paper--references--mode_selection_guide.md.spans.json"
+    },
+    {
+      "skill": "deep-research",
+      "repository": "Imbad0202/academic-research-skills",
+      "revision": "6d9388674de1ad0437ad95db3d52f92b92204d84",
+      "entry_source": "deep-research/SKILL.md",
+      "source_path": "deep-research/SKILL.md",
+      "source_sha256": "d4b056eab3bb520bf7a45aeb3cf16260b532e0d99cec414d9ed9085b1f470948",
+      "target": "deep-research/SKILL.md",
+      "input_sha256": [
+        "ec7a69d7819cec316584cb9101c53820d433f6f714bfdc3cbe3e5caf202b3fb0",
+        "d4b056eab3bb520bf7a45aeb3cf16260b532e0d99cec414d9ed9085b1f470948"
+      ],
+      "license": "CC-BY-NC-4.0",
+      "kind": "spans",
+      "english": "deep-research/deep-research--SKILL.md.spans.json"
+    }
+  ],
+  "notices": [
+    {
+      "skill": "video-shotcraft",
+      "repository": "Vincentwei1021/video-shotcraft",
+      "revision": "1266a3ec4831289c4d893d42dd5102723658039a",
+      "source_path": "LICENSE",
+      "retained": "video-shotcraft/LICENSE",
+      "sha256": "b2ce9877a55547ada9b870150664d1468ff777e67cc9888806a73927d31c5771"
+    },
+    {
+      "skill": "infographic-creator",
+      "repository": "antvis/Infographic",
+      "revision": "5ae0d9394ac6280cb688eb4b4345881e291b9209",
+      "source_path": "LICENSE",
+      "retained": "infographic-creator/LICENSE",
+      "sha256": "cacec99fa5f02241b33906689924718962f4991cd6eada3624f56c6bd4f3ff28"
+    },
+    {
+      "skill": "formula-derivation",
+      "repository": "wanshuiyin/Auto-claude-code-research-in-sleep",
+      "revision": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+      "source_path": "LICENSE",
+      "retained": "formula-derivation/LICENSE",
+      "sha256": "e30cf5dd5f49b4f9b656590e23d782b4756c924a9f0ff0162b3e7b5d87006bf5"
+    },
+    {
+      "skill": "archify",
+      "repository": "tt-a1i/archify",
+      "revision": "a4065941f12be7967436261d9934784e381d423c",
+      "source_path": "archify/LICENSE",
+      "retained": "archify/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "skill": "archify",
+      "repository": "tt-a1i/archify",
+      "revision": "a4065941f12be7967436261d9934784e381d423c",
+      "source_path": "archify/NOTICE",
+      "retained": "archify/NOTICE",
+      "sha256": "665eb53e6fcf09cee183c9f23c8052645dc95570d9ccbbf53dc0f5213a1b5edd"
+    },
+    {
+      "skill": "archify",
+      "repository": "tt-a1i/archify",
+      "revision": "a4065941f12be7967436261d9934784e381d423c",
+      "source_path": "archify/LICENSE-MIT",
+      "retained": "archify/LICENSE-MIT.txt",
+      "sha256": "b799ab081703e7821ae5096d2c1abdf14bbdc75e8ea1c4045998c36ed6db9706"
+    },
+    {
+      "skill": "archify",
+      "repository": "tt-a1i/archify",
+      "revision": "a4065941f12be7967436261d9934784e381d423c",
+      "source_path": "archify/THIRD_PARTY_NOTICES.md",
+      "retained": "archify/THIRD_PARTY_NOTICES.md",
+      "sha256": "b5e129197f391568f7abf287c74b24f4835f10e5388f600407c8788feaeb9015"
+    }
+  ]
+}

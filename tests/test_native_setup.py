@@ -100,24 +100,25 @@ class NativeSetup(unittest.TestCase):
     for p,value in before.items():self.assertEqual(fingerprint(p),value)
    subprocess.run([str(state/'rollback.sh')],check=True,capture_output=True)
    self.assertFalse(shared.exists());self.assertFalse((home/'.codex/AGENTS.md').exists())
- def test_playwright_mcp_addition_keeps_support_repeat_and_dirty_rollback_without_runtime(self):
-  with tempfile.TemporaryDirectory() as temp:
-   base=pathlib.Path(temp).resolve();home=base/'home';home.mkdir();state=base/'state';source,leaf,r=self.fixture(base)
-   legacy=home/'.agents/skills/own';legacy.mkdir(parents=True);(legacy/'SKILL.md').write_text('Original dirty user skill.\n');original=fingerprint(legacy.parent)
-   config=home/'.codex/config.toml';config.parent.mkdir();config.write_text('model = "keep-model"\n');config_before=fingerprint(config)
-   args=self.args(home,state);args.playwright_mcp=True
-   with patch.object(native.nstack,'build',return_value=source),patch.object(native.nstack,'registered_release',return_value=(r,{},leaf)):
-    result=native.apply(args);shared=home/'.agents/skills';entry=shared/'playwright-mcp'
-    self.assertEqual({p.name for p in shared.iterdir()},{'obsidian-markdown','playwright-mcp'})
-    self.assertEqual((entry/'references/runtime.md').read_bytes(),(ROOT/'addons/playwright-mcp/references/runtime.md').read_bytes())
-    self.assertEqual((entry/'SOURCE.json').read_bytes(),(ROOT/'addons/playwright-mcp/SOURCE.json').read_bytes())
-    self.assertEqual((shared/'obsidian-markdown/../../support.md').resolve().read_bytes(),(source/'support.md').read_bytes())
-    self.assertFalse((entry/'agents/openai.yaml').exists())
-    self.assertEqual({row['name'] for row in json.loads((state/'native-skill-index.json').read_text())},{'obsidian-markdown','playwright-mcp'})
-    journal=pathlib.Path(result['run'])/'journal.json';before=journal.read_bytes();self.assertFalse(native.apply(args)['changed']);self.assertEqual(journal.read_bytes(),before)
-    self.assertEqual(fingerprint(config),config_before);self.assertFalse((state/'runtimes').exists());self.assertFalse((state/'native-tools').exists())
-   subprocess.run([str(state/'rollback.sh')],check=True,capture_output=True)
-   self.assertEqual(fingerprint(legacy.parent),original);self.assertEqual(fingerprint(config),config_before)
+ def test_guidance_addons_keep_support_repeat_and_dirty_rollback_without_runtime(self):
+  for addon,reference in [('playwright-mcp','runtime.md'),('agent-orchestration','hosts.md')]:
+   with tempfile.TemporaryDirectory() as temp:
+    base=pathlib.Path(temp).resolve();home=base/'home';home.mkdir();state=base/'state';source,leaf,r=self.fixture(base)
+    legacy=home/'.agents/skills/own';legacy.mkdir(parents=True);(legacy/'SKILL.md').write_text('Original dirty user skill.\n');original=fingerprint(legacy.parent)
+    config=home/'.codex/config.toml';config.parent.mkdir();config.write_text('model = "keep-model"\n');config_before=fingerprint(config)
+    args=self.args(home,state);setattr(args,addon.replace('-','_'),True)
+    with patch.object(native.nstack,'build',return_value=source),patch.object(native.nstack,'registered_release',return_value=(r,{},leaf)):
+     result=native.apply(args);shared=home/'.agents/skills';entry=shared/addon
+     self.assertEqual({p.name for p in shared.iterdir()},{'obsidian-markdown',addon})
+     self.assertEqual((entry/'references'/reference).read_bytes(),(ROOT/'addons'/addon/'references'/reference).read_bytes())
+     self.assertEqual((entry/'SOURCE.json').read_bytes(),(ROOT/'addons'/addon/'SOURCE.json').read_bytes())
+     self.assertEqual((shared/'obsidian-markdown/../../support.md').resolve().read_bytes(),(source/'support.md').read_bytes())
+     self.assertFalse((entry/'agents/openai.yaml').exists())
+     self.assertEqual({row['name'] for row in json.loads((state/'native-skill-index.json').read_text())},{'obsidian-markdown',addon})
+     journal=pathlib.Path(result['run'])/'journal.json';before=journal.read_bytes();self.assertFalse(native.apply(args)['changed']);self.assertEqual(journal.read_bytes(),before)
+     self.assertEqual(fingerprint(config),config_before);self.assertFalse((state/'runtimes').exists());self.assertFalse((state/'native-tools').exists())
+    subprocess.run([str(state/'rollback.sh')],check=True,capture_output=True)
+    self.assertEqual(fingerprint(legacy.parent),original);self.assertEqual(fingerprint(config),config_before)
  def test_creative_addition_keeps_all_methods_repeat_and_dirty_recovery(self):
   with tempfile.TemporaryDirectory() as temp:
    base=pathlib.Path(temp).resolve();home=base/'home';home.mkdir();state=base/'state';source,leaf,r=self.fixture(base)

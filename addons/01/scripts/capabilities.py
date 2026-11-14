@@ -193,6 +193,11 @@ def inventory(state, skill_roots=None, host=None):
                         continue
                     metadata = frontmatter(resolved) if resolved.is_file() else None
                     record = skill_record(entry, row['name'], row.get('deployment', 'recorded'), metadata)
+                    if isinstance(row.get('source_name'), str):
+                        record['source_name'] = row['source_name']
+                    aliases = row.get('aliases')
+                    if isinstance(aliases, list) and all(isinstance(alias, str) for alias in aliases):
+                        record['aliases'] = aliases
                     seen.add(resolved)
                 except (OSError, ValueError, RuntimeError):
                     continue
@@ -281,7 +286,7 @@ def search(state, terms, limit=8, skill_roots=None, host=None):
     ranked = []
     for record in records:
         text = ' '.join(str(record.get(key, '')) for key in
-                        ('name', 'description', 'activation', 'native_mcp', 'recorded_checks')).casefold()
+                        ('name', 'source_name', 'aliases', 'description', 'activation', 'native_mcp', 'recorded_checks')).casefold()
         score = sum(word in text for word in words)
         if score:
             ranked.append((score, record))

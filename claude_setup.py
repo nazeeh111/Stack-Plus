@@ -23,6 +23,7 @@ ADDONS = {
     'agent-reach': ('agent-reach',), 'repository-docs': ('repository-docs',),
     'unslop': ('unslop',), 'maps-scraper': ('google-maps-scraper',),
     'playwright-mcp': ('playwright-mcp',),
+    'agent-orchestration': ('agent-orchestration',),
     'untangle-codebase': ('untangle-codebase',), 'adaptive-routing': ('01',),
     'raea': ('raea',), 'llm-council': ('llm-council',),
     'craft-anything': ('craft-anything',),
@@ -44,7 +45,7 @@ def digest(data):
 def selected(args):
     chosen = native.selection()
     if args.only:
-        wanted = set(args.only)
+        wanted = {native.skill_names.canonical(name) for name in args.only}
         if wanted - {name for name, _ in chosen}:
             raise ValueError('Unknown or non-installable selected skill name')
         chosen = [(name, spec) for name, spec in chosen if name in wanted]
@@ -248,6 +249,17 @@ def plan(home, state, release, index, vault, claude_home=None):
         path = target / name
         if not path.is_symlink() or os.readlink(path) != destination:
             raise ValueError('Owned Claude skill changed; preserve and reconcile: ' + name)
+    for row in index:
+        aliases, source = row.get('aliases', []), row.get('source_name', row['name'])
+        if (not isinstance(source, str) or not isinstance(aliases, list)
+                or not all(isinstance(alias, str) for alias in aliases)):
+            raise ValueError('Invalid selected Claude legacy skill coordinate')
+        for alias in sorted(set([source, *aliases]) - {row['name']} - previous.keys()):
+            if not re.fullmatch(r'[a-z0-9][a-z0-9-]*', alias):
+                raise ValueError('Invalid selected Claude legacy skill coordinate')
+            path = target / alias
+            if path.exists() or path.is_symlink():
+                raise ValueError('Unowned legacy Claude skill collision; preserved: ' + alias)
     for name in links.keys() - previous.keys():
         path = target / name
         if path.exists() or path.is_symlink():
@@ -365,7 +377,7 @@ def main():
     install.add_argument('--home', default=str(Path.home()))
     install.add_argument('--claude-home', help='Claude configuration directory; defaults to CLAUDE_CONFIG_DIR for the current user, otherwise HOME/.claude')
     install.add_argument('--state', default=str(native.nstack.STATE))
-    install.add_argument('--only', action='append', help='Exact natural base-skill name; otherwise include the full reviewed base')
+    install.add_argument('--only', action='append', help='Exact canonical or legacy base-skill name; otherwise include the full reviewed base')
     install.add_argument('--vault', help='Existing explicitly authorized vault; does not change Claude file permissions')
     for flag in [*ADDONS, 'academic-research', 'ecc']:
         install.add_argument('--' + flag, action='store_true', help='Include the same reviewed selection as native_setup.py')
