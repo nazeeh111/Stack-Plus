@@ -69,11 +69,15 @@ host schema; the optional cua-driver guide describes a different API and does
 not prove that standalone driver is installed.
 
 An input success result is not always a visible effect. On the author Mac on
-November14, native Obsidian AX reads worked while pointer calls returned
-`noWindowsAvailable`; a current semantic control completed the operation. This
-was a delivery limitation, not an OS permission denial. Verify the expected
-state, refresh stale targets, and use an independently available supported
-operation when it helps. Actual permission and target denials remain binding.
+November14, native reads worked while pointer calls returned `noWindowsAvailable`.
+After the user placed Codex and Obsidian side by side, three native coordinate
+open/close cycles passed with actual dialog and screenshot readback. The helper
+also restarted across the wait, so this establishes current recovery without
+isolating the cause or proving a cross-desktop fix. For this error, check that
+the target is on the same macOS desktop as the host, then take a fresh capture
+and verify one harmless action. Avoid repeated blind input. Refresh stale
+targets and choose a supported operation that satisfies the task. Actual
+permission and target denials remain binding.
 
 An existing official Cua Driver 0.49.3 also passed real background pixel
 arithmetic and AX Clear on Calculator, with inspected screenshots and an
