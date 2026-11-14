@@ -22,6 +22,7 @@ from transaction import Transaction, atomic_json, copy, fingerprint, same
 ADDONS = {
     'agent-reach': ('agent-reach',), 'repository-docs': ('repository-docs',),
     'unslop': ('unslop',), 'maps-scraper': ('google-maps-scraper',),
+    'playwright-mcp': ('playwright-mcp',),
     'untangle-codebase': ('untangle-codebase',), 'adaptive-routing': ('01',),
     'raea': ('raea',), 'llm-council': ('llm-council',),
     'craft-anything': ('craft-anything',),

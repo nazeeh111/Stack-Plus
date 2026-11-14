@@ -57,8 +57,8 @@ Choose optional additions in that single `native_setup.py` command rather than
 running successive replacements: `--academic-research`, `--ecc`, `--unslop`,
 `--maps-scraper`, `--untangle-codebase`, `--raea`, `--adaptive-routing`,
 `--llm-council`, `--roast-room`, `--council-of-high-intelligence`,
-`--cloudflare-security-audit`, `--strix`, `--skillspector`, `--craft-anything`
-and `--creative-reframing`.
+`--cloudflare-security-audit`, `--strix`, `--skillspector`, `--craft-anything`,
+`--creative-reframing` and `--playwright-mcp`.
 Academic sources are fetched privately under their noncommercial license.
 [Source fidelity](docs/SOURCE_FIDELITY.md) explains upstream methods, native ports and private source packs.
 When replacing a collection, include all additions you intend to retain.

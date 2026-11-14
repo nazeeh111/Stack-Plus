@@ -348,6 +348,8 @@ def apply(args):
         addons.append("unslop")
     if getattr(args, "maps_scraper", False):
         addons.append("google-maps-scraper")
+    if getattr(args, "playwright_mcp", False):
+        addons.append("playwright-mcp")
     if getattr(args, "untangle_codebase", False):
         addons.append("untangle-codebase")
     if getattr(args, "adaptive_routing", False):
@@ -500,6 +502,7 @@ def main():
     a.add_argument("--ecc", action="store_true", help="Add the two reviewed ECC onboarding and offline evaluation skills")
     a.add_argument("--unslop", action="store_true", help="Add pinned Unslop for existing-screen polish using native Codex tools")
     a.add_argument("--maps-scraper", action="store_true", help="Add public-place extraction guidance; install the pinned runtime on demand")
+    a.add_argument("--playwright-mcp", action="store_true", help="Add task-scoped Microsoft Playwright MCP guidance; reuse the existing runtime without activating a connection")
     a.add_argument("--untangle-codebase", action="store_true", help="Add the pinned, explicitly invoked codebase refactoring skill")
     a.add_argument("--adaptive-routing", action="store_true", help="Add explicit 01 for adaptive skill/tool selection throughout a session")
     a.add_argument("--craft-anything", action="store_true", help="Add reviewed local binary/app analysis guidance; notarized runtime installed separately, rebuild and MCP remain explicit")

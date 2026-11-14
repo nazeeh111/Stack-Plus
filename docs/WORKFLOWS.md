@@ -24,6 +24,12 @@ existing standard Docker installation locations. This supports nonlogin agent
 shells without another Docker install or a global PATH change. Fresh typed-tool,
 crash/resume and local trace/evaluation checks passed through that fallback.
 
+For a browser workflow needing persistent MCP state, the existing P061 Playwright
+runtime also supplies [Microsoft's MCP server](../integrations/playwright-mcp/README.md).
+Its real headless form, delayed-page, isolation and recovery checks passed through
+the installed launcher. This route adds no browser/package installation or global
+connection and needs no window rearrangement. It does not control native Mac apps.
+
 [terminal-mac](https://github.com/govijr/terminal-mac) remains reference-only for
 separately provisioned guest-desktop workflows. Source reviewed at
 `74c548f27910ba2d228637780740e5fd3f9e0450`; published `v0.2.0-6` trails that

@@ -32,14 +32,14 @@ a current PATH Node. These runtime paths must remain available.
   followed by the absolute retained checkout's `nstack.py`. This adapter creates
   no CLI launcher. Respect `CLAUDE_CONFIG_DIR` and custom host roots.
 
-The complete selection is 170 base methods plus 22 optional methods. Pass all
+The complete selection is 170 base methods plus 23 optional methods. Pass all
 applicable switches together, and retain the selection on later installs:
 
 ```text
 --agent-reach --repository-docs --academic-research --ecc --unslop --maps-scraper
 --untangle-codebase --adaptive-routing --raea --llm-council --roast-room
 --council-of-high-intelligence --cloudflare-security-audit --strix --skillspector
---craft-anything --creative-reframing
+--craft-anything --creative-reframing --playwright-mcp
 ```
 
 Five academic methods require CC BY-NC 4.0-compatible use. Omit an incompatible

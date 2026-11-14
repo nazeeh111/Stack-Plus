@@ -4,13 +4,9 @@ The default global collection contains all 170 installable on-demand leaves from
 the evaluated manifest. It excludes trial/substitute/reference/rejected leaves.
 Natural names and complete bundles are verified independently against the
 registered original releases. Optional `--only EXACT-NAME` deliberately narrows
-an installation; it is not the full setup. The explicit additions are
-`--agent-reach`, `--repository-docs`, `--academic-research`, `--ecc`, `--unslop`,
-`--maps-scraper`, `--untangle-codebase`, `--adaptive-routing`, `--raea`,
-`--llm-council`, `--roast-room`, `--council-of-high-intelligence`,
-`--cloudflare-security-audit`, `--strix`, `--skillspector` and `--craft-anything`.
-See [the host-aware onboarding guide](ONBOARDING.md) for a complete selection.
-`native_setup.py --codex-home /absolute/profile` targets custom Codex instructions;
+an installation; it is not the full setup. Pass optional additions together using
+[the complete host-aware selection](ONBOARDING.md), retaining earlier choices.
+`native_setup.py install --codex-home /absolute/profile` targets custom Codex instructions;
 for the current user it also honors `CODEX_HOME`. The optional
 [Claude adapter](CLAUDE.md) uses Claude's own skill and instruction locations.
 Repository Docs guides public repository lookups and strict version handling in Context7.
@@ -59,52 +55,48 @@ reviewed source revisions are not a claim of a pinned hosted deployment.
 Reject an explicit missing-version fallback to current docs as version evidence.
 Never send private code, vault notes or account information to these services.
 
-Choose an available control surface for the current outcome and evidence. The
-host browser is useful for one-off page work; the commissioned Playwright runtime
-adds repeatable journeys, isolated contexts and traces; agent-browser provides
-compact page snapshots and task-owned CLI sessions. Native host computer use
-reaches Mac windows, menus and dialogs. Compare their current capabilities and
-cost for the task rather than imposing a fixed fallback sequence. Use the actual
-host schema; the optional cua-driver guide describes a different API and does
-not prove that standalone driver is installed.
+Choose a control surface by the current outcome and evidence. The host browser
+handles ordinary page work; commissioned Playwright provides repeatable journeys
+and isolated contexts; agent-browser provides compact task-owned CLI sessions.
+For persistent structured browser tools, the existing Playwright runtime also
+contains [Microsoft's MCP server](../integrations/playwright-mcp/README.md).
+Actual headless form/delayed-page/isolation/failure-recovery checks passed through
+nstack, including stripped PATH. Reuse that runtime instead of installing a
+second browser or globally registering another server. Browser automation does
+not require rearranging the Mac's windows or repair native desktop input.
 
-An input success result is not always a visible effect. On the author Mac on
-November14, native reads worked while pointer calls returned `noWindowsAvailable`.
-After the user placed Codex and Obsidian side by side, three native coordinate
-open/close cycles passed with actual dialog and screenshot readback. The helper
-also restarted across the wait, so this establishes current recovery without
-isolating the cause or proving a cross-desktop fix. A later off-desktop trial
-still reproduced the native error. Reacquire the exact app/window; if a bundle
-ID is ambiguous, use the verified application's full path. Choose a supported
-semantic or authorized foreground operation when it satisfies the task. After
-activation or a geometry change, capture again before pixel input. Same-desktop
-arrangement is a conditional workaround, not a prerequisite for all workflows.
-Avoid blind retries; actual permission and target denials remain binding.
+Native host computer use reaches Mac windows, menus and dialogs, but an input
+acknowledgement is not a verified effect. On the author Mac, fresh pointer calls
+returned `noWindowsAvailable` in Obsidian, Calculator and System Settings after a
+full host restart. The old processes were gone, the app/helper signatures were
+valid, the helper matched its bundled bytes and the native updater was current.
+Both control and capture entries were enabled in macOS settings; native Calculator
+accessibility input actually changed0→7→0. Earlier same-desktop dialog cycles had
+passed, with a helper restart confounding the cause. These observations do not
+establish a full-screen-only cause or a general repair. Another identical restart,
+cache deletion or permission reset has no demonstrated benefit for this case.
 
-On the reviewed Mac, a stale windowless `Obsidian help` process also caused
-native reads to time out while another process owned the actual window. After
-verifying its exact command and lack of windows, stopping only that stuck CLI
-restored native reads without restarting the helper. This is separate from the
-off-desktop pointer failure. Do not terminate an unknown duplicate or the live
-window owner. Bounded CLI timeouts must clean up their own child processes.
+For note data, use the existing Obsidian CLI with an explicit vault and file.
+Home read and the six-row Base query passed without pointer input. A GUI command
+returning Executed did not establish that its dialog appeared: keep data-operation
+and visible-UI acceptance separate. An older windowless help process had coincided
+with native read timeouts; stopping only that precisely identified process restored
+reads. Do not terminate an unknown duplicate or the live window owner. Bounded
+CLI timeouts must clean up their own children. If an app bundle ID is ambiguous,
+use its verified full path.
 
-An existing official Cua Driver 0.49.3 also passed real background pixel
-arithmetic and AX Clear on Calculator, with inspected screenshots and an
-independent value check. Its Obsidian input remained unverified, so this is
-per-operation evidence. Where a standalone driver is useful, record its actual
-binary identity, matching complete guides and acceptance in the local runtime
-index. The selected 0.38 guide source does not identify a 0.49 executable. Use
-the live schema: a supplied capture ID is consumed by one pixel action; refresh
-the PNG between captured actions. A failed batch or UNKNOWN predicate needs
-actual readback. Use a temporary owned service/session and clean it up; no
-duplicate skill, global MCP registration or automatic downgrade is needed.
-
-The later off-Space Obsidian Cua trial had valid exact captures but no immediate
-background-click effect. Foreground input encountered a correctly refused
-capture-frame change; a subsequently visible modal had ambiguous attribution.
-Keyboard acknowledgements also did not establish reliable immediate effects.
-It is not accepted as a general fix for the native helper. All trial services
-were stopped; the target returned to Home. No grant or signed host binary changed.
+Existing official Cua Driver0.49.3 has scoped Calculator background pixel/AX
+acceptance, with fresh images and an independent value check. Its later off-Space
+Obsidian menu/pointer trials did not establish reliable effects. Persistent
+foreground activation can redirect concurrent user typing; it is not an unattended
+repair for background delivery. Select any visible control deliberately and verify
+actual effects. A valid capture or activation acknowledgement is insufficient.
+Record the driver's actual binary, matching guides and tested scope in the local
+runtime index; the selected0.38 guide does not identify a0.49 executable. Capture
+IDs bind one pixel action and cannot be reused. A partial batch or UNKNOWN predicate
+needs readback. Use a temporary owned service/session and clean it up; no duplicate
+skill, global daemon, downgrade or grant change is needed. Permission and target
+denials remain binding across all routes.
 
 ChromeDevTools stays an explicit per-task tool, not another globally active
 browser. Use isolated/headless profiles, no usage statistics/performance CrUX,
@@ -164,6 +156,13 @@ path. Reopen the original source before using a claim. Correct the same note ID,
 retain prior generations in Git, and exclude historical/test/archive records from
 current views. Project source and evidence stay with their owning project.
 Use explicit `vault=` and `path=` arguments with the native Obsidian CLI.
+
+A short optional About Me note can hold user-supplied background and interests,
+linked from Home to working preferences. Keep it private and shared by reference
+across local hosts. A Projects Base view should follow the actual project folder
+and relevant states, including in-progress work; embed that view in the project
+hub instead of maintaining another manual list. Use the current metadata rather
+than relabeling a project just to make it appear.
 
 The shared guidance tells new sessions to consult Home and relevant current
 notes when earlier decisions, preferences or project context can affect the task.

@@ -1,25 +1,44 @@
 filters:
   and:
-    - file.ext == "md"
-    - file.hasTag("knowledge")
-    - '!file.inFolder("Templates")'
-    - '!file.inFolder("Archive")'
+  - file.ext == "md"
+  - '!file.inFolder("Templates")'
+  - '!file.inFolder("Archive")'
 views:
-  - type: table
-    name: Current knowledge
-    filters: state == "current"
-    order:
-      - file.name
-      - scope
-      - source_revision
-      - observed_date
-      - correction_path
-  - type: table
-    name: Historical notes
-    filters: state == "historical-source-report"
-    order:
-      - file.name
-      - scope
-      - state
-      - observed_date
-      - source_sha256
+- type: table
+  name: Current knowledge
+  filters:
+    and:
+    - file.hasTag("knowledge")
+    - state == "current"
+  order:
+  - file.name
+  - scope
+  - source_revision
+  - observed_date
+  - correction_path
+- type: table
+  name: Projects
+  filters:
+    and:
+    - file.inFolder("Projects")
+    - file.path != "Projects/Projects.md"
+    - or:
+      - state == "current"
+      - state == "in-progress"
+  order:
+  - file.name
+  - scope
+  - state
+  - observed_date
+- type: table
+  name: Historical notes
+  filters:
+    and:
+    - file.hasTag("knowledge")
+    - state == "historical-source-report"
+  order:
+  - file.name
+  - scope
+  - state
+  - observed_date
+  - source_sha256

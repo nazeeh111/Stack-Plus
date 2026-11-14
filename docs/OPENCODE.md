@@ -14,7 +14,10 @@ CLI, not another package installation. Pass `--cli /absolute/executable` for a
 different existing V2 installation. The selected model, provider, effort,
 credentials, conversations and native permissions are untouched.
 
-OpenCode discovers the existing `~/.agents/skills` collection. Its global
+OpenCode discovers the existing `~/.agents/skills` collection. The optional
+`--playwright-mcp` addition to `native_setup.py` therefore reaches OpenCode too;
+its [skill guide](../addons/playwright-mcp/SKILL.md) selects task-scoped browser
+automation without activating another global MCP connection. Its global
 `~/.config/opencode/AGENTS.md` links to the user-owned `~/.codex/AGENTS.md`.
 Review that shared file for host-specific assumptions first. The optional
 `templates/AGENTS.md` is a concise starting point, not an automatic replacement

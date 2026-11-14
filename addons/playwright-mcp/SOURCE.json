@@ -1,0 +1,18 @@
+{
+  "repository": "nazeeh111/nstack",
+  "revision": null,
+  "source_path": "addons/playwright-mcp",
+  "license": "MIT",
+  "installation_adaptation": "Authored, normally discoverable Microsoft Playwright MCP workflow guidance with its complete runtime reference. Reuses separately commissioned Playwright P061; no runtime, provider, extension, global MCP configuration or permission activation.",
+  "runtime_dependency": {
+    "name": "Playwright",
+    "invoke": ["nstack", "run", "P061", "test", "--", "mcp", "--config", "ABSOLUTE_TASK_CONFIG"],
+    "activation": "Task-scoped stdio client and fresh isolated browser; resolve the actual commissioned entrypoint and accepted scope from the private native-tools index."
+  },
+  "upstream_reference": {
+    "repository": "microsoft/playwright-mcp",
+    "revision": "4e0794dd0a0176519830a5ed27b491137cf9338f",
+    "license": "Apache-2.0",
+    "use": "Runtime/API reference only; no upstream skill or implementation is copied into this authored MIT integration."
+  }
+}
