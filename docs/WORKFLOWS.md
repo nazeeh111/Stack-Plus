@@ -19,6 +19,11 @@ but unaccepted against the current Codex protocol and cannot be deployed. Curren
 Lang checks use a scripted model, not inference. Verify the real app's chosen
 inference route and model/effort; API billing and deployment are separate choices.
 
+The local AI recipes prefer Docker on the command's current PATH, then look in
+existing standard Docker installation locations. This supports nonlogin agent
+shells without another Docker install or a global PATH change. Fresh typed-tool,
+crash/resume and local trace/evaluation checks passed through that fallback.
+
 [terminal-mac](https://github.com/govijr/terminal-mac) remains reference-only for
 separately provisioned guest-desktop workflows. Source reviewed at
 `74c548f27910ba2d228637780740e5fd3f9e0450`; published `v0.2.0-6` trails that

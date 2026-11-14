@@ -22,6 +22,7 @@ STATE = Path(os.environ.get('NSTACK_STATE', Path.home() / 'Library/Application S
 BASE = 'docker.io/library/python@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b'
 OWNER = 'ai-workflows'
 INPUTS = ('Dockerfile', 'requirements.lock', 'smoke.py', 'SOURCE.json')
+DOCKER_SEARCH_PATH = os.pathsep.join(('/usr/local/bin', '/Applications/Docker.app/Contents/Resources/bin'))
 
 
 def digest(path):
@@ -61,7 +62,7 @@ class Runtime:
         self.parent = safe_directory(self.state / 'native-tools/ai-workflows')
         self.fingerprint, self.inputs = identity()
         self.root = self.parent / self.fingerprint
-        self.docker = shutil.which('docker')
+        self.docker = shutil.which('docker') or shutil.which('docker', path=DOCKER_SEARCH_PATH)
         if not self.docker:
             raise ValueError('Existing Docker CLI required; no automatic daemon installation')
         if docker_host is None:

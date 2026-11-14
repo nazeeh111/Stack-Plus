@@ -3,9 +3,12 @@ import copy
 import hashlib
 import importlib.util
 import json
+import os
 from pathlib import Path
+import socket
 import tempfile
 import unittest
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('ai_recipe', ROOT / 'recipes/ai_workflows.py')
@@ -24,6 +27,22 @@ def inspection():
 
 
 class AiWorkflows(unittest.TestCase):
+    def test_current_path_docker_wins_and_existing_installation_fills_a_missing_path(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary).resolve();preferred=root/'preferred';fallback=root/'fallback'
+            for directory in (preferred,fallback):
+                directory.mkdir();binary=directory/'docker';binary.write_text('#!/bin/sh\nexit 0\n');binary.chmod(0o755)
+            endpoint=root/'docker.sock'
+            with socket.socket(socket.AF_UNIX,socket.SOCK_STREAM) as server:
+                server.bind(str(endpoint))
+                with patch.object(m,'DOCKER_SEARCH_PATH',str(fallback)),patch.dict(os.environ,{'PATH':str(preferred)}):
+                    self.assertEqual(m.Runtime(root/'state', 'unix://'+str(endpoint)).docker,str(preferred/'docker'))
+                with patch.object(m,'DOCKER_SEARCH_PATH',str(fallback)),patch.dict(os.environ,{'PATH':str(root/'absent')}):
+                    self.assertEqual(m.Runtime(root/'state', 'unix://'+str(endpoint)).docker,str(fallback/'docker'))
+                    (fallback/'docker').unlink()
+                    with self.assertRaisesRegex(ValueError,'Existing Docker CLI required'):
+                        m.Runtime(root/'state', 'unix://'+str(endpoint))
+
     def test_scope_validator_rejects_network_privilege_restart_and_mount_expansion(self):
         original = inspection()
         m.validate_container(original, Path('/fixture/work'), None, 'fixture', 'sha256:fixture')
