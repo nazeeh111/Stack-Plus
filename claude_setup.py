@@ -27,6 +27,7 @@ ADDONS = {
     'untangle-codebase': ('untangle-codebase',), 'adaptive-routing': ('01',),
     'raea': ('raea',), 'llm-council': ('llm-council',),
     'craft-anything': ('craft-anything',),
+    'rea': ('rea',),
     'creative-reframing': ('creative-reframing',),
     'cloudflare-security-audit': ('cloudflare-security-audit',),
     'strix': ('strix-security-testing',), 'skillspector': ('skillspector',),

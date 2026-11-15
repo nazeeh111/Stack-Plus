@@ -1,0 +1,69 @@
+{
+  "repository": "morluto/rea",
+  "revision": "d74549e495c58eb4a560279fd9f05508401ea0a0",
+  "source_path": ".agents/skills/reverse-engineer-anything",
+  "upstream_source_name": "reverse-engineer-anything",
+  "version": "6.9.0",
+  "license": "MIT",
+  "installation_adaptation": "Authored native software-analysis entry and runtime binding; complete upstream skill and eight references retained separately. Pinned private runtime, no upstream setup, automatic latest, model/provider/budget authority or global MCP activation.",
+  "upstream_files": {
+    "upstream/ORIGINAL-SKILL.md": {
+      "source_path": ".agents/skills/reverse-engineer-anything/SKILL.md",
+      "sha256": "b53cce995c43ca59fd6f6a306106fcfbf5db3dc2837f13598bb665e230ef798e",
+      "git_blob": "baea9f529b572dd28a72d874f192a75c426b845e"
+    },
+    "LICENSE": {
+      "source_path": "LICENSE",
+      "sha256": "798f9e4d18e49b30bf2f12696c8ced73dc4e1413da375a333d01281543a1ea8b",
+      "git_blob": "2d476d24fa5a9ae2ab35e5fd121494049eb2ee5d"
+    },
+    "upstream/references/environments.md": {
+      "source_path": ".agents/skills/reverse-engineer-anything/references/environments.md",
+      "sha256": "1be68bc9b15e5ace9b731a64125b64eb457ab0276c7961a41b6fa1240d179007",
+      "git_blob": "9b184c851ffb12f1be3621133db7c93aeba151d6"
+    },
+    "upstream/references/javascript-applications.md": {
+      "source_path": ".agents/skills/reverse-engineer-anything/references/javascript-applications.md",
+      "sha256": "4d1671a90634320724eb61b53e828c7faaadca77721798cef40e420357f5ff18",
+      "git_blob": "e2ad9a5f129004da744f056511ba5595daa3565e"
+    },
+    "upstream/references/runtime-observation.md": {
+      "source_path": ".agents/skills/reverse-engineer-anything/references/runtime-observation.md",
+      "sha256": "7f9263b9caea58864da3bc1980037ea399735b8f165d3b96e48e49503a6a1a70",
+      "git_blob": "db73e4e880eb54b8ae624be47be3b8ec42bfd938"
+    },
+    "upstream/references/desktop-build.md": {
+      "source_path": ".agents/skills/reverse-engineer-anything/references/desktop-build.md",
+      "sha256": "7e0b1ab7ff7372d39681bc88e924b4afbabd95091d13aba72928f55668a82b17",
+      "git_blob": "e098e0ac4a538e392b7f196fda20f5a4f6f00894"
+    },
+    "upstream/references/native-and-artifacts.md": {
+      "source_path": ".agents/skills/reverse-engineer-anything/references/native-and-artifacts.md",
+      "sha256": "0943da927abb6f0b231ac609e8f333eaf50a05a0c889dcba41e58a3ba0472a1d",
+      "git_blob": "151f38ad1c4e717fdae6076228bf5f358af5354b"
+    },
+    "upstream/references/evidence-workflows.md": {
+      "source_path": ".agents/skills/reverse-engineer-anything/references/evidence-workflows.md",
+      "sha256": "401e588eec730d26452a3b3ab9bb975a5153424b64643e72151f944cb290cf6f",
+      "git_blob": "cf97a8bde753594d8b328d4908b22f8755f28361"
+    },
+    "upstream/references/connection-and-recovery.md": {
+      "source_path": ".agents/skills/reverse-engineer-anything/references/connection-and-recovery.md",
+      "sha256": "2d78f50f4bad6e50127647256ae89865ad6cc046d1fe460e53a13b830ce814aa",
+      "git_blob": "a98808414a21d8159e617b7181b5b77d3c18022b"
+    },
+    "upstream/references/android-applications.md": {
+      "source_path": ".agents/skills/reverse-engineer-anything/references/android-applications.md",
+      "sha256": "4fe894d463daaf9175192633186160fc50fb6718b5cc8186bf853377a9f72e7f",
+      "git_blob": "f02b8329cbc1393cb4dcb7d339f157c4c4e56249"
+    }
+  },
+  "runtime_recipe": "recipes/rea.py",
+  "runtime_dependency": {
+    "package": "rea-agents",
+    "version": "6.9.0",
+    "node": "24.22.1 dedicated private runtime",
+    "activation": "On-demand CLI/static recipe; no global MCP registration or optional native provider install."
+  },
+  "source_review_scope": "Source/CLI/static-worker primitives and actual offline skill scan adjudicated; not exhaustive dependency/native-binary or every-operation acceptance."
+}

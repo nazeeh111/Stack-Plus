@@ -247,6 +247,6 @@ def materialize(source,out,s,c):
   helpers(root)
  if s['candidate_id']=='P028':
   from patch_pstack import helpers
-  helpers(root)
+  helpers(root, source)
  validate(out)
  return str(leaf.relative_to(out))

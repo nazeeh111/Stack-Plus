@@ -58,7 +58,7 @@ Choose optional additions in that single `native_setup.py` command rather than
 running successive replacements: `--academic-research`, `--ecc`, `--unslop`,
 `--maps-scraper`, `--untangle-codebase`, `--raea`, `--adaptive-routing`,
 `--llm-council`, `--roast-room`, `--council-of-high-intelligence`,
-`--cloudflare-security-audit`, `--strix`, `--skillspector`, `--craft-anything`,
+`--cloudflare-security-audit`, `--strix`, `--skillspector`, `--rea`, `--craft-anything`,
 `--creative-reframing`, `--playwright-mcp` and `--agent-orchestration`.
 Academic sources are fetched privately under their noncommercial license.
 [Source fidelity](docs/SOURCE_FIDELITY.md) explains upstream methods, native ports and private source packs.
@@ -109,6 +109,9 @@ its CC BY-NC source separate from this MIT repository.
 RAEA local GPU rendering is available with the optional native flag `--raea`.
 Its pinned runtime stays separate from this MIT toolkit and runs offline without
 upstream hooks, model downloads or provider connections. See [RAEA](docs/RAEA.md).
+
+[REA](docs/REA.md) optionally adds shipped-software analysis with its own pinned
+private runtime. It remains separate from Craft Anything and RAEA.
 
 For visual automation, durable background jobs, AI application graphs, optional
 tracing and codebase graphs, see [On-demand workflows](docs/WORKFLOWS.md).

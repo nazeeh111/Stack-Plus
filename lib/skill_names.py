@@ -127,6 +127,7 @@ RENAMES = {
     "llm-council": "llm-council-answer-review",
     "playwright-mcp": "playwright-mcp-browser-automation",
     "raea": "raea-gpu-video-and-games",
+    "rea": "rea-software-analysis",
     "roast-room": "business-council-roast-room",
     "skillspector": "skill-source-audit",
     "sr-screener": "study-eligibility-screening"
@@ -172,6 +173,10 @@ HOST_NOTES = {'unslop': {'README.md': (
     'rather than this nstack exposure.\n\n'
 )}}
 DESCRIPTIONS = {
+    'pstack-architect': {
+        'source': "Sketch types, signatures, and module structure before code, then stay in the loop while implementation fills in. Use for /architect, 'architect this', 'design this', or non-trivial work where jumping to code would lock in the wrong shape.",
+        'exposed': 'Design and synthesize competing code-architecture sketches through pstack arena, then implement the selected design. Use for substantial architecture decisions that benefit from independent alternatives.',
+    },
     'gstack-office-hours': {
         'source': 'YC Office Hours — two modes. (gstack)',
         'exposed': 'Diagnose a startup or product idea, or explore a builder project as a design partner, using gstack Office Hours. Use for problem framing, alternatives and a practical design before implementation.',

@@ -185,3 +185,6 @@ Sources: [OpenCode agents](https://opencode.ai/docs/agents/),
 [attachments](https://opencode.ai/docs/attachments/),
 [OpenAI Agents API](https://developers.openai.com/api/docs/guides/agents-api/quickstart),
 [Decisions API](https://developers.openai.com/api/docs/guides/decisions).
+
+The optional `--rea` shared method appears as `rea-software-analysis`. Its
+[private pinned CLI](REA.md) needs no OpenCode provider or global MCP entry.

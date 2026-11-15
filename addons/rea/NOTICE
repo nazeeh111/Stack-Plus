@@ -1,0 +1,6 @@
+REA upstream software and workflow references are copyright (c) 2026 morluto,
+licensed under MIT. Original source identity and exact retained-file hashes
+are recorded in SOURCE.json. The native nstack entry and runtime binding are
+separate integration guidance; upstream references confer no setup, access,
+target-execution or spending authority. Runtime dependencies retain their
+original notices in the unmodified official package.

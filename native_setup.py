@@ -66,10 +66,10 @@ def addon_definition(name):
             frozen[str(file.relative_to(source))] = (file.read_bytes(), 0o555 if file.stat().st_mode & 0o111 else 0o444)
     provenance = json.loads(frozen["SOURCE.json"][0])
     overrides = {}
-    if name in ("google-maps-scraper", "raea", "skillspector", "craft-anything"):
+    if name in ("google-maps-scraper", "raea", "skillspector", "craft-anything", "rea"):
         # The recipe stays usable after the checkout is moved or removed.
         code = profile_install.stage(nstack.STATE)
-        provenance["runtime_recipe"] = str(code / "recipes" / {"google-maps-scraper": "maps_scraper.py", "raea": "raea.py", "skillspector": "skillspector.py", "craft-anything": "craft_anything.py"}[name])
+        provenance["runtime_recipe"] = str(code / "recipes" / {"google-maps-scraper": "maps_scraper.py", "raea": "raea.py", "skillspector": "skillspector.py", "craft-anything": "craft_anything.py", "rea": "rea.py"}[name])
         overrides["SOURCE.json"] = (json.dumps(provenance, sort_keys=True, indent=2) + "\n").encode()
     return {"source": source, "entry": P("."), "provenance": provenance, "overrides": overrides, "frozen_files": frozen}
 
@@ -389,6 +389,8 @@ def apply(args):
         addons.append("01")
     if getattr(args, "craft_anything", False):
         addons.append("craft-anything")
+    if getattr(args, "rea", False):
+        addons.append("rea")
     if getattr(args, "creative_reframing", False):
         addons.append("creative-reframing")
     if getattr(args, "raea", False):
@@ -540,6 +542,7 @@ def main():
     a.add_argument("--untangle-codebase", action="store_true", help="Add the pinned, explicitly invoked codebase refactoring skill")
     a.add_argument("--adaptive-routing", action="store_true", help="Add explicit 01 for adaptive skill/tool selection throughout a session")
     a.add_argument("--craft-anything", action="store_true", help="Add reviewed local binary/app analysis guidance; notarized runtime installed separately, rebuild and MCP remain explicit")
+    a.add_argument("--rea", action="store_true", help="Add REA software-analysis guidance with its durable recipe; runtime commissioning and MCP remain explicit")
     a.add_argument("--creative-reframing", action="store_true", help="Add reviewed creative techniques for useful alternatives, assumptions and synthesis; no automatic response injection")
     a.add_argument("--raea", action="store_true", help="Add RAEA guidance for offline local GPU rendering; pinned runtime installed separately")
     a.add_argument("--llm-council", action="store_true", help="Add native council and offline blinded evaluation; no provider or server activation")

@@ -66,3 +66,9 @@ Use the complete linked instructions and actual command interface. LangChain/Lan
 On this private deployment, 01's live runtime search includes descriptions and activation conditions from the installed tool index. New records become discoverable without editing 01 or maintaining a second category list. Readiness and permissions still require inspection; search results do not execute anything.
 
 Licenses and pinned upstream revisions are recorded beside each integration. Runtime data, accounts, secrets, images and local evidence are not included in this repository. Heavy profiles remain stopped until their resource and configuration prerequisites are satisfied.
+
+## REA software analysis
+
+Use [REA](REA.md) for authorized artifact inspection and retained Evidence views.
+Its pinned CLI is separate from Craft Anything and RAEA. Install the shared
+method with `--rea`; runtime installation and operation checks are explicit.

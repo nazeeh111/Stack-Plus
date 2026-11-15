@@ -4,7 +4,7 @@ Paste this into Codex or Claude Code on your Mac:
 
 ```text
 Install and fully set up https://github.com/nazeeh111/nstack for my current Codex
-or Claude Code host on this Mac, following docs/ONBOARDING.md. Include 01, Craft
+or Claude Code host on this Mac, following docs/ONBOARDING.md. Include 01, REA, Craft
 Anything and all compatible skills; configure useful tools, preserve my existing
 setup, and verify everything you enable.
 ```
@@ -32,14 +32,14 @@ a current PATH Node. These runtime paths must remain available.
   followed by the absolute retained checkout's `nstack.py`. This adapter creates
   no CLI launcher. Respect `CLAUDE_CONFIG_DIR` and custom host roots.
 
-The complete selection is 170 base methods plus 24 optional methods. Pass all
+The complete selection is 170 base methods plus 25 optional methods. Pass all
 applicable switches together, and retain the selection on later installs:
 
 ```text
 --agent-reach --repository-docs --academic-research --ecc --unslop --maps-scraper
 --untangle-codebase --adaptive-routing --raea --llm-council --roast-room
 --council-of-high-intelligence --cloudflare-security-audit --strix --skillspector
---craft-anything --creative-reframing --playwright-mcp --agent-orchestration
+--rea --craft-anything --creative-reframing --playwright-mcp --agent-orchestration
 ```
 
 Five academic methods require CC BY-NC 4.0-compatible use. Omit an incompatible
@@ -50,7 +50,7 @@ the managed block; author-specific templates are examples.
 
 Use native plugin/MCP discovery and commission relevant runtimes on demand.
 Account integrations differ between hosts. Consult [WORKFLOWS.md](WORKFLOWS.md)
-and [Craft Anything](CRAFT_ANYTHING.md); keep heavy services stopped until needed.
+[REA](REA.md) and [Craft Anything](CRAFT_ANYTHING.md); keep heavy services stopped until needed.
 Choose browser/native control by the task, current capability and real effect.
 Permission denials remain binding; uncertain actions need readback before retry.
 

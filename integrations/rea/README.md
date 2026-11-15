@@ -1,0 +1,25 @@
+# REA static artifact routes
+
+`recipes/rea.py` owns a dormant private REA6.9.0 + Node24.22.1 runtime on Apple Silicon macOS. It preserves the complete official npm payload, its42 bundled dependencies and notices, plus the complete official Node archive. It does not run npm, setup, lifecycle hooks or target code; it adds no global PATH, service, provider or MCP entry. Existing Node versions and Craft Anything remain separate.
+
+Source: [morluto/rea release6.9.0](https://github.com/morluto/rea/tree/d74549e495c58eb4a560279fd9f05508401ea0a0). REA is MIT; Node and its bundled components retain their original license/notices in `node/LICENSE`. REA dependency notices remain in `package/THIRD_PARTY_NOTICES.md`, `package/licenses`, package metadata and dependency files. The runtime is acquired from upstream rather than redistributed in nstack. Fixed archive and expanded-tree identities live in the recipe and `PINS.json`. These identities are not a reproducible source-to-binary build attestation or exhaustive dependency audit.
+
+```sh
+python3 recipes/rea.py install
+python3 recipes/rea.py verify
+python3 recipes/rea.py check
+python3 recipes/rea.py native-exports --source /absolute/authorized/library --outdir /absolute/owned/task/rea-evidence
+python3 recipes/rea.py summary --evidence /absolute/owned/task/rea-evidence/runs/RUN/evidence.json --outdir /absolute/owned/task/rea-summary
+```
+
+`install` also accepts pre-acquired `--package-tarball` and `--node-tarball`; checksums and safe extraction apply equally. An installed changed tree or foreign output is refused and preserved. A failed staged install remains available for diagnosis. Repeated successful install verifies existing bytes and makes no second runtime. The runtime index supplies actual durable recipe paths outside this checkout.
+
+The commissioned `native-exports` route admits one explicitly selected regular PE/ELF file up to128MiB. The separate JavaScript `inspect` command admits a link-free directory or ASAR up to128MiB/10000entries, but remains uncommissioned on this host after the cleanup failure below. Inputs and outputs must be disjoint and outside the sealed runtime. Every analysis uses fresh task HOME/config/cache/tmp, no inherited model/provider/proxy environment, disabled update notices and network denied by macOS. A synthetic out-of-scope-file and network probe must both be OS-denied before the target opens. Writes stay in owned output; loaders retain ordinary system reads. This is a scoped personal-content boundary, not an all-filesystem virtual machine.
+
+The uncommissioned JavaScript lane can compile and run REA's process-ownership helper using the existing Apple toolchain. Its temporary files and Swift module cache stay in the task output; this supports owned worker management and does not run the supplied application. The native-export and saved-summary operations need no compiler, engine or worker process. Native permission/execution failures stop the route without a fallback. Signature validation checks the dedicated official Node binary; app-only Gatekeeper assessment is not misapplied to a standalone CLI. Quarantine/signatures are never removed or altered.
+
+Each inspect/summary saves complete Evidence, stderr progress, execution metadata, a sandbox profile, guard result and receipt under a fresh run directory. Keep full Evidence on disk and load bounded summaries/pages. Preserve Evidence IDs, artifact hashes and coverage/limitations when making claims. Static recovered facts do not establish actual app behavior. `check` tests only tiny hand-built PE64/ELF64 export tables: exact named export/address/ordinal or symbol binding, complete table coverage, unchanged non-executable input, independent zero-export controls with the same inert name bytes, and saved-Evidence summary parent/count/coverage checks. The fixtures contain table data without program instructions. It does not accept every format or any reconstruction/runtime/device workflow.
+
+A separate JavaScript development trial produced correct graph Evidence but exited1 during cleanup because native `ps` spawning returned EPERM. This operation is not accepted; the worker/process-table failure has no supported release6.9.0 selector. Do not retry it, weaken the sandbox or modify/copy ps as a setup fix. Saved-Evidence summary is independently usable without reopening the target. The native-export reader is a separate providerless operation that reads stable file bytes and does not start the denied JavaScript worker/process-table path.
+
+REA's full CLI and MCP have broader capabilities. The static wrapper intentionally accepts only native-exports, inspect and summary. Operational readiness is recorded separately for each route. Commission any broader route for a real task using its current source, native approvals and matching acceptance. An MCP tool-family scope reduces advertisement; it is not a read-only permission boundary. No extra global MCP registration is necessary for the active static skill binding.

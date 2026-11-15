@@ -126,6 +126,7 @@ These are actual installed names, not numbered workflow categories. Select a met
 | `llm-council` | `llm-council-answer-review` |
 | `playwright-mcp` | `playwright-mcp-browser-automation` |
 | `raea` | `raea-gpu-video-and-games` |
+| `rea` | `rea-software-analysis` |
 | `roast-room` | `business-council-roast-room` |
 | `skillspector` | `skill-source-audit` |
 | `sr-screener` | `study-eligibility-screening` |
