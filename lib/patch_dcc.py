@@ -1,11 +1,35 @@
-"""Independent per-leaf DCC ports, preserving exact helpers and authored asset sources."""
+"""Independent per-leaf DCC ports preserving source structure and authored asset sources."""
 import pathlib,re,shutil
 P=pathlib.Path
+
+def native_siblings(text,required=False):
+ # The pinned animation entry wraps between 'sibling' and 'skill'.
+ text,count=re.subn(r'If a sibling\s+skill.*?flag\s+the gap\.', 'Resolve only the siblings selected for this task from the local nstack registry. If none is eligible, use the native application API and report the unsupported technique; do not fetch Scenario MCP or install a collection.',text,flags=re.S|re.I,count=0 if required else 1)
+ if required and count!=1:raise ValueError('Pinned Unreal sibling policy changed: expected one paragraph')
+ return text
+
+# These helpers derive retained source-relative sibling paths. Resolve discovery
+# symlinks first; canonical host labels do not rename the physical source layout.
+SIBLING_ROOTS = {
+ 'scripts/bx_hardsurface.py':'_HERE', 'scripts/bx_rig.py':'HERE',
+ 'scripts/bx_materials.py':'_HERE', 'scripts/bx_export.py':'HERE',
+ 'scripts/bx_gp.py':'HERE', 'scripts/ue_pipeline.py':'_HERE',
+}
+
+def resolve_sibling_roots(out):
+ for relative,variable in SIBLING_ROOTS.items():
+  helper=out/relative
+  if not helper.is_file():continue
+  text=helper.read_text()
+  old=variable+' = os.path.dirname(os.path.abspath(__file__))'
+  new=variable+' = os.path.dirname(os.path.realpath(__file__))'
+  if text.count(old)!=1:raise ValueError('Pinned DCC sibling root changed: '+relative)
+  helper.write_text(text.replace(old,new,1))
 
 def patch(id,name,out):
  p=out/'SKILL.md';s=p.read_text()
  # Remove the exact upstream on-missing-sibling fetch/install policy, across wrapped variants.
- s=re.sub(r'If a sibling skill.*?flag\s+the gap\.', 'Resolve only the siblings selected for this task from the local nstack registry. If none is eligible, use the native application API and report the unsupported technique; do not fetch Scenario MCP or install a collection.',s,flags=re.S|re.I,count=1)
+ s=native_siblings(s,required=id=='X-CREATIVE-UNREAL')
  if id=='X-CREATIVE-BLENDER-SKILLS':
   s+='\nResolve the actual Blender executable/version before using version-specific bpy helpers. Use the existing native application interface; no Scenario service is installed by this port.\n'
 
@@ -32,6 +56,7 @@ def patch(id,name,out):
  if id=='X-CREATIVE-BLENDER-SKILLS' and name=='scenario-blender-grease-pencil':
   from patch_gp import patch as patch_gp
   patch_gp(out)
+ resolve_sibling_roots(out)
  # Keep every copied helper explicit about the actual engine root, not auto-selected defaults.
  env=out/'scripts/ue_env.py'
  if env.exists():

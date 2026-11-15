@@ -31,7 +31,11 @@ class DiscoveryTests(unittest.TestCase):
                 self.assertEqual(found['total_matches'], 1)
                 self.assertEqual(found['matches'][0]['name'], 'web-ui-design')
                 self.assertEqual(found['matches'][0]['aliases'], ['frontend-design'])
-                self.assertEqual(module.search(state, ['web-ui-design'], host=host)['matches'], found['matches'])
+                canonical = module.search(state, ['web-ui-design'], host=host)['matches'][0]
+                self.assertEqual({key: value for key, value in canonical.items() if key != 'match'},
+                                 {key: value for key, value in found['matches'][0].items() if key != 'match'})
+                self.assertEqual(found['matches'][0]['match']['exact_identity'], ['frontend-design'])
+                self.assertEqual(canonical['match']['exact_identity'], ['web-ui-design'])
                 # Alias fields are optional inert metadata, never an invocation API.
                 index.write_text(json.dumps([{'name': 'web-ui-design', 'aliases': {'command': 'must-not-emit'},
                                              'skill_path': str(entry)}]))
@@ -77,6 +81,94 @@ class DiscoveryTests(unittest.TestCase):
             (state / "native-skill-index.json").write_text("{}")
             with self.assertRaisesRegex(ValueError, "array"):
                 module.search(state, ["render"])
+
+
+class FunctionalRankingTests(unittest.TestCase):
+    def fixture(self, state, skills, runtimes=()):
+        rows = []
+        for name, description in skills:
+            entry = state / 'native-releases/fixture/bundles' / name / 'SKILL.md'
+            entry.parent.mkdir(parents=True)
+            entry.write_text('---\nname: ' + name + '\ndescription: ' + description + '\n---\n')
+            rows.append({'name': name, 'skill_path': str(entry)})
+        (state / 'native-skill-index.json').write_text(json.dumps(rows))
+        (state / 'native-tools').mkdir()
+        (state / 'native-tools/index.json').write_text(json.dumps(runtimes))
+
+    def test_function_precedes_name_and_check_mentions_and_equal_evidence_is_explicit(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            state = Path(temporary).resolve()
+            self.fixture(state, [('a-contrast', 'Archive page assets'),
+                                 ('z-review', 'Check contrast in a page'),
+                                 ('b-review', 'Check contrast in a page')],
+                         [{'name': 'a-runtime', 'checks': 'Previously checked contrast'}])
+            found = module.search(state, ['contrast'])
+            self.assertEqual([row['name'] for row in found['matches']],
+                             ['z-review', 'b-review', 'a-contrast', 'a-runtime'])
+            first, second, name_only, checks_only = found['matches']
+            self.assertEqual(first['match']['function'], ['contrast'])
+            self.assertEqual(first['match']['rank'], second['match']['rank'])
+            self.assertEqual(name_only['match']['function'], [])
+            self.assertEqual(name_only['match']['identity'], ['contrast'])
+            self.assertEqual(checks_only['match']['context'], ['contrast'])
+            self.assertIn('equal ranks do not establish a better method', found['scope'])
+
+    def test_exact_sdk_identifier_precedes_cross_references_and_deduplicates_query_terms(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            state = Path(temporary).resolve()
+            self.fixture(state, [('pennylane', 'Use qiskit for hardware-specific compilation'),
+                                 ('qiskit', 'Build quantum circuits')],
+                         [{'name': 'Quantum local', 'description': 'Shared Qiskit and PennyLane environment'}])
+            found = module.search(state, [' QISKIT ', 'qiskit'])
+            self.assertEqual(found['matches'][0]['name'], 'qiskit')
+            self.assertEqual(found['matches'][0]['match']['exact_identity'], ['qiskit'])
+            self.assertEqual(len(found['matches']), 3)
+
+    def test_word_boundaries_plural_and_literal_phrase_do_not_claim_semantic_matching(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            state = Path(temporary).resolve()
+            self.fixture(state, [('physical-check', 'Check units and uncertainty'),
+                                 ('unrelated', 'Community opportunities and unity'),
+                                 ('component-check', 'Review render props and plotting')])
+            for query in ('unit', 'units'):
+                found = module.search(state, [query])
+                self.assertEqual([row['name'] for row in found['matches']], ['physical-check'])
+            phrase = module.search(state, ['render props'])
+            self.assertEqual([row['name'] for row in phrase['matches']], ['component-check'])
+            self.assertEqual(phrase['matches'][0]['match']['function'], ['render props'])
+            self.assertEqual(module.search(state, ['plot'])['matches'], [])
+            self.assertEqual(module.search(state, ['render-props'])['matches'], [])
+
+    def test_legacy_alias_inside_functional_query_cannot_override_its_context(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            state = Path(temporary).resolve()
+            self.fixture(state, [('email-sequences', 'Write marketing emails'),
+                                 ('mail-reader', 'Read emails and extract requested facts'),
+                                 ('product-launch-strategy', 'Plan a product launch'),
+                                 ('application-runner', 'Launch an application and check readiness')])
+            index = state / 'native-skill-index.json'
+            rows = json.loads(index.read_text())
+            for row, alias in ((rows[0], 'emails'), (rows[2], 'launch')):
+                row.update(source_name=alias, aliases=[alias])
+            index.write_text(json.dumps(rows))
+            for terms, expected in ((['read', 'emails'], 'mail-reader'),
+                                    (['launch', 'application'], 'application-runner')):
+                found = module.search(state, terms)
+                self.assertEqual(found['matches'][0]['name'], expected)
+                self.assertTrue(all(not row['match']['exact_identity'] for row in found['matches']))
+            self.assertEqual(module.search(state, ['emails'])['matches'][0]['name'], 'email-sequences')
+
+    def test_name_overlap_does_not_leapfrog_equal_functional_evidence(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            state = Path(temporary).resolve()
+            self.fixture(state, [('z-first', 'Measure uncertainty'),
+                                 ('a-unit', 'Measure uncertainty')])
+            found = module.search(state, ['unit', 'uncertainty'])
+            self.assertEqual([row['name'] for row in found['matches']], ['z-first', 'a-unit'])
+            first, second = found['matches']
+            self.assertEqual(first['match']['rank'], second['match']['rank'])
+            self.assertEqual(first['match']['identity'], [])
+            self.assertEqual(second['match']['identity'], ['unit'])
 
 
 class CurrentSkillDiscoveryTests(unittest.TestCase):

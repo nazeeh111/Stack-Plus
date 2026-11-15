@@ -11,6 +11,18 @@ class NativeSetup(unittest.TestCase):
   saved=native.nstack.STATE;self.addCleanup(setattr,native.nstack,'STATE',saved)
  def args(self,home,state):
   return argparse.Namespace(home=str(home),state=str(state),only=['obsidian-markdown'],agent_reach=False,repository_docs=False,replace=True,vault=None)
+ def assert_source_bundle(self,entry,expected):
+  port=entry/native.skill_names.PORT_RECEIPT
+  changes=json.loads(port.read_text())['files'] if port.exists() else {}
+  for rel,(data,mode) in expected.items():
+   installed=(entry/rel).read_bytes()
+   if rel in changes:
+    self.assertEqual((entry/changes[rel]['original']).read_bytes(),data)
+    self.assertEqual(native.sha(installed),changes[rel]['after_sha256'])
+   elif rel=='SKILL.md':
+    source=native.skill_names.source_name(entry.name)
+    self.assertEqual(native.skill_names.entry_name(installed,source),native.skill_names.entry_name(data,source))
+   else:self.assertEqual(installed,data)
 
  def fixture(self,base):
   source=base/'source';entry=source/'skills/entry';entry.mkdir(parents=True)
@@ -49,7 +61,7 @@ class NativeSetup(unittest.TestCase):
    before=fingerprint(first)
    second,repeated=native.prepare(state,[],['agent-reach','repository-docs'])
    self.assertEqual(first,second);self.assertEqual(index,repeated)
-   self.assertEqual([r['name'] for r in index],['agent-reach','repository-docs'])
+   self.assertEqual([r['name'] for r in index],[native.skill_names.canonical('agent-reach'),'repository-docs'])
    self.assertEqual(fingerprint(second),before)
    self.assertEqual(json.loads((first/'NATIVE-MANIFEST.json').read_text())['inputs']['adaptation'],'full-bundle-natural-entry-v2')
  def test_durable_code_retains_complete_council_payload_bytes_and_source_modes(self):
@@ -102,19 +114,20 @@ class NativeSetup(unittest.TestCase):
    self.assertFalse(shared.exists());self.assertFalse((home/'.codex/AGENTS.md').exists())
  def test_guidance_addons_keep_support_repeat_and_dirty_rollback_without_runtime(self):
   for addon,reference in [('playwright-mcp','runtime.md'),('agent-orchestration','hosts.md')]:
+   exposed=native.skill_names.canonical(addon)
    with tempfile.TemporaryDirectory() as temp:
     base=pathlib.Path(temp).resolve();home=base/'home';home.mkdir();state=base/'state';source,leaf,r=self.fixture(base)
     legacy=home/'.agents/skills/own';legacy.mkdir(parents=True);(legacy/'SKILL.md').write_text('Original dirty user skill.\n');original=fingerprint(legacy.parent)
     config=home/'.codex/config.toml';config.parent.mkdir();config.write_text('model = "keep-model"\n');config_before=fingerprint(config)
     args=self.args(home,state);setattr(args,addon.replace('-','_'),True)
     with patch.object(native.nstack,'build',return_value=source),patch.object(native.nstack,'registered_release',return_value=(r,{},leaf)):
-     result=native.apply(args);shared=home/'.agents/skills';entry=shared/addon
-     self.assertEqual({p.name for p in shared.iterdir()},{'obsidian-markdown',addon})
+     result=native.apply(args);shared=home/'.agents/skills';entry=shared/exposed
+     self.assertEqual({p.name for p in shared.iterdir()},{'obsidian-markdown',exposed})
      self.assertEqual((entry/'references'/reference).read_bytes(),(ROOT/'addons'/addon/'references'/reference).read_bytes())
      self.assertEqual((entry/'SOURCE.json').read_bytes(),(ROOT/'addons'/addon/'SOURCE.json').read_bytes())
      self.assertEqual((shared/'obsidian-markdown/../../support.md').resolve().read_bytes(),(source/'support.md').read_bytes())
      self.assertFalse((entry/'agents/openai.yaml').exists())
-     self.assertEqual({row['name'] for row in json.loads((state/'native-skill-index.json').read_text())},{'obsidian-markdown',addon})
+     self.assertEqual({row['name'] for row in json.loads((state/'native-skill-index.json').read_text())},{'obsidian-markdown',exposed})
      journal=pathlib.Path(result['run'])/'journal.json';before=journal.read_bytes();self.assertFalse(native.apply(args)['changed']);self.assertEqual(journal.read_bytes(),before)
      self.assertEqual(fingerprint(config),config_before);self.assertFalse((state/'runtimes').exists());self.assertFalse((state/'native-tools').exists())
     subprocess.run([str(state/'rollback.sh')],check=True,capture_output=True)
@@ -148,8 +161,8 @@ class NativeSetup(unittest.TestCase):
    legacy=home/'.agents/skills/own';legacy.mkdir(parents=True);(legacy/'SKILL.md').write_text('Original dirty bytes\n');original=fingerprint(legacy.parent)
    args=self.args(home,state);args.llm_council=True
    with patch.object(native.nstack,'build',return_value=source),patch.object(native.nstack,'registered_release',return_value=(r,{},leaf)):
-    result=native.apply(args);shared=home/'.agents/skills';self.assertEqual({p.name for p in shared.iterdir()},{'obsidian-markdown','llm-council'})
-    entry=shared/'llm-council';self.assertTrue((entry/'references/contracts.md').is_file());self.assertTrue((entry/'references/five-lens.md').is_file())
+    result=native.apply(args);shared=home/'.agents/skills';self.assertEqual({p.name for p in shared.iterdir()},{'obsidian-markdown',native.skill_names.canonical('llm-council')})
+    entry=shared/native.skill_names.canonical('llm-council');self.assertTrue((entry/'references/contracts.md').is_file());self.assertTrue((entry/'references/five-lens.md').is_file())
     self.assertEqual(json.loads((entry/'SOURCE.json').read_text())['revision'],'55ee36e89e0f3f780099ac50332fbb3ec8d14738');self.assertTrue((entry/'private-source.json').is_file());self.assertTrue((entry/'scripts/fetch_source.py').is_file())
     subprocess.run([sys.executable,str(entry/'scripts/blind_review.py'),'--help'],check=True,capture_output=True)
     journal=pathlib.Path(result['run'])/'journal.json';before=journal.read_bytes();self.assertFalse(native.apply(args)['changed']);self.assertEqual(journal.read_bytes(),before)
@@ -160,10 +173,10 @@ class NativeSetup(unittest.TestCase):
    args=self.args(home,state);args.llm_council=True;args.roast_room=True;args.council_of_high_intelligence=True
    with patch.object(native.nstack,'build',return_value=source),patch.object(native.nstack,'registered_release',return_value=(r,{},leaf)):
     result=native.apply(args);shared=home/'.agents/skills';self.assertEqual(result['skills'],4)
-    self.assertEqual(len(list((shared/'roast-room/personas').glob('*.md'))),12)
-    self.assertEqual(len(list((shared/'council-of-high-intelligence/personas').glob('*.md'))),18)
+    self.assertEqual(len(list((shared/native.skill_names.canonical('roast-room')/'personas').glob('*.md'))),12)
+    self.assertEqual(len(list((shared/native.skill_names.canonical('council-of-high-intelligence')/'personas').glob('*.md'))),18)
     for name in ['llm-council','roast-room']:
-     self.assertTrue((shared/name/'private-source.json').is_file());self.assertTrue((shared/name/'scripts/fetch_source.py').is_file())
+     entry=shared/native.skill_names.canonical(name);self.assertTrue((entry/'private-source.json').is_file());self.assertTrue((entry/'scripts/fetch_source.py').is_file())
     self.assertFalse((state/'source-packs').exists());self.assertFalse((state/'native-tools').exists())
     before={p:fingerprint(p)for p in [shared,state/'native-skill-index.json',pathlib.Path(result['run'])/'journal.json']}
     self.assertFalse(native.apply(args)['changed'])
@@ -179,10 +192,7 @@ class NativeSetup(unittest.TestCase):
     result=native.apply(args);shared=home/'.agents/skills';self.assertEqual({p.name for p in shared.iterdir()},{'obsidian-markdown','code-security-review','strix-security-testing'})
     for name in ['cloudflare-security-audit','strix-security-testing']:
      exposed=native.skill_names.canonical(name);entry=shared/exposed;expected=native.addon_definition(name)['frozen_files']
-     for rel,(data,mode) in expected.items():
-      installed=(entry/rel).read_bytes()
-      if rel=='SKILL.md':self.assertEqual(native.skill_names.entry_name(installed,name),native.skill_names.entry_name(data,name))
-      else:self.assertEqual(installed,data)
+     self.assert_source_bundle(entry,expected)
      self.assertEqual(len(list(entry.rglob('SKILL.md'))),1)
     journals={p:fingerprint(p)for p in (state/'runs').glob('*/journal.json')};self.assertFalse(native.apply(args)['changed'])
     for p,old in journals.items():self.assertEqual(fingerprint(p),old)
@@ -194,7 +204,7 @@ class NativeSetup(unittest.TestCase):
    legacy=home/'.agents/skills/own';legacy.mkdir(parents=True);(legacy/'SKILL.md').write_text('uncommitted original\n');old=fingerprint(legacy.parent)
    args=self.args(home,state);args.skillspector=True
    with patch.object(native.nstack,'build',return_value=source),patch.object(native.nstack,'registered_release',return_value=(r,{},leaf)):
-    result=native.apply(args);entry=home/'.agents/skills/skillspector';self.assertEqual(result['skills'],2)
+    result=native.apply(args);entry=home/'.agents/skills'/native.skill_names.canonical('skillspector');self.assertEqual(result['skills'],2)
     self.assertTrue((entry/'upstream/ORIGINAL-SKILL.md').is_file());self.assertTrue((entry/'references/native-operation.md').is_file())
     provenance=json.loads((entry/'SOURCE.json').read_text());recipe=pathlib.Path(provenance['runtime_recipe']);self.assertTrue(recipe.is_relative_to(state/'releases'));self.assertEqual(recipe.read_bytes(),(ROOT/'recipes/skillspector.py').read_bytes())
     self.assertFalse((state/'native-tools/skillspector').exists());journal=pathlib.Path(result['run'])/'journal.json';before=journal.read_bytes();self.assertFalse(native.apply(args)['changed']);self.assertEqual(journal.read_bytes(),before)
@@ -205,8 +215,8 @@ class NativeSetup(unittest.TestCase):
    args=self.args(home,state);args.adaptive_routing=True;args.raea=True
    with patch.object(native.nstack,'build',return_value=source),patch.object(native.nstack,'registered_release',return_value=(r,{},leaf)):
     result=native.apply(args);shared=home/'.agents/skills'
-    self.assertEqual({p.name for p in shared.iterdir()},{'obsidian-markdown','01','raea'})
-    recipe=pathlib.Path(json.loads((shared/'raea/SOURCE.json').read_text())['runtime_recipe'])
+    self.assertEqual({p.name for p in shared.iterdir()},{'obsidian-markdown','01',native.skill_names.canonical('raea')})
+    recipe=pathlib.Path(json.loads((shared/native.skill_names.canonical('raea')/'SOURCE.json').read_text())['runtime_recipe'])
     self.assertTrue(recipe.is_relative_to(state/'releases'));self.assertEqual(recipe.read_bytes(),(ROOT/'recipes/raea.py').read_bytes())
     self.assertTrue((shared/'01/scripts/capabilities.py').is_file());self.assertFalse((state/'native-tools/raea').exists())
     journal=pathlib.Path(result['run'])/'journal.json';old=journal.read_bytes()

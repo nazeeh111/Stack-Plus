@@ -280,21 +280,49 @@ def inventory(state, skill_roots=None, host=None):
     return records, sources
 
 
+def metadata_matches(terms, text):
+    """Literal words/phrases and simple s-plurals, never arbitrary substrings."""
+    text = text.casefold()
+    matched = []
+    for term in terms:
+        forms = {term}
+        if term.isalpha():
+            forms.add(term + 's')
+            if len(term) > 3 and term.endswith('s') and not term.endswith('ss'):
+                forms.add(term[:-1])
+        if any(re.search(r'(?<!\w)' + re.escape(form) + r'(?!\w)', text) for form in forms):
+            matched.append(term)
+    return matched
+
+
 def search(state, terms, limit=8, skill_roots=None, host=None):
     records, sources = inventory(Path(state), skill_roots=skill_roots, host=host)
-    words = [word.casefold() for word in terms if word.strip()]
+    words = list(dict.fromkeys(word.strip().casefold() for word in terms if word.strip()))
     ranked = []
     for record in records:
-        text = ' '.join(str(record.get(key, '')) for key in
-                        ('name', 'source_name', 'aliases', 'description', 'activation', 'native_mcp', 'recorded_checks')).casefold()
-        score = sum(word in text for word in words)
-        if score:
-            ranked.append((score, record))
-    ranked.sort(key=lambda item: (-item[0], item[1]['kind'], item[1]['name']))
+        identities = [record.get('name', ''), record.get('source_name', ''), *record.get('aliases', [])]
+        exact = [word for word in words if len(words) == 1
+                 and word in [value.casefold() for value in identities]]
+        function = metadata_matches(words, ' '.join(record.get(key, '') for key in ('description', 'activation')))
+        identity = metadata_matches(words, ' '.join(identities))
+        context = metadata_matches(words, ' '.join(record.get(key, '') for key in ('native_mcp', 'recorded_checks')))
+        score = (bool(exact), len(function), len(identity) if not function else 0,
+                 len(context) if not function and not identity else 0)
+        if any(score):
+            ranked.append((score, {**record, 'match': {
+                'exact_identity': exact, 'function': function, 'identity': identity, 'context': context,
+                'rank': list(score),
+            }}))
+    # Equal evidence keeps inventory order; a brand's alphabetic position is not relevance.
+    ranked.sort(key=lambda item: item[0], reverse=True)
     return {'matches': [row for _, row in ranked[:limit]], 'total_matches': len(ranked), 'host': active_host(host),
             'sources': sources,
             'scope': 'Fresh local metadata discovery only. A record or current file does not prove host '
                      'enablement, callability, authorization or successful execution. '
+                     'Whole-query exact identities rank first; functional matches tie on functional evidence. '
+                     'Identity/check-only matches are fallback; '
+                     'equal ranks do not establish a better method. Word/phrase and simple s-plural matches '
+                     'are lexical, not semantic. '
                      'Connected host tools and plugins require native discovery separately.'}
 
 

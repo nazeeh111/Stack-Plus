@@ -87,8 +87,18 @@ use Codex/OpenCode entries, and derived Claude releases use Claude entries.
 keeps coexisting variants from crowding the same result list; it does not grant
 tools from one host to another.
 
-The helper matches literal terms; short concepts and synonyms can recover a
-weak phrase query before a missing capability is assumed.
+The helper matches words, phrases and simple plurals. A whole-query identifier
+prioritizes its exact canonical/source/legacy identity. Aspect queries prefer
+functional descriptions; extra name or old-check matches do not break a tie
+between equally supported functions. The returned match evidence explains the
+lookup, not which method is best. Refine weak matches with alternate concepts or
+word forms before assuming a capability is missing.
+
+When prior context matters, 01 reads the configured shared Home and owning note
+before choosing the approach. It saves only new useful durable decisions or
+corrections, links related notes and reads the update back. A file path alone
+does not load the note's contents. This routine remains selective and respects
+the active host's knowledge and write authority.
 
 This file discovery does not establish host enablement, permissions, current
 runtime callability or that a method actually ran. Native connected-tool/plugin

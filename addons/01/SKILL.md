@@ -1,34 +1,40 @@
 ---
 name: '01'
-description: Own adaptive workflow selection and execution for the active session when explicitly invoked.
+description: Choose and apply useful skills and tools, execute the task, and verify the result when explicitly invoked for the chat.
 metadata:
   opencode/autoinvoke: false
 ---
 
 # 01
 
-Invoke once for this chat, including follow-ups and resumed work, until disabled. The user supplies the outcome; own workflow selection and execution through completion. Preserve the active native host and the user's model, effort, scope and authority. Handle routine work directly.
+Invoke once for this chat, including follow-ups and resumed work, until disabled. Own workflow selection and execution through completion. Preserve the user's host, model, effort, scope and authority. Handle routine requests directly.
 
-## Select and adapt
+## Start from the result and context
 
-Use relevant current project context and the host's shared knowledge routine when prior decisions or preferences could affect the work. Derive relevant quality dimensions from the intended result, audience, current artifact and constraints. For “maximize every aspect,” look for neglected assumptions, useful alternatives and weak aspects beyond the literal task keywords. Search current capability descriptions by the improvement needed in each consequential aspect, not only the artifact's name or the skills used previously. Consider expertise outside the task's usual discipline: a method can improve one decision or check without taking over the whole workflow. Treat names as labels; compare what methods contribute, including complementary expertise with different labels. Categories remain temporary views.
+When prior decisions, preferences or project context could affect the work, read the configured shared Home and the relevant owning note before choosing an approach. Follow their sources, resolve stale or conflicting evidence, and carry forward only relevant context. A note path or directory listing alone does not put its contents into the working context.
 
-For specialist work, choose relevant expertise before committing to the approach. Consider native tools, connected plugins/MCPs, installed skills, available frameworks and callable runtimes together. Compare useful improvement against added complexity, latency and context; familiarity and novelty alone are not reasons to select a method. Read the selected complete SKILL.md and needed support, then apply its method and helpers. Judge use by a changed decision, artifact or verification, not by mentions or how many skills were loaded. Leave skills unused when they add no useful improvement; do not rotate them to meet a quota.
+Derive the needed improvements from the outcome, audience, current artifact and constraints. For broad quality requests, look for weak assumptions, missing alternatives and neglected dimensions beyond the task's literal wording. Form the capability need before looking for a skill name.
 
-For larger work, decide which skills and tools each part needs, their inputs, what they should produce and how you will check it. Follow dependencies and execute. Keep the plan internal or in the existing task entrypoint. Give workflow advice alone only when requested.
+## Select useful contributions
 
-Use native discovery for current connected capabilities. If summaries are insufficient, search live skill metadata and nstack's recorded indexes:
+Compare plausible methods by what they do, require, produce and check. Names and source families identify methods; they do not determine priority or limit which tasks can benefit. A method may improve one decision, transformation or check without owning the whole workflow. Look across disciplines when complementary expertise could improve a consequential weak aspect.
 
-    python3 "<this-skill>/scripts/capabilities.py" ARTIFACT OPERATION FAILURE
+Consider native tools, connected plugins/MCPs, skills and recorded runtimes together. For specialist work, examine relevant expertise before committing to an approach. Read the selected complete SKILL.md and needed support, inspect its actual interface and prerequisites, then apply it. Compare expected improvement against complexity, latency and context. Familiarity, novelty and skill counts alone do not justify a choice. Leave methods unused when they add no useful value.
 
-Resolve this skill's actual folder. Keep discovery output focused: use bounded metadata matches instead of verbose directory listings or bulk skill-body dumps. The helper refreshes skill metadata without a maintained category list; it does not inventory every connected capability or prove host enablement. Inspect matched instructions and the actual interface; metadata is not execution. The helper matches literal terms. Refine weak matches with short concepts or synonyms before concluding that a capability is missing. For a remaining gap, apply find-skills; carry a justified project-scoped acquisition through verification and task use within existing authority. Search beyond the installed toolkit only when it cannot meet the concrete need. Review source, dependencies, rights and permissions before a free addition; keep private context out of external searches and heavy dependencies project-scoped. Preserve native opt-ins and trial/substitute conditions.
+Use current native summaries first. If they are insufficient, search fresh metadata by short concepts describing the improvement, operation or failure:
 
-Track the outcome, bottleneck and success evidence. Reconsider the route when the task changes discipline or stage, an attempt fails, inputs change or a better option has evidence. Keep, combine, replace or drop methods according to expected quality, correctness, availability, reliability, permissions and how well they fit together. Resolve a consequential unknown with a small probe. Reuse valid work; avoid repeated catalog scans or reopening settled choices without new evidence.
+    python3 "<this-skill>/scripts/capabilities.py" CONCEPT OPERATION FAILURE
 
-## Coordinate and finish
+Resolve this skill's actual folder. Keep lookup output bounded; read full bodies only for relevant candidates. The helper searches current user/project skill metadata and nstack's recorded indexes, not every connected capability. It prioritizes exact identifiers and functional descriptions, with match evidence. It matches words, phrases and simple plurals. Refine weak searches with alternate concepts or word forms. A high rank or first result is a retrieval lead, not a decision that the method is best; compare actual contributions and constraints.
 
-Use specialists when depth, parallel work or independent review earns the cost. Sequence dependent work and parallelize independent parts. Give each the outcome, relevant skill/support paths, current artifacts, owned scope, authority and required evidence. Reuse useful workers and keep one writer per shared artifact. Check handoffs before integration. Give independent reviewers minimal context and raw artifacts without the favored conclusion. Work directly when delegation is unavailable.
+Native discovery and real checks must establish enablement, callability and prerequisites. If a concrete gap remains, use find-skills and carry a justified acquisition through source/dependency/rights review, verification and actual use within existing authority. Keep private context out of external searches and heavy dependencies project-scoped. Preserve native opt-ins and trial conditions.
 
-Carry the route through actual execution and check the current deliverable against its requirements. Reconcile uncertain external state before retrying an action. Record useful durable decisions and corrections in their owning note, linking related notes. Deliver once the requirements pass and material uncertainty is resolved; do not add a team, framework or further audit by default.
+## Execute, adapt and finish
 
-For substantial work, retain the route, current inputs, verified work, next action and 01's session scope in the existing task entrypoint. Use authorized host memory for scoped lessons; do not create another memory system or rewrite 01 autonomously. Ask only for required access, spending or a consequential decision. Report a real block and supported partial result honestly.
+For substantial work, decide which parts need which expertise, their inputs, outputs and checks. Sequence dependencies; parallelize independent work when its benefit earns the cost. Give specialists the outcome, relevant skill/support paths, current artifacts, owned scope, authority and evidence required. Keep one writer per shared artifact. Reuse useful workers and check their handoffs. Give independent reviewers raw artifacts and minimal context without the favored conclusion. Work directly when delegation is unavailable.
+
+Track the outcome and bottleneck. Reconsider methods when the task changes stage or discipline, an attempt fails, inputs change or a better option has evidence. Keep, combine, replace or drop methods according to fit, quality, correctness, availability, reliability and permissions. Resolve consequential unknowns with small probes and reuse valid work. Avoid repeated catalogue scans and reopening settled choices without new evidence.
+
+Execute the work and check the current deliverable against the request. Reconcile uncertain external effects before retrying. When shared knowledge applies, save only new useful durable decisions or corrections in the owning note, link related notes and read back the update. Skip routine transcripts and already recorded material. Keep generated host memory separate.
+
+Retain material state and the next action in the existing task entrypoint. Ask only for required access, spending or a consequential missing decision. Report failed checks and real blocks honestly. Deliver once requirements pass and material uncertainty is resolved; add no further team, framework or audit by default. Give workflow advice alone only when requested. Do not rewrite 01 autonomously.

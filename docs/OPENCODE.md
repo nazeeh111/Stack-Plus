@@ -38,6 +38,17 @@ configuration, or rewrites existing JSONC. Existing customized configurations
 require a scoped manual merge rather than an automatic reset.
 
 Local hosts share canonical Markdown knowledge and project task handoffs.
+For relevant prior context, read the shared Home and owning project note before
+planning. OpenCode's native file selector or `opencode run --file
+/absolute/vault/Projects/Project.md "task"` can supply a selected note's contents.
+A linked path or directory attachment does not provide that note text. Keep this
+task context as evidence, with its owner and source checks, rather than adding
+the whole vault to privileged global instructions. Native context admission
+was checked with `session.prompt` and `resume:false`, decoded bytes matching
+the selected notes, and no model execution. This proves assisted context
+delivery; the earlier local-model automatic retrieval/capture failures remain
+open. [Native attachments](https://opencode.ai/docs/attachments/).
+
 The shared AGENTS.md supplies the same relevance-based lookup and durable-note
 capture behavior to both hosts. OpenCode V2 [documents global instruction updates](https://opencode.ai/docs/instructions/#updates)
 before its next model request; start a fresh Codex session after editing it.

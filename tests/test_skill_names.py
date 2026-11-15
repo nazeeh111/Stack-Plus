@@ -24,22 +24,32 @@ class SkillNames(unittest.TestCase):
         self.base = Path(self.temporary.name).resolve()
         previous = native.nstack.STATE
         self.addCleanup(setattr, native.nstack, 'STATE', previous)
+        self.actual_host_lines = names.HOST_LINES
+        bindings = patch.object(names, 'HOST_LINES', {})
+        bindings.start()
+        self.addCleanup(bindings.stop)
 
     def sources(self):
         """Synthetic complete sources at the real selection/build boundary, offline."""
         selected = dict(native.selection())
         builds, receipts, payloads, addons = {}, {}, {}, {}
         addon_flags = self.addon_flags()
-        for source_name, exposed in names.RENAMES.items():
+        for source_name in sorted(set(names.RENAMES) | set(addon_flags)):
+            exposed = names.canonical(source_name)
             root = self.base / 'sources' / source_name
             entry = Path('skills') / source_name
             if source_name == 'product-marketing':
                 entry = Path('.')
             elif source_name == 'synthesize-research':
                 entry = Path('product-management/skills/synthesize-research')
+            host_entries = [Path(path).parent for path in names.HOST_INVOCATIONS.get(source_name, {})
+                            if Path(path).name == 'SKILL.md']
+            if len(host_entries) == 1:
+                entry = host_entries[0]
             skill = root / entry / 'SKILL.md'
             skill.parent.mkdir(parents=True)
-            skill.write_text('---\nname: ' + source_name + '\ndescription: Original method\n---\n'
+            source_description = names.DESCRIPTIONS.get(source_name, {}).get('source', 'Original method')
+            skill.write_text('---\nname: ' + source_name + '\ndescription: ' + source_description + '\n---\n'
                              '# Original ' + source_name + '\n')
             if source_name == 'product-marketing':
                 skill.write_text(skill.read_text() + 'Run `/product-marketing` anytime to update.\nData: `.agents/product-marketing.md`.\n')
@@ -55,6 +65,14 @@ class SkillNames(unittest.TestCase):
                 (root / 'README.md').write_text('In Claude Code, type `/unslop`. In Codex, type `$unslop`.\n'
                                                '```\n/unslop this dashboard\n```\n'
                                                'Copy `skills/unslop` to `~/.claude/skills/unslop`.\n')
+            for relative, bindings in names.HOST_INVOCATIONS.get(source_name, {}).items():
+                path = root / relative
+                path.parent.mkdir(parents=True, exist_ok=True)
+                text = path.read_text() if path.exists() else ''
+                for literal in bindings:
+                    if literal not in text:
+                        text += '\n' + literal + '\n'
+                path.write_text(text)
             files = {str(p.relative_to(root)): p.read_bytes() for p in root.rglob('*') if p.is_file()}
             payloads[source_name] = (entry, files)
             if source_name in addon_flags:
@@ -72,25 +90,31 @@ class SkillNames(unittest.TestCase):
         return builds, receipts, payloads, addons
 
     def addon_flags(self):
-        return {name: flag.replace('-', '_') for flag, entries in claude.ADDONS.items()
-                for name in entries if name in names.RENAMES}
+        import academic_addon, ecc_addon
+        flags = {name: flag.replace('-', '_') for flag, entries in claude.ADDONS.items() for name in entries}
+        flags.update({name: 'academic_research' for name in academic_addon.DESCRIPTIONS})
+        flags.update({name: 'ecc' for name in ecc_addon.DESCRIPTIONS})
+        enabled = {flag for name, flag in flags.items() if name in names.RENAMES}
+        return {name: flag for name, flag in flags.items() if flag in enabled}
 
     def args(self, home, state, legacy=False):
         addon_flags = self.addon_flags()
+        enabled = {'agent_reach': False, 'repository_docs': False}
+        enabled.update({flag: True for flag in addon_flags.values()})
         return argparse.Namespace(home=str(home), state=str(state),
                                   only=[source if legacy else exposed for source, exposed in names.RENAMES.items()
                                         if source not in addon_flags],
-                                  agent_reach=False, repository_docs=False, replace=True, vault=None,
-                                  **{flag: True for flag in addon_flags.values()})
+                                  replace=True, vault=None, **enabled)
 
     def assert_payloads(self, index, payloads, claude_host=False):
-        self.assertEqual(len(index), len(names.RENAMES))
+        self.assertEqual(len(index), len(payloads))
         by_name = {row['name']: row for row in index}
-        self.assertEqual(set(by_name), set(names.RENAMES.values()))
-        for source, exposed in names.RENAMES.items():
+        self.assertEqual(set(by_name), {names.canonical(source) for source in payloads})
+        for source in payloads:
+            exposed = names.canonical(source)
             row = by_name[exposed]
             self.assertEqual(row['source_name'], source)
-            self.assertEqual(row['aliases'], [source])
+            self.assertEqual(row['aliases'], [source] if source != exposed else [])
             self.assertEqual(row['source_path'], str(payloads[source][0]) if source in self.addon_flags()
                              else dict(native.selection())[exposed]['source_path'])
             active = Path(row['skill_path'])
@@ -112,7 +136,7 @@ class SkillNames(unittest.TestCase):
                     elif source == 'product-marketing':
                         self.assertIn(b'`/product-marketing-context`', installed)
                         self.assertIn(b'`.agents/product-marketing.md`', installed)
-                    else:
+                    elif source == 'synthesize-research':
                         self.assertIn(b'/user-research-synthesis $ARGUMENTS', installed)
                     continue
                 if relative == str(entry / 'SKILL.md'):
@@ -226,15 +250,56 @@ class SkillNames(unittest.TestCase):
         files = {path: (original, 0o444), 'upstream/' + path: (original, 0o444),
                  'LICENSE': (b'Original rights notice.\n', 0o444),
                  'scripts/example.sh': (b'agent-browser skills get core\n', 0o555)}
-        rendered = names.expose_files('hyperframes-cli', files)
+        scoped = {'hyperframes-cli': {path: names.HOST_INVOCATIONS['hyperframes-cli'][path]}}
+        with patch.object(names, 'HOST_INVOCATIONS', scoped):
+            rendered = names.expose_files('hyperframes-cli', files)
         self.assertEqual(rendered[path][0], original.replace(b'see the `media-use` skill', b'see the `hyperframes-media` skill'))
         for relative in set(files) - {path}:
             self.assertEqual(rendered[relative], files[relative])
         self.assertEqual(rendered[names.ORIGINALS + '/' + path + '.original'][0], original)
         self.assertFalse(any(Path(relative).name == 'SKILL.md' for relative in set(rendered) - set(files)))
         self.assertEqual(names.expose_files('codex-skill', {'references/commands/cli-anything.md': (b'agent-harness/cli_anything/<software>/core', 0o444)})['references/commands/cli-anything.md'][0], b'agent-harness/cli_anything/<software>/core')
-        with self.assertRaisesRegex(ValueError, 'anchor missing'):
-            names.expose_files('hyperframes-cli', {path: (b'Changed upstream instructions.\n', 0o444)})
+        with patch.object(names, 'HOST_INVOCATIONS', scoped):
+            with self.assertRaisesRegex(ValueError, 'anchor missing'):
+                names.expose_files('hyperframes-cli', {path: (b'Changed upstream instructions.\n', 0o444)})
+            with self.assertRaisesRegex(ValueError, 'file missing'):
+                names.expose_files('hyperframes-cli', {})
+
+    def test_line_guards_preserve_same_line_wire_tokens_unicode_and_crlf_and_reject_drift(self):
+        text = 'Café ☕: use `gcloud` skill; binary `gcloud` and ~/career-ops stay.'
+        literal = '`gcloud`'
+        plan = {'fixture': {'guide.md': {'1': {'sha256': native.sha(text.encode()),
+                'edits': [{'offset': text.index(literal), 'literal': literal, 'source': 'gcloud'}]}}}}
+        raw = (text + '\r\n').encode()
+        with patch.object(names, 'HOST_LINES', plan):
+            rendered = names.expose_files('fixture', {'guide.md': (raw, 0o444)})
+            expected = text.replace(literal, '`google-cloud-cli`', 1) + '\r\n'
+            self.assertEqual(rendered['guide.md'][0], expected.encode())
+            self.assertEqual(rendered[names.ORIGINALS + '/guide.md.original'][0], raw)
+            with self.assertRaisesRegex(ValueError, 'file missing'):
+                names.expose_files('fixture', {})
+            with self.assertRaisesRegex(ValueError, 'preimage changed'):
+                names.expose_files('fixture', {'guide.md': (b'Changed source.\n', 0o444)})
+            plan['fixture']['guide.md']['1']['edits'][0]['offset'] += 1
+            with self.assertRaisesRegex(ValueError, 'offset changed'):
+                names.expose_files('fixture', {'guide.md': (raw, 0o444)})
+
+    def test_public_line_policy_contains_only_coordinates_tokens_and_hashes(self):
+        for source, files in self.actual_host_lines.items():
+            for relative, lines in files.items():
+                self.assertFalse(Path(relative).is_absolute())
+                self.assertNotIn('..', Path(relative).parts)
+                for number, record in lines.items():
+                    self.assertGreater(int(number), 0)
+                    self.assertEqual(set(record), {'sha256', 'edits'})
+                    self.assertEqual(len(record['sha256']), 64)
+                    end = 0
+                    for edit in record['edits']:
+                        self.assertEqual(set(edit), {'offset', 'literal', 'source'})
+                        self.assertGreaterEqual(edit['offset'], end)
+                        self.assertIn(edit['source'], edit['literal'])
+                        self.assertNotIn('\n', edit['literal'])
+                        end = edit['offset'] + len(edit['literal'])
 
     def test_gstack_function_descriptions_are_freshly_discoverable_without_changing_source_bodies(self):
         selected = dict(native.selection())
@@ -249,16 +314,16 @@ class SkillNames(unittest.TestCase):
             receipt = {'content_sha256': name, 'builder_sha256': 'fixture', 'entry_dir': '.',
                        'files': {p.name: native.sha(p.read_bytes()) for p in root.iterdir()}}
             (root / '.nstack-release.json').write_text(json.dumps(receipt, sort_keys=True, indent=2) + '\n')
-            spec = selected[name]
+            spec = selected[names.canonical(name)]
             sources[(spec['candidate_id'], spec['source_path'])] = root
             receipts[root] = (receipt, {}, spec)
         state = self.base / 'state'
         with patch.object(native.nstack, 'build', side_effect=lambda candidate, path: sources[(candidate, path)]), \
                 patch.object(native.nstack, 'registered_release', side_effect=lambda root: receipts[root]):
-            release, index = native.prepare(state, [(name, selected[name]) for name in names.DESCRIPTIONS], [])
+            release, index = native.prepare(state, [(names.canonical(name), selected[names.canonical(name)]) for name in names.DESCRIPTIONS], [])
         for row in index:
             active = Path(row['skill_path'])
-            original = (self.base / row['name'] / 'SKILL.md').read_bytes()
+            original = (self.base / row['source_name'] / 'SKILL.md').read_bytes()
             self.assertEqual(active.read_bytes().split(b'---', 2)[2], original.split(b'---', 2)[2])
             port = json.loads((active.parent / names.PORT_RECEIPT).read_text())['files']['SKILL.md']
             self.assertEqual((active.parent / port['original']).read_bytes(), original)
@@ -266,7 +331,7 @@ class SkillNames(unittest.TestCase):
         (state / 'native-skill-index.json').write_text(json.dumps(index))
         helper = ROOT / 'addons/01/scripts/capabilities.py'
         found = json.loads(subprocess.check_output([sys.executable, str(helper), '--state', str(state), 'problem framing'], text=True))
-        self.assertEqual([row['name'] for row in found['matches']], ['gstack-office-hours'])
+        self.assertEqual([row['name'] for row in found['matches']], [names.canonical('gstack-office-hours')])
         self.assertIn('design partner', found['matches'][0]['description'])
 
 

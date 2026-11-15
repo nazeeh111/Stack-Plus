@@ -143,6 +143,7 @@ class ClaudeSetup(unittest.TestCase):
 
     def test_guidance_addons_keep_support_implicit_discovery_repeat_and_rollback_without_config(self):
         for addon, reference in [('playwright-mcp', 'runtime.md'), ('agent-orchestration', 'hosts.md')]:
+            exposed = native.skill_names.canonical(addon)
             with tempfile.TemporaryDirectory() as temporary:
                 base = Path(temporary).resolve()
                 home, state = base / 'home', base / 'state'
@@ -159,14 +160,14 @@ class ClaudeSetup(unittest.TestCase):
                 with p1, p2:
                     args = self.args(home, state, **{addon.replace('-', '_'): True})
                     result = claude.apply(args)
-                    entry = home / '.claude/skills' / addon
+                    entry = home / '.claude/skills' / exposed
                     self.assertEqual(result['skills'], 2)
                     self.assertEqual((entry / 'references' / reference).read_bytes(),
                                      (ROOT / 'addons' / addon / 'references' / reference).read_bytes())
                     self.assertEqual((entry / 'SOURCE.json').read_bytes(),
                                      (ROOT / 'addons' / addon / 'SOURCE.json').read_bytes())
                     row = next(row for row in json.loads((state / 'claude-skill-index.json').read_text())
-                               if row['name'] == addon)
+                               if row['name'] == exposed)
                     self.assertFalse(row['manual_only'])
                     self.assertEqual(fingerprint(own), before)
                     self.assertEqual(fingerprint(settings), settings_before)
