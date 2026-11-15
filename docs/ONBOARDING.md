@@ -60,7 +60,7 @@ missing information, including rights or vault access; no questionnaire is neede
 
 Run relevant portable/adapter checks, verify complete support and native loading
 in a fresh ordinary session, and retain the reported recovery helper. An identical
-repeat must preserve owned bytes and its journal. Invoke `$01` in Codex or `/01`
+repeat must preserve owned bytes and its journal. Select `$01` in Codex, `@01` in OpenCode's skill picker or `/01`
 in Claude once for that chat, then verify useful real workflows and report actual
 limits. Isolated adapter tests cannot prove the friend's native Claude tools or
 permissions work. Finish with a brief usage and recovery handoff.

@@ -80,7 +80,33 @@ def addon_files(spec):
     # The original source receipt no longer seals the adapted bytes.
     if ".nstack-source.json" in files:
         files["UPSTREAM-SOURCE.json"] = files.pop(".nstack-source.json")
+    if "exposure_name" in spec:
+        name = spec["exposure_name"]
+        source = skill_names.source_name(name)
+        files = skill_names.expose_files(source, files, str(spec["entry"] / "SKILL.md"),
+                                         name if name != source else None)
     return files
+
+def leaf_files(name, source, receipt):
+    files = {}
+    for file in source.rglob("*"):
+        if file.is_symlink():
+            raise ValueError("Linked original selected source is not allowed")
+        if not file.is_file():
+            continue
+        rel = str(file.relative_to(source))
+        if rel == ".nstack-release.json":
+            raw = (json.dumps(receipt, sort_keys=True, indent=2, ensure_ascii=False) + "\n").encode()
+            if file.read_bytes() != raw:
+                raise ValueError("Original selected receipt changed during preparation")
+            files["UPSTREAM-RELEASE.json"] = (raw, 0o444)
+            continue
+        raw = file.read_bytes()
+        if sha(raw) != receipt["files"][rel]:
+            raise ValueError("Original selected source changed during preparation: " + rel)
+        files[rel] = (raw, 0o555 if file.stat().st_mode & 0o111 else 0o444)
+    entry = str(P(receipt.get("entry_dir", ".")) / "SKILL.md")
+    return skill_names.expose_files(skill_names.source_name(name), files, entry, name)
 
 def index_rows(originals, addons, release):
     rows = []
@@ -91,7 +117,7 @@ def index_rows(originals, addons, release):
             "source_path": s["source_path"], "license": s["rights"],
             "skill_path": str(release / "bundles" / name / r.get("entry_dir", ".") / "SKILL.md"),
             "deployment": "on demand",
-            "installation_adaptation": "Natural entry name; complete reviewed support bundle retained.",
+            "installation_adaptation": "Canonical exposure name and reviewed host invocations; complete support, source coordinates and changed originals retained.",
         })
     for name in sorted(addons):
         spec = addons[name]
@@ -109,21 +135,17 @@ def expected_tree(originals, addons, release, index):
     for name, _, source, receipt in originals:
         prefix = P("bundles") / name
         add_directory(prefix)
-        entry = P(receipt.get("entry_dir", ".")) / "SKILL.md"
-        original_entry = (source / entry).read_bytes()
-        if sha(original_entry) != receipt["files"][str(entry)]:
-            raise ValueError("Original selected entry changed during preparation")
-        adapted = skill_names.entry_name(original_entry, name)
         for file in source.rglob("*"):
             rel = file.relative_to(source)
             if file.is_dir():
                 add_directory(prefix / rel)
-            elif file.name == ".nstack-release.json" and file.parent == source:
-                raw = (json.dumps(receipt, sort_keys=True, indent=2, ensure_ascii=False) + "\n").encode()
-                expected[str(prefix / "UPSTREAM-RELEASE.json")] = {"sha256": sha(raw), "mode": 0o444}
-            elif file.is_file():
-                digest = sha(adapted) if rel == entry else receipt["files"][str(rel)]
-                expected[str(prefix / rel)] = {"sha256": digest, "mode": 0o555 if file.stat().st_mode & 0o111 else 0o444}
+        for rel, (data, mode) in leaf_files(name, source, receipt).items():
+            path = prefix / rel
+            for parent in path.parents:
+                if parent == P("."):
+                    break
+                add_directory(parent)
+            expected[str(path)] = {"sha256": sha(data), "mode": mode}
         expected[str(P("skills") / name)] = {"link": str(release / prefix / receipt.get("entry_dir", "."))}
     for name in addons:
         prefix = P("bundles") / name
@@ -149,12 +171,7 @@ def prepare(state, chosen, addons):
         raise ValueError("Canonical skill names collide")
     addons = {name: addon_definition(skill_names.source_name(name)) for name in addon_names}
     for name, spec in addons.items():
-        if name != skill_names.source_name(name):
-            # Rename only the exposed entry. Preserve all source paths, support,
-            # attribution, receipts and authored adapter originals.
-            entry = str(spec["entry"] / "SKILL.md")
-            raw = addon_files(spec)[entry][0]
-            spec["overrides"] = {**spec["overrides"], entry: skill_names.entry_name(raw, name)}
+        spec["exposure_name"] = name
     originals = []
     for name, s in chosen:
         release = nstack.build(s["candidate_id"], s["source_path"])
@@ -189,12 +206,16 @@ def prepare(state, chosen, addons):
             copy_generated_tree(source, dest)
             dest.chmod(0o755)
             entry = dest / r.get("entry_dir", ".")
-            skill = entry / "SKILL.md"
-            skill.chmod(0o600)
-            skill.write_bytes(skill_names.entry_name(skill.read_bytes(), name))
-            skill.chmod(0o444)
             # Keep the original recipe receipt as provenance, not a seal on renamed bytes.
             (dest / ".nstack-release.json").rename(dest / "UPSTREAM-RELEASE.json")
+            for rel, (data, mode) in leaf_files(name, source, r).items():
+                file = dest / rel
+                if not file.exists() or file.read_bytes() != data:
+                    file.parent.mkdir(parents=True, exist_ok=True)
+                    if file.exists():
+                        file.chmod(0o600)
+                    file.write_bytes(data)
+                file.chmod(mode)
             from closure import validate
             from patch_native34 import adapter as adapter34
             validate(dest, provenance_roots=("upstream",) if adapter34(s) else ())

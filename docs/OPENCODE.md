@@ -10,7 +10,7 @@ opencode mcp list
 ```
 
 The adapter baseline was checked against OpenCode 2.2.6. Shared skill discovery,
-including Playwright MCP and explicit 01 selection, was also checked in 2.3.0. It uses the installed desktop
+including Playwright MCP and 01's explicit-selection policy, was also checked in 2.3.0. It uses the installed desktop
 CLI, not another package installation. Pass `--cli /absolute/executable` for a
 different existing V2 installation. The selected model, provider, effort,
 credentials, conversations and native permissions are untouched.
@@ -23,6 +23,10 @@ automation without activating another global MCP connection. Its global
 Review that shared file for host-specific assumptions first. The optional
 `templates/AGENTS.md` is a concise starting point, not an automatic replacement
 for user preferences. The native installer continues to manage its nstack block.
+
+Select **@01** through OpenCode's skill picker once for the chat. This attaches its instructions; Codex's `$01` syntax is not an OpenCode skill attachment. In a scripted `opencode run`, explicitly ask the model to load skill ID `01` with its `skill` tool, or use a native session prompt with `skills: [{"id":"01"}]`. [Skill loading](https://opencode.ai/docs/skills/#loading).
+
+When starting OpenCode 2.3.0 from another program, set both the child's working directory and its `PWD` environment value to the intended project. Its CLI uses inherited `PWD` before `process.cwd()`; changing only a Python subprocess's `cwd` can target the caller's project. Ordinary shells maintain `PWD` already. [Pinned CLI behavior](https://github.com/anomalyco/opencode/blob/a6b15d33daf6ab7d35569f6d711fdb630b9f04e7/packages/cli/src/run/run.ts#L62).
 
 A small V2 configuration disables background warming and connects the existing
 free Context7 and GitMCP endpoints. If the selected Serena runtime is present,
@@ -126,16 +130,13 @@ current effective permissions when cleaning up redundant fields.
 
 ## Permissions and secrets
 
-OpenCode 2.3.0 already has a permission chooser in its **terminal interface**:
-`/settings` (or Ctrl+P → Open settings), then **Session → Permissions**:
-**prompt** or **auto accept**. This saves the CLI preference, despite the
-Session label. For a temporary launch use `opencode --auto`; for one scripted
-run use `opencode run --auto "Your task"`. Auto approval answers once within
-that client's session tree and leaves explicit denials in force. Ordinary prompts
-also offer once, project-pattern always, or reject. No extra skill or approval
-wrapper is required. These controls do not grant macOS privacy permissions;
-desktop-menu equivalence was not tested. [Pinned native chooser](https://github.com/anomalyco/opencode/blob/a6b15d33daf6ab7d35569f6d711fdb630b9f04e7/packages/tui/src/component/dialog-config.tsx#L155),
-[approval semantics](https://opencode.ai/docs/permissions/#approvals).
+OpenCode 2.3.0 has built-in approval choices, with separate desktop and terminal preferences:
+
+- **Desktop:** Settings → Preferences → General → **Auto-accept permissions** sets the app default. Projects can override it in their settings. It can answer requests from other active sessions on the connected server, including sessions this window has not opened.
+- **Terminal:** `/settings` (or Ctrl+P → Open settings) → **Session → Permissions** chooses **prompt** or **auto accept**. Despite the Session label, this saves the global CLI preference. It is independent of the desktop setting.
+- **One launch or script:** `opencode --auto` or `opencode run --auto "Your task"`. The scripted client's own auto acceptance requires this flag; it does not read the saved desktop or terminal preference. A connected desktop can independently answer requests on that same server.
+
+Auto acceptance answers once and leaves explicit denials in force. The terminal and scripted clients limit their own replies to their session tree; the desktop follows the connected server's project settings as described above. Ordinary prompts also offer once, project-pattern always, or reject. No extra skill or approval wrapper is required. These choices do not grant macOS privacy permissions. Use the native settings controls to preserve other preferences and any legacy migration; the installer does not silently enable auto acceptance. [Desktop setting](https://github.com/anomalyco/opencode/blob/a6b15d33daf6ab7d35569f6d711fdb630b9f04e7/packages/app/src/settings/general/general.tsx#L24), [desktop request scope](https://github.com/anomalyco/opencode/blob/a6b15d33daf6ab7d35569f6d711fdb630b9f04e7/packages/app/src/session/requests/auto-approve.ts#L170), [terminal chooser](https://github.com/anomalyco/opencode/blob/a6b15d33daf6ab7d35569f6d711fdb630b9f04e7/packages/tui/src/component/dialog-config.tsx#L155), [approval semantics](https://opencode.ai/docs/permissions/#approvals).
 
 Shared instructions do not give OpenCode Codex's operating-system sandbox.
 [OpenCode permissions](https://opencode.ai/docs/permissions/) and

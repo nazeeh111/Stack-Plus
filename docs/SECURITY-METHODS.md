@@ -7,7 +7,7 @@ changes the selected model, credentials, host permissions or routine review.
 
 [Cloudflare security-audit-skill](https://github.com/cloudflare/security-audit-skill/tree/c1c8a8c1471069fb0e188eeaff69b8e8db6564a8)
 is a repository audit method, not a Cloudflare account integration. Its licensed
-support library, report schema and offline validators are included. Native
+support library, report schema and offline validators are included. Discovery exposes it as `code-security-review`; the source and install flag keep their original names. Native
 scheduling retains all reconnaissance lenses and independent validation.
 Running target code requires the method's actual isolation and artifact
 promotion controls; installing the skill does not create those controls.

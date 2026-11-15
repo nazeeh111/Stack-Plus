@@ -176,10 +176,13 @@ class NativeSetup(unittest.TestCase):
    legacy=home/'.agents/skills/custom';legacy.mkdir(parents=True);(legacy/'SKILL.md').write_text('uncommitted original bytes\n');original=fingerprint(legacy.parent)
    args=self.args(home,state);args.cloudflare_security_audit=True;args.strix=True
    with patch.object(native.nstack,'build',return_value=source),patch.object(native.nstack,'registered_release',return_value=(r,{},leaf)):
-    result=native.apply(args);shared=home/'.agents/skills';self.assertEqual({p.name for p in shared.iterdir()},{'obsidian-markdown','cloudflare-security-audit','strix-security-testing'})
+    result=native.apply(args);shared=home/'.agents/skills';self.assertEqual({p.name for p in shared.iterdir()},{'obsidian-markdown','code-security-review','strix-security-testing'})
     for name in ['cloudflare-security-audit','strix-security-testing']:
-     entry=shared/name;expected=native.addon_definition(name)['frozen_files']
-     for rel,(data,mode) in expected.items():self.assertEqual((entry/rel).read_bytes(),data)
+     exposed=native.skill_names.canonical(name);entry=shared/exposed;expected=native.addon_definition(name)['frozen_files']
+     for rel,(data,mode) in expected.items():
+      installed=(entry/rel).read_bytes()
+      if rel=='SKILL.md':self.assertEqual(native.skill_names.entry_name(installed,name),native.skill_names.entry_name(data,name))
+      else:self.assertEqual(installed,data)
      self.assertEqual(len(list(entry.rglob('SKILL.md'))),1)
     journals={p:fingerprint(p)for p in (state/'runs').glob('*/journal.json')};self.assertFalse(native.apply(args)['changed'])
     for p,old in journals.items():self.assertEqual(fingerprint(p),old)

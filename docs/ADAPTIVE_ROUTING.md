@@ -1,7 +1,7 @@
 # 01 adaptive routing
 
-`01` is an explicitly invoked skill, not another agent engine. Start a session
-with `$01` and the desired result. Its instructions stay relevant to later
+`01` is an explicitly invoked skill, not another agent engine. Select `$01` in Codex,
+`@01` in OpenCode's skill picker, or `/01` in Claude, with the desired result. Its instructions stay relevant to later
 requests in that session until the user disables 01. A saved task status
 does not activate it in an unrelated session.
 
@@ -34,11 +34,13 @@ second install with unchanged inputs is a no-op. Terminal recovery remains:
 "$HOME/Library/Application Support/nstack/rollback.sh"
 ```
 
-The shared collection also exposes01 to OpenCode. Its
+The shared collection also exposes 01 to OpenCode. Its
 `metadata.opencode/autoinvoke: false` setting preserves explicit selection in
 OpenCode. Codex uses `policy.allow_implicit_invocation: false` in
 `agents/openai.yaml`. Use the host's own skill selector; sharing the files does
 not merge generated memories or conversations.
+
+OpenCode's picker attaches the skill body to the message. A literal `$01` in a scripted `opencode run` prompt does not do this. For that interface, explicitly ask the model to load skill ID `01` with its `skill` tool; native API clients can attach `skills: [{"id":"01"}]` to the session prompt. [OpenCode skill loading](https://opencode.ai/docs/skills/#loading).
 
 ## Functional names
 
