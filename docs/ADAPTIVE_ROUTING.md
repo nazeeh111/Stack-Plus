@@ -5,8 +5,9 @@
 requests in that session until the user disables 01. A saved task status
 does not activate it in an unrelated session.
 
-For nontrivial work, it binds each stage to an available capability, inputs,
-a deliverable and an acceptance check, orders dependencies and executes.
+For nontrivial work, it inspects the actual inputs and works backward from the
+result to the consequential decisions, transformations and checks. It selects
+useful capabilities for those contributions, orders dependencies and executes.
 The route stays internal or in the existing task entrypoint; advice alone is
 a deliverable only when the user requested advice.
 
@@ -45,8 +46,11 @@ OpenCode's picker attaches the skill body to the message. A literal `$01` in a s
 ## Functional names
 
 The [name changes](SKILL_NAMES.md) make contributions easier to distinguish.
-Names remain labels, not exclusive task assignments. Compare the methods and
-combine useful expertise as the work changes. Legacy names remain lookup and
+Names remain labels, not exclusive task assignments. Overlap is legitimate;
+compare what each method changes, requires, produces and checks. Numbering
+similar methods would hide those distinctions. Use a complementary method for
+one useful aspect; choose between redundant or conflicting methods by the task
+and evidence. Legacy names remain lookup and
 installer metadata, without duplicate active skills.
 
 ## Capability lookup
@@ -63,19 +67,24 @@ maintained task-to-skill table or a requirement to use every available tool.
 
 It searches by the needed improvement in a consequential aspect, including
 expertise outside the artifact's usual discipline. A useful method may change
-one decision or verification. Familiarity, novelty and skill counts do not
+one decision or verification. Loading a method is not evidence that it was
+applied. At meaningful checkpoints, reconsider the workflow itself as well as
+the next tool, and check whether local polish leaves a more important weakness
+unresolved. Query distinct needs separately if a broad query would crowd out
+useful complementary expertise. Familiarity, novelty and skill counts do not
 justify loading a method; a changed artifact or check is the evidence of use.
 
 The six selected pstack specialists are available for relevance-based automatic
 selection. Their upstream manual-only header is removed in the shared native
-adaptation; method bodies and original source remain intact. This avoids hiding
+adaptation; complete methods remain with explicit native adapter ports and retained source originals. This avoids hiding
 useful concurrency, retry, performance and design methods on Claude. 01 itself
 and the broad untangle-codebase refactor retain explicit invocation.
 
 When native summaries are incomplete, its bundled scripts/capabilities.py
 refreshes bounded metadata from current user/project skill roots and searches
 nstack’s recorded skill/runtime indexes. It accepts plain multiline descriptions
-and retains inert runtime launch commands and instruction paths, so a matching
+and retains inert runtime launch commands, instruction paths, aliases and declared readiness/limits,
+so a matching
 result can be followed to its actual interface. Added skills can be found on the next
 lookup without regenerating a category file. It reads frontmatter rather than
 executing skill bodies, returns a small ranked result and records discovery
@@ -102,7 +111,9 @@ the active host's knowledge and write authority.
 
 This file discovery does not establish host enablement, permissions, current
 runtime callability or that a method actually ran. Native connected-tool/plugin
-discovery remains separate. Read and apply selected complete skills and needed
+discovery remains separate. Runtime readiness and limits are recorded context,
+not proof of current execution; they do not add ranking weight or grant access.
+Read and apply selected complete skills and needed
 support to the actual artifact; verify its outputs.
 
 ## Proof and limits
@@ -121,6 +132,11 @@ Additional trials exercise real native process restart/resume, changed input,
 an interrupted operation and independently owned specialist work with an
 integration review. Report first-attempt results and trace evidence separately;
 these examples do not establish universal reliability or every tool's readiness.
+
+The later contribution-selection pass refines four summaries for QA, review,
+editorial diagrams and interactive physical explainers; canonical names remain
+unchanged. Its separate workflow trial records the frozen instruction variants,
+changed requirements and executable results in the same results note.
 
 The [November 14 workflow checks](../evals/01/BEHAVIOR_RESULTS.md) additionally
 exercise scientific calibration, browser race repair, changed requirements and
@@ -155,3 +171,11 @@ CrewAI’s [task dependencies and guardrails](https://docs.crewai.com/en/concept
 inform one compact coordination rule: sequence dependencies, parallelize
 independent work, and check consequential handoffs before downstream use.
 These are host-native workflow choices; CrewAI is not a required runtime.
+
+The current [OpenAI authoring guidance](https://developers.openai.com/plugins/build/skills)
+distinguishes discoverable workflow descriptions from detailed procedures, and
+its [evaluation guide](https://developers.openai.com/blog/eval-skills) checks both
+behavior and finished outputs. [Skill-Use](https://arxiv.org/abs/2608.04828)
+separates relevant-skill selection, procedural application and boundary adherence;
+its harness-dependent results are a reason to test the actual host, not promise
+universal selection. These sources inform the checks, not extra runtime machinery.

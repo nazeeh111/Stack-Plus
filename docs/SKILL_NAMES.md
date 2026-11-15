@@ -141,4 +141,10 @@ The naming policy is sealed into native release identity, and Claude derives its
 
 Reviewed host invocations and sibling-skill handoffs in a closed set of operative Markdown files also use the current exposure names. The policy includes exact file ports and `skill_host_bindings.json`: original source IDs, paths, line hashes, literal tokens and offsets, checked against the pre-exposure bytes before metadata changes. Missing reviewed files, changed lines or mismatched offsets fail preparation. Changed originals remain under `EXPOSURE-ORIGINALS` with `.original` filenames, and `EXPOSURE-PORT.json` records before/after hashes and replacements. These originals add no skill entrypoints. Source receipts retain their original generation; the native manifest seals the adapted bundle. CLI-installed catalogs, actual commands, source/data paths and licenses remain literal. The adapted Unslop README labels its usage examples as nstack invocations while preserving its original installation paths and archived bytes.
 
-Six source-keyed description refinements clarify gstack product consultation and engineering-plan review, plus the four distinct Unreal workflows: technical direction, animation, cinematics and pipeline automation. The complete method bodies retain their scope and preimage/receipt trail. Separately, the DCC adapter resolves six helpers' physical source roots before locating sibling helpers, so canonical discovery links preserve the original relative source paths. These changes do not rename binaries, engine APIs or source directories.
+Eleven source-keyed description refinements disclose actual contributions: gstack
+product/plan/diff/QA methods, four Unreal workflows, competing code-architecture
+designs, editorial SVG diagrams and interactive physical-object explainers. Exact
+preimages and retained originals distinguish metadata from method changes. The
+complete methods keep their scope. Separately, the DCC adapter resolves six helpers'
+physical source roots so discovery links preserve relative support paths. Actual
+binaries, engine APIs and source directories keep their names.

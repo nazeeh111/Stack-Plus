@@ -27,3 +27,33 @@ passes. No ECC candidate gate, protected scoring boundary, paid provider, model
 override, real account or GUI permission change was used. These finite cases
 support the tested behavior, not universal routing reliability or a requirement
 to rotate through unused skills.
+
+## Later contribution-selection check
+
+Two fresh same-host workers received the same frozen calibration data and a
+request for an offline editable decision page, then a report-export requirement
+in the same chat without another 01 invocation. One used the frozen 694-word
+entry and the other the revised 739-word entry. Both preserved the data, produced
+correct offsets/sensitivities and evidence limits, and passed executable numerical
+and real local-browser checks. Later checks exercised V/mV conversion, actual
+download content/provenance, invalid input and stale-result prevention.
+
+Both produced valid outcomes. This small comparison does not demonstrate that
+the revised instructions outperform the baseline. The change clarifies workflow
+analysis, contribution comparison and reassessment; the separate discovery
+checks establish four concrete summary improvements and runtime-readiness
+metadata preservation. No skill-count target or mandatory method rotation is used.
+
+Worker reports identify statistical/evidence reasoning and interface design in
+one route, and units/measurement-model reasoning plus interface design in the
+other. Those choices are consistent with the artifacts, but independent native
+child tool-call traces were not captured; full-method reads are worker-reported.
+Separate artifact review uses raw outputs and executable checks, without reading
+those method reports or being given a preferred variant.
+
+Both workers first encountered a missing global Playwright browser cache and
+recovered using an existing local Chrome in isolated contexts. No browser or
+dependency was downloaded. This shows bounded recovery, not an optimal-tool-path
+or all-browser guarantee. Installed nstack runtimes retain their recorded
+entrypoints and operation-specific readiness. No providers, accounts, vault
+content, model overrides or background services were introduced by these trials.

@@ -3,6 +3,31 @@ import importlib.util,json,pathlib,tempfile,unittest
 P=pathlib.Path;ROOT=P(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location('routing',ROOT/'addons/01/scripts/capabilities.py');mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
 class RuntimeDiscovery(unittest.TestCase):
+ def test_runtime_alias_lookup_keeps_current_readiness_limits_and_excludes_private_fields(self):
+  with tempfile.TemporaryDirectory() as temporary:
+   state=P(temporary);(state/'native-tools').mkdir();index=state/'native-tools/index.json'
+   row={'name':'Artifact engine','aliases':['analyzer'], 'description':'Inspect exported symbols',
+        'readiness':'Export inventory accepted; worker cleanup failed',
+        'limits':'Runtime attachment untested', 'environment':{'TOKEN':'synthetic-not-for-output'}}
+   index.write_text(json.dumps([row]))
+   found=mod.search(state,['analyzer']);self.assertEqual(found['total_matches'],1)
+   self.assertEqual(found['matches'][0]['name'],'Artifact engine')
+   self.assertEqual(found['matches'][0]['match']['exact_identity'],['analyzer'])
+   self.assertEqual(found['matches'][0]['readiness'],row['readiness'])
+   self.assertEqual(found['matches'][0]['limits'],row['limits'])
+   self.assertNotIn('synthetic-not-for-output',json.dumps(found))
+   # A readiness statement is context to inspect, never evidence of a capability match.
+   self.assertEqual(mod.search(state,['attachment'])['total_matches'],0)
+   row['readiness']='Export inventory disabled after input drift';row['aliases']=['inspector']
+   index.write_text(json.dumps([row]))
+   self.assertEqual(mod.search(state,['analyzer'])['total_matches'],0)
+   updated=mod.search(state,['inspector'])
+   self.assertEqual(updated['matches'][0]['readiness'],row['readiness'])
+   self.assertNotEqual(found['sources'][0]['sha256'],updated['sources'][0]['sha256'])
+   row.update(aliases=[{'secret':'must-not-emit'}],readiness={'secret':'must-not-emit'},limits=['must-not-emit'])
+   index.write_text(json.dumps([row]));malformed=mod.search(state,['symbols'])
+   for key in ('aliases','readiness','limits'):self.assertNotIn(key,malformed['matches'][0])
+   self.assertNotIn('must-not-emit',json.dumps(malformed))
  def test_new_runtime_description_and_activation_refresh_without_category_table(self):
   with tempfile.TemporaryDirectory()as temporary:
    state=P(temporary);(state/'native-tools').mkdir();index=state/'native-tools/index.json'

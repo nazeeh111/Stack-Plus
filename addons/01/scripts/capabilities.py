@@ -203,9 +203,12 @@ def inventory(state, skill_roots=None, host=None):
                     continue
             else:
                 record = {'kind': 'runtime', 'name': row['name']}
-                for key in ('description', 'activation', 'version', 'source_revision', 'native_mcp', 'binary', 'python', 'node', 'entrypoint', 'recipe', 'instructions', 'guide', 'documentation'):
+                for key in ('description', 'activation', 'readiness', 'limits', 'version', 'source_revision', 'native_mcp', 'binary', 'python', 'node', 'entrypoint', 'recipe', 'instructions', 'guide', 'documentation'):
                     if isinstance(row.get(key), str):
                         record[key] = row[key]
+                aliases = row.get('aliases')
+                if isinstance(aliases, list) and all(isinstance(alias, str) for alias in aliases):
+                    record['aliases'] = aliases
                 # These are inert invocation metadata, never executed here.
                 for key in ('command', 'invoke'):
                     value = row.get(key)
@@ -323,6 +326,7 @@ def search(state, terms, limit=8, skill_roots=None, host=None):
                      'Identity/check-only matches are fallback; '
                      'equal ranks do not establish a better method. Word/phrase and simple s-plural matches '
                      'are lexical, not semantic. '
+                     'Runtime readiness and limits are recorded claims, not a current execution check. '
                      'Connected host tools and plugins require native discovery separately.'}
 
 
