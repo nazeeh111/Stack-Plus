@@ -22,7 +22,7 @@ def manifest():return load(ROOT/'registry/manifest.json')
 def component(id):
  for row in manifest()['components']:
   if row['id']==id:return row
- raise ValueError('No admitted component '+id)
+ raise ValueError('No admitted component '+id+'. Use nstack search TERMS --brief to find an ID; excluded and consultation-only entries cannot be shown as admitted components.')
 def leaf(id,path):
  for row in manifest()['skills']:
   if row['candidate_id']==id and row['source_path']==path:return row
@@ -99,10 +99,14 @@ def acquire(repo,rev):
    os.rename(out,dest)
  return dest
 
-def shelf_name(id,path,repo):
- selected=next((s for s in manifest()['skills'] if (s['candidate_id'],s['source_path'],s['source_repository'])==(id,path,repo)),{})
+def shelf_name_from_row(id,path,repo,selected):
  raw=selected.get('native_name') or P(path).parent.name or repo.split('/')[-1]
  return id.lower()+'-'+re.sub(r'[^a-z0-9-]+','-',raw.lower()).strip('-')
+
+def shelf_name(id,path,repo,*,catalog=None):
+ """Reuse a caller-owned operation snapshot; default lookups stay current."""
+ selected=next((s for s in (manifest() if catalog is None else catalog)['skills'] if (s['candidate_id'],s['source_path'],s['source_repository'])==(id,path,repo)),{})
+ return shelf_name_from_row(id,path,repo,selected)
 
 def builder_identity():
  paths=[ROOT/'nstack.py',ROOT/'lib/skill_build.py',ROOT/'lib/academic_addon.py',ROOT/'lib/publish_scope.py',ROOT/'lib/claim_evidence.py',ROOT/'lib/closure.py',ROOT/'lib/voltage_check.py',ROOT/'lib/gh_comments.py',ROOT/'lib/unreal_two_shot_probe.py',ROOT/'lib/gp_delivery_guard.py',ROOT/'lib/unreal_animation_probe.py']+sorted((ROOT/'lib').glob('patch_*.py'))
@@ -238,37 +242,67 @@ def verify(project):
   if not dest.is_symlink() or dest.resolve()!=(release/safe_relative(actual.get('entry_dir','.'))):raise ValueError('Incomplete activation: '+name)
  return {'project':str(project),'active':list(rows),'verified':True}
 
+def native_selection(catalog):
+ """Select native leaves from one caller-owned registry snapshot."""
+ sys.path.insert(0,str(ROOT/'lib'))
+ import skill_names
+ modes={c['id']:c['deployment'] for c in catalog['components']};rows=[];first={}
+ allowed=('intact upstream leaf','narrow-patched leaf','native runtime/method adapter')
+ for row in catalog['skills']:
+  id=row['candidate_id'];path=row['source_path'];repo=row['source_repository']
+  selected=first.setdefault((id,path,repo),row)
+  if modes[id]!='on demand' or row['delivery'] not in allowed:continue
+  name=shelf_name_from_row(id,path,repo,selected)
+  prefix=id.lower()+'-'
+  if not name.startswith(prefix):raise ValueError('Unexpected source skill name')
+  rows.append((skill_names.canonical(name[len(prefix):]),row))
+ if len({name for name,_ in rows})!=len(rows):raise ValueError('Natural skill names collide')
+ return rows
+
+def discovery_names():
+ """Catalog names, not evidence of installed state; references are excluded."""
+ names={}
+ for name,row in native_selection(manifest()):
+  names.setdefault(row['candidate_id'],[]).append(name)
+ return names
+
 def main():
- p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='cmd',required=True)
- a=sub.add_parser('search');a.add_argument('terms',nargs='+');a.add_argument('--all',action='store_true');a.add_argument('--limit',type=int,default=12)
- a=sub.add_parser('show');a.add_argument('id')
- a=sub.add_parser('route');a.add_argument('id')
- a=sub.add_parser('inventory');a.add_argument('project',nargs='?',default=str(P.cwd()));a.add_argument('--binary');a.add_argument('--plugins',action='store_true')
- a=sub.add_parser('workspace');a.add_argument('id');a.add_argument('project');a.add_argument('--fresh',action='store_true')
- a=sub.add_parser('retire-workspace');a.add_argument('id');a.add_argument('project')
- a=sub.add_parser('source');a.add_argument('id')
- a=sub.add_parser('build');a.add_argument('id');a.add_argument('path')
- a=sub.add_parser('activate');a.add_argument('project');a.add_argument('release');a.add_argument('--gate')
- a=sub.add_parser('deactivate');a.add_argument('project');a.add_argument('name')
- a=sub.add_parser('verify');a.add_argument('project')
- a=sub.add_parser('publisher');a.add_argument('project')
- a=sub.add_parser('project-init');a.add_argument('project');a.add_argument('--trust',action='store_true')
- a=sub.add_parser('project-remove');a.add_argument('project')
+ p=argparse.ArgumentParser(description='Find reviewed capabilities and inspect their routes before use.',epilog='Start read-only: nstack search web-ui-design --brief, then nstack show COMPONENT_ID. Search and show do not install or activate anything.');sub=p.add_subparsers(dest='cmd',required=True,metavar='COMMAND')
+ a=sub.add_parser('search',help='Find catalog entries by task, source or selected skill name',description='Search reviewed catalog entries. Results are JSON; selected names describe available catalog leaves, not installed skills.')
+ a.add_argument('terms',nargs='+',help='Words or names to match; entries matching more terms rank first');a.add_argument('--all',action='store_true',help='Include excluded and consultation-only entries');a.add_argument('--limit',type=int,default=12,help='Maximum results (1–535; default 12)');a.add_argument('--brief',action='store_true',help='Show component ID, summary, admission and selected native names')
+ a=sub.add_parser('show',help='Inspect an admitted component, its paths and prerequisites');a.add_argument('id',help='Component ID from search, for example P001')
+ a=sub.add_parser('route',help='Inspect source, prerequisites and actions for an admitted component');a.add_argument('id',help='Component ID from search')
+ a=sub.add_parser('inventory',help='Inspect project and native tool availability');a.add_argument('project',nargs='?',default=str(P.cwd()));a.add_argument('--binary');a.add_argument('--plugins',action='store_true')
+ a=sub.add_parser('workspace',help='Prepare an isolated source workspace');a.add_argument('id');a.add_argument('project');a.add_argument('--fresh',action='store_true')
+ a=sub.add_parser('retire-workspace',help='Retire an owned workspace while preserving its bytes');a.add_argument('id');a.add_argument('project')
+ a=sub.add_parser('source',help='Fetch a pinned admitted source into private state');a.add_argument('id')
+ a=sub.add_parser('build',help='Build a selected skill from pinned source');a.add_argument('id');a.add_argument('path')
+ a=sub.add_parser('activate',help='Activate a built release in a bounded project');a.add_argument('project');a.add_argument('release');a.add_argument('--gate')
+ a=sub.add_parser('deactivate',help='Remove an owned project activation');a.add_argument('project');a.add_argument('name')
+ a=sub.add_parser('verify',help='Verify project activation ownership and release integrity');a.add_argument('project')
+ a=sub.add_parser('publisher',help='Open the project publisher interface');a.add_argument('project')
+ a=sub.add_parser('project-init',help='Configure an optional project integration');a.add_argument('project');a.add_argument('--trust',action='store_true')
+ a=sub.add_parser('project-remove',help='Remove owned project integration');a.add_argument('project')
  for command in ['commission','run','check','remove-runtime']:
-  a=sub.add_parser(command);a.add_argument('id');a.add_argument('operation');
+  a=sub.add_parser(command,help={'commission':'Prepare a selected runtime', 'run':'Run a commissioned operation', 'check':'Check a commissioned operation', 'remove-runtime':'Remove an owned runtime'}[command]);a.add_argument('id');a.add_argument('operation');
   if command=='run':a.add_argument('arguments',nargs=argparse.REMAINDER)
- a=sub.add_parser('doctor')
- a=sub.add_parser('knowledge');a.add_argument('action',choices=['set','read','delete']);a.add_argument('project');a.add_argument('id');a.add_argument('--claim');a.add_argument('--source');a.add_argument('--expected-generation',type=int,default=0)
+ a=sub.add_parser('doctor',help='Show registry, state and executable locations')
+ a=sub.add_parser('knowledge',help='Read or update project-scoped knowledge');a.add_argument('action',choices=['set','read','delete']);a.add_argument('project');a.add_argument('id');a.add_argument('--claim');a.add_argument('--source');a.add_argument('--expected-generation',type=int,default=0)
  args=p.parse_args()
  try:
   if args.cmd=='search':
    rows=load(ROOT/'registry/discovery.json');terms=[t.lower() for t in args.terms]
+   names=discovery_names()
    result=[]
    for r in rows:
-    text=json.dumps(r).lower();score=sum(term in text for term in terms)
+    text=(json.dumps(r,ensure_ascii=False)+' '+json.dumps(names.get(r['id'],[]),ensure_ascii=False)).lower();score=sum(term in text for term in terms)
     if score and (args.all or r['admission'] not in ('excluded','consult')):result.append((score,r))
    if not 1<=args.limit<=535:raise ValueError('Search limit must be between 1 and 535')
-   print(json.dumps([r for _,r in sorted(result,key=lambda x:-x[0])][:args.limit],indent=2))
+   selected=[r for _,r in sorted(result,key=lambda x:-x[0])][:args.limit]
+   if args.brief:
+    selected=[{'id':r['id'],'summary':r['summary'],'admission':r['admission'],'selected_native_names':names.get(r['id'],[])} for r in selected]
+    if not selected:print('No matches. Try broader terms or --all for excluded and consultation-only entries.',file=sys.stderr)
+   print(json.dumps(selected,indent=2,ensure_ascii=not args.brief))
   elif args.cmd=='show':
    c=component(args.id);rows=[]
    for file in (STATE/'publisher-index').glob('*'):

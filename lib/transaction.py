@@ -1,6 +1,14 @@
 """Journaled same-volume profile changes; fail closed on concurrent or later edits."""
 import contextlib,ctypes,errno,fcntl,hashlib,json,os,pathlib,shutil,stat,subprocess,sys,tempfile
+from typing import NamedTuple
+from transaction_paths import BoundEntry,open_parent,parent_identity
 P=pathlib.Path
+
+class StagedFile(NamedTuple):
+ stage: pathlib.Path
+ baseline: dict
+ desired: dict
+ parent: dict
 
 def raw_xattrs(path):
  if sys.platform!='darwin':return {name:os.getxattr(path,name,follow_symlinks=False) for name in os.listxattr(path,follow_symlinks=False)}
@@ -45,22 +53,27 @@ def fingerprint(path):
 
 def replace_entry(source,target):
  """Atomically exchange unlike directory types; retain the displaced entry."""
+ target_fd=target.parent_fd if isinstance(target,BoundEntry) else None
  source=P(source);target=P(target)
  source_dir=source.is_dir() and not source.is_symlink()
- target_dir=target.is_dir() and not target.is_symlink()
- if (target.exists() or target.is_symlink()) and source_dir!=target_dir:
+ try:target_stat=os.stat(target.name if target_fd is not None else target,dir_fd=target_fd,follow_symlinks=False)
+ except FileNotFoundError:target_stat=None
+ target_dir=target_stat is not None and stat.S_ISDIR(target_stat.st_mode)
+ if target_stat is not None and source_dir!=target_dir:
   # Darwin's RENAME_SWAP and Linux's RENAME_EXCHANGE both use flag 2.
   # No delete-then-link gap, including when restoring an original directory.
   lib=ctypes.CDLL('/usr/lib/libSystem.B.dylib' if sys.platform=='darwin' else None,use_errno=True)
-  if sys.platform=='darwin':
+  if sys.platform=='darwin' and target_fd is None:
    fn=lib.renamex_np;fn.argtypes=[ctypes.c_char_p,ctypes.c_char_p,ctypes.c_uint];args=(os.fsencode(source),os.fsencode(target),2)
+  elif sys.platform=='darwin':
+   fn=lib.renameatx_np;fn.argtypes=[ctypes.c_int,ctypes.c_char_p,ctypes.c_int,ctypes.c_char_p,ctypes.c_uint];args=(-2,os.fsencode(source),target_fd,os.fsencode(target.name),2)
   elif sys.platform.startswith('linux') and hasattr(lib,'renameat2'):
-   fn=lib.renameat2;fn.argtypes=[ctypes.c_int,ctypes.c_char_p,ctypes.c_int,ctypes.c_char_p,ctypes.c_uint];args=(-100,os.fsencode(source),-100,os.fsencode(target),2)
+   fn=lib.renameat2;fn.argtypes=[ctypes.c_int,ctypes.c_char_p,ctypes.c_int,ctypes.c_char_p,ctypes.c_uint];args=(-100,os.fsencode(source),target_fd if target_fd is not None else -100,os.fsencode(target.name if target_fd is not None else target),2)
   else:raise ValueError('Atomic directory exchange is unavailable; original entry left untouched')
   fn.restype=ctypes.c_int
   if fn(*args)!=0:raise OSError(ctypes.get_errno(),'Atomic directory exchange failed; original entry retained')
   return True
- os.replace(source,target);return False
+ os.replace(source,target.name if target_fd is not None else target,dst_dir_fd=target_fd);return False
 
 def atomic_json(path,data):
  path=P(path);path.parent.mkdir(parents=True,exist_ok=True);raw=json.dumps(data,sort_keys=True,indent=2)+'\n'
@@ -101,30 +114,46 @@ class Transaction:
    finally:self.held=False
  def require_lock(self):
   if not self.held:raise ValueError('Profile transaction requires the writer lock')
+ def target_path(self,path):
+  self.require_lock();path=P(path).absolute();parent_identity(path)
+  for row in self.rows:
+   if row['phase']=='rolled-back':continue
+   owned=P(row['path'])
+   if path==owned:parent_identity(path,row.get('parent'))
+   elif path.is_relative_to(owned) or owned.is_relative_to(path):raise ValueError('Overlapping transaction targets require separate runs: '+str(path))
+  return path
  def preserve_attempt(self,path,label):
   path=P(path)
   if not path.exists() and not path.is_symlink():return
   folder=self.run/'preparation-retries';folder.mkdir(exist_ok=True)
   fd,name=tempfile.mkstemp(prefix=label+'-',dir=folder);os.close(fd);os.unlink(name);os.rename(path,name)
  def complete_backup(self,row):
-  backup=P(row['backup']);path=P(row['path']);same(path,row['before'])
+  backup=P(row['backup']);path=P(row['path']);parent_identity(path,row.get('parent'));same(path,row['before'])
   if row['before']['kind']!='absent':
    if fingerprint(backup)!=row['before']:
     self.preserve_attempt(backup,'backup');copy(path,backup);same(backup,row['before']);same(path,row['before'])
   row['phase']='prepared';self.save()
- def prepare(self,path,desired,kind='replace',config=None,expected=None):
-  self.require_lock();path=P(path).absolute()
-  if path.parent.resolve()!=path.parent:raise ValueError('Linked transaction target parent')
-  if expected is not None:same(path,expected)
+ def prepare(self,path,desired,kind='replace',config=None,expected=None,parent=None):
+  self.require_lock();path=P(path).absolute();opened=parent is not None
+  if opened:
+   # The caller already opened this directory under the writer lock. Persist
+   # that authority before pathname revalidation, never adopt its substitute.
+   if expected is None or parent.get('path')!=str(path.parent):raise ValueError('Opened transaction parent requires its original baseline')
+   parent=dict(parent)
+  else:
+   path=self.target_path(path);parent=parent_identity(path)
+   if expected is not None:same(path,expected)
   for row in reversed(self.rows):
    if row['path']==str(path) and row['phase']!='rolled-back':
+    parent_identity(path,parent);parent_identity(path,row.get('parent'))
+    if expected is not None:same(path,expected)
     if row['after']!=desired:raise ValueError('Existing transaction has a different desired state')
     if row['phase']=='backup-preparing':self.complete_backup(row)
     return row
-  before=fingerprint(path);backup=self.run/'before'/str(len(self.rows))
-  row={'path':str(path),'before':before,'after':desired,'backup':str(backup),'kind':kind,'config':config,'phase':'backup-preparing'};self.rows.append(row);self.save();self.complete_backup(row);return row
+  before=expected if opened else fingerprint(path);backup=self.run/'before'/str(len(self.rows))
+  row={'path':str(path),'parent':parent,'before':before,'after':desired,'backup':str(backup),'kind':kind,'config':config,'phase':'backup-preparing'};self.rows.append(row);self.save();self.complete_backup(row);return row
  def stage_file(self,path,data,mode=0o644,expected=None):
-  self.require_lock();path=P(path).absolute();baseline=fingerprint(path)
+  path=self.target_path(path);parent=parent_identity(path);baseline=fingerprint(path)
   if expected is not None:same(path,expected)
   staging=self.run/'file-stages';staging.mkdir(exist_ok=True);fd,name=tempfile.mkstemp(prefix=path.name+'-',dir=staging);os.close(fd);stage=P(name)
   try:
@@ -132,66 +161,76 @@ class Transaction:
    # Only the private staging copy needs temporary owner-write access.
    stage.chmod(stat.S_IMODE(stage.stat().st_mode)|stat.S_IWUSR)
    with stage.open('wb') as f:f.write(data);f.flush();os.fsync(f.fileno())
-   stage.chmod(mode);return stage,baseline,fingerprint(stage)
+   stage.chmod(mode);parent_identity(path,parent);return StagedFile(stage,baseline,fingerprint(stage),parent)
   except BaseException:
    if stage.exists():stage.unlink()
    raise
  def replace_file(self,path,data,mode=0o644,config=None,expected=None,prepared=None):
-  self.require_lock();path=P(path).absolute()
-  stage,baseline,desired=prepared if prepared is not None else self.stage_file(path,data,mode,expected)
+  path=self.target_path(path)
+  stage,baseline,desired,binding=prepared if prepared is not None else self.stage_file(path,data,mode,expected)
   if expected is not None:same(path,expected)
-  same(path,baseline);same(stage,desired);path.parent.mkdir(parents=True,exist_ok=True)
   try:
-   row=self.prepare(path,desired,'config' if config else 'replace',config,baseline)
-   if config:
-    after_image=self.run/'after'/str(self.rows.index(row));after_image.parent.mkdir(exist_ok=True)
-    if fingerprint(after_image)!=desired:
-     self.preserve_attempt(after_image,'after-image');copy(stage,after_image);same(after_image,desired)
-    row['config_after']=str(after_image);self.save()
-   if fingerprint(path)!=desired:
-    same(path,row['before'])
-    if path.parent.stat().st_dev!=stage.parent.stat().st_dev:raise ValueError('Replacement requires same-volume private state')
-    os.replace(stage,path);same(path,desired)
-   row.pop('rollback_result',None);row.pop('rollback_expected',None);row['phase']='applied';self.save()
+   with open_parent(path,binding,create=True) as parent:
+    same(stage,desired)
+    row=self.prepare(path,desired,'config' if config else 'replace',config,baseline,parent=parent.identity)
+    if config:
+     after_image=self.run/'after'/str(self.rows.index(row));after_image.parent.mkdir(exist_ok=True)
+     if fingerprint(after_image)!=desired:
+      self.preserve_attempt(after_image,'after-image');copy(stage,after_image);same(after_image,desired)
+     row['config_after']=str(after_image);self.save()
+    if fingerprint(path)!=desired:
+     parent_identity(path,row.get('parent'));same(path,row['before'])
+     if os.fstat(parent.fd).st_dev!=stage.parent.stat().st_dev:raise ValueError('Replacement requires same-volume private state')
+     os.replace(stage,path.name,dst_dir_fd=parent.fd);same(path,desired)
+    parent_identity(path,parent.identity);row.pop('rollback_result',None);row.pop('rollback_expected',None);row['phase']='applied';self.save()
   finally:
    if stage.exists():stage.unlink()
  def link(self,path,target,expected=None):
-  self.require_lock();path=P(path).absolute();baseline=fingerprint(path)
+  path=self.target_path(path);binding=parent_identity(path);baseline=fingerprint(path)
   if expected is not None:same(path,expected)
   if baseline['kind']=='link' and baseline['target']==str(target):desired=baseline;stage=None
   else:
-   path.parent.mkdir(parents=True,exist_ok=True);staging=self.run/'file-stages';staging.mkdir(exist_ok=True);fd,name=tempfile.mkstemp(prefix=path.name+'-',dir=staging);os.close(fd);os.unlink(name);stage=P(name);stage.symlink_to(target)
+   staging=self.run/'file-stages';staging.mkdir(exist_ok=True);fd,name=tempfile.mkstemp(prefix=path.name+'-',dir=staging);os.close(fd);os.unlink(name);stage=P(name);stage.symlink_to(target)
    if baseline['kind']=='link':shutil.copystat(path,stage,follow_symlinks=False)
    desired=fingerprint(stage)
   try:
-   row=self.prepare(path,desired,expected=baseline)
-   if fingerprint(path)!=desired:
-    same(path,row['before'])
-    if path.parent.stat().st_dev!=stage.parent.stat().st_dev:raise ValueError('Replacement requires same-volume private state')
-    swapped=replace_entry(stage,path)
-    if swapped:
-     if fingerprint(stage)!=row['before']:
-      same(path,desired);replace_entry(stage,path)
-      raise ValueError('Concurrent change to replaced skill directory; restored current bytes')
-     row['displaced_entry']=str(stage)
-    same(path,desired)
-   row.pop('rollback_result',None);row.pop('rollback_expected',None);row['phase']='applied';self.save()
+   with open_parent(path,binding,create=True) as parent:
+    row=self.prepare(path,desired,expected=baseline,parent=parent.identity)
+    if fingerprint(path)!=desired:
+     parent_identity(path,row.get('parent'));same(path,row['before'])
+     if os.fstat(parent.fd).st_dev!=stage.parent.stat().st_dev:raise ValueError('Replacement requires same-volume private state')
+     swapped=replace_entry(stage,BoundEntry(path,parent.fd))
+     if swapped:
+      if fingerprint(stage)!=row['before']:
+       same(path,desired);replace_entry(stage,BoundEntry(path,parent.fd))
+       raise ValueError('Concurrent change to replaced skill directory; restored current bytes')
+      row['displaced_entry']=str(stage)
+     same(path,desired)
+    parent_identity(path,parent.identity);row.pop('rollback_result',None);row.pop('rollback_expected',None);row['phase']='applied';self.save()
   finally:
    if stage is not None and (stage.is_symlink() or stage.is_file()):stage.unlink()
  def retire(self,path,expected=None):
-  self.require_lock();path=P(path).absolute();row=self.prepare(path,{'kind':'absent'},'retire',expected=expected)
+  path=self.target_path(path);row=self.prepare(path,{'kind':'absent'},'retire',expected=expected)
   if fingerprint(path)!=row['after']:
    same(path,row['before']);retained=self.run/'retired'/str(self.rows.index(row));retained.parent.mkdir(parents=True,exist_ok=True)
    if retained.exists() or retained.is_symlink():
     same(retained,row['before']);fd,name=tempfile.mkstemp(prefix=str(self.rows.index(row))+'-',dir=retained.parent);os.close(fd);os.unlink(name);retained=P(name)
-   if path.parent.stat().st_dev!=retained.parent.stat().st_dev:raise ValueError('Private retirement state is on a different volume')
-   row['retained']=str(retained);self.save();same(path,row['before']);os.rename(path,retained);same(retained,row['before'])
+   with open_parent(path,row.get('parent')) as parent:
+    if os.fstat(parent.fd).st_dev!=retained.parent.stat().st_dev:raise ValueError('Private retirement state is on a different volume')
+    row['retained']=str(retained);self.save();parent_identity(path,row.get('parent'));same(path,row['before']);os.rename(path.name,retained,src_dir_fd=parent.fd);same(retained,row['before'])
   row.pop('rollback_result',None);row.pop('rollback_expected',None);row['phase']='applied';self.save()
  def rollback(self):
   self.require_lock();import config_merge as cm
+  # Refuse known namespace drift before restoring any otherwise valid target.
+  for row in self.rows:
+   if row['phase'] not in ('rolled-back','backup-preparing'):parent_identity(P(row['path']),row.get('parent'))
   for index in reversed(range(len(self.rows))):
-   row=self.rows[index];path=P(row['path']);current=fingerprint(path)
+   row=self.rows[index];path=P(row['path'])
    if row['phase']=='rolled-back':continue
+   # No target-entry mutation can precede a saved prepared row. Cancel only this
+   # untouched intent; do not resolve or restore either containing directory.
+   if row['phase']=='backup-preparing':row['phase']='rolled-back';self.save();continue
+   parent_identity(path,row.get('parent'));current=fingerprint(path)
    if row.get('rollback_result')==current:row['phase']='rolled-back';self.save();continue
    if row['phase']=='rollback-prepared':
     same(path,row['rollback_expected']);self._finish_rollback(row);continue
@@ -215,12 +254,15 @@ class Transaction:
     else:copy(row['backup'],stage);same(stage,row['before']);result=fingerprint(stage)
    row.update(rollback_expected=current,rollback_result=result,rollback_stage=str(stage),phase='rollback-prepared');self.save();self._finish_rollback(row)
  def _finish_rollback(self,row):
-  path=P(row['path']);stage=P(row['rollback_stage']);same(path,row['rollback_expected'])
-  if row['rollback_result']['kind']=='absent':
-   if path.is_dir() and not path.is_symlink():path.rmdir()
-   elif path.exists() or path.is_symlink():path.unlink()
-  else:
-   same(stage,row['rollback_result'])
-   if path.parent.stat().st_dev!=stage.parent.stat().st_dev:raise ValueError('Restore must stay on one volume')
-   same(path,row['rollback_expected']);replace_entry(stage,path);same(path,row['rollback_result'])
-  row['phase']='rolled-back';self.save()
+  path=P(row['path']);stage=P(row['rollback_stage'])
+  with open_parent(path,row.get('parent')) as parent:
+   if parent.path!=path.parent:raise ValueError('Missing transaction target parent: '+str(path))
+   same(path,row['rollback_expected'])
+   if row['rollback_result']['kind']=='absent':
+    if path.is_dir() and not path.is_symlink():os.rmdir(path.name,dir_fd=parent.fd)
+    elif path.exists() or path.is_symlink():os.unlink(path.name,dir_fd=parent.fd)
+   else:
+    same(stage,row['rollback_result'])
+    if os.fstat(parent.fd).st_dev!=stage.parent.stat().st_dev:raise ValueError('Restore must stay on one volume')
+    same(path,row['rollback_expected']);replace_entry(stage,BoundEntry(path,parent.fd));same(path,row['rollback_result'])
+   parent_identity(path,row.get('parent'));row['phase']='rolled-back';self.save()

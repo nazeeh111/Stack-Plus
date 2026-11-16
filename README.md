@@ -1,29 +1,55 @@
 # nstack
 
-A native-first Codex setup with optional Claude Code and OpenCode adapters, and
-170 reviewed base specialist skills available across
-ordinary projects. Skills use clear functional names, retain their source identities and required
-support files, and load full instructions when needed. See the
-[name changes](docs/SKILL_NAMES.md). Routine work stays native.
-Agent Reach, public repository documentation and five academic research skills
-are explicit optional additions. Two reviewed ECC additions provide scoped codebase onboarding and agent evaluation with offline evidence utilities.
-Unslop is an optional existing-screen polish skill using the same native tools.
-Google Maps Scraper is an optional bounded public-place extraction skill and local runtime.
+nstack helps Codex find reviewed specialist skills and prepare tools for a
+specific task. It keeps source identities, activation conditions and required
+support together, while leaving ordinary work to the host. An optional adapter
+supports OpenCode; legacy Claude Code compatibility source remains available
+separately from the current Mac setup.
 
-The release registry contains 539 discovery decisions, 262 admitted component
-records and 243 exact skill/support paths. Admission is not proof of runtime
-acceptance. Read each component's trigger, non-use conditions, rights, patches
-and checks before using it. Trials and substitutes fail closed until their
-specific gate is implemented and satisfied. Consultation and excluded entries
-cannot become standalone installs.
+## Explore before installing
+
+From a source checkout with Python 3.11 or newer, search the registry without
+installing, activating or fetching anything:
+
+```sh
+NSTACK_STATE="$PWD/.nstack-demo-state" python3 nstack.py search web-ui-design --brief
+NSTACK_STATE="$PWD/.nstack-demo-state" python3 nstack.py show L010
+NSTACK_STATE="$PWD/.nstack-demo-state" python3 nstack.py route L010
+```
+
+The first command includes this result:
+
+```json
+{
+  "id": "L010",
+  "summary": "Anthropic specialist skills and packaging examples.",
+  "admission": "on demand",
+  "selected_native_names": ["web-ui-design", "mcp-builder"]
+}
+```
+
+`L010` identifies a **component** in the registry; `web-ui-design` is a
+selected native skill name. A component can contain several selected skills.
+`show` explains source, license, use conditions and selected paths; `route`
+shows prerequisites and possible actions. Catalog availability does not mean a
+skill is installed or its runtime has passed target-specific checks. These
+commands read the checked-in registry. `show` also checks for any staged builds
+in the selected state directory; the example uses an absent local path and
+creates no state. Once installed, replace `python3 nstack.py` with `nstack`.
+
+Search ranks entries matching more terms first. Use `--all` to include excluded
+and consultation-only entries; those results are not permission to install
+them. Omit `--brief` for the complete JSON record. Trial and substitute
+entries remain locked until their specific acceptance gates are implemented.
 
 ## Install on a Mac
 
-For a new installation in Codex or Claude Code, use the
-[host-aware installation prompt](docs/ONBOARDING.md). The
-[Claude Code adapter](docs/CLAUDE.md) exposes the same selected methods through
-Claude's own discovery and permissions, without configuring Codex or copying
-accounts. [Craft Anything](docs/CRAFT_ANYTHING.md) is an optional local software
+For a new Codex installation, use the
+[host-aware installation prompt](docs/ONBOARDING.md). OpenCode has a
+[separate adapter](docs/OPENCODE.md). The retained
+[Claude Code adapter documentation](docs/CLAUDE.md) describes its compatibility
+source; that host is not part of the current Mac workflow.
+[Craft Anything](docs/CRAFT_ANYTHING.md) is an optional local software
 analysis addition; its static tooling and rebuild workflows have distinct checks.
 
 
@@ -44,7 +70,13 @@ Python runtime recipes; Node/npm and browser downloads are needed only for the
 selected JavaScript recipes. The FFmpeg recipe uses the existing Apple compiler
 and make.
 
-From this checkout, install the base collection:
+The following cutover replaces the user-managed skill collection and retires
+the previous collection into private recovery storage. Inspect the staged
+result and retain the recovery files before running the cutover command.
+It preserves built-ins and unrelated configuration; it is not needed for the
+read-only discovery example above.
+
+From this checkout, stage and install the base collection:
 
 ```sh
 python3 -m unittest discover -s tests -p 'test_*.py'
@@ -53,6 +85,25 @@ python3 install.py install --bootstrap-cli --retire-personal --run-id cutover
 python3 native_setup.py install --replace --agent-reach --repository-docs
 "$HOME/.local/bin/nstack" doctor
 ```
+
+## Discovery and recovery design
+
+Search and native installation share the selected-name policy. One selection
+reads one manifest snapshot, so a registry replacement cannot mix two parsed
+generations within that operation. The next selection reads the current
+manifest again; there is no persistent cache to invalidate.
+
+Recovery records the destination directory's identity as well as the installed
+entry. If that directory is moved and replaced, repair and rollback refuse the
+replacement before writing. Restoring the original directory permits recovery;
+unrelated dirty bytes remain preserved. [Transaction behavior and platform
+limits](docs/TRANSACTIONS.md) includes legacy journals and interrupted operations.
+
+The regression checks use disposable directories and synthetic installations.
+They do not establish that a separately installed version has these changes,
+or that every optional runtime is ready for a real task.
+
+## Optional additions
 
 Choose optional additions in that single `native_setup.py` command rather than
 running successive replacements: `--academic-research`, `--ecc`, `--unslop`,

@@ -9,6 +9,7 @@ import nstack
 import install as profile_install
 import skill_names
 from transaction import Transaction, atomic_json, copy, fingerprint, same
+from transaction_paths import open_parent, parent_identity
 from native_copy import copy_generated_tree
 
 def sha(data):
@@ -29,21 +30,7 @@ def tree(root):
     return result
 
 def selection():
-    modes = {c["id"]: c["deployment"] for c in nstack.manifest()["components"]}
-    rows = []
-    for s in nstack.manifest()["skills"]:
-        if modes[s["candidate_id"]] != "on demand" or s["delivery"] not in ("intact upstream leaf", "narrow-patched leaf", "native runtime/method adapter"):
-            continue
-        name = nstack.shelf_name(s["candidate_id"], s["source_path"], s["source_repository"])
-        prefix = s["candidate_id"].lower() + "-"
-        if not name.startswith(prefix):
-            raise ValueError("Unexpected source skill name")
-        name = name[len(prefix):]
-        rows.append((skill_names.canonical(name), s))
-    names = [name for name, _ in rows]
-    if len(names) != len(set(names)):
-        raise ValueError("Natural skill names collide")
-    return rows
+    return nstack.native_selection(nstack.manifest())
 
 def addon_definition(name):
     name = skill_names.source_name(name)
@@ -429,12 +416,24 @@ def apply(args):
             row = next((r for r in reversed(tx.rows) if r["path"] == str(target) and r["phase"] == "applied"), None)
             if not row or row["after"].get("target") != str(release / "skills"):
                 raise ValueError("Missing native skill ownership record")
+            binding = row.get("parent")
+            if not binding:
+                raise ValueError("Native repair requires the original transaction parent binding; reconcile this legacy run manually")
             preflight(allowed, run)
-            same(target, {"kind": "absent"})
             same(run / "root-after", row["after"])
-            target.parent.mkdir(parents=True, exist_ok=True)
-            copy(run / "root-after", target)
-            same(target, row["after"])
+            # Publish a metadata-preserving staged link into the recorded open
+            # directory. link() refuses an occupied leaf instead of replacing it.
+            with open_parent(target, binding) as parent:
+                if parent.path != target.parent:
+                    raise ValueError("Missing native repair target parent: " + str(target))
+                with tempfile.TemporaryDirectory(prefix=".native-repair-", dir=run) as tmp:
+                    stage = P(tmp) / "skills"
+                    copy(run / "root-after", stage)
+                    same(stage, row["after"])
+                    parent_identity(target, binding)
+                    os.link(stage, target.name, dst_dir_fd=parent.fd, follow_symlinks=False)
+                    parent_identity(target, binding)
+                    same(target, row["after"])
         return {"changed": True, "repaired_removed_entry": True, "skills": len(index), "release": str(release)}
     if target.is_symlink() and os.readlink(target) == str(release / "skills") and all(
         p.is_file() and not p.is_symlink() and p.read_bytes() == data for p, data in desired.items()
