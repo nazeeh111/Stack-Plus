@@ -24,17 +24,21 @@ def properties(text):
 
 
 def selectors(base, view_name):
+    """Read only the supported flat AND filters of the checked-in base."""
     global_block, views = base.split('views:\n', 1)
-    expressions = []
-    for line in global_block.splitlines():
-        if line.strip().startswith('- '):
-            expressions.append(line.strip()[2:].strip("'"))
-    for view in views.split('  - type: ')[1:]:
-        if '    name: ' + view_name + '\n' in view:
-            match = re.search(r'^    filters: (.+)$', view, re.M)
+    global_match = re.fullmatch(r'filters:\n  and:\n((?:  - .+\n)+)', global_block)
+    if not global_match:
+        raise AssertionError('Expected the explicit global AND filter')
+    expressions = [line.strip()[2:].strip("'")
+                   for line in global_match.group(1).splitlines()]
+    for view in re.split(r'(?m)^- type: ', views)[1:]:
+        if re.search(r'^  name: ' + re.escape(view_name) + r'$', view, re.M):
+            block = re.search(r'(?ms)^  filters:\n(.*?)(?=^  [a-z_]+:|\Z)', view)
+            match = re.fullmatch(r'    and:\n((?:    - .+\n)+)', block.group(1)) if block else None
             if not match:
-                raise AssertionError('Expected an explicit state filter')
-            return expressions + [match.group(1)], view
+                raise AssertionError('Expected an explicit view AND filter')
+            return expressions + [line.strip()[2:].strip("'")
+                                  for line in match.group(1).splitlines()], view
     raise AssertionError('Missing view: ' + view_name)
 
 
@@ -72,13 +76,13 @@ class VaultTemplateTests(unittest.TestCase):
             self.assertFalse(included(pathlib.Path('Library') / note.name,
                                       note.read_text(), self.current))
             checked = self.template.replace('state: draft', 'state: current')
-            checked = checked.replace('observed_date:\n', 'observed_date: 2026-11-10\n')
+            checked = checked.replace('observed_date: "{{date:YYYY-MM-DD}}"', 'observed_date: 2026-11-10')
             note.write_text(checked)
             props = properties(note.read_text())
             self.assertTrue(included(pathlib.Path('Library') / note.name,
                                      note.read_text(), self.current))
             self.assertEqual(props['observed_date'], '2026-11-10')
-            self.assertIn('      - observed_date\n', self.current_view)
+            self.assertIn('  - observed_date\n', self.current_view)
             self.assertEqual(props['generation'], '1')
             self.assertEqual(props['supersedes'], 'none')
             self.assertNotIn('observation_date', props)
@@ -91,6 +95,14 @@ class VaultTemplateTests(unittest.TestCase):
                 self.assertFalse(included(pathlib.Path(path), checked, self.current))
         self.assertFalse(included(pathlib.Path('Library/Fixture.md'),
                                   checked.replace('tags: [knowledge]', 'tags: []'), self.current))
+
+    def test_unsupported_boolean_or_expression_fails_closed(self):
+        unsupported = self.base.replace('    - state == "current"',
+                                        '    - or:\n      - state == "current"', 1)
+        with self.assertRaisesRegex(AssertionError, 'explicit view AND filter'):
+            selectors(unsupported, 'Current knowledge')
+        with self.assertRaisesRegex(AssertionError, 'Unsupported static selector'):
+            included(pathlib.Path('Library/Fixture.md'), self.template, ['state != "draft"'])
 
     def test_historical_reports_are_separate_from_current_claims(self):
         historical = self.template.replace('state: draft', 'state: historical-source-report')

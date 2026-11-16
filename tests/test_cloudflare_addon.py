@@ -84,8 +84,14 @@ class CloudflareAddonTests(unittest.TestCase):
             release, index = native.prepare(base / 'state', [], ['cloudflare-security-audit'])
             repeated, rows = native.prepare(base / 'state', [], ['cloudflare-security-audit'])
             self.assertEqual((release, index), (repeated, rows))
-            entry = release / 'skills/cloudflare-security-audit'
-            self.assertEqual(Path(index[0]['skill_path']).read_bytes(), (ADDON / 'SKILL.md').read_bytes())
+            entry = release / 'skills/code-security-review'
+            self.assertEqual(index[0]['name'], 'code-security-review')
+            self.assertEqual(Path(index[0]['skill_path']).resolve(), (entry / 'SKILL.md').resolve())
+            source = (ADDON / 'SKILL.md').read_bytes()
+            self.assertEqual(source.count(b'name: cloudflare-security-audit\n'), 1)
+            expected = source.replace(b'name: cloudflare-security-audit\n',
+                                      b'name: code-security-review\n', 1)
+            self.assertEqual((entry / 'SKILL.md').read_bytes(), expected)
             before = files(release)
             scratch = base / 'synthetic'
             scratch.mkdir()
