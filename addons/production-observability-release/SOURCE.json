@@ -1,0 +1,27 @@
+{
+  "kind": "authored-native-method",
+  "version": 1,
+  "observed_on": "2026-11-17",
+  "license": "MIT for this authored method; linked works retain their own terms",
+  "purpose": "Concrete service observability/release gap, complementing existing tests, UI quality, benchmark and agent eval methods without starting monitoring infrastructure.",
+  "primary_sources": [
+    {
+      "url": "https://sre.google/workbook/canarying-releases/",
+      "contribution": "Reproducible artifacts, bounded canary/control evidence and release recovery."
+    },
+    {
+      "url": "https://sre.google/workbook/error-budget-policy/",
+      "contribution": "Project-owned SLO/error budget policy; example policies are not mandatory global values."
+    },
+    {
+      "url": "https://opentelemetry.io/docs/security/handling-sensitive-data/",
+      "contribution": "Sensitive data minimization/redaction before export."
+    },
+    {
+      "url": "https://opentelemetry.io/docs/concepts/signals/",
+      "contribution": "Different trace, metric and log contributions; sampling/resource context."
+    }
+  ],
+  "installed_runtimes_or_services": [],
+  "upstream_extraction": false
+}

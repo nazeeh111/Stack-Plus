@@ -1,0 +1,48 @@
+{
+  "state": "source-reviewed-authored-method",
+  "observed_date": "2026-11-17",
+  "kind": "newly-authored-method-from-primary-documentation",
+  "upstream_repository": "py-why/dowhy",
+  "upstream_revision": "45de9a90623bae166e32790a6bb5a77827ef91cd",
+  "sources": [
+    {
+      "path": "upstream-originals/LICENSE",
+      "sha256": "4be08a194b9c970bf9309ac19f09e7deaecb763957091bf08298bf0e897e7eab",
+      "bytes": 1159
+    },
+    {
+      "path": "upstream-originals/docs/source/user_guide/refuting_causal_estimates/index.rst",
+      "sha256": "d12f55865fecc773406d67e18cca65f9520ffa34f1bcab0116d8be8337a248d2",
+      "bytes": 534
+    },
+    {
+      "path": "upstream-originals/docs/source/user_guide/refuting_causal_estimates/refuting_effect_estimates/placebo_treatment.rst",
+      "sha256": "9efe6c6bb2894b238f69e3478f7ed96b26276e5687d9e93b991ee3cd0a2ab97d",
+      "bytes": 444
+    },
+    {
+      "path": "upstream-originals/docs/source/user_guide/refuting_causal_estimates/refuting_effect_estimates/sensitivity_analysis/simulation_based.rst",
+      "sha256": "3cfe4aef30372149cf4311fee414fa356627a116aa6a3d1dd1a2fa01f642b5f5",
+      "bytes": 4831
+    }
+  ],
+  "runtime_installed": false,
+  "runtime_tested": false,
+  "adoption_note": "Authored native method, with exact selected upstream documentation/licenses retained separately; no solver/controller/estimator runtime installed. Root bounded review and analytic checks recorded with the setup task.",
+  "audit_only_sources": [
+    {
+      "path": "upstream-originals/web-evidence/time-series-split.html",
+      "sha256": "bd5b51d06ac0ab50b62badb7d35de9bb2bdaa10a059235b3bf19cd17b57cdcc3",
+      "bytes": 138409,
+      "artifact_role": "Audit snapshot retained with source review, not installed skill",
+      "bundled": false
+    }
+  ],
+  "additional_documents": [
+    {
+      "url": "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html",
+      "audit_sha256": "bd5b51d06ac0ab50b62badb7d35de9bb2bdaa10a059235b3bf19cd17b57cdcc3",
+      "role": "Chronological split API; snapshot is audit-only, verify installed version for use."
+    }
+  ]
+}

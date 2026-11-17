@@ -10,7 +10,8 @@ import install
 
 NAMES=('ui-design-hallmark','pixel-art-effects','design-specification-workflow',
        'presentation-visual-design','iphone-mirroring-automation',
-       'agent-ui-streaming','typed-graph-workflows')
+       'agent-ui-streaming','typed-graph-workflows',
+       'causal-and-temporal-validation','computational-photonics-verification','production-observability-release','quantum-error-correction','signal-and-control-verification')
 
 class SpecialistRestore(unittest.TestCase):
     def test_staged_source_restores_all_specialist_files_and_methods(self):

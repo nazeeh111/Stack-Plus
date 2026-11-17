@@ -1,0 +1,31 @@
+{
+  "state": "source-reviewed-authored-method",
+  "observed_date": "2026-11-17",
+  "kind": "newly-authored-method-from-primary-documentation",
+  "upstream_repository": "NanoComp/meep",
+  "upstream_revision": "84cbc56a2e94b90acfa05dee78247b565b68d04c",
+  "sources": [
+    {
+      "path": "upstream-originals/LICENSE",
+      "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+      "bytes": 18092
+    },
+    {
+      "path": "upstream-originals/doc/docs/Python_Tutorials/Adjoint_Solver.md",
+      "sha256": "29307ac3a1615656292cc4453b7ecf8c7f3aba9b112e45a91610634d0ace01e6",
+      "bytes": 68612
+    }
+  ],
+  "runtime_installed": false,
+  "runtime_tested": false,
+  "adoption_note": "Authored native method, with exact selected upstream documentation/licenses retained separately; no solver/controller/estimator runtime installed. Root bounded review and analytic checks recorded with the setup task.",
+  "audit_only_sources": [
+    {
+      "path": "upstream-originals/python/tests/test_adjoint_solver.py",
+      "sha256": "144a9fbca2b9a4152a6d0035c04096239277f627dbbf62f7054b5d3babd922a1",
+      "bytes": 46284,
+      "artifact_role": "Upstream test source inspected in audit; not an executed or installed test",
+      "bundled": false
+    }
+  ]
+}

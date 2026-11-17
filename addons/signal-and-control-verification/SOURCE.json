@@ -1,0 +1,48 @@
+{
+  "state": "source-reviewed-authored-method",
+  "observed_date": "2026-11-17",
+  "kind": "newly-authored-method-from-primary-documentation",
+  "upstream_repository": "python-control/python-control",
+  "upstream_revision": "bfe9380eedcfbc6e57c0a7117e77e633575e3a18",
+  "sources": [
+    {
+      "path": "upstream-originals/LICENSE",
+      "sha256": "c60bd121183225d2e215b8a582b11da6012da70fd7e1bc9d647cda4dc3c71aa6",
+      "bytes": 1642
+    },
+    {
+      "path": "upstream-originals/doc/intro.rst",
+      "sha256": "6a9729f7f7a669f0781dca40e7d5e5e21d7ba5f540be01ea53e83e3b3325bbc6",
+      "bytes": 7401
+    },
+    {
+      "path": "upstream-originals/doc/iosys.rst",
+      "sha256": "ca2c04170a8289f29ee8287a83262a43d99ceeed0bbce94539bb4e50c2184864",
+      "bytes": 35144
+    },
+    {
+      "path": "upstream-originals/doc/linear.rst",
+      "sha256": "a97d4cbd427fcb441ecd0a7e637ce83c8a2fefba153fec0abde4e4fa986e0471",
+      "bytes": 19230
+    }
+  ],
+  "runtime_installed": false,
+  "runtime_tested": false,
+  "adoption_note": "Authored native method, with exact selected upstream documentation/licenses retained separately; no solver/controller/estimator runtime installed. Root bounded review and analytic checks recorded with the setup task.",
+  "audit_only_sources": [
+    {
+      "path": "upstream-originals/web-evidence/scipy-resampling.html",
+      "sha256": "726ce6839e8f507a65a941ed6bf6c7fb459d5e02ef174964e36a1ffa17166056",
+      "bytes": 46663,
+      "artifact_role": "Audit snapshot retained with source review, not installed skill",
+      "bundled": false
+    }
+  ],
+  "additional_documents": [
+    {
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.resample_poly.html",
+      "audit_sha256": "726ce6839e8f507a65a941ed6bf6c7fb459d5e02ef174964e36a1ffa17166056",
+      "role": "Resampling semantics; snapshot is audit-only, verify installed version for use."
+    }
+  ]
+}

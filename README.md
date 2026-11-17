@@ -64,7 +64,7 @@ and consultation-only entries; those results are not permission to install
 them. Omit `--brief` for the complete JSON record. Trial and substitute
 entries remain locked until their specific acceptance gates are implemented.
 
-For portable backup coverage and the complete 211-method selection, see
+For portable backup coverage and the complete 216-method selection, see
 [restore guidance](docs/RESTORE.md). Private data and local recovery records
 need a separate backup.
 

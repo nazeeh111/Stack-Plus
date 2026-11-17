@@ -1,0 +1,3 @@
+interface:
+  display_name: "Production observability and releases"
+  short_description: "Verify service reliability, canaries and recovery"

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scope": "Portable211method selection only; no runtime/account/permission or private-data backup. Apply on a new host after review; duplicate user-owned extra skills are rejected.",
+  "scope": "Portable216method selection only; no runtime/account/permission or private-data backup. Apply on a new host after review; duplicate user-owned extra skills are rejected.",
   "arguments": [
     "--replace",
     "--agent-reach",
@@ -43,7 +43,17 @@
     "--extra-skill",
     "agent-ui-streaming",
     "--extra-skill",
-    "typed-graph-workflows"
+    "typed-graph-workflows",
+    "--extra-skill",
+    "causal-and-temporal-validation",
+    "--extra-skill",
+    "computational-photonics-verification",
+    "--extra-skill",
+    "production-observability-release",
+    "--extra-skill",
+    "quantum-error-correction",
+    "--extra-skill",
+    "signal-and-control-verification"
   ],
   "base_skills": [
     "ab-testing",
@@ -260,6 +270,11 @@
     "presentation-visual-design",
     "iphone-mirroring-automation",
     "agent-ui-streaming",
-    "typed-graph-workflows"
+    "typed-graph-workflows",
+    "causal-and-temporal-validation",
+    "computational-photonics-verification",
+    "production-observability-release",
+    "quantum-error-correction",
+    "signal-and-control-verification"
   ]
 }

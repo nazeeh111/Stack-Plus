@@ -73,3 +73,5 @@ patch. The Mac application is acquired separately from its official notarized
 distribution and is not redistributed in nstack. Optional dependencies, engines
 and assets retain their own notices and terms; method admission does not enable
 rebuild agents, device operations, account access or paid services.
+
+The authored computational-photonics-verification method includes exact selected Meep documentation under upstream-originals/ with its GPL-2.0 license. The authored signal-and-control-verification method retains selected python-control documentation under BSD-3-Clause; causal-and-temporal-validation retains selected DoWhy documentation under MIT. Each package separates the authored entry from its original sources and license. No corresponding implementation runtime is installed by these methods. Quantum error correction links pinned Stim/PyMatching primary references without bundling their implementation; production-observability-release links primary Google SRE/OpenTelemetry guidance. Native runtime binaries remain separately acquired and licensed.

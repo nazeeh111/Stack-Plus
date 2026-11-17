@@ -1,0 +1,6 @@
+interface:
+  display_name: "Quantum error correction"
+  short_description: "Verify syndromes, decoders and logical failures"
+  default_prompt: "Use $quantum-error-correction to design or verify my correction and decoder workflow with explicit noise, bit order, negative controls and honest limits."
+policy:
+  allow_implicit_invocation: true

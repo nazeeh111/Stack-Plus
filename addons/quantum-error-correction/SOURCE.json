@@ -1,0 +1,60 @@
+{
+  "kind": "Authored native QEC workflow; not an official extracted Stim/PyMatching skill",
+  "license": "MIT for authored method; external Stim/PyMatching references Apache-2.0, no upstream implementation vendored",
+  "primary_sources": [
+    {
+      "repository": "quantumlib/Stim",
+      "revision": "ffe0d043598ed5df0851a3e6b4920359a23fafbd",
+      "tree": "2a8863b1d18f2c75407a420e59ec05009d93928e",
+      "files": {
+        "README.md": {
+          "sha256": "55af3b2b95cc654cc7b7b37e2a2c4b344c6b1619718e57f052ea06fce4c88199",
+          "bytes": 7901,
+          "url": "https://raw.githubusercontent.com/quantumlib/Stim/ffe0d043598ed5df0851a3e6b4920359a23fafbd/README.md"
+        },
+        "doc/file_format_dem_detector_error_model.md": {
+          "sha256": "93cfa56a80a2066d4dc93b4f71f3b2abbda433f73cc153ce5ce687f0be53472e",
+          "bytes": 27153,
+          "url": "https://raw.githubusercontent.com/quantumlib/Stim/ffe0d043598ed5df0851a3e6b4920359a23fafbd/doc/file_format_dem_detector_error_model.md"
+        },
+        "doc/gates.md": {
+          "sha256": "706761aa1cd142489596cd62a7dedfb01db754b3edfb61a1edf6a17d58544dec",
+          "bytes": 118471,
+          "url": "https://raw.githubusercontent.com/quantumlib/Stim/ffe0d043598ed5df0851a3e6b4920359a23fafbd/doc/gates.md"
+        },
+        "LICENSE": {
+          "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+          "bytes": 11357,
+          "url": "https://raw.githubusercontent.com/quantumlib/Stim/ffe0d043598ed5df0851a3e6b4920359a23fafbd/LICENSE"
+        }
+      }
+    },
+    {
+      "repository": "oscarhiggott/PyMatching",
+      "revision": "6f63b2b9474ba0fa7e511fe52bffdce858a06984",
+      "tree": "ed78f5b8981dfd94d52a90d2448f2ad55affdb62",
+      "files": {
+        "README.md": {
+          "sha256": "1b61b585c437d062b5cdef04bc076b046b1db835d376490b80ec453e4617df6a",
+          "bytes": 17307,
+          "url": "https://raw.githubusercontent.com/oscarhiggott/PyMatching/6f63b2b9474ba0fa7e511fe52bffdce858a06984/README.md"
+        },
+        "LICENSE": {
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "bytes": 11357,
+          "url": "https://raw.githubusercontent.com/oscarhiggott/PyMatching/6f63b2b9474ba0fa7e511fe52bffdce858a06984/LICENSE"
+        }
+      }
+    }
+  ],
+  "runtime": "None installed by this skill; reuse current registered Cirq/Qiskit/QuTiP runtime for a selected local task. Stim/PyMatching are optional source references, not installed capabilities.",
+  "purpose": "Explicit syndrome/detector/decoder/logical-failure contract absent from existing general circuit/dynamics methods.",
+  "review_scope": "Actual preexisting Cirq1.7 local five-qubit repetition-code fixture, exact logical-state and sampled independent-X controls; not general QEC or hardware.",
+  "core_words": 518,
+  "authored_files_sha256": {
+    "LICENSE": "b7ff37cecc3222e7e1e954ea2b020bd5fe49350c04be0ee5f8e648c92d4fda17",
+    "SKILL.md": "c264184eac41ed7302498f405269d6f7abba9bf867ca897515875fafdf0d125b",
+    "references/contracts.md": "0caea52406063d4bead6fec4f36708e37ffd9447260399a65c84c12c0b5636b0",
+    "agents/openai.yaml": "06f69d77dae029fa2d9f0f9bbce4edb8cf6827ee526905205d3074ae44eb3f64"
+  }
+}

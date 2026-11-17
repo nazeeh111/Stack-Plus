@@ -99,21 +99,21 @@
     "Native binding limits setup to explicit local project work, fresh environment and reviewed plans; no credentials/providers/cloud/global memory or service autostart.",
     "Repository-relative links leaving the portable skill are rewritten to exact pinned upstream URLs; originals and complete patch retained.",
     "Native readiness note records app-oriented static assessment rejection before any CLI execution; no workaround or self-granted runtime authority.",
-    "Added native metadata.category: Typed data and graph workflows. Metadata-only change leaves the full operating body unchanged."
+    "Added native metadata.category: Typed data and graph workflows. Metadata-only change leaves the full operating body unchanged.",
+    "2026-11-17: matching prerelease standalone runtime accepted through applicable CLI signature/notarization, build attestation and actual graph/runner checks; scoped Obsidian source handoff added. Upstream method/originals unchanged."
   ],
   "runtime": {
-    "status": "source_only_uncommissioned",
-    "installed": false,
-    "head_policy_fix_artifact_match": false,
-    "source_version": "0.15.1",
-    "temporary_trial": {
-      "version": "0.15.0",
-      "status": "app_oriented_native_assessment_rejected",
-      "message": "the code is valid but does not seem to be an app",
-      "cli_commands_executed": 0,
-      "observed_cli_execution_failure": false,
-      "temporary_binary_removed": true,
-      "persistent_install": false
-    }
+    "status": "accepted_standalone_local_only",
+    "installed": true,
+    "source_revision": "54ced5d3f573a45bfbe717dd2099cd1fa3b06220",
+    "release_tag": "edge-20261117-54ced5d",
+    "head_policy_fix_artifact_match": true,
+    "cluster_policy_fix_regression_tested": false,
+    "archive_sha256": "fe24c659b1684cfcd5cc549ff493dcd71902f71e6e82ad3d2a8f08439c732b0a",
+    "binary_sha256": "d93baf802106252313d66fbd861145f21f1e1520d7f8c36ff54a1840ba319e33",
+    "wrapper_sha256": "3b35d801223a78c60a8d10b2793a1a245af88a60ce15094603663549c85e0b9d",
+    "scope": "On-demand project-explicit network-denied standalone CLI; no server/MCP/cloud/accounts/providers/global memory activation. Runtime location is recorded separately in native-tools/index.json. Method restore alone does not install a binary.",
+    "source_review": "Prior CAUTION/partial source coverage retained.",
+    "historical_trial": "Stable0.15.0 app-only assessment rejected before execution; later matching edge CLI passed applicable checks, without protection changes."
   }
 }

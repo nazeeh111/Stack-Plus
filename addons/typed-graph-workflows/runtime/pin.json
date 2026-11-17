@@ -1,0 +1,38 @@
+{
+  "name": "omnigraph-local",
+  "platform": "macOS arm64",
+  "release_tag": "edge-20261117-54ced5d",
+  "version": "0.15.1-edge+54ced5d",
+  "source_revision": "54ced5d3f573a45bfbe717dd2099cd1fa3b06220",
+  "archive_url": "https://github.com/ModernRelay/omnigraph/releases/download/edge-20261117-54ced5d/omnigraph-macos-arm64.tar.gz",
+  "archive_sha256": "fe24c659b1684cfcd5cc549ff493dcd71902f71e6e82ad3d2a8f08439c732b0a",
+  "archive_bytes": 174538472,
+  "binary_member": "omnigraph",
+  "binary_sha256": "d93baf802106252313d66fbd861145f21f1e1520d7f8c36ff54a1840ba319e33",
+  "binary_bytes": 254476256,
+  "developer_id_team": "6XQX9HAB25",
+  "binary_identifier": "com.modernrelay.omnigraph",
+  "notarized_requirement_check": "passed",
+  "attestation_receipt": "ATTESTATION.json (root verified anonymously; sourceRepositoryDigest matches source revision)",
+  "entrypoint": [
+    "python3",
+    "run-local.py",
+    "--workspace",
+    "/absolute/project",
+    "--",
+    "COMMAND",
+    "ARGS"
+  ],
+  "canonical_init": "python3 run-local.py --workspace /absolute/project -- init --schema schema.pg --target ./graph.omni",
+  "scope": "Project-explicit standalone local graph commands only. Fresh allowlisted environment/operator configuration each call; no cloud/accounts/providers/MCP/cluster/server/daemon/global PATH or auto-updates.",
+  "data_format": {
+    "writes": 17,
+    "serves": [
+      14,
+      17
+    ],
+    "stable_0_15_0_reads_format17": false
+  },
+  "distribution": "Source wrapper/metadata/license may be published; acquire and verify official binary separately; do not commit binary.",
+  "wrapper_sha256": "3b35d801223a78c60a8d10b2793a1a245af88a60ce15094603663549c85e0b9d"
+}
