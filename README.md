@@ -16,11 +16,9 @@ selected native skills are `web-ui-design` and `mcp-builder`. The next two
 commands expose its pinned source, per-skill rights, prerequisites and concrete
 checks before any preparation or activation:
 
-| Question | Command | What it establishes |
-| --- | --- | --- |
-| What matches this task? | `search web-ui-design --brief` | A component and its selected skill names |
-| Where does it come from? | `show L010` | Pinned source, rights, adaptations and staged-build state |
-| What must happen next? | `route L010` | Preparation, activation, verification and retirement guidance |
+1. **Find a match:** `search web-ui-design --brief` returns a component and its selected skill names.
+2. **Inspect its source:** `show L010` exposes the pinned source, rights, adaptations and staged-build state.
+3. **Read the route:** `route L010` explains preparation, activation, verification and retirement.
 
 [Inspect the captured JSON session](docs/presentation/README.md). This discovery
 run reads the public checkout with an absent disposable state path; it installs,
