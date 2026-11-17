@@ -1,10 +1,34 @@
 # nstack
 
-nstack helps Codex find reviewed specialist skills and prepare tools for a
-specific task. It keeps source identities, activation conditions and required
-support together, while leaving ordinary work to the host. An optional adapter
-supports OpenCode; legacy Claude Code compatibility source remains available
-separately from the current Mac setup.
+**Find the right specialist. Keep the host in charge.**
+
+nstack helps Codex discover reviewed skills and prepare tools for a specific
+task. Source identities, licenses, prerequisites and acceptance checks travel
+with the capability. Ordinary work stays with the host; heavy runtimes stay
+on demand. An optional OpenCode adapter shares the collection.
+
+[Try read-only discovery](#explore-before-installing) · [Set up a Mac](#install-on-a-mac) · [Runtime routes](#on-demand-routes) · [Recovery](#roll-back-from-terminal)
+
+## A task becomes an inspectable route
+
+Start with `web-ui-design`. Search returns **L010**, a registry component whose
+selected native skills are `web-ui-design` and `mcp-builder`. The next two
+commands expose its pinned source, per-skill rights, prerequisites and concrete
+checks before any preparation or activation:
+
+| Question | Command | What it establishes |
+| --- | --- | --- |
+| What matches this task? | `search web-ui-design --brief` | A component and its selected skill names |
+| Where does it come from? | `show L010` | Pinned source, rights, adaptations and staged-build state |
+| What must happen next? | `route L010` | Preparation, activation, verification and retirement guidance |
+
+[Inspect the captured JSON session](docs/presentation/README.md). This discovery
+run reads the public checkout with an absent disposable state path; it installs,
+fetches and activates nothing. A source route is available guidance, not proof
+that a runtime is installed or accepted for a real task.
+
+The current Mac workflow uses Codex and optionally OpenCode. Retained legacy
+Claude Code compatibility source is documented separately.
 
 ## Explore before installing
 
@@ -42,7 +66,7 @@ and consultation-only entries; those results are not permission to install
 them. Omit `--brief` for the complete JSON record. Trial and substitute
 entries remain locked until their specific acceptance gates are implemented.
 
-For portable backup coverage and the complete211-method selection, see
+For portable backup coverage and the complete 211-method selection, see
 [restore guidance](docs/RESTORE.md). Private data and local recovery records
 need a separate backup.
 
