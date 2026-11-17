@@ -9,7 +9,8 @@ import native_setup as native
 import install
 
 NAMES=('ui-design-hallmark','pixel-art-effects','design-specification-workflow',
-       'presentation-visual-design','iphone-mirroring-automation')
+       'presentation-visual-design','iphone-mirroring-automation',
+       'agent-ui-streaming','typed-graph-workflows')
 
 class SpecialistRestore(unittest.TestCase):
     def test_staged_source_restores_all_specialist_files_and_methods(self):

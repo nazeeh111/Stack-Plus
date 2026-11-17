@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scope": "Portable209method selection only; no runtime/account/permission or private-data backup. Apply on a new host after review; duplicate user-owned extra skills are rejected.",
+  "scope": "Portable211method selection only; no runtime/account/permission or private-data backup. Apply on a new host after review; duplicate user-owned extra skills are rejected.",
   "arguments": [
     "--replace",
     "--agent-reach",
@@ -39,7 +39,11 @@
     "--extra-skill",
     "presentation-visual-design",
     "--extra-skill",
-    "iphone-mirroring-automation"
+    "iphone-mirroring-automation",
+    "--extra-skill",
+    "agent-ui-streaming",
+    "--extra-skill",
+    "typed-graph-workflows"
   ],
   "base_skills": [
     "ab-testing",
@@ -254,6 +258,8 @@
     "pixel-art-effects",
     "design-specification-workflow",
     "presentation-visual-design",
-    "iphone-mirroring-automation"
+    "iphone-mirroring-automation",
+    "agent-ui-streaming",
+    "typed-graph-workflows"
   ]
 }

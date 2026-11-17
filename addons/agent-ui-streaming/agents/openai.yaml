@@ -1,0 +1,3 @@
+interface:
+  display_name: "Agent UI streaming (AG-UI)"
+  short_description: "Stream agent events, state and human decisions"

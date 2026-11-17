@@ -1,0 +1,119 @@
+{
+  "repository": "https://github.com/ModernRelay/omnigraph",
+  "revision": "54ced5d3f573a45bfbe717dd2099cd1fa3b06220",
+  "tree": "3e89e1e5713b495ab61674fb0413df27aa44df94",
+  "version": "0.15.1",
+  "license": "MIT",
+  "source_skill": "skills/omnigraph/SKILL.md",
+  "native_name": "typed-graph-workflows",
+  "original_files": [
+    {
+      "source_path": "skills/omnigraph/SKILL.md",
+      "installed_path": "upstream/ORIGINAL-SKILL.txt",
+      "sha256": "0aba2ea1a5462feae47ffb6f697ab4da3814cb802294485fc82b9cc25c9a20c2"
+    },
+    {
+      "source_path": "skills/omnigraph/references/aliases.md",
+      "installed_path": "upstream/references/aliases.md",
+      "sha256": "b1ec6effb1693578e66b5a01c9fd4c4cea29e9898252b7fb1092144f0a60f422"
+    },
+    {
+      "source_path": "skills/omnigraph/references/blobs.md",
+      "installed_path": "references/blobs.md",
+      "sha256": "9a2abd58d51fd757fae49db493795ca6b943442e83eee2a1ac260ab2ccba480c"
+    },
+    {
+      "source_path": "skills/omnigraph/references/changes.md",
+      "installed_path": "references/changes.md",
+      "sha256": "f763fc479212694731b51bbd938168607d5db6ad0e32c49f735b9dea0e5cf50b"
+    },
+    {
+      "source_path": "skills/omnigraph/references/cluster.md",
+      "installed_path": "upstream/references/cluster.md",
+      "sha256": "94f6f55b4346f09818f553d89b0ffc77977d1cc2d4d776644a2436be4668ba7f"
+    },
+    {
+      "source_path": "skills/omnigraph/references/commands.md",
+      "installed_path": "upstream/references/commands.md",
+      "sha256": "6c148174967ee1df25266ed2f15fa04783fd5d37be0c10d7fdae57a23f42c8c4"
+    },
+    {
+      "source_path": "skills/omnigraph/references/data.md",
+      "installed_path": "references/data.md",
+      "sha256": "046da17b2079e7af5c388251a45f5ba715c9f8a62f0f49997063214144352056"
+    },
+    {
+      "source_path": "skills/omnigraph/references/migrations.md",
+      "installed_path": "upstream/references/migrations.md",
+      "sha256": "556edc0556f2d9d49dff4cdde4468e8824cd124bda297777588243989933e5e1"
+    },
+    {
+      "source_path": "skills/omnigraph/references/onboarding.md",
+      "installed_path": "upstream/references/onboarding.md",
+      "sha256": "345fa1ab35029010cfbe88ebe74a5dd5ddddc7920f2cbece285cb0fc5dcc5cb4"
+    },
+    {
+      "source_path": "skills/omnigraph/references/queries.md",
+      "installed_path": "references/queries.md",
+      "sha256": "18af90be450642ae3475a5ec84ff3185163a2b9f8d70819e8182e9b194a43d95"
+    },
+    {
+      "source_path": "skills/omnigraph/references/remote-ops.md",
+      "installed_path": "upstream/references/remote-ops.md",
+      "sha256": "769587a9d7b9fd19ee8cc5fb1eb069a3a5f9e6c4b424337d450c7fbfe32a580b"
+    },
+    {
+      "source_path": "skills/omnigraph/references/schema-design.md",
+      "installed_path": "references/schema-design.md",
+      "sha256": "938bdebeb44e5453967a221356dc81b5994e9ccfb98fb44d05a1889624751cc5"
+    },
+    {
+      "source_path": "skills/omnigraph/references/schema.md",
+      "installed_path": "references/schema.md",
+      "sha256": "bec4e73273642df6281a14f47df6b7fad5c3767bb7e03198bbc920fc88d00e50"
+    },
+    {
+      "source_path": "skills/omnigraph/references/search.md",
+      "installed_path": "references/search.md",
+      "sha256": "4b11793112533e14792c1ba3d7164e1150828d6e7674b019fefbca8232074511"
+    },
+    {
+      "source_path": "skills/omnigraph/references/server-policy.md",
+      "installed_path": "upstream/references/server-policy.md",
+      "sha256": "8b56370755b8146eade2497299de109b6bc6ee6b83bcbee4a720ed91a681e348"
+    },
+    {
+      "source_path": "skills/omnigraph/references/stored-queries.md",
+      "installed_path": "references/stored-queries.md",
+      "sha256": "dcd022cd965dea2de52c31950aa8a101cbdea73b1917ad02ab568e55d19f45b1"
+    },
+    {
+      "source_path": "LICENSE",
+      "installed_path": "LICENSE",
+      "sha256": "76322df5c05cb2561331b4d892cac9b84e5925e3b82f7e8a94876b13f82bf4cf"
+    }
+  ],
+  "adaptations": [
+    "Function-based discovery and brand UI metadata. Original full method and every support document retained.",
+    "Compatibility moved into supported metadata; source license reference resolved to bundled MIT license.",
+    "Native binding limits setup to explicit local project work, fresh environment and reviewed plans; no credentials/providers/cloud/global memory or service autostart.",
+    "Repository-relative links leaving the portable skill are rewritten to exact pinned upstream URLs; originals and complete patch retained.",
+    "Native readiness note records app-oriented static assessment rejection before any CLI execution; no workaround or self-granted runtime authority.",
+    "Added native metadata.category: Typed data and graph workflows. Metadata-only change leaves the full operating body unchanged."
+  ],
+  "runtime": {
+    "status": "source_only_uncommissioned",
+    "installed": false,
+    "head_policy_fix_artifact_match": false,
+    "source_version": "0.15.1",
+    "temporary_trial": {
+      "version": "0.15.0",
+      "status": "app_oriented_native_assessment_rejected",
+      "message": "the code is valid but does not seem to be an app",
+      "cli_commands_executed": 0,
+      "observed_cli_execution_failure": false,
+      "temporary_binary_removed": true,
+      "persistent_install": false
+    }
+  }
+}

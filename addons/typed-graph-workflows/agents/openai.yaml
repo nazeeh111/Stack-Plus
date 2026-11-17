@@ -1,0 +1,6 @@
+interface:
+  display_name: "Typed graph workflows (Omnigraph)"
+  short_description: "Typed schemas, graph queries and branch-reviewed changes."
+  default_prompt: "Use $typed-graph-workflows for this Omnigraph project, checking its version and target before execution."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,20 @@
+{
+  "kind": "Authored native method, not upstream SDK installation or official extracted skill",
+  "repository": "https://github.com/ag-ui-protocol/ag-ui",
+  "revision": "79530a25f3476d0abb93cb00761906fda757a2d5",
+  "protocol_version": "1.0",
+  "license_reference": "https://github.com/ag-ui-protocol/ag-ui/blob/79530a25f3476d0abb93cb00761906fda757a2d5/LICENSE",
+  "source_files": {
+    "README.md": "667422d2a16f79baa207b3e340947554c17158a009b3476040e52c8399d18f62",
+    "LICENSE": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+    "spec/1.0/schema.json": "4b5c93226838a0e72d88e6c5df20633c686c49fcb75d9be2815c6cbf9e48e71a",
+    "docs/spec/1.0/basic/processing.mdx": "0e4d0d58a23819deb9c30530cbd537a4a1ba72cee108a038263413f60dbda1d2",
+    "docs/spec/1.0/basic/transports/http-sse.mdx": "8be0c0751f3ff238848d178675514abd724db20b882c8a043724f127fddba806",
+    "docs/spec/1.0/basic/patterns/interrupt-resume.mdx": "665d90308e0fec22ababc37e19014669d74202bb9ddb1e5a5af73d9ecef72742",
+    "docs/spec/1.0/events/state.mdx": "75faff68c893e87763924739f0539a6f862a90a7be551741791c460e179c2e16",
+    "sdks/python/pyproject.toml": "850f9b393e5f8b69b1d8878d01c63e623a7806073dd44f9e780f55bcda540c6c",
+    "sdks/python/ag_ui/encoder/encoder.py": "6f708035f2c82329e3f98a55c06ed208eadb0d2ad74f76098e12bb88420f8ee6"
+  },
+  "runtime": "None installed; select project-local compatible SDK when an actual application needs it.",
+  "admission": "Pinned normative-source review plus scoped model-free Python/SSE application trial; no all-SDK/conformance/security or production authorization guarantee."
+}

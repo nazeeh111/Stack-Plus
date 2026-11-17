@@ -556,7 +556,7 @@ def main():
     a.add_argument("--home", default=str(P.home()))
     a.add_argument("--codex-home", help="Codex instructions directory; defaults to CODEX_HOME for the current user, otherwise HOME/.codex")
     a.add_argument("--only", action="append", help="Exact canonical or legacy base-skill name, for a deliberately limited install")
-    a.add_argument("--extra-skill", action="append", choices=['ui-design-hallmark', 'pixel-art-effects', 'design-specification-workflow', 'presentation-visual-design', 'iphone-mirroring-automation'], help="Add a portable specialist method; repeat for multiple choices. Runtime and account setup remain separate.")
+    a.add_argument("--extra-skill", action="append", choices=['ui-design-hallmark', 'pixel-art-effects', 'design-specification-workflow', 'presentation-visual-design', 'iphone-mirroring-automation', 'agent-ui-streaming', 'typed-graph-workflows'], help="Add a portable specialist method; repeat for multiple choices. Runtime and account setup remain separate.")
     a.add_argument("--replace", action="store_true")
     a.add_argument("--agent-reach", action="store_true", help="Explicitly add the separately reviewed Agent Reach skill")
     a.add_argument("--repository-docs", action="store_true")
