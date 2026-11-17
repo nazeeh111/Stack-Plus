@@ -5,7 +5,7 @@
     "runtime": "Existing Node.js built-ins; O_NOFOLLOW and O_NONBLOCK required for validator CLI inputs",
     "tests": "Node.js built-in test runner; mkfifo for POSIX-only FIFO tests"
   },
-  "installation_adaptation": "Pinned upstream active method with public skill-name and relocated support-path bindings only. Complete original, domain prompts, schema, offline validators and tests retained unchanged; no provider, scan service, account access or sandbox installed.",
+  "installation_adaptation": "Pinned upstream active method with public skill-name and relocated support-path bindings only. Complete original, domain prompts, schema, offline validators and tests retained unchanged; no provider, scan service, account access or sandbox installed. Conditional native reference adds pristine-baseline and independent execution/patch completion gates from a separately pinned Apache-2.0 source; no executable harness, provider, account access or sandbox activation. A separately attributed CC-BY-4.0 section adds web-response false-positive controls without the bughunter runner or global skills.",
   "license": "MIT",
   "modifications": [
     {
@@ -19,13 +19,35 @@
     {
       "change": "Exact unified diff from pinned original entry to active entry.",
       "file": "PORT.patch"
+    },
+    {
+      "file": "SKILL.md",
+      "change": "One prominent conditional pointer; all prior upstream/native method bytes preserved."
+    },
+    {
+      "file": "references/defending-code-evidence.md",
+      "change": "Apache-2.0 span-derived native adaptation; preserves useful independent-baseline and patch gates, corrects incomplete/contradictory evidence acceptance and uses current host interfaces/authority."
+    },
+    {
+      "file": "references/defending-code-evidence.md",
+      "change": "Adds a short CC-BY-4.0 attributed web-response-controls section from pinned Claude-BugHunter; replaces fixed statistics and status-only conclusions with task-appropriate evidence limits."
     }
   ],
   "native_files": [
     "SKILL.md",
-    "PORT.patch"
+    "PORT.patch",
+    "references/defending-code-evidence.md",
+    "references/defending-code-originals/LICENSE",
+    "references/defending-code-originals/best-practices.md.reference.txt",
+    "references/defending-code-originals/grade_prompt.py.reference.txt",
+    "references/defending-code-originals/patch_grade.py.reference.txt",
+    "references/defending-code-originals/patch_prompt.py.reference.txt",
+    "references/bughunter-originals/LICENSE-CONTENT",
+    "references/bughunter-originals/NOTICE",
+    "references/bughunter-originals/bb-methodology.reference.txt",
+    "references/bughunter-originals/triage-validation.reference.txt"
   ],
-  "port_patch_sha256": "d7087429e51bac5d681885d8806e4b6fae6b206127e67878e1115e4c4031e86c",
+  "port_patch_sha256": "e213563a517fcdb1e6077c65f47aa3d86c50e5dd81b12a86e848bc272297dc22",
   "repository": "cloudflare/security-audit-skill",
   "revision": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
   "source_path": "skills/security-audit/SKILL.md",
@@ -136,5 +158,93 @@
       "sha256": "b92001117a92c4161d43777a0ba2fa182a8a4d97f2304cc8c0cee5331497b73b",
       "source_path": "skills/security-audit/validate-findings.test.cjs"
     }
+  },
+  "license_scope": "MIT applies to Cloudflare method/companions; Apache-2.0 to Anthropic-derived reference sections and defending-code originals; CC-BY-4.0 to the separately attributed web-response-controls section and bughunter documentation originals. Preserve each notice and license.",
+  "defending_code_reference": {
+    "repository": "anthropics/defending-code-reference-harness",
+    "revision": "d3bea6b5793b5f3d59a75ebe69a58efa88383145",
+    "tree": "622c422e681f18175a7e27b578f1f097f3dded2b",
+    "license": "Apache-2.0",
+    "reference_only": true,
+    "active_reference": "references/defending-code-evidence.md",
+    "active_sha256": "e2e2db27c1913c081a59a03bc0681f15a479b3f9af1e80d1499ee4135d71c971",
+    "upstream_files": {
+      "references/defending-code-originals/LICENSE": {
+        "source_path": "LICENSE",
+        "sha256": "c18f8a7d5d8278d44045405023c1465a135f13ae5a4ac3764a8ce42f73ddec81",
+        "modification": "Exact bytes; filename-only archival relocation. Not an executable or discoverable skill."
+      },
+      "references/defending-code-originals/best-practices.md.reference.txt": {
+        "source_path": "docs/best-practices.md",
+        "sha256": "b6b549677572908dbc8560c8e1cdf99e7ccb2176f21b7ac4ed4f8d2c48f44939",
+        "modification": "Exact bytes; filename-only archival relocation. Not an executable or discoverable skill."
+      },
+      "references/defending-code-originals/grade_prompt.py.reference.txt": {
+        "source_path": "harness/prompts/grade_prompt.py",
+        "sha256": "328e88ac6bfa9fc1c7c9aa1d3d17bf661f94a3bb055a8737a048cf4745090bf6",
+        "modification": "Exact bytes; filename-only archival relocation. Not an executable or discoverable skill."
+      },
+      "references/defending-code-originals/patch_grade.py.reference.txt": {
+        "source_path": "harness/patch_grade.py",
+        "sha256": "26f186fdcff2b7db7c1391397a422403c0ef5e04b78a582e8b954f49a98fb766",
+        "modification": "Exact bytes; filename-only archival relocation. Not an executable or discoverable skill."
+      },
+      "references/defending-code-originals/patch_prompt.py.reference.txt": {
+        "source_path": "harness/prompts/patch_prompt.py",
+        "sha256": "c2c950b6e769348bcfbe158fc92f0bb55319a596b5d6830564287a194c953813",
+        "modification": "Exact bytes; filename-only archival relocation. Not an executable or discoverable skill."
+      }
+    },
+    "excluded": "Executable runners/graders, provider/auth/session handling, model/effort/permission defaults, gVisor setup, voting away uncertainty, failed-search-as-clean and automatic disclosure.",
+    "license_scope": "Anthropic-derived sections only; the separately attributed web-response-controls section is CC-BY-4.0."
+  },
+  "bughunter_reference": {
+    "repository": "elementalsouls/Claude-BugHunter",
+    "revision": "2f9a226d38d35d28d06f1ed63753799d498a2b3d",
+    "tree": "fbb2fa2adb7e742b66684b7b778c9db5f5665b0a",
+    "license": "CC-BY-4.0",
+    "reference_only": true,
+    "active_reference": "references/defending-code-evidence.md",
+    "active_section": "Web-response evidence controls",
+    "active_sha256": "e2e2db27c1913c081a59a03bc0681f15a479b3f9af1e80d1499ee4135d71c971",
+    "selected_spans": [
+      {
+        "source_path": "skills/bb-methodology/SKILL.md",
+        "lines": [
+          407,
+          442
+        ]
+      },
+      {
+        "source_path": "skills/triage-validation/SKILL.md",
+        "lines": [
+          101,
+          149
+        ]
+      }
+    ],
+    "upstream_files": {
+      "references/bughunter-originals/LICENSE-CONTENT": {
+        "source_path": "LICENSE-CONTENT",
+        "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+        "modification": "Exact bytes; inert archival filename relocation. No separate skill or executed workflow."
+      },
+      "references/bughunter-originals/NOTICE": {
+        "source_path": "NOTICE",
+        "sha256": "547ed8bfa070693c2014bd66329dba258e0010add743fc5830e3b473b70e4eee",
+        "modification": "Exact bytes; inert archival filename relocation. No separate skill or executed workflow."
+      },
+      "references/bughunter-originals/bb-methodology.reference.txt": {
+        "source_path": "skills/bb-methodology/SKILL.md",
+        "sha256": "687af8873d8300652b7563320f45f7337138b5359eb77318f2031a0cbcce138c",
+        "modification": "Exact bytes; inert archival filename relocation. No separate skill or executed workflow."
+      },
+      "references/bughunter-originals/triage-validation.reference.txt": {
+        "source_path": "skills/triage-validation/SKILL.md",
+        "sha256": "7dd455768e31aedefbce6d416952cb0fbb276a584889f21c8c8d0407e8745741",
+        "modification": "Exact bytes; inert archival filename relocation. No separate skill or executed workflow."
+      }
+    },
+    "excluded": "Runner, installers, MCP configuration, Claude/model/effort defaults, bypassPermissions, autonomous campaigns, live probing, fixed statistical thresholds, universal kill/severity lists, real-data extraction and incomplete/invalid-coverage acceptance."
   }
 }

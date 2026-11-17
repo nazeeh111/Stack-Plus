@@ -1,0 +1,220 @@
+{
+  "base": "node@sha256:c8c4a7483bb04544293c82a3eecc3081c37ff5dfedcaf819d60e6e4aaad35b12",
+  "index_sha256": "7778d3e3f303b7ddb8ce0fe7c8d57473a076c6bf2e8f241f75421d2396352498",
+  "packages": [
+    {
+      "name": "iverilog",
+      "version": "12.0-2+b1",
+      "source": "iverilog (12.0-2)",
+      "filename": "iverilog_12.0-2+b1_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/i/iverilog/iverilog_12.0-2+b1_amd64.deb",
+      "sha256": "febe027d2d3f5a7e570844d55758339ab5490acc09f404f214a8719d89d07056",
+      "size": 2046080,
+      "depends": "libbz2-1.0, libc6 (>= 2.35), libgcc-s1 (>= 3.0), libreadline8t64 (>= 6.0), libstdc++6 (>= 13.1), zlib1g (>= 1:1.2.0)",
+      "pre_depends": null
+    },
+    {
+      "name": "libexpat1",
+      "version": "2.8.3-1~deb13u1",
+      "source": "expat",
+      "filename": "libexpat1_2.8.3-1~deb13u1_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/e/expat/libexpat1_2.8.3-1~deb13u1_amd64.deb",
+      "sha256": "38abe0e710a07688e9c149d74536e67cfee0364bdb64dd6d644c32a1cfad389f",
+      "size": 122672,
+      "depends": null,
+      "pre_depends": "libc6 (>= 2.36)"
+    },
+    {
+      "name": "libffi8",
+      "version": "3.4.8-2",
+      "source": "libffi",
+      "filename": "libffi8_3.4.8-2_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/libf/libffi/libffi8_3.4.8-2_amd64.deb",
+      "sha256": "0ebdc340de33333639c3c63874cd4b15ac2e83dfa1ef3053b7eefaf4919f4f68",
+      "size": 24144,
+      "depends": "libc6 (>= 2.34)",
+      "pre_depends": null
+    },
+    {
+      "name": "libncursesw6",
+      "version": "6.5+20250216-2",
+      "source": "ncurses",
+      "filename": "libncursesw6_6.5+20250216-2_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/n/ncurses/libncursesw6_6.5+20250216-2_amd64.deb",
+      "sha256": "47baa2e11579583654583a066b69bd5a5d2f22423081f707ed6c0c3ba6d538b7",
+      "size": 135484,
+      "depends": "libtinfo6 (= 6.5+20250216-2), libc6 (>= 2.34)",
+      "pre_depends": null
+    },
+    {
+      "name": "libpython3-stdlib",
+      "version": "3.13.5-1",
+      "source": "python3-defaults",
+      "filename": "libpython3-stdlib_3.13.5-1_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/p/python3-defaults/libpython3-stdlib_3.13.5-1_amd64.deb",
+      "sha256": "7e142ed64a81ccdd39714f213467bd365736ef341adb2be11be981f638b9175f",
+      "size": 10180,
+      "depends": "libpython3.13-stdlib (>= 3.13.5-1~)",
+      "pre_depends": null
+    },
+    {
+      "name": "libpython3.13-minimal",
+      "version": "3.13.5-2+deb13u5",
+      "source": "python3.13",
+      "filename": "libpython3.13-minimal_3.13.5-2+deb13u5_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/p/python3.13/libpython3.13-minimal_3.13.5-2+deb13u5_amd64.deb",
+      "sha256": "a4aa6a9a8c77f87bfe545e1d14ec42c001d189ace90e3aa75deec882b39dee49",
+      "size": 863168,
+      "depends": "libc6 (>= 2.14), libssl3t64 (>= 3.4.0)",
+      "pre_depends": null
+    },
+    {
+      "name": "libpython3.13-stdlib",
+      "version": "3.13.5-2+deb13u5",
+      "source": "python3.13",
+      "filename": "libpython3.13-stdlib_3.13.5-2+deb13u5_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/p/python3.13/libpython3.13-stdlib_3.13.5-2+deb13u5_amd64.deb",
+      "sha256": "db161322a3481d2c0c3b9a3b9a03c3ab0e2b1718f54b88755fb4a3f939165b84",
+      "size": 1958624,
+      "depends": "libpython3.13-minimal (= 3.13.5-2+deb13u5), media-types | mime-support, netbase, tzdata, libbz2-1.0, libc6 (>= 2.38), libdb5.3t64, libffi8 (>= 3.4), liblzma5 (>= 5.1.1alpha+20120614), libncursesw6 (>= 6.1), libreadline8t64 (>= 7.0~beta), libsqlite3-0 (>= 3.36.0), libtinfo6 (>= 6), libuuid1 (>= 2.20.1)",
+      "pre_depends": null
+    },
+    {
+      "name": "libreadline8t64",
+      "version": "8.2-6",
+      "source": "readline",
+      "filename": "libreadline8t64_8.2-6_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/r/readline/libreadline8t64_8.2-6_amd64.deb",
+      "sha256": "eeadf2b5e755c9f183883feea2d9b5b28560284275d5f54d3e55d0923b1d0967",
+      "size": 168832,
+      "depends": "readline-common, libc6 (>= 2.38), libtinfo6 (>= 6)",
+      "pre_depends": null
+    },
+    {
+      "name": "libtcl8.6",
+      "version": "8.6.16+dfsg-1",
+      "source": "tcl8.6",
+      "filename": "libtcl8.6_8.6.16+dfsg-1_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/t/tcl8.6/libtcl8.6_8.6.16+dfsg-1_amd64.deb",
+      "sha256": "7cfa070ca822e572a91bf1719f6ac7d9b464dc8da4142ea68cbd31aeac2fc52a",
+      "size": 1041872,
+      "depends": "tzdata, libc6 (>= 2.38), zlib1g (>= 1:1.2.2)",
+      "pre_depends": null
+    },
+    {
+      "name": "media-types",
+      "version": "13.0.0",
+      "source": "media-types",
+      "filename": "media-types_13.0.0_all.deb",
+      "url": "https://deb.debian.org/debian/pool/main/m/media-types/media-types_13.0.0_all.deb",
+      "sha256": "0788e4b0b72db1bcf74a19cb24c3511e7770ad0b341f0f30e361701c3072f53e",
+      "size": 29336,
+      "depends": null,
+      "pre_depends": null
+    },
+    {
+      "name": "netbase",
+      "version": "6.5",
+      "source": "netbase",
+      "filename": "netbase_6.5_all.deb",
+      "url": "https://deb.debian.org/debian/pool/main/n/netbase/netbase_6.5_all.deb",
+      "sha256": "76bafa92947ebd37b0a6f9ec6570412041f56edebc1c66d323731216d318471e",
+      "size": 12436,
+      "depends": null,
+      "pre_depends": null
+    },
+    {
+      "name": "python3",
+      "version": "3.13.5-1",
+      "source": "python3-defaults",
+      "filename": "python3_3.13.5-1_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/p/python3-defaults/python3_3.13.5-1_amd64.deb",
+      "sha256": "c1388174dc7140e6c19a6dd39f8a0dcb38a835cd66c65644e0dded43d5223cb0",
+      "size": 28244,
+      "depends": "python3.13 (>= 3.13.5-1~), libpython3-stdlib (= 3.13.5-1)",
+      "pre_depends": "python3-minimal (= 3.13.5-1)"
+    },
+    {
+      "name": "python3-click",
+      "version": "8.2.0+0.really.8.1.8-1",
+      "source": "python-click",
+      "filename": "python3-click_8.2.0+0.really.8.1.8-1_all.deb",
+      "url": "https://deb.debian.org/debian/pool/main/p/python-click/python3-click_8.2.0+0.really.8.1.8-1_all.deb",
+      "sha256": "a464c9b11930f293c8808cc5ea049830d8645a0d314bfa7e294803cb983ee15e",
+      "size": 95388,
+      "depends": "python3:any",
+      "pre_depends": null
+    },
+    {
+      "name": "python3-minimal",
+      "version": "3.13.5-1",
+      "source": "python3-defaults",
+      "filename": "python3-minimal_3.13.5-1_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/p/python3-defaults/python3-minimal_3.13.5-1_amd64.deb",
+      "sha256": "a5d2371bebf3689f676e3f3bae800371bcc4392a8a51269e23d528249b399615",
+      "size": 27248,
+      "depends": "dpkg (>= 1.13.20)",
+      "pre_depends": "python3.13-minimal (>= 3.13.5-1~)"
+    },
+    {
+      "name": "python3.13",
+      "version": "3.13.5-2+deb13u5",
+      "source": "python3.13",
+      "filename": "python3.13_3.13.5-2+deb13u5_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/p/python3.13/python3.13_3.13.5-2+deb13u5_amd64.deb",
+      "sha256": "460c1fd72845516ac3ce9d1686916f3ab2e4c86f8a9746e14d26243a47e2b98d",
+      "size": 757492,
+      "depends": "python3.13-minimal (= 3.13.5-2+deb13u5), libpython3.13-stdlib (= 3.13.5-2+deb13u5), media-types | mime-support, tzdata",
+      "pre_depends": null
+    },
+    {
+      "name": "python3.13-minimal",
+      "version": "3.13.5-2+deb13u5",
+      "source": "python3.13",
+      "filename": "python3.13-minimal_3.13.5-2+deb13u5_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/p/python3.13/python3.13-minimal_3.13.5-2+deb13u5_amd64.deb",
+      "sha256": "c1fda9e7b1bf15b2fa75a238d8a8710e142fe14c722fc650c5fc614f078c9073",
+      "size": 2224552,
+      "depends": "libpython3.13-minimal (= 3.13.5-2+deb13u5), libexpat1 (>= 2.6.0), zlib1g (>= 1:1.2.0)",
+      "pre_depends": "libc6 (>= 2.38)"
+    },
+    {
+      "name": "readline-common",
+      "version": "8.2-6",
+      "source": "readline",
+      "filename": "readline-common_8.2-6_all.deb",
+      "url": "https://deb.debian.org/debian/pool/main/r/readline/readline-common_8.2-6_all.deb",
+      "sha256": "f77e8aa0bf0de618f11cb0b21658a4ed60f177d63b3cf26d7fc3706b6d0eaaa9",
+      "size": 69360,
+      "depends": null,
+      "pre_depends": null
+    },
+    {
+      "name": "yosys",
+      "version": "0.52-2",
+      "source": "yosys",
+      "filename": "yosys_0.52-2_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/y/yosys/yosys_0.52-2_amd64.deb",
+      "sha256": "c950e58a1f554546a91602e5124eb05019a92040e57b0aaa43cf33b032ee9c40",
+      "size": 6226136,
+      "depends": "libc6 (>= 2.38), libffi8 (>= 3.4), libgcc-s1 (>= 3.3.1), libreadline8t64 (>= 6.0), libstdc++6 (>= 14), libtcl8.6 (>= 8.6.0), zlib1g (>= 1:1.2.0), python3:any, python3-click, yosys-abc (>= 0.32-1)",
+      "pre_depends": null
+    },
+    {
+      "name": "yosys-abc",
+      "version": "0.52-2",
+      "source": "yosys",
+      "filename": "yosys-abc_0.52-2_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/y/yosys/yosys-abc_0.52-2_amd64.deb",
+      "sha256": "f54c92c5ce88959f6aedc71c7b01eaf2b39d6c8c3e5f02784b6ce24736dc50e4",
+      "size": 4944476,
+      "depends": "libbz2-1.0, libc6 (>= 2.38), libgcc-s1 (>= 3.0), libreadline8t64 (>= 6.0), libstdc++6 (>= 13.1), zlib1g (>= 1:1.1.4)",
+      "pre_depends": null
+    }
+  ],
+  "inrelease_sha256": "0584fba32e13e0ab8285fb16c27adea1ec03a73669c18702821094fd6ca86675",
+  "inrelease_url": "https://deb.debian.org/debian/dists/trixie/InRelease",
+  "packages_url": "https://deb.debian.org/debian/dists/trixie/main/binary-amd64/Packages.xz",
+  "license_scope": "Private local installation only; preserve package copyright and source-package references. Do not distribute this image as a public nstack artifact.",
+  "signature_policy": "Official base sqv default policy with built-in Debian archive keyring; authenticated index hash and exact offline apt closure."
+}

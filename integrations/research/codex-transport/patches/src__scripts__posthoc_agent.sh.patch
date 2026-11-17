@@ -1,0 +1,20 @@
+--- a/src/scripts/posthoc_agent.sh
++++ b/src/scripts/posthoc_agent.sh
+@@ -251,7 +251,7 @@
+ max_program_evals_per_attempt = sys.argv[7]
+ 
+ sys.path.insert(0, str(script_dir))
+-from src.investigation.skill_scope import skills_for_step, validate_skill_set
++from src.investigation.skill_scope import skills_for_step, validate_skill_set, stage_skill_tree
+ from src.investigation.files import load_instructions, relative_display_path
+ 
+ skills_src = script_dir / "src" / "agents" / "skills"
+@@ -292,7 +292,7 @@
+ for skill_name in selected_skills:
+     src_dir = skills_src / skill_name
+     dst_dir = formatted_skills_dir / src_dir.name
+-    shutil.copytree(src_dir, dst_dir, dirs_exist_ok=True)
++    stage_skill_tree(src_dir, dst_dir)
+     src_skill = src_dir / "SKILL.md"
+     if src_skill.is_file():
+         rendered = load_instructions(src_skill, task_dir_display, results_dir_display, extra)

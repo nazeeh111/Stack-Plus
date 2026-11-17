@@ -243,6 +243,44 @@ class OpenCodeSetupTests(unittest.TestCase):
             self.assertEqual(config.read_bytes(), upgraded); self.assertEqual(journal.read_bytes(), before)
             m.rollback(result['run']); self.assertEqual(config.read_bytes(), raw)
 
+    def test_v230_repeat_preserves_privacy_settings_and_denials(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            home, state, cli = self.fixture(P(tmp).resolve())
+            m.apply(home, state, cli)
+            cli.write_text('#!/bin/sh\necho "opencode v2.3.0"\n')
+            config = home / '.config/opencode/opencode.json'
+            data = json.loads(config.read_text())
+            privacy = {'share': 'disabled', 'update': 'notify', 'snapshots': True,
+                       'providers': {'ollama': {'settings': {'headerTimeout': 600000},
+                                     'models': {'fixture:local': {'limit': {'context': 65536}}}}},
+                       'policies': [{'action': 'tool.use', 'resource': 'read:*.env', 'effect': 'deny'}]}
+            data.update(privacy)
+            raw = (json.dumps(data, indent=2) + '\n').encode()
+            config.write_bytes(raw)
+            codex = home.parent / 'codex'
+            codex.write_text('#!/bin/sh\necho "codex-cli 0.167.0"\n'); codex.chmod(0o755)
+            result = m.apply(home, state, cli, codex)
+            after = config.read_bytes()
+            for key, value in privacy.items():
+                self.assertEqual(json.loads(after)[key], value)
+            journal = (P(result['run']) / 'journal.json').read_bytes()
+            self.assertFalse(m.apply(home, state, cli, codex)['changed'])
+            self.assertEqual(config.read_bytes(), after)
+            self.assertEqual((P(result['run']) / 'journal.json').read_bytes(), journal)
+            m.rollback(result['run']); self.assertEqual(config.read_bytes(), raw)
+            cli.write_text('#!/bin/sh\necho "opencode v2.99.0"\n')
+            with self.assertRaises(ValueError): m.apply(home, state, cli, codex)
+            self.assertEqual(config.read_bytes(), raw)
+
+    def test_local_provider_tuning_excludes_credentials_and_remote_endpoints(self):
+        self.assertTrue(m.local_provider_settings({'ollama': {'settings': {'headerTimeout': 600000}}}))
+        for provider in [{'settings': {'apiKey': 'synthetic-only'}},
+                         {'settings': {'baseURL': 'https://example.invalid'}},
+                         {'headers': {}}, {'env': []}, {'package': 'unowned'},
+                         {'settings': {'headerTimeout': False}},
+                         {'models': {'fixture': {'limit': {'context': 0}}}}]:
+            self.assertFalse(m.local_provider_settings({'ollama': provider}))
+
     def test_security_extras_do_not_allow_owned_conflicts_or_providers(self):
         with tempfile.TemporaryDirectory() as tmp:
             home, state, cli = self.fixture(P(tmp).resolve()); first = m.apply(home, state, cli)

@@ -1,0 +1,133 @@
+{
+  "schema": 1,
+  "rea_version": "6.9.0",
+  "rea_revision": "d74549e495c58eb4a560279fd9f05508401ea0a0",
+  "rea_url": "https://registry.npmjs.org/rea-agents/-/rea-agents-6.9.0.tgz",
+  "rea_sha256": "322338a1505e2557702a16012e7d46abdb5729641d98938662762dfbfb79262a",
+  "base": "node@sha256:c8c4a7483bb04544293c82a3eecc3081c37ff5dfedcaf819d60e6e4aaad35b12",
+  "base_config_sha256": "sha256:b4b5372f8cadcf1ab94b42bec654f5b1d65c87fd59d73a3699af2c503ed095b9",
+  "platform": "linux/amd64",
+  "ghidra_version": "12.1.4",
+  "ghidra_url": "https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_12.1.4_build/ghidra_12.1.4_PUBLIC_20260921.zip",
+  "ghidra_sha256": "ddac49f903da9d5bac833e5cc79395098b9c33cfd3279be5f31bd00387d2d4db",
+  "ghidra_native_sha256": "4a97ff9a3dbac5757c7240a664571e82345e4abc4f67cd211cd9d402abe4543d",
+  "debian_inrelease_url": "https://deb.debian.org/debian/dists/trixie/InRelease",
+  "debian_inrelease_sha256": "0584fba32e13e0ab8285fb16c27adea1ec03a73669c18702821094fd6ca86675",
+  "debian_packages_url": "https://deb.debian.org/debian/dists/trixie/main/binary-amd64/Packages.xz",
+  "debian_packages_sha256": "7778d3e3f303b7ddb8ce0fe7c8d57473a076c6bf2e8f241f75421d2396352498",
+  "debian_packages": [
+    {
+      "name": "procps",
+      "version": "2:4.0.4-9",
+      "url": "https://deb.debian.org/debian/pool/main/p/procps/procps_4.0.4-9_amd64.deb",
+      "filename": "procps_4.0.4-9_amd64.deb",
+      "sha256": "4db90bb6776772fc52585d6b1fbfc52ec2a85480e1b4363b743fbb2ffa2a5375",
+      "bytes": 882088
+    },
+    {
+      "name": "openjdk-21-jdk-headless",
+      "version": "21.0.12.1+1-1~deb13u1",
+      "url": "https://deb.debian.org/debian/pool/main/o/openjdk-21/openjdk-21-jdk-headless_21.0.12.1+1-1~deb13u1_amd64.deb",
+      "filename": "openjdk-21-jdk-headless_21.0.12.1+1-1~deb13u1_amd64.deb",
+      "sha256": "f3abafb6c644b03df042824e707cd211ea33254761d7f7b75be3f8dc0df97c7a",
+      "bytes": 83035048
+    },
+    {
+      "name": "libncursesw6",
+      "version": "6.5+20250216-2",
+      "url": "https://deb.debian.org/debian/pool/main/n/ncurses/libncursesw6_6.5+20250216-2_amd64.deb",
+      "filename": "libncursesw6_6.5+20250216-2_amd64.deb",
+      "sha256": "47baa2e11579583654583a066b69bd5a5d2f22423081f707ed6c0c3ba6d538b7",
+      "bytes": 135484
+    },
+    {
+      "name": "libproc2-0",
+      "version": "2:4.0.4-9",
+      "url": "https://deb.debian.org/debian/pool/main/p/procps/libproc2-0_4.0.4-9_amd64.deb",
+      "filename": "libproc2-0_4.0.4-9_amd64.deb",
+      "sha256": "c9d61caab1b2ddfc3f17edb95be31b9809fcb2daf27d853dff615bc4ebd08b4b",
+      "bytes": 65596
+    },
+    {
+      "name": "openjdk-21-jre-headless",
+      "version": "21.0.12.1+1-1~deb13u1",
+      "url": "https://deb.debian.org/debian/pool/main/o/openjdk-21/openjdk-21-jre-headless_21.0.12.1+1-1~deb13u1_amd64.deb",
+      "filename": "openjdk-21-jre-headless_21.0.12.1+1-1~deb13u1_amd64.deb",
+      "sha256": "e95f36193e45464ac758e5436f940bf3eaecc77de67188275a42104f58aa7674",
+      "bytes": 41900512
+    },
+    {
+      "name": "ca-certificates-java",
+      "version": "20240118",
+      "url": "https://deb.debian.org/debian/pool/main/c/ca-certificates-java/ca-certificates-java_20240118_all.deb",
+      "filename": "ca-certificates-java_20240118_all.deb",
+      "sha256": "176db8376cd024879056f81811fef78251600906bd74cc4a6eb18db7050433b8",
+      "bytes": 11608
+    },
+    {
+      "name": "java-common",
+      "version": "0.76",
+      "url": "https://deb.debian.org/debian/pool/main/j/java-common/java-common_0.76_all.deb",
+      "filename": "java-common_0.76_all.deb",
+      "sha256": "4fcd0d8965fb339c941dfdc17cfe08a0239e0b95962bfc96fa5e871da5dc1e50",
+      "bytes": 6776
+    },
+    {
+      "name": "liblcms2-2",
+      "version": "2.16-2+deb13u2",
+      "url": "https://deb.debian.org/debian/pool/main/l/lcms2/liblcms2-2_2.16-2+deb13u2_amd64.deb",
+      "filename": "liblcms2-2_2.16-2+deb13u2_amd64.deb",
+      "sha256": "32e53c2002ccea8c60c02779bea0ba49ac132fef702988a30d64af79b6617806",
+      "bytes": 160264
+    },
+    {
+      "name": "libjpeg62-turbo",
+      "version": "1:2.1.5-4",
+      "url": "https://deb.debian.org/debian/pool/main/libj/libjpeg-turbo/libjpeg62-turbo_2.1.5-4_amd64.deb",
+      "filename": "libjpeg62-turbo_2.1.5-4_amd64.deb",
+      "sha256": "5504299ad0e3c0a9ca9f962a68a650a040db52f9f416a109e74df48d55601d3f",
+      "bytes": 168152
+    },
+    {
+      "name": "libnss3",
+      "version": "2:3.110-1+deb13u4",
+      "url": "https://deb.debian.org/debian/pool/main/n/nss/libnss3_3.110-1+deb13u4_amd64.deb",
+      "filename": "libnss3_3.110-1+deb13u4_amd64.deb",
+      "sha256": "8d20d0754039e15e9bd2c8484e98dc9c2982907d4f20834da29a9501913d00b5",
+      "bytes": 1394236
+    },
+    {
+      "name": "libpcsclite1",
+      "version": "2.3.3-1",
+      "url": "https://deb.debian.org/debian/pool/main/p/pcsc-lite/libpcsclite1_2.3.3-1_amd64.deb",
+      "filename": "libpcsclite1_2.3.3-1_amd64.deb",
+      "sha256": "a8bc4725549060d1e696d358e32a3699d947d5381871553a290389830bebccbd",
+      "bytes": 55248
+    },
+    {
+      "name": "ca-certificates",
+      "version": "20250419",
+      "url": "https://deb.debian.org/debian/pool/main/c/ca-certificates/ca-certificates_20250419_all.deb",
+      "filename": "ca-certificates_20250419_all.deb",
+      "sha256": "ef590f89563aa4b46c8260d49d1cea0fc1b181d19e8df3782694706adf05c184",
+      "bytes": 161704
+    },
+    {
+      "name": "libnspr4",
+      "version": "2:4.36-1",
+      "url": "https://deb.debian.org/debian/pool/main/n/nspr/libnspr4_4.36-1_amd64.deb",
+      "filename": "libnspr4_4.36-1_amd64.deb",
+      "sha256": "87fc2039ee89cff2b8010fa9535706b1def40031acfc52bf12197dcb3cb7b064",
+      "bytes": 109800
+    },
+    {
+      "name": "openssl",
+      "version": "3.5.7-1~deb13u2",
+      "url": "https://deb.debian.org/debian/pool/main/o/openssl/openssl_3.5.7-1~deb13u2_amd64.deb",
+      "filename": "openssl_3.5.7-1~deb13u2_amd64.deb",
+      "sha256": "4ff006f431d8c2e69fa736885a3b6e779f2448535f69dbde821d9f0ff87ad8ea",
+      "bytes": 1507300
+    }
+  ],
+  "signature_gate": "Verified official base sqv/keyring, no policy override; signed Packages hash and exact14-package apt simulation passed2026-11-15. Revalidate before any future build."
+}

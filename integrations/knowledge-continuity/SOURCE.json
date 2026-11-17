@@ -1,0 +1,131 @@
+{
+  "version": 3,
+  "purpose": "Passive native event identity and discretionary guarded private-note writer; no upstream implementation copied",
+  "contracts": {
+    "codex": {
+      "repository": "https://github.com/openai/codex",
+      "commit": "d32063f96c2dff1dc96af839b3952abb6acfeda4",
+      "files": [
+        {
+          "path": "codex-rs/hooks/src/schema.rs",
+          "sha256": "fe45c68cd552fb32e155de09ed492856f7c0baaa5c9a9ac535f24b7a480a2209"
+        },
+        {
+          "path": "codex-rs/hooks/src/engine/command_runner.rs",
+          "sha256": "8f30ad4d5f31633822b3718dd3e967df98a17b1b0fd42c9a12f8cb52973c3166"
+        },
+        {
+          "path": "codex-rs/hooks/src/engine/discovery.rs",
+          "sha256": "b61b90060075bf60ecad8fea012cfa332526a5badc5c2f541fda61446513d094"
+        },
+        {
+          "path": "codex-rs/core/src/session/turn.rs",
+          "sha256": "27ddd2742f0f69f450cf77542bed7013f336e2e6e163bc4368298ee94e79a91a"
+        },
+        {
+          "path": "codex-rs/core/src/hook_runtime.rs",
+          "sha256": "99279716995f6e915cfe81f19536f59c0358938d7c30bdc6c38f8d5102bfba3f"
+        },
+        {
+          "path": "codex-rs/features/src/lib.rs",
+          "sha256": "ae5067b54222326863207b2c3f9fdcf08d3476dfb850f9084b9ea34a0eb2d649"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "d17f227e4df5da1600391338865ce0f3055211760a36688f816941d58232d8dc"
+        },
+        {
+          "path": "codex-rs/hooks/src/events/user_prompt_submit.rs",
+          "sha256": "8eaed82e2e6ceac98e1110a57037b2bb6dea89ef5cef586afa408ee30de43e72"
+        }
+      ],
+      "archive_sha256": "c12b841c53c1794fe4a4fc424ef2e403cbabaa1ce3a47bb6cd08ff848dc2711f"
+    },
+    "opencode": {
+      "repository": "https://github.com/anomalyco/opencode",
+      "commit": "a6b15d33daf6ab7d35569f6d711fdb630b9f04e7",
+      "files": [
+        {
+          "path": "packages/plugin/src/README.md",
+          "sha256": "935c5e016e4844ba3b18145351dcb874c8edaa19547ce885316d1ffae51728dd"
+        },
+        {
+          "path": "packages/plugin/src/promise/session.ts",
+          "sha256": "3cc1a007438f1fd085a62174f2591a13e9ecd9830208d87674522179f7bf41c8"
+        },
+        {
+          "path": "packages/plugin/src/promise/plugin.ts",
+          "sha256": "b408afd829def2965aa0fff57b5136803f82e90bf1239f8d70a587f9985bfd08"
+        },
+        {
+          "path": "packages/plugin/src/promise/storage.ts",
+          "sha256": "80e481c4a02400c66b74043db14b2d2e6970d1d87975391f9f1e3337dc8413cc"
+        },
+        {
+          "path": "packages/plugin/src/promise/adapter.ts",
+          "sha256": "8f438ec2658da3ab5c9ea295ba2dd318c72909778c8615dd64b893bea4031ee9"
+        },
+        {
+          "path": "packages/plugin/src/app.ts",
+          "sha256": "cd0ee53fdf872a51d2508fbe306cb564a95cfb81ef51c2487e9bc0291608c885"
+        },
+        {
+          "path": "packages/core/src/session/runner/llm.ts",
+          "sha256": "04be4f888e90189a3e54ef0b85f7e80cd166842bf7c2f1018b971dc2b3bd44fe"
+        },
+        {
+          "path": "packages/core/src/session/inbox.ts",
+          "sha256": "98adf0f19cb049450b2ce6af15cee0f3e13b268d379a77a0431addbe0d30e98e"
+        },
+        {
+          "path": "packages/core/src/plugin/source-directory.ts",
+          "sha256": "2a9a1ca68aed783d44c56ea1ec3e7940f9ff977943e92b1a37f62d08d618f67e"
+        },
+        {
+          "path": "packages/protocol/src/groups/session.ts",
+          "sha256": "cd1b7063c80b7c5085c275f4f1f264ac9f04b31d3d58325690d47f68833388fa"
+        },
+        {
+          "path": "packages/schema/src/session-message.ts",
+          "sha256": "66bab3776915e9804d5b28d9ddfdaf1e9e23021fc52e6eaf47ec5c71845632d7"
+        },
+        {
+          "path": "packages/ai/src/schema/messages.ts",
+          "sha256": "c2fbc1ad9f75dfe6765d46546422ac16419c30c47a70119fb0075fe10bf554b4"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "625f0f619133f89bbbb2abe37369613dfa1885eba1e50d02170deb62bb42cb6b"
+        }
+      ],
+      "archive_sha256": "61b96281d3604596829788a9e433ba61898fa4b56d3f70bd5704e48cb84f0209"
+    }
+  },
+  "public_docs": [
+    "https://learn.chatgpt.com/docs/hooks",
+    "https://opencode.ai/docs/plugins",
+    "https://help.obsidian.md/cli"
+  ],
+  "activation": "Root-owned coherent CODE/binding update; native trust where required; future OpenCode source is not activation authority",
+  "local_dependencies": [
+    {
+      "path": "lib/transaction.py",
+      "source_revision": "f10a2b115b87f7eb1acdf2f80680ecd8e6c2c6d4",
+      "sha256": "30d6392aada2148ec0876e9b390006183d5614c1f5d7244da694c68fbb22880f",
+      "use": "Existing metadata/copy/fingerprint implementation; unchanged; loaded only from paired CODE tree without pycache",
+      "native_metadata_exception": "macOS-assigned com.apple.provenance is not overwritten or compared for equality"
+    }
+  ],
+  "behavior": {
+    "codex": [
+      "UserPromptSubmit: exact native IDs plus one conditional cue; no receipt lookup",
+      "Stop: inert compatibility only; remove owned binding"
+    ],
+    "opencode": [
+      "prompt/context only; bounded in-memory IDs",
+      "no persistent adapter ledger or additional model work; deployed disabled/admission-denied state is preserved"
+    ],
+    "routine_turns": "No integration-directed reads, helper tools, mandatory receipts or follow-ups",
+    "writer": "Existing source/identity/generation/metadata/checkpoint/denial safeguards retained; optional skip does not close an event"
+  }
+}

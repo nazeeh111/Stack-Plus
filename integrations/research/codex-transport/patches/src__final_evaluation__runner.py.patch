@@ -1,0 +1,11 @@
+--- a/src/final_evaluation/runner.py
++++ b/src/final_evaluation/runner.py
+@@ -560,7 +560,7 @@
+     command.extend(
+         (
+             "--mount",
+-            f"type=bind,src={broker_dir},dst=/broker",
++            f"type=bind,src={broker_dir},dst=/broker,readonly",
+             "--env",
+             "AGENTIC_CANDIDATE_SOCKET=/broker/candidate.sock",
+             "--env",

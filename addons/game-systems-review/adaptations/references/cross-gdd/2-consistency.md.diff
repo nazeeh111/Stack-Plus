@@ -1,0 +1,23 @@
+--- a/references/cross-gdd/2-consistency.md
++++ b/references/cross-gdd/2-consistency.md
+@@ -1,7 +1,6 @@
+-# /review-all-gdds — Phase 2: Cross-GDD Consistency
++# game-systems-review cross-GDD workflow — Phase 2: Cross-GDD Consistency
+ 
+-> Part of `/review-all-gdds`. `SKILL.md` names when to read this file; the settings it
+-> resolved and the rules under its later headings still apply here.
++> Part of the [complete cross-GDD method](../cross-gdd-review.md). Use the [native mapping](../../NATIVE-BINDINGS.md) for execution and authority.
+ 
+ ## Phase 2: Cross-GDD Consistency
+ 
+@@ -56,9 +55,7 @@
+ ### 2c: Stale References
+ 
+ **Start from the `## Cross-References` table where a GDD has one.** That table is
+-the document's own declaration of what it depends on — `templates/guidance/game-design-document-guide.md`
+-tells authors it is machine-checked here, and `/design-system` requires it
+-whenever Dependencies names another GDD. For each row, confirm the `Target GDD`
++the document's own declaration of what it depends on. The source studio template requires it when Dependencies names another GDD; in a native project use its actual declared references and report absent coverage without installing that template. For each row, confirm the `Target GDD`
+ exists and the `Specific Element Referenced` is still present in it under that
+ name, with the declared `Nature` still accurate.
+ 

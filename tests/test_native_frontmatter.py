@@ -13,13 +13,20 @@ from patch_pstack import entry_policy
 
 
 class NativeFrontmatter(unittest.TestCase):
-    def test_pstack_methods_are_available_to_automatic_selection_without_changing_the_body(self):
+    def test_pstack_methods_are_available_with_binding_and_preserved_upstream_body(self):
         original = ('---\nname: pstack-method\ndescription: Scoped concurrency design\n'
                     'disable-model-invocation: true\nmetadata:\n  retained: yes\n---\n'
                     '\nApply when several writers can update the same state.\n')
         active = entry_policy(original)
-        self.assertEqual(active.split('\n---\n', 1)[1], original.split('\n---\n', 1)[1])
-        self.assertIn('metadata:\n  retained: yes\n', active)
+        original_header, original_body = original.split('\n---\n', 1)
+        active_header, active_body = active.split('\n---\n', 1)
+        binding = ('\n> Read the [native pstack binding](../../docs/harness/claude-code.md) '
+                   'before using platform tools or source-named companion methods.\n')
+        self.assertTrue(active_body.startswith(binding))
+        self.assertEqual(active_body[len(binding):], original_body)
+        self.assertEqual(active_header, original_header.replace('disable-model-invocation: true\n', ''))
+        # An already linked source keeps the same method bytes and one preface.
+        self.assertEqual(entry_policy(original_header+'\n---\n'+binding+original_body), active)
         self.assertNotIn('disable-model-invocation:', active)
         import claude_setup
         derived, removed, manual = claude_setup.adapt_entry(active.encode(), 'pstack-shared-state')

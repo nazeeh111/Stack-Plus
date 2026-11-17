@@ -84,8 +84,91 @@ class PstackNativeBinding(unittest.TestCase):
                     self.assertEqual(hashlib.sha256((restored / rel).read_bytes()).hexdigest(),
                                      item['after_sha256'])
 
+    def test_all_selected_entries_resolve_source_names_in_the_bundled_tree(self):
+        import skill_names
+        self.assertEqual(skill_names.canonical('unslop'), 'ui-polish')
+        with tempfile.TemporaryDirectory(prefix='pstack-name-bridge-') as tmp:
+            self.assertEqual(len(self.specs), 6)
+            for spec in self.specs:
+                with self.subTest(method=spec['native_name']):
+                    out = Path(tmp) / spec['native_name']
+                    entry = out / materialize(self.source, out, spec, self.component)
+                    self.assertIn('](../../docs/harness/claude-code.md)',
+                                  (entry / 'SKILL.md').read_text())
+                    adapter = (entry / '../../docs/harness/claude-code.md').resolve()
+                    self.assertTrue(adapter.is_relative_to(out.resolve()))
+                    binding = adapter.read_text()
+                    self.assertIn('Resolve source companion names inside this local', binding)
+                    self.assertIn('distinct from the global `ui-polish` skill', binding)
+                    if spec['native_name'] == 'pstack-blast-radius':
+                        local = entry.parent / 'unslop/SKILL.md'
+                        self.assertTrue(local.is_file())
+                        self.assertIn('Write it through `unslop`',
+                                      (entry / 'SKILL.md').read_text())
+                        self.assertEqual(local.read_bytes(),
+                                         (self.pstack / 'skills/unslop/SKILL.md').read_bytes())
+
+    def test_required_how_why_and_named_principles_are_callable_source_support(self):
+        from patch_pstack import SOURCE_SHA256
+        with tempfile.TemporaryDirectory(prefix='nstack-pstack-support-') as tmp:
+            for name in ('pstack-architect', 'pstack-blast-radius'):
+                spec = next(s for s in self.specs if s['native_name'] == name)
+                out = Path(tmp) / name
+                materialize(self.source, out, spec, self.component)
+                skills = out / 'source/harness/pstack/claude-code/skills'
+                how = (skills / 'how/SKILL.md').read_text()
+                why = (skills / 'why/SKILL.md').read_text()
+                self.assertIn('Spawn one explainer', how)
+                self.assertIn('2 to 4 angles', how)
+                self.assertIn('spawn one explainer', how)
+                self.assertIn('Do not substantially rewrite it', how)
+                self.assertIn('Always spawn', why)
+                self.assertIn('all seven available category searches', why)
+                self.assertIn('Spawn one separate independent synthesizer', why)
+                self.assertIn('do not rewrite the confidence language', why)
+                self.assertIn('Preserve / Change / Avoid / Risk', why)
+                for text in (how, why):
+                    for forbidden in ('pstack-models.mdc', 'grok-4.7', 'claude-opus',
+                                      'subagent_type:', '`readonly:'):
+                        self.assertNotIn(forbidden, text)
+                for method in ('how', 'why'):
+                    for ref in (self.pstack / 'skills' / method / 'references').rglob('*'):
+                        if not ref.is_file():
+                            continue
+                        rel = ref.relative_to(self.pstack / 'skills')
+                        if 'skills/' + rel.as_posix() not in SOURCE_SHA256:
+                            self.assertEqual((skills / rel).read_text(), self.port('skills/' + rel.as_posix()))
+                if name == 'pstack-architect':
+                    architect = (skills / 'architect/SKILL.md').read_text()
+                    self.assertIn('Run the **how** skill over the relevant subsystems.', architect)
+                    self.assertIn('also run the **why** skill on the existing shape', architect)
+                    self.assertIn('Re-run the **how** skill', architect)
+                    for principle in ('exhaust-the-design-space', 'foundational-thinking',
+                                      'outcome-oriented-execution', 'redesign-from-first-principles',
+                                      'fix-root-causes', 'subtract-before-you-add', 'prove-it-works'):
+                        rel = 'skills/principle-' + principle + '/SKILL.md'
+                        expected = self.port(rel)
+                        self.assertEqual((skills.parent / rel).read_text(), expected)
+                    trail = (skills / 'show-me-your-work/SKILL.md').read_text()
+                    self.assertIn('different-family review is unavailable/incomplete', trail)
+                    self.assertIn('transcript access is unavailable', trail)
+                    self.assertTrue((skills / 'unslop/SKILL.md').is_file())
+                    self.assertTrue((skills / 'principle-encode-lessons-in-structure/SKILL.md').is_file())
+                    self.assertTrue((skills / 'interrogate/SKILL.md').is_file())
+                    self.assertTrue((skills / 'in-your-own-words/SKILL.md').is_file())
+                else:
+                    blast = (skills / 'blast-radius/SKILL.md').read_text()
+                    self.assertIn('Use `why` step 2', blast)
+                    self.assertIn('Same rules as `why`.', blast)
+                # A port adds support only; it never installs the source controller.
+                self.assertFalse((skills / 'setup-pstack').exists())
+                self.assertFalse((skills / 'poteto-mode').exists())
+
     def test_each_reviewed_binding_rejects_changed_preimages(self):
         cases = {
+            'skills/show-me-your-work/SKILL.md': ('family from the one that did the work', 'family changed from the one that did the work'),
+            'skills/how/SKILL.md': ('Every spawn is a Task', 'Every spawn is changed Task'),
+            'skills/why/SKILL.md': ('Each spawn below names', 'Each spawn below changed names'),
             'docs/harness/claude-code.md': ('# pstack in Claude Code', '# changed host'),
             'skills/architect/SKILL.md': ('Take the runners from', 'Take the runners changed from'),
             'skills/arena/SKILL.md': ('3. Pick the runners. Use', '3. Pick the runners. Changed use'),
@@ -129,6 +212,58 @@ class PstackNativeBinding(unittest.TestCase):
         actual = native_text(raw, 'P028', Path('/tmp/unrelated/docs/harness/claude-code.md'),
                              Path('/tmp/unrelated'))
         self.assertEqual(actual, raw)
+
+
+class PstackFormalLeaves(unittest.TestCase):
+    def test_complete_formal_methods_and_statechart_support_replay(self):
+        from closure import validate
+        for kind in ('create', 'maintain'):
+            addon = ROOT / 'addons' / ('pstack-' + kind + '-formal-verification')
+            receipt = json.loads((addon / 'SOURCE.json').read_text())
+            self.assertEqual(receipt['revision'], 'bb68f2365eceafa0cb2d253112f675acf5f144cc')
+            self.assertEqual(len(receipt['upstream_files']), 409)
+            self.assertEqual(list(addon.rglob('SKILL.md')), [addon/'SKILL.md'])
+            self.assertTrue((addon/'support/statechart/METHOD.md').is_file())
+            self.assertTrue((addon/'upstream/support/statechart/ORIGINAL-SKILL.md').is_file())
+            self.assertEqual(receipt['relocations'][0]['source_path'],
+                             'harness/pstack/claude-code/skills/statechart/SKILL.md')
+            for relative, row in receipt['upstream_files'].items():
+                self.assertEqual(hashlib.sha256((addon / relative).read_bytes()).hexdigest(), row['sha256'])
+            for relative in receipt['unchanged_active_files']:
+                self.assertEqual((addon / relative).read_bytes(), (addon / 'upstream' / relative).read_bytes())
+            self.assertTrue((addon / 'support/statechart/scripts/statechart.ts').is_file())
+            self.assertNotIn('const mise =', (addon / 'support/statechart/scripts/run.ts').read_text())
+            validate(addon, provenance_roots=('upstream',))
+            with tempfile.TemporaryDirectory(prefix='pstack-formal-replay-') as tmp:
+                for change in receipt['adapted_files']:
+                    dest = Path(tmp) / change['active_path']
+                    dest.parent.mkdir(parents=True, exist_ok=True)
+                    dest.write_bytes((addon / change['original_path']).read_bytes())
+                    subprocess.run(['git', 'apply', '--check', str(addon / change['diff'])], cwd=tmp,
+                                   check=True, capture_output=True)
+                    subprocess.run(['git', 'apply', str(addon / change['diff'])], cwd=tmp,
+                                   check=True, capture_output=True)
+                    self.assertEqual(dest.read_bytes(), (addon / change['active_path']).read_bytes())
+            original = (addon / 'upstream/ORIGINAL-SKILL.md').read_text()
+            active = (addon / 'SKILL.md').read_text()
+            before = 'In Claude Code, read [the Claude Code adapter](../../docs/harness/claude-code.md) once per session before you follow this skill. It maps the Cursor names in pstack skills to Claude Code.'
+            after = 'Read [native bindings](NATIVE-BINDINGS.md) before following this complete source method. Exact originals and adaptation diffs are in [SOURCE.json](SOURCE.json).'
+            expected = original.replace(before, after).replace('(../statechart/SKILL.md)', '(support/statechart/METHOD.md)').replace('disable-model-invocation: true\n', '', 1)
+            self.assertEqual(active, expected)
+            # Native registration is conditional on the concrete project scope.
+            binding = (addon / 'NATIVE-BINDINGS.md').read_text()
+            self.assertIn('owning repository', binding)
+            self.assertIn('[statechart method](support/statechart/METHOD.md)', binding)
+            self.assertIn('A blocked check keeps its previous confirmed generation', binding)
+            if kind == 'create':
+                self.assertIn('strongest such target in the repo, not the one that is easiest', active)
+                self.assertIn('broken variant of the code it guards', active)
+                self.assertIn('A verify skill that was never run is a draft', active)
+            else:
+                self.assertIn('Run each check once before you change anything', active)
+                self.assertIn('Never edit product code during a run', active)
+                self.assertIn('Do not move the sync commit for a blocked check', active)
+                self.assertIn('the old pass was on a stale description', active)
 
 
 if __name__ == '__main__':

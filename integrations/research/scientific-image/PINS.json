@@ -1,0 +1,49 @@
+{
+  "base": {
+    "Architecture": "arm64",
+    "Id": "sha256:3617028275c0b0ffabe98f1d7eaa6b85624af2f457678f185c307ff3c1d31ae6",
+    "Os": "linux",
+    "RepoDigests": [
+      "python@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b"
+    ],
+    "RootFS": {
+      "Layers": [
+        "sha256:04e61ff9ed2c84e88795bf7562d69d0980188e2bb6d6152d6fe721383e10db9e",
+        "sha256:8a6e20eb4e4040b1d94bc6e06af31e37e5fa4bd264ee163f43a15b1e3a18949c",
+        "sha256:4018623d5e6937415351e3d8697eb27327b530a0d1f2f8935b77363f591aadf9",
+        "sha256:bc69d47cb8c450fdb1acccf3e8c91367eed93857769e309acf5ef34894ea28ad"
+      ],
+      "Type": "layers"
+    },
+    "dpkg_status_sha256": "fd763cce2dd544546fa2a2318dc513fa137f32926fbd0e3385908aa93cc85053",
+    "tag": "nstack-research-python-base:c61cffc3"
+  },
+  "historical_acceptance": {
+    "context_sha256": "024f7fe5a78147ab7bf55eb0aea7bfc72c80f91ea73acfb0bb915168308559bc",
+    "image_id": "sha256:29762e2a922f00169b2b95ffaa12238bbdced34036996efc52c9635aacc89b96",
+    "scope": "Actual77runtime+2bootstrap wheels/115Debian packages, twelve mandatory imports, native numeric/plot fixture and original ICLR4-pass compile. No model/engine/campaign acceptance."
+  },
+  "platform": {
+    "architecture": "arm64",
+    "debian": "13 trixie",
+    "os": "linux",
+    "python": "3.12.16"
+  },
+  "portable_adaptation": "Exact accepted Dockerfile/policy/package/native inputs; private diagnostic reports omitted and privacy-clean public provenance added separately. Context and image digest differ; no portable rebuild or check executed by packaging. Exact already-reviewed ANTLR source license and original bootstrap notices now retained explicitly.",
+  "portable_context_sha256": "92eaeb3f5d441584594a2adc62e448c1359d6d76fab79ee643e5d0f33e284845",
+  "schema": 1,
+  "source": {
+    "files": {
+      "fixtures/paper/paper.bst": "2d67552db7ed38ccfccb5957b52f95656e25c249724761d3cf5f7922ad1844c5",
+      "fixtures/paper/paper.sty": "c6ba63e52da9be4cb3805cec51b1fdeab2c6e93135cd3954a1250cd68e3a45d0",
+      "fixtures/paper/paper.tex": "a2c791e13e851d969af6177430eee4106cfab86c5454e08c416eeab765317e98",
+      "fixtures/paper/references.bib": "4703631b012b644ced627f7d1b9b88b58392e6188419a7bc29774a779650971e",
+      "source/LICENSE": "420f6e94d4266a7628735be654b7a99ead74976feb9e99f50bd834d92d03b6e5",
+      "source/pyproject.toml": "aeb28e012389da420af67940dc289db39d978416590f68cf825c9fedaedd1225",
+      "source/uv.lock": "6fbaa72e26ca4fd408b9e0f8308b4e09d268bc7f7d6e3231ec20866518be008c"
+    },
+    "license": "Apache-2.0",
+    "repository": "https://github.com/SakanaAI/AI-Scientist-v3",
+    "revision": "df8313889a004f8a44a472e19a833cd547bb828a"
+  }
+}

@@ -62,6 +62,10 @@ This installation uses anonymous public channels only. Never export, import, ins
 
 ## Platform notes
 
+For YouTube research, timed citations or visual/audio questions, read [YouTube evidence](references/youtube-evidence.md). It connects existing tools without changing this skill's platform or authority boundaries.
+
+For X/Twitter video posts, read [public X video evidence](references/x-video-evidence.md). It distinguishes media/card identity, limited anonymous extraction and stop-on-denial behavior.
+
 - Xiaohongshu read returns text descriptions only; never claim to understand the images or video.
 - When a Boss Zhipin search result has `salary_encoded=true`, never guess the salary digits; read the job link for the readable salary in the detail.
 - What each platform offers publicly and what Reach adds is in [Capability scope](references/capabilities.md): read it when the user asks "what can it get / is it complete" or you need to judge completeness.

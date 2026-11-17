@@ -46,12 +46,33 @@ class CloudflareAddonTests(unittest.TestCase):
             self.assertEqual(sha((ADDON / relative).read_bytes()), entry['sha256'], relative)
         self.assertEqual({str(p.relative_to(ADDON)) for p in ADDON.rglob('SKILL.md')}, {'SKILL.md'})
         self.assertFalse(any(p.is_symlink() for p in ADDON.rglob('*')))
-        self.assertEqual(set(files(ADDON)), set(upstream) | {'SKILL.md', 'SOURCE.json', 'PORT.patch'})
+        self.assertEqual(set(files(ADDON)), set(upstream) | set(receipt['native_files']) | {'SOURCE.json'})
         self.assertEqual(sha((ADDON / 'PORT.patch').read_bytes()), receipt['port_patch_sha256'])
         self.assertIn('Copyright (c) 2025-2026 Cloudflare, Inc.', (ADDON / 'LICENSE').read_text())
         original_entry = upstream['upstream/ORIGINAL-SKILL.md']
         self.assertEqual(original_entry['source_path'], 'skills/security-audit/SKILL.md')
         self.assertTrue(receipt['modifications'])
+        supplement = receipt['defending_code_reference']
+        self.assertEqual(supplement['revision'], 'd3bea6b5793b5f3d59a75ebe69a58efa88383145')
+        self.assertTrue(supplement['reference_only'])
+        self.assertEqual(supplement['license'], 'Apache-2.0')
+        original_pairs = {row['source_path']: row['sha256'] for row in supplement['upstream_files'].values()}
+        self.assertEqual(sha(json.dumps(original_pairs, sort_keys=True, separators=(',', ':')).encode()), '8ddd19b91ede97507491417fc02e220b8e00b97d3c8d760b6805b10e8eb6d1dd')
+        for relative, row in supplement['upstream_files'].items():
+            self.assertEqual(sha((ADDON / relative).read_bytes()), row['sha256'])
+        self.assertEqual(sha((ADDON / supplement['active_reference']).read_bytes()), supplement['active_sha256'])
+        web = receipt['bughunter_reference']
+        self.assertEqual(web['repository'], 'elementalsouls/Claude-BugHunter')
+        self.assertEqual(web['revision'], '2f9a226d38d35d28d06f1ed63753799d498a2b3d')
+        self.assertEqual(web['license'], 'CC-BY-4.0')
+        self.assertTrue(web['reference_only'])
+        pairs = {row['source_path']: row['sha256'] for row in web['upstream_files'].values()}
+        self.assertEqual(sha(json.dumps(pairs, sort_keys=True, separators=(',', ':')).encode()), 'd5e5bd4acc84e26a74c5fc3b51ed3f31b7f6a60d1f9209b00b39ac3308292e97')
+        for relative, row in web['upstream_files'].items():
+            path = ADDON / relative
+            self.assertEqual(sha(path.read_bytes()), row['sha256'])
+            self.assertFalse(path.stat().st_mode & 0o111)
+        self.assertEqual(sha((ADDON / web['active_reference']).read_bytes()), web['active_sha256'])
         self.assertNotIn('/Users/', json.dumps(receipt))
         self.assertNotIn('/private/tmp/', json.dumps(receipt))
 
@@ -61,6 +82,7 @@ class CloudflareAddonTests(unittest.TestCase):
         restored = active.replace('name: cloudflare-security-audit\n', 'name: security-audit\n', 1)
         restored = restored.replace('**Skill directory**: the absolute `upstream/` subdirectory beside this active `SKILL.md`, containing the retained companions, schema and validators.', '**Skill directory**: the absolute directory containing this `SKILL.md`.')
         restored = restored.replace('](upstream/', '](')
+        restored = restored.replace('\n> Native supplement: For execution-backed findings and patch validation, read [independent execution and patch evidence](references/defending-code-evidence.md). It adds pristine-baseline and completion checks using the existing native workflow; it does not activate the upstream harness.\n', '', 1)
         self.assertEqual(restored, original)
         expected = ''.join(difflib.unified_diff(original.splitlines(keepends=True), active.splitlines(keepends=True), fromfile='upstream/skills/security-audit/SKILL.md', tofile='active/SKILL.md'))
         self.assertEqual((ADDON / 'PORT.patch').read_text(), expected)

@@ -1,0 +1,6 @@
+{
+  "incoming_kill_gold": 400,
+  "sword_cost": 50,
+  "ongoing_gold_sink_per_kill": 0,
+  "income_cap": null
+}

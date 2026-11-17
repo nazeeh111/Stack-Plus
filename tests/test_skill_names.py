@@ -18,6 +18,24 @@ from transaction import fingerprint
 
 
 class SkillNames(unittest.TestCase):
+    def test_prior_exposures_resolve_to_functions_without_duplicate_identities(self):
+        changes = {
+            'diagram-design': 'editorial-svg-diagrams',
+            'archify-diagrams-and-explainers': 'validated-html-diagrams-and-explainers',
+            'colorfigures-interactive-explainers': 'interactive-mechanism-explainers',
+            'gstack-product-consultation': 'product-discovery-consultation',
+            'gstack-engineering-plan-review': 'engineering-plan-review',
+            'gstack-diff-review': 'code-diff-review',
+            'gstack-test-fix-verify': 'application-test-fix-verify',
+        }
+        for old, current in changes.items():
+            with self.subTest(old=old):
+                self.assertEqual(names.canonical(old), current)
+                self.assertEqual(names.canonical(current), current)
+                self.assertEqual(names.source_name(old), names.source_name(current))
+                self.assertIn(old, names.metadata(current)['aliases'])
+                self.assertNotIn(current, names.metadata(current)['aliases'])
+
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)
@@ -114,7 +132,7 @@ class SkillNames(unittest.TestCase):
             exposed = names.canonical(source)
             row = by_name[exposed]
             self.assertEqual(row['source_name'], source)
-            self.assertEqual(row['aliases'], [source] if source != exposed else [])
+            self.assertEqual(row['aliases'], names.metadata(exposed)['aliases'])
             self.assertEqual(row['source_path'], str(payloads[source][0]) if source in self.addon_flags()
                              else dict(native.selection())[exposed]['source_path'])
             active = Path(row['skill_path'])

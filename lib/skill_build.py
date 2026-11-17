@@ -56,6 +56,9 @@ def materialize(source,out,s,c,m,support=None,_inside=False):
   if s['candidate_id']=='P215':
    from patch_media import finalize_credentials
    finalize_credentials(source,out,s)
+  elif s['candidate_id']=='P226':
+   from patch_media import finalize_remotion_router
+   finalize_remotion_router(source,out,s)
   validate(out)
   return str(path.parent)
  if s['candidate_id']=='P343' and name in ('prospecting','cold-email'):

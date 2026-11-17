@@ -12,6 +12,13 @@ import unittest
 ROOT = pathlib.Path(__file__).resolve().parents[1] / 'templates/vault'
 
 
+def scalar(value):
+    value = value.strip()
+    if len(value) >= 2 and value[0] == value[-1] and value[0] in "\"'":
+        return value[1:-1]
+    return value
+
+
 def properties(text):
     frontmatter = text.split('---', 2)[1]
     result = {}
@@ -19,31 +26,64 @@ def properties(text):
         key, value = line.split(':', 1)
         if key in result:
             raise AssertionError('Duplicate property: ' + key)
-        result[key] = value.strip()
+        result[key] = scalar(value)
     return result
+
+
+def filter_expressions(block):
+    """Read only a scalar filter or this scaffold's explicit AND list."""
+    lines = block.splitlines()
+    starts = [(index, re.fullmatch(r'( *)filters:\s*(.*)', line))
+              for index, line in enumerate(lines) if re.fullmatch(r'( *)filters:\s*(.*)', line)]
+    if len(starts) != 1:
+        raise AssertionError('Expected exactly one explicit filter block')
+    index, match = starts[0]
+    if match[2]:
+        return [scalar(match[2])]
+    indent = len(match[1])
+    body = []
+    for line in lines[index + 1:]:
+        if not line.strip():
+            continue
+        if len(line) - len(line.lstrip()) <= indent:
+            break
+        body.append(line)
+    if not body or not re.fullmatch(r' +and:', body[0]):
+        raise AssertionError('Unsupported static filter structure')
+    and_indent = len(body[0]) - len(body[0].lstrip())
+    expressions = []
+    item_indent = None
+    for line in body[1:]:
+        item = re.fullmatch(r'( *)- (.+)', line)
+        if not item or len(item[1]) not in (and_indent, and_indent + 2):
+            raise AssertionError('Unsupported static filter structure: ' + line)
+        if item_indent is None:
+            item_indent = len(item[1])
+        if len(item[1]) != item_indent:
+            raise AssertionError('Unsupported nested static filter: ' + line)
+        expressions.append(scalar(item[2]))
+    if not expressions:
+        raise AssertionError('Empty static filter list')
+    return expressions
 
 
 def selectors(base, view_name):
     """Read only the supported flat AND filters of the checked-in base."""
     global_block, views = base.split('views:\n', 1)
-    global_match = re.fullmatch(r'filters:\n  and:\n((?:  - .+\n)+)', global_block)
-    if not global_match:
-        raise AssertionError('Expected the explicit global AND filter')
-    expressions = [line.strip()[2:].strip("'")
-                   for line in global_match.group(1).splitlines()]
-    for view in re.split(r'(?m)^- type: ', views)[1:]:
-        if re.search(r'^  name: ' + re.escape(view_name) + r'$', view, re.M):
-            block = re.search(r'(?ms)^  filters:\n(.*?)(?=^  [a-z_]+:|\Z)', view)
-            match = re.fullmatch(r'    and:\n((?:    - .+\n)+)', block.group(1)) if block else None
-            if not match:
-                raise AssertionError('Expected an explicit view AND filter')
-            return expressions + [line.strip()[2:].strip("'")
-                                  for line in match.group(1).splitlines()], view
+    expressions = filter_expressions(global_block)
+    starts = list(re.finditer(r'(?m)^ *- type: [^\n]+\n', views))
+    for index, start in enumerate(starts):
+        end = starts[index + 1].start() if index + 1 < len(starts) else len(views)
+        view = views[start.start():end]
+        names = re.findall(r'^ +name: (.+)$', view, re.M)
+        if names == [view_name]:
+            return expressions + filter_expressions(view), view
     raise AssertionError('Missing view: ' + view_name)
 
 
 def included(path, text, expressions):
     props = properties(text)
+    matches = []
     for expression in expressions:
         if expression == 'file.ext == "md"':
             match = path.suffix == '.md'
@@ -57,9 +97,8 @@ def included(path, text, expressions):
             match = props.get('state') == expression.split('"')[1]
         else:
             raise AssertionError('Unsupported static selector: ' + expression)
-        if not match:
-            return False
-    return True
+        matches.append(match)
+    return all(matches)
 
 
 class VaultTemplateTests(unittest.TestCase):
@@ -76,13 +115,14 @@ class VaultTemplateTests(unittest.TestCase):
             self.assertFalse(included(pathlib.Path('Library') / note.name,
                                       note.read_text(), self.current))
             checked = self.template.replace('state: draft', 'state: current')
-            checked = checked.replace('observed_date: "{{date:YYYY-MM-DD}}"', 'observed_date: 2026-11-10')
+            self.assertEqual(properties(checked)['observed_date'], '{{date:YYYY-MM-DD}}')
+            checked = checked.replace('{{date:YYYY-MM-DD}}', '2026-11-10')
             note.write_text(checked)
             props = properties(note.read_text())
             self.assertTrue(included(pathlib.Path('Library') / note.name,
                                      note.read_text(), self.current))
             self.assertEqual(props['observed_date'], '2026-11-10')
-            self.assertIn('  - observed_date\n', self.current_view)
+            self.assertRegex(self.current_view, r'(?m)^ +- observed_date$')
             self.assertEqual(props['generation'], '1')
             self.assertEqual(props['supersedes'], 'none')
             self.assertNotIn('observation_date', props)
@@ -99,7 +139,7 @@ class VaultTemplateTests(unittest.TestCase):
     def test_unsupported_boolean_or_expression_fails_closed(self):
         unsupported = self.base.replace('    - state == "current"',
                                         '    - or:\n      - state == "current"', 1)
-        with self.assertRaisesRegex(AssertionError, 'explicit view AND filter'):
+        with self.assertRaisesRegex(AssertionError, 'Unsupported nested static filter'):
             selectors(unsupported, 'Current knowledge')
         with self.assertRaisesRegex(AssertionError, 'Unsupported static selector'):
             included(pathlib.Path('Library/Fixture.md'), self.template, ['state != "draft"'])
@@ -109,6 +149,26 @@ class VaultTemplateTests(unittest.TestCase):
         path = pathlib.Path('Library/Historical fixture.md')
         self.assertFalse(included(path, historical, self.current))
         self.assertTrue(included(path, historical, self.historical))
+        # Retain the former indented-view/scalar-filter form as an explicit
+        # supported fixture, without treating this helper as a YAML parser.
+        legacy = '''filters:
+  and:
+    - file.ext == "md"
+    - file.hasTag("knowledge")
+    - '!file.inFolder("Templates")'
+    - '!file.inFolder("Archive")'
+views:
+  - type: table
+    name: Historical notes
+    filters: state == "historical-source-report"
+'''
+        expressions, _ = selectors(legacy, 'Historical notes')
+        self.assertTrue(included(path, historical, expressions))
+        self.assertFalse(included(path, self.template, expressions))
+        with self.assertRaisesRegex(AssertionError, 'Unsupported static selector'):
+            included(path, historical, ['state == "draft"', 'file.unknownOperation()'])
+        with self.assertRaisesRegex(AssertionError, 'Unsupported static filter structure'):
+            selectors(legacy.replace('  and:', '  not:'), 'Historical notes')
 
 
 if __name__ == '__main__':

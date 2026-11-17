@@ -13,6 +13,9 @@ import sys
 import time
 import uuid
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'lib'))
+from docker_client import docker_binary
+
 VERSION = '2.101.0'
 IMAGE = 'ghcr.io/czlonkowski/n8n-mcp:2.101.0@sha256:0803ecd2a9df1863f805d4ceca84ca69e1337eb775b55eb30aef518a110c8928'
 IMAGE_REVISION = '86b993e70008c4987902a235271e11bc03ef3f84'
@@ -77,15 +80,13 @@ def environment(root):
     endpoint = next(('unix://' + str(p) for p in (Path.home() / '.docker/run/docker.sock', Path('/var/run/docker.sock')) if p.is_socket()), None)
     if endpoint is None:
         raise ValueError('Start the existing local Docker engine; no automatic engine/settings change')
-    return {'PATH': os.environ.get('PATH', '/usr/local/bin:/usr/bin:/bin'), 'HOME': str(root / 'cli-home'),
+    return {'PATH': '/usr/bin:/bin', 'HOME': str(root / 'cli-home'),
             'DOCKER_CONFIG': str(root / 'docker-config'), 'DOCKER_HOST': endpoint, 'LANG': 'en_US.UTF-8'}
 
 
 def docker(root, args, timeout=90):
     verify(root)
-    binary = shutil.which('docker')
-    if not binary:
-        raise ValueError('Existing Docker CLI required')
+    binary = docker_binary()
     return subprocess.run([binary, *args], env=environment(root), capture_output=True, text=True, timeout=timeout)
 
 
@@ -122,7 +123,13 @@ def launch_args(root, name):
 def cleanup(root, name):
     proc = docker(root, ['inspect', '--format', '{{json .Config.Labels}}', name])
     if proc.returncode:
-        return
+        missing = {f'Error: No such object: {name}',
+                   f'error: no such object: {name}',
+                   f'Error response from daemon: No such container: {name}',
+                   f'Error: No such container: {name}'}
+        if proc.returncode == 1 and not proc.stdout.strip() and proc.stderr.strip() in missing:
+            return
+        raise ValueError('Container state could not be verified; cleanup incomplete, raw Docker logs withheld')
     if json.loads(proc.stdout).get(LABEL) != verify(root)['owner']:
         raise ValueError('Container ownership differs; preserved')
     require(docker(root, ['rm', '-f', name]), 'Owned MCP container cleanup')
@@ -141,7 +148,7 @@ class Client:
     def __init__(self, root):
         self.root = root
         self.name = 'nstack-n8nmcp-' + verify(root)['owner'] + '-' + uuid.uuid4().hex[:12]
-        self.proc = subprocess.Popen([shutil.which('docker'), *launch_args(root, self.name)],
+        self.proc = subprocess.Popen([docker_binary(), *launch_args(root, self.name)],
                                      env=environment(root), stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                                      stderr=subprocess.PIPE, bufsize=0)
         self.buffer = b''
@@ -272,7 +279,7 @@ def check(root):
 def serve(root):
     image_info(root)
     name = 'nstack-n8nmcp-' + verify(root)['owner'] + '-' + uuid.uuid4().hex[:12]
-    proc = subprocess.Popen([shutil.which('docker'), *launch_args(root, name)], env=environment(root),
+    proc = subprocess.Popen([docker_binary(), *launch_args(root, name)], env=environment(root),
                             stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, bufsize=0)
     def interrupted(_signum, _frame):
         raise KeyboardInterrupt()

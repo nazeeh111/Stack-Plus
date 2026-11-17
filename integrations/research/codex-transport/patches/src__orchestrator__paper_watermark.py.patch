@@ -1,0 +1,14 @@
+--- a/src/orchestrator/paper_watermark.py
++++ b/src/orchestrator/paper_watermark.py
+@@ -121,6 +121,11 @@
+     Other watermark or shipout setups in the manuscript are left untouched; the
+     block's settings run last (see ``build_watermark_block``), so they win.
+     """
++    if os.environ.get("NSTACK_NATIVE_SUPPRESS_BRANDING") == "1":
++        # User output authority: no tool author or generated-by block. Required
++        # third-party source notices and actual experiment lineage are retained.
++        src = strip_managed_block(src)
++        return re.sub(r"\\author\s*\{The Agentic Scientist\}", r"\\author{}", src)
+     block = build_watermark_block()
+     if has_managed_watermark(src):
+         return _MANAGED_BLOCK_RE.sub(lambda _match: block, src, count=1)

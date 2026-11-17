@@ -38,7 +38,7 @@ class RecoveryTests(unittest.TestCase):
  def test_reconcile_crash_after_merged_config_restore(self):
   import config_merge as cm
   with tempfile.TemporaryDirectory() as t:
-   root=P(t).resolve();p=root/'config';before='owned=1\nother=1\n';updates=[(['owned'],2)];after=cm.apply(before,updates,[]);p.write_text(before);tx=Transaction(root/'run');(tx.run/'config-after.toml').write_text(after)
+   root=P(t).resolve();p=root/'config';before='owned=1\nother=1\n';updates=[(['owned'],2)];after=cm.apply(before,updates,[]);p.write_text(before);before_metadata=fingerprint(p)['metadata'];tx=Transaction(root/'run');(tx.run/'config-after.toml').write_text(after)
    with tx.lock():tx.replace_file(p,after.encode(),config={'updates':updates,'retire':[]})
    p.write_text(after.replace('other=1','other=3'))
    # Inject loss of journal acknowledgement after the actual replacement.
@@ -51,7 +51,7 @@ class RecoveryTests(unittest.TestCase):
     with self.assertRaisesRegex(RuntimeError,'synthetic'):tx.rollback()
    retry=Transaction(root/'run')
    with retry.lock():retry.rollback();self.assertEqual(retry.rows[0]['phase'],'rolled-back')
-   self.assertEqual(cm.tomllib.loads(p.read_text()),{'owned':1,'other':3});self.assertEqual(p.stat().st_mode&0o777,0o644)
+   self.assertEqual(cm.tomllib.loads(p.read_text()),{'owned':1,'other':3});self.assertEqual(fingerprint(p)['metadata'],before_metadata)
  @unittest.skipUnless(sys.platform=='darwin','macOS metadata contract')
  def test_mac_xattr_acl_and_directory_mode_roundtrip(self):
   import subprocess

@@ -53,10 +53,16 @@ def addon_definition(name):
             frozen[str(file.relative_to(source))] = (file.read_bytes(), 0o555 if file.stat().st_mode & 0o111 else 0o444)
     provenance = json.loads(frozen["SOURCE.json"][0])
     overrides = {}
+    if name in ("shinka-evolve", "ai-scientist"):
+        code = profile_install.stage(nstack.STATE)
+        provenance["runtime_guide"] = str(code / "integrations" / "research" / "README.md")
+        overrides["SOURCE.json"] = (json.dumps(provenance, sort_keys=True, indent=2) + "\n").encode()
     if name in ("google-maps-scraper", "raea", "skillspector", "craft-anything", "rea"):
         # The recipe stays usable after the checkout is moved or removed.
         code = profile_install.stage(nstack.STATE)
         provenance["runtime_recipe"] = str(code / "recipes" / {"google-maps-scraper": "maps_scraper.py", "raea": "raea.py", "skillspector": "skillspector.py", "craft-anything": "craft_anything.py", "rea": "rea.py"}[name])
+        if name == "rea":
+            provenance["runtime_recipe_linux"] = str(code / "recipes" / "rea_linux.py")
         overrides["SOURCE.json"] = (json.dumps(provenance, sort_keys=True, indent=2) + "\n").encode()
     return {"source": source, "entry": P("."), "provenance": provenance, "overrides": overrides, "frozen_files": frozen}
 
@@ -210,8 +216,8 @@ def prepare(state, chosen, addons):
             (out / "skills" / name).symlink_to(final_entry)
         for name in addons:
             spec = addons[name]
-            if not (spec["source"] / "LICENSE").is_file():
-                raise ValueError("Addon license missing")
+            if not any(path in spec["frozen_files"] for path in ("LICENSE", "LICENSE.md", "LICENSE.txt")):
+                raise ValueError("Addon license missing: " + name)
             dest = out / "bundles" / name
             dest.mkdir()
             for rel, (data, mode) in addon_files(spec).items():
@@ -370,6 +376,10 @@ def apply(args):
         addons.append("playwright-mcp")
     if getattr(args, "agent_orchestration", False):
         addons.append("agent-orchestration")
+    if getattr(args, "agent_desktop", False):
+        addons.append("agent-desktop")
+    if getattr(args, "game_systems_review", False):
+        addons.append("game-systems-review")
     if getattr(args, "untangle_codebase", False):
         addons.append("untangle-codebase")
     if getattr(args, "adaptive_routing", False):
@@ -380,6 +390,16 @@ def apply(args):
         addons.append("rea")
     if getattr(args, "creative_reframing", False):
         addons.append("creative-reframing")
+    if getattr(args, "dream_loop", False):
+        addons.append("dream-loop")
+    if getattr(args, "fpga", False):
+        addons.append("fpga-development")
+    if getattr(args, "cirq", False):
+        addons.append("cirq")
+    if getattr(args, "formal_verification", False):
+        addons.extend(("pstack-create-formal-verification", "pstack-maintain-formal-verification"))
+    if getattr(args, "research_engines", False):
+        addons.extend(("shinka-evolve", "ai-scientist"))
     if getattr(args, "raea", False):
         addons.append("raea")
     if getattr(args, "llm_council", False):
@@ -394,6 +414,13 @@ def apply(args):
         addons.append("roast-room")
     if getattr(args, "council_of_high_intelligence", False):
         addons.append("council-of-high-intelligence")
+    for name in dict.fromkeys(getattr(args, "extra_skill", None) or []):
+        # Keep one active copy across the shared and user-owned skill roots.
+        for root in (codex_home / "skills", home / ".config/opencode/skills"):
+            candidate = root / name
+            if candidate.exists() or candidate.is_symlink():
+                raise ValueError("Extra skill already exists in a user-owned skill root: " + name)
+        addons.append(name)
     if set(addons) & {name for name, _ in chosen}:
         raise ValueError("Addon name collides with selected skill")
     release, index = prepare(state, chosen, addons)
@@ -529,6 +556,7 @@ def main():
     a.add_argument("--home", default=str(P.home()))
     a.add_argument("--codex-home", help="Codex instructions directory; defaults to CODEX_HOME for the current user, otherwise HOME/.codex")
     a.add_argument("--only", action="append", help="Exact canonical or legacy base-skill name, for a deliberately limited install")
+    a.add_argument("--extra-skill", action="append", choices=['ui-design-hallmark', 'pixel-art-effects', 'design-specification-workflow', 'presentation-visual-design', 'iphone-mirroring-automation'], help="Add a portable specialist method; repeat for multiple choices. Runtime and account setup remain separate.")
     a.add_argument("--replace", action="store_true")
     a.add_argument("--agent-reach", action="store_true", help="Explicitly add the separately reviewed Agent Reach skill")
     a.add_argument("--repository-docs", action="store_true")
@@ -538,11 +566,18 @@ def main():
     a.add_argument("--maps-scraper", action="store_true", help="Add public-place extraction guidance; install the pinned runtime on demand")
     a.add_argument("--playwright-mcp", action="store_true", help="Add task-scoped Microsoft Playwright MCP guidance; reuse the existing runtime without activating a connection")
     a.add_argument("--agent-orchestration", action="store_true", help="Add model-agnostic lead/worker guidance; no model, provider, runtime or configuration activation")
+    a.add_argument("--agent-desktop", action="store_true", help="Add Vercel Agent Desktop's complete method and platform guides; native runtime admission and permissions remain separate")
+    a.add_argument("--game-systems-review", action="store_true", help="Add game balance and cross-design-document review methods; no fixed agent roster, model or game runtime activation")
     a.add_argument("--untangle-codebase", action="store_true", help="Add the pinned, explicitly invoked codebase refactoring skill")
     a.add_argument("--adaptive-routing", action="store_true", help="Add explicit 01 for adaptive skill/tool selection throughout a session")
     a.add_argument("--craft-anything", action="store_true", help="Add reviewed local binary/app analysis guidance; notarized runtime installed separately, rebuild and MCP remain explicit")
     a.add_argument("--rea", action="store_true", help="Add REA software-analysis guidance with its durable recipe; runtime commissioning and MCP remain explicit")
     a.add_argument("--creative-reframing", action="store_true", help="Add reviewed creative techniques for useful alternatives, assumptions and synthesis; no automatic response injection")
+    a.add_argument("--dream-loop", action="store_true", help="Add the reviewed target/build/independent-critic visual development loop; use existing image and 3D tools on demand")
+    a.add_argument("--fpga", action="store_true", help="Add source-reviewed RTL/FPGA contracts, arithmetic, verification, CDC and timing methods; EDA runtime stays on demand")
+    a.add_argument("--cirq", action="store_true", help="Add source-reviewed Cirq circuits, local device simulation, noise and characterization; cloud providers stay separate")
+    a.add_argument("--formal-verification", action="store_true", help="Add pstack methods for creating and maintaining code-specific verification workflows with real mutation checks")
+    a.add_argument("--research-engines", action="store_true", help="Add full ShinkaEvolve and AI Scientist methods; reviewed runtimes and inference prerequisites remain explicit")
     a.add_argument("--raea", action="store_true", help="Add RAEA guidance for offline local GPU rendering; pinned runtime installed separately")
     a.add_argument("--llm-council", action="store_true", help="Add native council and offline blinded evaluation; no provider or server activation")
     a.add_argument("--cloudflare-security-audit", action="store_true", help="Add the pinned repository audit method and offline validators; no account or scan activation")

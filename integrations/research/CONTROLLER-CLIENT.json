@@ -1,0 +1,26 @@
+{
+  "url": "https://download.docker.com/linux/static/stable/aarch64/docker-29.6.1.tgz",
+  "archive_sha256": "917a4bb83565bcacb38c430f08daae8b59db3256331ac23f22394f0542509881",
+  "archive_bytes": 78664468,
+  "binary_sha256": "3fb4ae8fd7375f02027f1d51132c78dc8fcf9554a93bfc5519ee7434a1c13e72",
+  "binary_bytes": 39966072,
+  "source_commit": "8900f1d330cb39e93e16d780a26bff1d7e07ba03",
+  "license": "Apache-2.0; bundled transitive notices retained; opaque binary not comprehensively source audited",
+  "members_not_executed_or_installed": [
+    "docker",
+    "docker/containerd",
+    "docker/dockerd",
+    "docker/docker-init",
+    "docker/runc",
+    "docker/docker-proxy",
+    "docker/docker",
+    "docker/ctr",
+    "docker/containerd-shim-runc-v2"
+  ],
+  "independent_published_checksum_verified": false,
+  "source_archive_sha256": "aa65dfbf382317068c96dfc78a219ed1891f94a6bc4fce57d09831c01b313a01",
+  "source_url": "https://github.com/docker/cli/tree/8900f1d330cb39e93e16d780a26bff1d7e07ba03",
+  "state": "Exact already-reviewed helper bytes copied durable; no new acquisition/build/execution; controller-only readonly mount",
+  "archive_member": "docker/docker",
+  "scope": "Controller-only durable dependency; no global Docker daemon/client installation; computed artifact pin, not independently published checksum"
+}

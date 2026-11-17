@@ -1,0 +1,4 @@
+interface:
+  display_name: "Presentation Visual Design"
+  short_description: "Art-direct slide layouts and coherent deck design"
+  default_prompt: "Use $presentation-visual-design to improve this deck’s composition, typography and visual identity."

@@ -12,9 +12,13 @@ import shutil
 import signal
 import socket
 import subprocess
+import sys
 import tempfile
 import time
 import urllib.request
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'lib'))
+from docker_client import docker_binary
 
 VERSION = '2.47.4'
 IMAGE = 'docker.io/n8nio/n8n:2.47.4@sha256:56a3f0d56c2888b53ca7d89de4aa3de702888f33667c96a1f1d7118548f979e9'
@@ -133,16 +137,14 @@ def docker_env(root, endpoint=None):
         raise ValueError('A running local Unix Docker socket is required; no automatic daemon/settings changes')
     if not Path(endpoint[7:]).is_socket():
         raise ValueError('Selected local Docker socket is unavailable')
-    return {'PATH': os.environ.get('PATH', '/usr/local/bin:/usr/bin:/bin'),
+    return {'PATH': '/usr/bin:/bin',
             'HOME': str(root / 'cli-home'), 'DOCKER_CONFIG': str(root / 'docker-config'),
             'DOCKER_HOST': endpoint, 'LANG': 'en_US.UTF-8', 'COMPOSE_ANSI': 'never'}
 
 
 def docker(root, args, timeout=120, endpoint=None, input=None):
     verify(root)
-    binary = shutil.which('docker')
-    if not binary:
-        raise ValueError('Existing Docker CLI is required; no automatic installer')
+    binary = docker_binary()
     return subprocess.run([binary, *map(str, args)], env=docker_env(root, endpoint),
                           input=input, capture_output=True, text=True, timeout=timeout)
 

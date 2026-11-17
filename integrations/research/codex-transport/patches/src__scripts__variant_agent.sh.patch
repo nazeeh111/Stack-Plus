@@ -1,0 +1,20 @@
+--- a/src/scripts/variant_agent.sh
++++ b/src/scripts/variant_agent.sh
+@@ -312,7 +312,7 @@
+ sys.path.insert(0, str(script_dir))
+ from src.investigation.files import extract_markdown_section, load_instructions
+ from src.investigation.safe_staging import read_text
+-from src.investigation.skill_scope import skills_for_step, validate_skill_set
++from src.investigation.skill_scope import skills_for_step, validate_skill_set, stage_skill_tree
+ 
+ skills_src = script_dir / "src" / "agents" / "skills"
+ if not skills_src.is_dir():
+@@ -368,7 +368,7 @@
+ for skill_name in selected_skills:
+     src_dir = skills_src / skill_name
+     dst_dir = formatted_skills_dir / src_dir.name
+-    shutil.copytree(src_dir, dst_dir)
++    stage_skill_tree(src_dir, dst_dir)
+ 
+     src_skill = src_dir / "SKILL.md"
+     if src_skill.is_file():

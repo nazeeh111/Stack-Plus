@@ -1,0 +1,50 @@
+{
+  "repository": "https://github.com/blisse-code/presentation-design-skill",
+  "revision": "53224b199cbe14ea179fd8a4f1f87c73f5f81f90",
+  "source_path": "skill/SKILL.md",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2026 Blisse Code",
+  "acquired_utc": "2026-11-16T22:59:12.246568+00:00",
+  "upstream_files_sha256": {
+    "slides.md": "49b8ed102aed46a615a8142044c57c9f54f29182ca8a4fe7ff4fbcd881362fad",
+    "LICENSE": "d330eb5111b0a381b28c094e2b10278d4bf205d2cf8c3adab5ff43a20c967efa",
+    "README.md": "829590f4bb28f3578cf154295550c2251a88c4f67648c70a7815f7e7d1825507",
+    "skill/SKILL.md": "f5616952f7ff90b5a85c1928c8b441cc354fe71198f886188b3d02580fa28e67"
+  },
+  "adaptation": [
+    "Function-based name and scoped discovery description",
+    "Native-use section: preserve chosen host/provider/destination and editability; aesthetic rules are defaults under the actual brief, slide count and evidence",
+    "Neutral evidence comparisons and truthful chart treatment; no unsupported conclusion headlines",
+    "Complete original skill body follows without omissions; original bytes and supplemental token/layout specification retained",
+    "Original SKILL filename archived as ORIGINAL-SKILL.txt to avoid duplicate recursive host activation; original bytes preserved."
+  ],
+  "runtime_dependencies": [],
+  "automatic_invocation": "default allowed",
+  "status": "Source-reviewed native method; installation and actual dynamic-trial receipts retained separately.",
+  "local_original_paths": {
+    "slides.md": "upstream/slides.md",
+    "LICENSE": "upstream/LICENSE",
+    "README.md": "upstream/README.md",
+    "skill/SKILL.md": "upstream/skill/ORIGINAL-SKILL.txt"
+  },
+  "native_name": "presentation-visual-design",
+  "upstream_files": {
+    "upstream/slides.md": {
+      "source_path": "slides.md",
+      "sha256": "49b8ed102aed46a615a8142044c57c9f54f29182ca8a4fe7ff4fbcd881362fad"
+    },
+    "upstream/LICENSE": {
+      "source_path": "LICENSE",
+      "sha256": "d330eb5111b0a381b28c094e2b10278d4bf205d2cf8c3adab5ff43a20c967efa"
+    },
+    "upstream/README.md": {
+      "source_path": "README.md",
+      "sha256": "829590f4bb28f3578cf154295550c2251a88c4f67648c70a7815f7e7d1825507"
+    },
+    "upstream/skill/ORIGINAL-SKILL.txt": {
+      "source_path": "skill/SKILL.md",
+      "sha256": "f5616952f7ff90b5a85c1928c8b441cc354fe71198f886188b3d02580fa28e67"
+    }
+  },
+  "verification_scope": "Portable reviewed source only. Verify each produced editable deck and its rendered slides with the selected native authoring workflow."
+}

@@ -1,16 +1,16 @@
 {
   "codex-code-mode-host": {
-    "version": "0.167.0",
+    "version": "0.169.0",
     "platform": "aarch64-apple-darwin",
-    "url": "https://github.com/openai/codex/releases/download/rust-v0.167.0/codex-code-mode-host-aarch64-apple-darwin.tar.gz",
-    "sha256": "876a3e263348ef0edaeae5cf5bc52a5c121141cefd15157ab0eeca305f3eb563",
-    "basis": "official exact release asset digest, resolved on target 2026-11-09",
-    "binary_sha256": "5cc29d144fc05e3563f5f90c36adc95bdc287e2297b48ecf0bf4abdf1892d3ab"
+    "url": "https://github.com/openai/codex/releases/download/rust-v0.169.0/codex-code-mode-host-aarch64-apple-darwin.tar.gz",
+    "sha256": "d40b320f6f256835d409472b7d3bee618a27549b3f3e1cb8b71dc6c56d3827bf",
+    "basis": "Official exact release asset digest and signed member verified on target2026-11-14",
+    "binary_sha256": "10feae2abe764bcf2273e241ace67aecc360eb8c28a82a2988bf1d8498a9bacf"
   },
   "codex": {
-    "version": "0.167.0",
+    "version": "0.169.0",
     "platform": "aarch64-apple-darwin",
-    "sha256": "4b22a2a971be2791c3e31f912f3e77a88ebd64a65812a7289ccba65dd6425fe9",
-    "binary_sha256": "030316ecfbb41f4e7946e584b0063ef333b7a36cd312ba349f2f6869e39b62cc"
+    "sha256": "7f4c49c80bae1d0b4e347acfcdf11faa3475d87ae5e65a5eb1261d3c358145ee",
+    "binary_sha256": "739cda86e15d30a6e2b40cf8dcbbfb988aaf48b305b27065573bb8e9fd41d002"
   }
 }

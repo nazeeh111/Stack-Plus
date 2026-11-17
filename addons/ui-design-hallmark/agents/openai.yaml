@@ -1,0 +1,13 @@
+interface:
+  display_name: UI Design (Hallmark)
+  short_description: Distinctive interface design, tokens and visual checks.
+  default_prompts:
+    - "$ui-design-hallmark a landing page for <product>"
+    - "$ui-design-hallmark a pricing page for <product>, custom"
+    - "$ui-design-hallmark a signup form component"
+    - "$ui-design-hallmark redesign <path to a page or an app>"
+
+policy:
+  allow_implicit_invocation: true
+
+dependencies: []

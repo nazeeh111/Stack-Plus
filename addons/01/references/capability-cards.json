@@ -1,0 +1,3720 @@
+{
+  "version": 1,
+  "facets": {
+    "work": {
+      "coordinate": "Coordinate contributions",
+      "discover": "Find capabilities or sources",
+      "investigate": "Investigate questions or evidence",
+      "plan": "Plan work or decisions",
+      "design": "Design structures or experiences",
+      "create": "Create artifacts",
+      "transform": "Transform existing artifacts",
+      "implement": "Implement behavior",
+      "diagnose": "Diagnose failures",
+      "measure": "Measure outcomes or properties",
+      "validate": "Check correctness or fitness",
+      "review": "Review evidence or quality",
+      "operate": "Operate tools or systems"
+    },
+    "domains": {
+      "software": "Coding and software engineering",
+      "web": "Web and interface design",
+      "agents": "Agent frameworks and tool integration",
+      "data": "Data systems and analysis",
+      "research": "Research and evidence",
+      "mathematics": "Mathematics and formal reasoning",
+      "ml": "Machine learning",
+      "quantum": "Quantum computation",
+      "hardware": "Electronics and instruments",
+      "robotics": "Robotics and physical simulation",
+      "graphics": "Visual design, graphics and diagrams",
+      "games": "Games and interactive worlds",
+      "media": "Video, audio and editing",
+      "knowledge": "Notes, documents and office work",
+      "product": "Product and customer decisions",
+      "marketing": "Marketing and acquisition",
+      "finance": "Financial decisions and models",
+      "operations": "Infrastructure and operations",
+      "career": "Career and job search",
+      "security": "Security and vulnerability analysis",
+      "reverse-engineering": "Reverse engineering and reconstruction",
+      "automation": "Automation and background jobs",
+      "workflows": "Workflows and coordination"
+    },
+    "artifacts": {
+      "source-code": "Source code",
+      "interfaces": "User interfaces",
+      "workflows": "Processes and workflows",
+      "models": "Computational or conceptual models",
+      "datasets": "Structured datasets",
+      "measurements": "Measurements and metrics",
+      "proofs": "Proofs and invariants",
+      "papers": "Research papers and manuscripts",
+      "reports": "Reviews and reports",
+      "diagrams": "Diagrams and explainers",
+      "documents": "Written documents",
+      "spreadsheets": "Spreadsheet workbooks",
+      "presentations": "Presentations",
+      "notes": "Knowledge notes and maps",
+      "images": "Images and figures",
+      "audio": "Audio assets",
+      "video": "Video and animation",
+      "3d-assets": "3D models and scenes",
+      "hardware-designs": "Physical or electronic designs",
+      "environments": "Execution environments"
+    }
+  },
+  "cards": {
+    "diagnosing-bugs": {
+      "description_sha256": "b78755b7df92745190a4ede0855094538318dbc93e66387eb9410c7fc6c5e10d",
+      "function": "Find and reproduce the cause of a software failure or performance regression",
+      "work": [
+        "investigate",
+        "diagnose",
+        "validate"
+      ],
+      "domains": [
+        "software"
+      ],
+      "artifacts": [
+        "source-code",
+        "reports"
+      ],
+      "distinguish": "Finds causes through reproduction and evidence; does not require a broad review or a new architecture."
+    },
+    "tdd": {
+      "description_sha256": "58ff584d9462495638cc6513449398700d3e3599946d39cb0643cd50b5e6ddb6",
+      "function": "Implement changes through failing tests, minimal fixes and refactoring",
+      "work": [
+        "implement",
+        "validate"
+      ],
+      "domains": [
+        "software"
+      ],
+      "artifacts": [
+        "source-code"
+      ],
+      "distinguish": ""
+    },
+    "codebase-design": {
+      "description_sha256": "63f3b1bed0c9fa4a69c9186b18f1bfecb01d1c636e8a0ff21de8ec096f5a82ea",
+      "function": "Design deep module interfaces and identify useful implementation seams",
+      "work": [
+        "design",
+        "review"
+      ],
+      "domains": [
+        "software"
+      ],
+      "artifacts": [
+        "source-code",
+        "models"
+      ],
+      "distinguish": "Module interfaces and depth; competing whole-architecture sketches belong to the architecture method."
+    },
+    "mcp-dependency-review": {
+      "description_sha256": "c0a1cb22abb21eeb5244717d8487ca54c2547c4b154a1fca119c0da6de8254ce",
+      "function": "Review MCP package references and configuration without executing servers",
+      "work": [
+        "review",
+        "validate"
+      ],
+      "domains": [
+        "agents",
+        "operations",
+        "security"
+      ],
+      "artifacts": [
+        "environments",
+        "reports"
+      ],
+      "distinguish": "Static package-reference review; no discovered server is executed."
+    },
+    "gstack-office-hours": {
+      "description_sha256": "8a1948ab6b799e940f57727032aecd6864f4a869228d81c473020e7f3826d0a6",
+      "function": "Frame a product problem and compare practical design directions",
+      "work": [
+        "investigate",
+        "plan",
+        "design"
+      ],
+      "domains": [
+        "product",
+        "software"
+      ],
+      "artifacts": [
+        "reports",
+        "models"
+      ],
+      "distinguish": "Product framing and alternatives, rather than an engineering plan review or code audit."
+    },
+    "performance-optimization": {
+      "description_sha256": "0bf277399a26563e0515fc6263724ce08d383bae4139789b7d73229fa28ce2cc",
+      "function": "Profile and improve application, query or database performance",
+      "work": [
+        "diagnose",
+        "measure",
+        "implement"
+      ],
+      "domains": [
+        "software",
+        "web",
+        "data"
+      ],
+      "artifacts": [
+        "source-code",
+        "measurements"
+      ],
+      "distinguish": ""
+    },
+    "openspec-propose": {
+      "description_sha256": "727a045abdc0c746dd8623feb80c59a999d8c2de75d27892574df96a7bc0553c",
+      "function": "Turn a requested change into an OpenSpec proposal, design and tasks",
+      "work": [
+        "plan",
+        "design"
+      ],
+      "domains": [
+        "software"
+      ],
+      "artifacts": [
+        "documents",
+        "workflows"
+      ],
+      "distinguish": ""
+    },
+    "openspec-apply-change": {
+      "description_sha256": "6a19dbda60b1d693ad6c50dc7091159e15e775eb3deb77f8d623f58ac2d990fe",
+      "function": "Implement the tasks of an existing OpenSpec change",
+      "work": [
+        "implement"
+      ],
+      "domains": [
+        "software"
+      ],
+      "artifacts": [
+        "source-code"
+      ],
+      "distinguish": ""
+    },
+    "openspec-verify-change": {
+      "description_sha256": "6ed89b462528155329f0b702aad462e50e5ad20475129654f531cc4bb1a6ac21",
+      "function": "Check implementation against its OpenSpec design and tasks",
+      "work": [
+        "validate",
+        "review"
+      ],
+      "domains": [
+        "software"
+      ],
+      "artifacts": [
+        "source-code",
+        "reports"
+      ],
+      "distinguish": ""
+    },
+    "obsidian-markdown": {
+      "description_sha256": "a20ba3403fe5d0b89705c77d7702fbe743ef42bf6131c7c7fc415da36b95dcf3",
+      "function": "Write Obsidian notes with properties, links, embeds and callouts",
+      "work": [
+        "create",
+        "transform"
+      ],
+      "domains": [
+        "knowledge"
+      ],
+      "artifacts": [
+        "notes",
+        "documents"
+      ],
+      "distinguish": ""
+    },
+    "obsidian-bases": {
+      "description_sha256": "9ca89bff816056a0b7c6eb8e5c86a18a4f9273168e2996993d804d03d0a7b03c",
+      "function": "Build Obsidian Base views, filters, formulas and summaries",
+      "work": [
+        "create",
+        "transform"
+      ],
+      "domains": [
+        "knowledge",
+        "data"
+      ],
+      "artifacts": [
+        "notes",
+        "datasets"
+      ],
+      "distinguish": ""
+    },
+    "json-canvas": {
+      "description_sha256": "023efac9bb033e4057af4002d2250ac945b2c1704d1ca5b18fa00e7334b33ade",
+      "function": "Build or repair editable JSON Canvas nodes, groups and connections",
+      "work": [
+        "create",
+        "transform",
+        "validate"
+      ],
+      "domains": [
+        "knowledge",
+        "graphics"
+      ],
+      "artifacts": [
+        "notes",
+        "diagrams"
+      ],
+      "distinguish": ""
+    },
+    "obsidian-cli": {
+      "description_sha256": "6ab701baf33b9852730317f003dae4474f47fcabb62fd9bb13dcc6ce8a311e36",
+      "function": "Operate a targeted Obsidian vault or debug its plugins through the CLI",
+      "work": [
+        "operate",
+        "diagnose"
+      ],
+      "domains": [
+        "knowledge",
+        "software"
+      ],
+      "artifacts": [
+        "notes",
+        "environments"
+      ],
+      "distinguish": ""
+    },
+    "pptx-quality-gates": {
+      "description_sha256": "f991ef00019759f52440332c59c509e8c614dba58d5c0f4c1d1e48d3d67f7f75",
+      "function": "Check or repair PPTX geometry, accessibility, editability and package integrity",
+      "work": [
+        "validate",
+        "transform"
+      ],
+      "domains": [
+        "knowledge",
+        "graphics"
+      ],
+      "artifacts": [
+        "presentations",
+        "reports"
+      ],
+      "distinguish": ""
+    },
+    "find-skills": {
+      "description_sha256": "ae20b48793b11f5341a82473dbee7a120f4462c501b1b56f3732876809c94ef5",
+      "function": "Find and evaluate an installable method for a concrete capability need",
+      "work": [
+        "discover",
+        "review"
+      ],
+      "domains": [
+        "agents"
+      ],
+      "artifacts": [
+        "environments"
+      ],
+      "distinguish": ""
+    },
+    "react-best-practices": {
+      "description_sha256": "9e407656c97ec59c97fd74e58adfb629d5929d43cbd1d72c5016025d7cde5606",
+      "function": "Improve React and Next.js rendering, data fetching and bundle performance",
+      "work": [
+        "implement",
+        "review",
+        "measure"
+      ],
+      "domains": [
+        "software",
+        "web"
+      ],
+      "artifacts": [
+        "source-code",
+        "interfaces"
+      ],
+      "distinguish": ""
+    },
+    "composition-patterns": {
+      "description_sha256": "7a7f444cf3b6c4b166d4cc396ed5f8a9c0b957a6f4be2daf11cc800b6bc4fcb5",
+      "function": "Refactor React components into reusable composition and API patterns",
+      "work": [
+        "design",
+        "transform"
+      ],
+      "domains": [
+        "software",
+        "web"
+      ],
+      "artifacts": [
+        "source-code",
+        "interfaces"
+      ],
+      "distinguish": ""
+    },
+    "migration-architect": {
+      "description_sha256": "104a7c2f642e47cb7df1fd5d20c8a202d13aeea728df0e7653843133f5c49257",
+      "function": "Plan a compatible data or service migration with phased rollback",
+      "work": [
+        "plan",
+        "design",
+        "validate"
+      ],
+      "domains": [
+        "software",
+        "data",
+        "operations"
+      ],
+      "artifacts": [
+        "workflows",
+        "source-code"
+      ],
+      "distinguish": ""
+    },
+    "pstack-architect": {
+      "description_sha256": "fb45a24552cbb242ffa56a159c5f395e7639ffa34e2156901d8b2ac586124722",
+      "function": "Compare independent code architecture sketches and implement a synthesis",
+      "work": [
+        "design",
+        "implement",
+        "review"
+      ],
+      "domains": [
+        "software"
+      ],
+      "artifacts": [
+        "source-code",
+        "models"
+      ],
+      "distinguish": "Independent architecture alternatives and synthesis, rather than module vocabulary alone."
+    },
+    "pstack-blast-radius": {
+      "description_sha256": "1ea5d70e949eedaa712a0ba51f0c872ed00bed9ffd2dd03fe056663588680ec9",
+      "function": "Trace downstream effects of a change and verify its key safety assumption",
+      "work": [
+        "investigate",
+        "review",
+        "validate"
+      ],
+      "domains": [
+        "software"
+      ],
+      "artifacts": [
+        "source-code",
+        "reports"
+      ],
+      "distinguish": "Effects beyond a small diff and the key safety fact, rather than a general security scan."
+    },
+    "pstack-shared-state": {
+      "description_sha256": "4f7db82b7cc3d85b412b51a14f49637da5b82f6dd20d699f7d66aacc0d9a479e",
+      "function": "Design ownership that removes or structurally serializes shared writes",
+      "work": [
+        "design",
+        "review"
+      ],
+      "domains": [
+        "software",
+        "data"
+      ],
+      "artifacts": [
+        "source-code",
+        "models"
+      ],
+      "distinguish": "Ownership and concurrent writes; crash/retry convergence is a separate contribution."
+    },
+    "pstack-idempotency": {
+      "description_sha256": "4bb9a96d2c1fe35440a23c3e81f28da02279c76e16430805d9cfd0c33d9e14a6",
+      "function": "Design operations that converge correctly after partial runs and retries",
+      "work": [
+        "design",
+        "implement",
+        "validate"
+      ],
+      "domains": [
+        "software",
+        "operations"
+      ],
+      "artifacts": [
+        "source-code",
+        "workflows"
+      ],
+      "distinguish": "Crash/retry convergence, rather than merely serializing concurrent writers."
+    },
+    "pstack-benchmark": {
+      "description_sha256": "e73e996724f9bf1c53becf714849406d250f952590cb35e48c4a4349fc4074a5",
+      "function": "Check whether a performance measurement is valid and repeatable",
+      "work": [
+        "measure",
+        "review",
+        "validate"
+      ],
+      "domains": [
+        "software"
+      ],
+      "artifacts": [
+        "measurements",
+        "reports"
+      ],
+      "distinguish": "Measurement validity before a speedup claim; does not itself optimize the implementation."
+    },
+    "supabase-postgres-best-practices": {
+      "description_sha256": "817ffd7b56118f498ca5314fd7a6dab1b4db1d96882e8d223961275c874a8c24",
+      "function": "Design and improve Postgres queries, schemas, migrations and row security",
+      "work": [
+        "design",
+        "implement",
+        "review"
+      ],
+      "domains": [
+        "data",
+        "software"
+      ],
+      "artifacts": [
+        "source-code",
+        "models"
+      ],
+      "distinguish": ""
+    },
+    "scrapling-skill": {
+      "description_sha256": "d78ca65fe286d236842687f99f760ff0322dd72150a4ad921ab2253ed6500384",
+      "function": "Extract structured web records and validate identity, units and provenance",
+      "work": [
+        "transform",
+        "validate"
+      ],
+      "domains": [
+        "data",
+        "web"
+      ],
+      "artifacts": [
+        "datasets"
+      ],
+      "distinguish": ""
+    },
+    "codex-skill": {
+      "description_sha256": "d8ed6bd4a0ac7949f507e23fb6d95a588989053c18140933a9a5bebd21a61a26",
+      "function": "Build and validate CLI-Anything harnesses for applications or repositories",
+      "work": [
+        "design",
+        "implement",
+        "validate"
+      ],
+      "domains": [
+        "agents",
+        "software",
+        "automation"
+      ],
+      "artifacts": [
+        "source-code",
+        "environments"
+      ],
+      "distinguish": ""
+    },
+    "debug-optimize-lcp": {
+      "description_sha256": "6dd78e8df9319f8d936ad6d87fffd165960b30829366e5bae0f6543b5c87944c",
+      "function": "Diagnose and improve a page's Largest Contentful Paint with DevTools",
+      "work": [
+        "diagnose",
+        "measure",
+        "implement"
+      ],
+      "domains": [
+        "web",
+        "software"
+      ],
+      "artifacts": [
+        "interfaces",
+        "measurements"
+      ],
+      "distinguish": ""
+    },
+    "memory-leak-debugging": {
+      "description_sha256": "6595ba22834e8af0715b2429dcd777af37ae5d794bf4ed18342ac43d438468c5",
+      "function": "Diagnose JavaScript memory growth using heap snapshots and runtime evidence",
+      "work": [
+        "diagnose",
+        "measure"
+      ],
+      "domains": [
+        "software",
+        "web"
+      ],
+      "artifacts": [
+        "source-code",
+        "measurements"
+      ],
+      "distinguish": ""
+    },
+    "agent-browser": {
+      "description_sha256": "9ab95b0e46ada4ce256962151bc8eddeff29cd6768d946dc09a58e690c691bc0",
+      "function": "Operate an explicitly selected agent-browser session for a concrete browser need",
+      "work": [
+        "operate"
+      ],
+      "domains": [
+        "web",
+        "agents"
+      ],
+      "artifacts": [
+        "interfaces",
+        "environments"
+      ],
+      "distinguish": "Entry route when this CLI is selected or required; its versioned command guide remains separate support."
+    },
+    "core": {
+      "description_sha256": "f200f49f434a72b5c6053ab91a31f87ab2aaabb8522d40cb0041492cc2795410",
+      "function": "Apply version-matched agent-browser CLI commands and session practices",
+      "work": [
+        "operate",
+        "validate"
+      ],
+      "domains": [
+        "web",
+        "agents"
+      ],
+      "artifacts": [
+        "interfaces",
+        "environments"
+      ],
+      "distinguish": "Supporting CLI workflow, not a second browser runtime or general browsing mandate."
+    },
+    "cua-driver": {
+      "description_sha256": "c5c0cbcfaeb745b4e8f21c5d96edfc2133c458e76b84b4cf34b50de3d638220b",
+      "function": "Use snapshot-bound native GUI fallback for an authorized operation gap",
+      "work": [
+        "operate",
+        "validate"
+      ],
+      "domains": [
+        "agents",
+        "operations"
+      ],
+      "artifacts": [
+        "interfaces",
+        "environments"
+      ],
+      "distinguish": "Fallback for an actual native-operation gap; cannot override permissions or denials."
+    },
+    "gws-shared": {
+      "description_sha256": "d7bdebe6346a6f1356f496a5826b92e62f65c29639bbc2116f53d14816ebfbea",
+      "function": "Use shared Google Workspace CLI authentication, flags and output conventions",
+      "work": [
+        "operate"
+      ],
+      "domains": [
+        "knowledge",
+        "operations"
+      ],
+      "artifacts": [
+        "documents",
+        "environments"
+      ],
+      "distinguish": ""
+    },
+    "n8n-workflow-patterns": {
+      "description_sha256": "1ebde3335ac96f9e3648e6db91de66823bb86884116eb82e3598a9fc0962285f",
+      "function": "Design and improve n8n data flow, batching and workflow architecture",
+      "work": [
+        "design",
+        "implement",
+        "measure"
+      ],
+      "domains": [
+        "agents",
+        "data",
+        "operations",
+        "automation"
+      ],
+      "artifacts": [
+        "workflows",
+        "source-code"
+      ],
+      "distinguish": "n8n architecture and performance; not generic automation outside n8n."
+    },
+    "n8n-validation-expert": {
+      "description_sha256": "7178cdb7524f49822a285396fef409dbe5ce4940bbaf94d840911666d915d91b",
+      "function": "Interpret and repair n8n validation errors and known false positives",
+      "work": [
+        "diagnose",
+        "validate"
+      ],
+      "domains": [
+        "agents",
+        "operations",
+        "automation"
+      ],
+      "artifacts": [
+        "workflows",
+        "reports"
+      ],
+      "distinguish": "Explains schema/profile errors; actual output behavior still needs separate verification."
+    },
+    "n8n-mcp-tools-expert": {
+      "description_sha256": "2b3a552d320492763e88fa7cc580666f2b59b2d91be2790b0d42a4e976243693",
+      "function": "Select and call n8n MCP tools with correct workflow and node parameters",
+      "work": [
+        "discover",
+        "operate",
+        "validate"
+      ],
+      "domains": [
+        "agents",
+        "operations",
+        "automation"
+      ],
+      "artifacts": [
+        "workflows",
+        "environments"
+      ],
+      "distinguish": "Tool names and parameters; architecture and substantive output validation are separate methods."
+    },
+    "scientific-critical-thinking": {
+      "description_sha256": "447a9017605d75b85444bf20127a56a5c3ec59466642cbdcdc03d7618d823dfd",
+      "function": "Appraise scientific claims, confounding, study design and evidence certainty",
+      "work": [
+        "review",
+        "investigate"
+      ],
+      "domains": [
+        "research"
+      ],
+      "artifacts": [
+        "reports",
+        "papers"
+      ],
+      "distinguish": "Appraises evidence and inference; formal reviewer report drafting is a separate task."
+    },
+    "uncertainty-and-units": {
+      "description_sha256": "7cd55ec4f4bee1109e8674025f2b8c9ebf82511684dd2830f6919a70b72719ef",
+      "function": "Track physical units and propagate measurement uncertainty through calculations",
+      "work": [
+        "measure",
+        "validate"
+      ],
+      "domains": [
+        "research",
+        "mathematics",
+        "hardware"
+      ],
+      "artifacts": [
+        "measurements",
+        "source-code"
+      ],
+      "distinguish": "Physical units and measurement uncertainty, not a substitute for selecting a statistical study model."
+    },
+    "experimental-design": {
+      "description_sha256": "bee009f25ec605aed61c218772eb03913be6581df928ec0f4295be51e9169721",
+      "function": "Design interpretable studies through randomization, blocking and controls",
+      "work": [
+        "design",
+        "plan"
+      ],
+      "domains": [
+        "research"
+      ],
+      "artifacts": [
+        "models",
+        "workflows"
+      ],
+      "distinguish": "Plans allocation and controls before collection; does not analyze collected outcomes by itself."
+    },
+    "statistical-analysis": {
+      "description_sha256": "f09e3cea0f4d8d66e083ce5767da46469dd201110eaefbe51d6b7cad3796f151",
+      "function": "Analyze research data with justified tests, effect estimates and uncertainty",
+      "work": [
+        "measure",
+        "validate",
+        "review"
+      ],
+      "domains": [
+        "research",
+        "data"
+      ],
+      "artifacts": [
+        "datasets",
+        "measurements",
+        "reports"
+      ],
+      "distinguish": "Analyzes collected data; study allocation and sample-size planning may need complementary methods."
+    },
+    "literature-review": {
+      "description_sha256": "0870d4fc19d5d302890031187073ab801b8a9fe095b5d8469e78c31eca14b72a",
+      "function": "Conduct a reproducible literature search and evidence synthesis",
+      "work": [
+        "discover",
+        "investigate",
+        "review"
+      ],
+      "domains": [
+        "research"
+      ],
+      "artifacts": [
+        "papers",
+        "reports"
+      ],
+      "distinguish": "Search and synthesis with coverage limits; does not supply a meta-analysis engine."
+    },
+    "citation-management": {
+      "description_sha256": "e670ed40a3162517db070e6a1c39c6e6e7130da56a1709bf8ddca4fc81cbe72a",
+      "function": "Find and validate publication metadata and produce accurate citations",
+      "work": [
+        "discover",
+        "validate",
+        "transform"
+      ],
+      "domains": [
+        "research",
+        "knowledge"
+      ],
+      "artifacts": [
+        "papers",
+        "datasets"
+      ],
+      "distinguish": "Publication identities and citation formatting; does not establish that a paper supports a claim."
+    },
+    "scientific-visualization": {
+      "description_sha256": "7fe5fa3203178d9fecc22282a4123937ed1f98ca647473213cce00a14f356f0f",
+      "function": "Design and audit scientific figures with truthful uncertainty and missing-data displays",
+      "work": [
+        "create",
+        "review",
+        "validate"
+      ],
+      "domains": [
+        "research",
+        "data",
+        "graphics"
+      ],
+      "artifacts": [
+        "images",
+        "source-code"
+      ],
+      "distinguish": "Scientific truth, uncertainty and figure export; an editorial system map is a different artifact."
+    },
+    "lab-hardware-cad": {
+      "description_sha256": "253903e3e98309ac0841e0efb37385f2a0487005fbf860a35f2cc78d61d99b10",
+      "function": "Design parametric laboratory parts and export fabrication geometry",
+      "work": [
+        "design",
+        "create"
+      ],
+      "domains": [
+        "research",
+        "hardware"
+      ],
+      "artifacts": [
+        "hardware-designs",
+        "3d-assets"
+      ],
+      "distinguish": ""
+    },
+    "scientific-writing": {
+      "description_sha256": "4c04440dd103c93174c1786204329185e26257c498e0ca4c8766fa9765898bf5",
+      "function": "Draft and audit scientific manuscripts with evidence provenance and reporting coverage",
+      "work": [
+        "create",
+        "transform",
+        "review"
+      ],
+      "domains": [
+        "research"
+      ],
+      "artifacts": [
+        "papers",
+        "reports"
+      ],
+      "distinguish": ""
+    },
+    "paper-lookup": {
+      "description_sha256": "0c9bce4a67f193561b98fd60aea5ceb40a4161989ae7958a4b92b865bb377d0b",
+      "function": "Retrieve scholarly records, citations and available full text with provenance",
+      "work": [
+        "discover",
+        "investigate"
+      ],
+      "domains": [
+        "research"
+      ],
+      "artifacts": [
+        "papers",
+        "datasets"
+      ],
+      "distinguish": ""
+    },
+    "hypothesis-generation": {
+      "description_sha256": "a1b9f2e3ee81f7c1dc293711c1d2f056e183eaf70610b8ea9ec59b2f80e4185a",
+      "function": "Turn observations into testable hypotheses, rivals and discriminating predictions",
+      "work": [
+        "investigate",
+        "design",
+        "plan"
+      ],
+      "domains": [
+        "research"
+      ],
+      "artifacts": [
+        "models",
+        "documents"
+      ],
+      "distinguish": "Testable candidates and rival explanations; hypotheses are not established findings."
+    },
+    "statistical-power": {
+      "description_sha256": "a24ae081796499c8aee28da01a5616d0338c42d520a3480249aa578127c370d2",
+      "function": "Calculate design-aware sample size, power or minimum detectable effects",
+      "work": [
+        "plan",
+        "measure"
+      ],
+      "domains": [
+        "research",
+        "mathematics"
+      ],
+      "artifacts": [
+        "measurements",
+        "reports"
+      ],
+      "distinguish": "Design-aware planning calculations after the estimand and design are defined."
+    },
+    "peer-review": {
+      "description_sha256": "5fee8c6fa9fef3a64d37b4b4518dbe20cc2ef72c1f1977c46721f74e90bab476",
+      "function": "Draft constructive manuscript or protocol reviews grounded in evidence",
+      "work": [
+        "review",
+        "create"
+      ],
+      "domains": [
+        "research"
+      ],
+      "artifacts": [
+        "papers",
+        "reports"
+      ],
+      "distinguish": "Constructive evidence-bounded review drafting; not the role-separated academic panel pipeline."
+    },
+    "qiskit": {
+      "description_sha256": "91b6ab8139d11a255dba782892c79099b01eb071790d1d5908bb2ee4c5d503fe",
+      "function": "Build, transpile and evaluate Qiskit circuits against explicit targets",
+      "work": [
+        "create",
+        "implement",
+        "validate"
+      ],
+      "domains": [
+        "quantum"
+      ],
+      "artifacts": [
+        "source-code",
+        "models"
+      ],
+      "distinguish": "Circuit compilation and IBM-target workflows; open-system dynamics and differentiable quantum ML differ."
+    },
+    "qutip": {
+      "description_sha256": "25fd3a8d45ccfc6b43758afeb4c9b7f90cd4c58fdab26d3a8cddad8d78aee6eb",
+      "function": "Simulate quantum-system dynamics and check physical and numerical assumptions",
+      "work": [
+        "measure",
+        "validate"
+      ],
+      "domains": [
+        "quantum",
+        "research"
+      ],
+      "artifacts": [
+        "source-code",
+        "models",
+        "measurements"
+      ],
+      "distinguish": "Quantum-system dynamics and numerical convergence; not a hardware circuit compilation workflow."
+    },
+    "pennylane": {
+      "description_sha256": "9f81dc7aa9e9f4a9163aeb9ca80ccea6ed0910b592b8a3900eda1bf05e2d3916",
+      "function": "Build differentiable quantum circuits and validate variational algorithms",
+      "work": [
+        "implement",
+        "measure",
+        "validate"
+      ],
+      "domains": [
+        "quantum",
+        "ml"
+      ],
+      "artifacts": [
+        "source-code",
+        "models"
+      ],
+      "distinguish": "Differentiable and variational circuits; hardware-specific compilation is separate."
+    },
+    "experiment-audit": {
+      "description_sha256": "adb0ec87b8260a1f7ac3ce8f6a1a26c61b8a27489e1fe1583ff23081326cc105",
+      "function": "Audit experimental integrity, result existence and ground-truth provenance",
+      "work": [
+        "review",
+        "validate"
+      ],
+      "domains": [
+        "research",
+        "ml"
+      ],
+      "artifacts": [
+        "reports",
+        "measurements"
+      ],
+      "distinguish": "Checks integrity and provenance of results; does not itself establish the scientific claim."
+    },
+    "result-to-claim": {
+      "description_sha256": "b92a7adcd7bfe220f7406337b94aa3658faa2d26705c80cce807ac2b5c492dcf",
+      "function": "Judge what completed experiments support and identify missing evidence",
+      "work": [
+        "review",
+        "plan"
+      ],
+      "domains": [
+        "research",
+        "ml"
+      ],
+      "artifacts": [
+        "reports",
+        "papers"
+      ],
+      "distinguish": "Judges the scope of supported claims after results; integrity audit and new experiments remain separate."
+    },
+    "lean-formalize": {
+      "description_sha256": "5ac69fbd1dce65b68ae2c573d0f5a484cc35f111af7c4f536c0a73f8e6168656",
+      "function": "Construct or audit a Lean proof against the intended mathematical statement",
+      "work": [
+        "create",
+        "validate"
+      ],
+      "domains": [
+        "mathematics"
+      ],
+      "artifacts": [
+        "proofs",
+        "source-code"
+      ],
+      "distinguish": "Proof of the intended statement in Lean; not ordinary mathematical prose drafting."
+    },
+    "formula-derivation": {
+      "description_sha256": "a5da7409792bd33ec6bfde52e60eb1a4fbaf98188a26ce1dcf95bda8fba00c84",
+      "function": "Develop research equations from explicit objects, assumptions and reasoning",
+      "work": [
+        "design",
+        "create",
+        "review"
+      ],
+      "domains": [
+        "mathematics",
+        "research"
+      ],
+      "artifacts": [
+        "models",
+        "documents"
+      ],
+      "distinguish": "Derivation and assumption organization; not a checked theorem proof."
+    },
+    "hf-cli": {
+      "description_sha256": "f1da8d3905824b6276ad901cca4b90c4ac2bb062c33ffd87873aeb74a620bcaf",
+      "function": "Operate named Hugging Face Hub repositories, assets and authorized jobs",
+      "work": [
+        "operate"
+      ],
+      "domains": [
+        "ml",
+        "operations"
+      ],
+      "artifacts": [
+        "datasets",
+        "models",
+        "environments"
+      ],
+      "distinguish": ""
+    },
+    "hf-mem": {
+      "description_sha256": "c50bc41d2afa0c248a4139b058e4a9d8e35ca8694c888d62154aaedfa7baaeaf",
+      "function": "Estimate memory needed to load Hugging Face model weights",
+      "work": [
+        "measure",
+        "plan"
+      ],
+      "domains": [
+        "ml"
+      ],
+      "artifacts": [
+        "models",
+        "measurements"
+      ],
+      "distinguish": ""
+    },
+    "huggingface-local-models": {
+      "description_sha256": "43a01869e8bac93f6c3ebdbd577a48a1a0eb034b7f447a45023d38ecb66b466c",
+      "function": "Select and run local GGUF models with llama.cpp and suitable quantization",
+      "work": [
+        "discover",
+        "operate",
+        "plan"
+      ],
+      "domains": [
+        "ml",
+        "operations"
+      ],
+      "artifacts": [
+        "models",
+        "environments"
+      ],
+      "distinguish": ""
+    },
+    "trl-training": {
+      "description_sha256": "0f8bd0137e5dd9d1492045accb5fd9fa4db128fb8850249eace161357b10e534",
+      "function": "Implement and debug language-model post-training with TRL",
+      "work": [
+        "implement",
+        "diagnose",
+        "measure"
+      ],
+      "domains": [
+        "ml"
+      ],
+      "artifacts": [
+        "source-code",
+        "models"
+      ],
+      "distinguish": ""
+    },
+    "huggingface-datasets": {
+      "description_sha256": "9e54ce62ddd181ff70edc2a5f7a1e30f7b3ea20def1e2fe7736fccaca134a873",
+      "function": "Query Dataset Viewer splits, rows, filters, statistics and Parquet links",
+      "work": [
+        "discover",
+        "operate",
+        "transform"
+      ],
+      "domains": [
+        "ml",
+        "data"
+      ],
+      "artifacts": [
+        "datasets"
+      ],
+      "distinguish": ""
+    },
+    "huggingface-gradio": {
+      "description_sha256": "661151089e48ae86f25ad3d3d6f043a8a3e23c563a3df37ac1de66870cc6898a",
+      "function": "Build Python Gradio demos with components, layouts and event behavior",
+      "work": [
+        "design",
+        "implement"
+      ],
+      "domains": [
+        "web",
+        "ml"
+      ],
+      "artifacts": [
+        "source-code",
+        "interfaces"
+      ],
+      "distinguish": ""
+    },
+    "train-sentence-transformers": {
+      "description_sha256": "ab6c4f6f13c00613bd0749796a4099e2e3e00de98a258c074579b39a45812acd",
+      "function": "Train retrieval, embedding, reranking or pair-scoring models",
+      "work": [
+        "implement",
+        "measure",
+        "validate"
+      ],
+      "domains": [
+        "ml",
+        "data"
+      ],
+      "artifacts": [
+        "models",
+        "source-code"
+      ],
+      "distinguish": ""
+    },
+    "huggingface-spaces": {
+      "description_sha256": "d9ea066d914b1f9457e5f5e872235c46453881c325c557dd7ad7f010220ced9e",
+      "function": "Build and maintain an application on Hugging Face Spaces",
+      "work": [
+        "implement",
+        "operate",
+        "diagnose"
+      ],
+      "domains": [
+        "ml",
+        "web",
+        "operations"
+      ],
+      "artifacts": [
+        "source-code",
+        "environments"
+      ],
+      "distinguish": ""
+    },
+    "cocoindex": {
+      "description_sha256": "483bc8d9c666ace4602265303fe2c1f955a5c55c1051dd66e4b08a3fa7627a01",
+      "function": "Maintain a changing derived index with incremental transformation ownership",
+      "work": [
+        "design",
+        "implement",
+        "operate"
+      ],
+      "domains": [
+        "data",
+        "software",
+        "automation"
+      ],
+      "artifacts": [
+        "datasets",
+        "source-code"
+      ],
+      "distinguish": ""
+    },
+    "property-based-testing": {
+      "description_sha256": "b1c894c880dde175052d92127754f21d9934fa017e3efa3b334eaa0763f5a942",
+      "function": "Test invariants over generated input domains and interpret shrunk failures",
+      "work": [
+        "validate",
+        "diagnose"
+      ],
+      "domains": [
+        "software",
+        "mathematics"
+      ],
+      "artifacts": [
+        "source-code",
+        "proofs"
+      ],
+      "distinguish": "Generated-domain invariants; not binary fuzzing, static analysis or a benchmark."
+    },
+    "differential-review": {
+      "description_sha256": "d3d37f7559cf0a18f71fa8773b0496d9fe9381f4ae569de3aa23e2239c417d48",
+      "function": "Review code changes for security regressions, callers and missing coverage",
+      "work": [
+        "review",
+        "investigate"
+      ],
+      "domains": [
+        "software",
+        "security"
+      ],
+      "artifacts": [
+        "source-code",
+        "reports"
+      ],
+      "distinguish": "Security-focused changed-code review, rather than full-codebase discovery or generic structural review."
+    },
+    "dimensional-analysis": {
+      "description_sha256": "e9b7c8bbd960334a057e8c8ce87c1dc5241300c9b9c4fd8cc960da2386b0ebb8",
+      "function": "Audit code for physical-unit or decimal-scaling errors",
+      "work": [
+        "review",
+        "validate"
+      ],
+      "domains": [
+        "software",
+        "mathematics",
+        "finance"
+      ],
+      "artifacts": [
+        "source-code",
+        "reports"
+      ],
+      "distinguish": ""
+    },
+    "fp-check": {
+      "description_sha256": "c841dae64a83d45c474f333ce01987907de586b8d4fd3a9af2fd0047b6acf540",
+      "function": "Verify whether a suspected security finding is real, false or inconclusive",
+      "work": [
+        "investigate",
+        "validate"
+      ],
+      "domains": [
+        "software",
+        "security"
+      ],
+      "artifacts": [
+        "source-code",
+        "reports"
+      ],
+      "distinguish": "Validate a specific suspected finding; not a new-vulnerability hunting workflow."
+    },
+    "semgrep": {
+      "description_sha256": "d87278bb89175e4a3e8e131b8d9c12f365cb7be48f3415c662a2190b952f5f44",
+      "function": "Run a scoped read-only Semgrep scan and review raw findings",
+      "work": [
+        "operate",
+        "review",
+        "validate"
+      ],
+      "domains": [
+        "software",
+        "security"
+      ],
+      "artifacts": [
+        "source-code",
+        "reports"
+      ],
+      "distinguish": "Pattern/ruleset scanning with false-positive review; not a substitute for interprocedural dataflow."
+    },
+    "codeql": {
+      "description_sha256": "320806621e0b2be20bdce36132dd52b5a19c38077526adb444b3d056a83e90dc",
+      "function": "Analyze interprocedural dataflow and taint paths with CodeQL",
+      "work": [
+        "operate",
+        "investigate",
+        "review"
+      ],
+      "domains": [
+        "software",
+        "security"
+      ],
+      "artifacts": [
+        "source-code",
+        "reports"
+      ],
+      "distinguish": "Interprocedural dataflow and taint analysis; not merely single-file pattern matching."
+    },
+    "taste-skill": {
+      "description_sha256": "c3860916532486456bf19ff5525c800b93a63e0ad6d51beb511e189e3a44545e",
+      "function": "Develop reference-led visual direction for a page or application screen",
+      "work": [
+        "design",
+        "review"
+      ],
+      "domains": [
+        "web",
+        "graphics",
+        "product"
+      ],
+      "artifacts": [
+        "interfaces",
+        "images"
+      ],
+      "distinguish": "Reference-led art direction for a visual identity; routine interface fixes can remain direct."
+    },
+    "impeccable-audit": {
+      "description_sha256": "6befc38a9746a0f35cfccc72dde2fd4d6012ad28fc5c5cf0ed3e7d2ea7932b1f",
+      "function": "Audit interface accessibility, performance, responsiveness and consistency",
+      "work": [
+        "review",
+        "validate"
+      ],
+      "domains": [
+        "web",
+        "graphics"
+      ],
+      "artifacts": [
+        "interfaces",
+        "reports"
+      ],
+      "distinguish": "Reports technical interface findings; repairing interaction failure behavior is a separate contribution."
+    },
+    "impeccable-harden": {
+      "description_sha256": "0ca5f26f8e572af7a2ff26357b5e674f3d26a773eb65bb8d77562dbd9b3c6879",
+      "function": "Repair UI behavior under failed, racing or interrupted interactions",
+      "work": [
+        "implement",
+        "diagnose",
+        "validate"
+      ],
+      "domains": [
+        "web",
+        "software"
+      ],
+      "artifacts": [
+        "interfaces",
+        "source-code"
+      ],
+      "distinguish": "Interaction reliability and recovery, rather than a visual-style redesign."
+    },
+    "hyperframes": {
+      "description_sha256": "972bc2ee5871afb321edf541dd4bae80ce82178eca7e7a4d83712bef36e37dff",
+      "function": "Produce HTML-based video with a coherent render and review workflow",
+      "work": [
+        "coordinate",
+        "create",
+        "transform"
+      ],
+      "domains": [
+        "media",
+        "graphics",
+        "workflows"
+      ],
+      "artifacts": [
+        "video",
+        "source-code"
+      ],
+      "distinguish": "Production/render contract for the whole video; CLI commands and reusable blocks are separate support."
+    },
+    "hyperframes-cli": {
+      "description_sha256": "2d7d90fdca32bcb01a81cf1138de313b37ca377a41fb8bfee4d724d78df4adc9",
+      "function": "Operate HyperFrames project, preview, timeline and render commands",
+      "work": [
+        "operate",
+        "diagnose"
+      ],
+      "domains": [
+        "media",
+        "operations"
+      ],
+      "artifacts": [
+        "video",
+        "environments"
+      ],
+      "distinguish": "CLI operation and recovery; does not replace editorial shot design."
+    },
+    "hyperframes-registry": {
+      "description_sha256": "d68f7ca648335e04eee35bcbf2884966cb9c8385b08fd4e5b11cc3d3cba3b752",
+      "function": "Reuse editable HyperFrames visual blocks and components",
+      "work": [
+        "discover",
+        "create"
+      ],
+      "domains": [
+        "media",
+        "graphics"
+      ],
+      "artifacts": [
+        "source-code",
+        "video"
+      ],
+      "distinguish": "Editable source components; existence in the catalog is not evidence that a particular runtime operation passed."
+    },
+    "media-use": {
+      "description_sha256": "52439c915edb47556ce9fd75e6461c1718ce55557a1cd5a50282c66b0d5c8172",
+      "function": "Find or create media assets and mix placed audio for HyperFrames",
+      "work": [
+        "discover",
+        "create",
+        "transform"
+      ],
+      "domains": [
+        "media",
+        "graphics"
+      ],
+      "artifacts": [
+        "audio",
+        "images",
+        "video"
+      ],
+      "distinguish": "Media acquisition, creation and audio placement; separately billed or identity-sensitive routes retain their authority requirements."
+    },
+    "video-shotcraft": {
+      "description_sha256": "cae074c8d744e8111133448cad8c5a61b4ac576e35d8964478065060573e4000",
+      "function": "Design cinematic product shots with page captures, timing and sound",
+      "work": [
+        "design",
+        "create",
+        "transform"
+      ],
+      "domains": [
+        "media",
+        "marketing"
+      ],
+      "artifacts": [
+        "video",
+        "audio"
+      ],
+      "distinguish": ""
+    },
+    "remotion-best-practices": {
+      "description_sha256": "4f1b24826f5eae63b70b44a45f1c03b53de43e7eeb78abe1077ee25b8211f3ed",
+      "function": "Choose the relevant Remotion authoring, preview or export method",
+      "work": [
+        "coordinate",
+        "discover"
+      ],
+      "domains": [
+        "media",
+        "software",
+        "workflows"
+      ],
+      "artifacts": [
+        "video",
+        "source-code"
+      ],
+      "distinguish": "Routes to the relevant complete Remotion method; metadata alone does not author a composition."
+    },
+    "remotion-create": {
+      "description_sha256": "516b5acfd25ec4ea2e7998c1aa80ad67161d9b7f5a82de2f92e26f3855f18384",
+      "function": "Create a new Remotion video project",
+      "work": [
+        "create",
+        "implement"
+      ],
+      "domains": [
+        "media",
+        "software"
+      ],
+      "artifacts": [
+        "video",
+        "source-code"
+      ],
+      "distinguish": ""
+    },
+    "remotion-markup": {
+      "description_sha256": "5854478c0401fa9ee8b4efbbf7adc70e53c78f038b1bdcdbe479f13f22001c51",
+      "function": "Author frame-based Remotion animation, clip timing and effects in JSX",
+      "work": [
+        "create",
+        "implement",
+        "transform"
+      ],
+      "domains": [
+        "media",
+        "graphics"
+      ],
+      "artifacts": [
+        "source-code",
+        "video"
+      ],
+      "distinguish": "Composition timing, crops and effects; duration/dimension metadata is a different contribution."
+    },
+    "remotion-render": {
+      "description_sha256": "48651d4dd53b5c807d42a0feefca17dc1e1277652d1bd82ea62efa6d1397816f",
+      "function": "Export Remotion video, stills or selected frames",
+      "work": [
+        "transform",
+        "operate"
+      ],
+      "domains": [
+        "media"
+      ],
+      "artifacts": [
+        "video",
+        "images"
+      ],
+      "distinguish": ""
+    },
+    "auto-editor": {
+      "description_sha256": "32870573d5869c0f565ad346744b0c426ca6db16f72cf87dcd7b3eb4b3b857db",
+      "function": "Make initial speech-heavy media cuts or an editable auto-editor timeline",
+      "work": [
+        "transform",
+        "create"
+      ],
+      "domains": [
+        "media"
+      ],
+      "artifacts": [
+        "audio",
+        "video",
+        "workflows"
+      ],
+      "distinguish": "First-pass speech-heavy cutting; editing existing media does not authorize microphone capture."
+    },
+    "auto-editor-export": {
+      "description_sha256": "644957c64f1a83497bd4351b4b95d8f861b90b6dc84da9452199678d437c5d3e",
+      "function": "Convert edits and timeline files for video editors, clips or rendering",
+      "work": [
+        "transform",
+        "operate"
+      ],
+      "domains": [
+        "media"
+      ],
+      "artifacts": [
+        "video",
+        "workflows"
+      ],
+      "distinguish": "Timeline/editor interchange; parsing a timeline does not prove a native editor import."
+    },
+    "game-art-bible": {
+      "description_sha256": "d3b8e80a0945ebac1db6f6cf6f59cf5da530360b92b1d6b41919dedb4cc66a65",
+      "function": "Define a game's visual identity before asset production",
+      "work": [
+        "design",
+        "plan"
+      ],
+      "domains": [
+        "games",
+        "graphics"
+      ],
+      "artifacts": [
+        "documents",
+        "images"
+      ],
+      "distinguish": "Project visual identity before asset work; not per-asset specification or gameplay balance review."
+    },
+    "game-asset-spec": {
+      "description_sha256": "4e5aaf7afff7c787dfdb9d5a266b1c6f547af40c2427c92b0cc06059507a0fdf",
+      "function": "Specify individual game assets and image-generation prompts",
+      "work": [
+        "design",
+        "plan"
+      ],
+      "domains": [
+        "games",
+        "graphics"
+      ],
+      "artifacts": [
+        "documents",
+        "images"
+      ],
+      "distinguish": "Per-asset specifications after visual direction; not the project-wide art bible."
+    },
+    "game-playtest-report": {
+      "description_sha256": "45f2e8c2f4af440d37277a7708a3c9adb460f67368622550fa915fa82c59c840",
+      "function": "Turn playtest observations into structured gameplay feedback",
+      "work": [
+        "review",
+        "transform"
+      ],
+      "domains": [
+        "games",
+        "product"
+      ],
+      "artifacts": [
+        "reports"
+      ],
+      "distinguish": "Organizes observed playtest feedback; does not simulate missing playtest evidence."
+    },
+    "godot-production-checks": {
+      "description_sha256": "45f14a6dc08afd97db9c900b38a3ce708252c6f092ef45a04168f5a00b6e183e",
+      "function": "Validate Godot serialization and runtime behavior with gameplay capture",
+      "work": [
+        "validate",
+        "operate"
+      ],
+      "domains": [
+        "games",
+        "software"
+      ],
+      "artifacts": [
+        "source-code",
+        "video"
+      ],
+      "distinguish": ""
+    },
+    "kicad": {
+      "description_sha256": "f6afb97acb208f2af1644c2ffaeda7d6200d7de0e5ab3d0dd0a52b9207764c24",
+      "function": "Analyze schematic and PCB evidence, nets, design rules and fabrication risks",
+      "work": [
+        "investigate",
+        "review",
+        "validate"
+      ],
+      "domains": [
+        "hardware"
+      ],
+      "artifacts": [
+        "hardware-designs",
+        "reports"
+      ],
+      "distinguish": "Circuit/PCB evidence and design risks; simulation and EMC pre-compliance are complementary checks."
+    },
+    "datasheets": {
+      "description_sha256": "8dba9f4d92fb63f9a4ad992f3aeca777a9d8c0043ab000ea1fcfd0b49fdd38ff",
+      "function": "Extract verified electronic-component specifications from datasheet PDFs",
+      "work": [
+        "transform",
+        "validate"
+      ],
+      "domains": [
+        "hardware",
+        "data"
+      ],
+      "artifacts": [
+        "datasets",
+        "hardware-designs"
+      ],
+      "distinguish": "Verified component specifications; not whole-board validation."
+    },
+    "spice": {
+      "description_sha256": "c3257c5d137f0652598f9c4e19be724632f6abc4fb6c626b23c42c485125d6dd",
+      "function": "Simulate analog subcircuits and compare measured behavior with expected values",
+      "work": [
+        "measure",
+        "validate"
+      ],
+      "domains": [
+        "hardware"
+      ],
+      "artifacts": [
+        "hardware-designs",
+        "measurements"
+      ],
+      "distinguish": "Bounded analog simulation checks; not EMC certification or physical hardware signoff."
+    },
+    "emc": {
+      "description_sha256": "946299c082410164a721f61cc987894368b32372b0f8aa47e0d1a2cf9f76fd7c",
+      "function": "Review PCB electromagnetic-compatibility risk and plan pre-compliance tests",
+      "work": [
+        "review",
+        "plan"
+      ],
+      "domains": [
+        "hardware"
+      ],
+      "artifacts": [
+        "hardware-designs",
+        "reports"
+      ],
+      "distinguish": "Pre-compliance risk and a test plan; does not establish certified emissions compliance."
+    },
+    "diagram-design": {
+      "description_sha256": "7ee89ceb6183ead8f60eabd5afb99fe3916ec2c224c8f7d8817bcf73161279e3",
+      "function": "Create static editorial HTML and SVG diagrams with explicit content fidelity",
+      "work": [
+        "create",
+        "transform",
+        "validate"
+      ],
+      "domains": [
+        "graphics",
+        "knowledge"
+      ],
+      "artifacts": [
+        "diagrams",
+        "images"
+      ],
+      "distinguish": "Static editorial HTML/inline SVG with a fidelity ledger for imports; physical-mechanism interaction is a different artifact."
+    },
+    "officecli": {
+      "description_sha256": "750e081bf08c4daba981b4a57b408a77129d2c6a9ecbc1588378de0628a37142",
+      "function": "Use OfficeCLI for an Office artifact operation missing from the native workflow",
+      "work": [
+        "operate",
+        "transform"
+      ],
+      "domains": [
+        "knowledge"
+      ],
+      "artifacts": [
+        "documents",
+        "spreadsheets",
+        "presentations"
+      ],
+      "distinguish": "Fallback only when the native Office-artifact workflow lacks a required operation."
+    },
+    "officecli-docx": {
+      "description_sha256": "6475ee5bb6381cc6958d1122662df74d935718da58b99b82fed1d6f679d00acc",
+      "function": "Use OfficeCLI for a required editable Word document operation",
+      "work": [
+        "operate",
+        "transform"
+      ],
+      "domains": [
+        "knowledge"
+      ],
+      "artifacts": [
+        "documents"
+      ],
+      "distinguish": "DOCX fallback; native document authoring remains the primary route where sufficient."
+    },
+    "officecli-xlsx": {
+      "description_sha256": "6d78375f9f4e598ca619af308746614497420737202c636ee0b2f4284be2211a",
+      "function": "Use OfficeCLI for a required editable workbook operation",
+      "work": [
+        "operate",
+        "transform"
+      ],
+      "domains": [
+        "knowledge",
+        "data"
+      ],
+      "artifacts": [
+        "spreadsheets"
+      ],
+      "distinguish": "XLSX fallback; native spreadsheet authoring remains the primary route where sufficient."
+    },
+    "officecli-pptx": {
+      "description_sha256": "4a0e3ea4376f1a934a8137dc58046dec9360e7fa9ad0839ea9d66fecb0eaccf1",
+      "function": "Use OfficeCLI for a required editable PowerPoint operation",
+      "work": [
+        "operate",
+        "transform"
+      ],
+      "domains": [
+        "knowledge",
+        "graphics"
+      ],
+      "artifacts": [
+        "presentations"
+      ],
+      "distinguish": "PPTX fallback; native presentation authoring remains the primary route where sufficient."
+    },
+    "product-marketing": {
+      "description_sha256": "5df66d7db32477b15ff2d8b1addb251fc206c6954df5defc14ff6e411b4e0575",
+      "function": "Record product audience, positioning and shared marketing context",
+      "work": [
+        "investigate",
+        "plan",
+        "create"
+      ],
+      "domains": [
+        "product",
+        "marketing"
+      ],
+      "artifacts": [
+        "documents",
+        "notes"
+      ],
+      "distinguish": ""
+    },
+    "ab-testing": {
+      "description_sha256": "a826344042eef3694d6b6aecbfe2db9096a4914a909cfcb8ae9cc9e4f98b736d",
+      "function": "Design and interpret product or marketing variants and growth experiments",
+      "work": [
+        "design",
+        "measure",
+        "review"
+      ],
+      "domains": [
+        "product",
+        "marketing",
+        "data"
+      ],
+      "artifacts": [
+        "models",
+        "measurements",
+        "reports"
+      ],
+      "distinguish": "Product and marketing variants/growth experiments; general scientific allocation design is a different method."
+    },
+    "copywriting": {
+      "description_sha256": "9a9074bbdc5b1572b884398b815e9160fd120360229a15d6f995d890c01f11e6",
+      "function": "Write or improve marketing page copy using the product's offer and evidence",
+      "work": [
+        "create",
+        "transform"
+      ],
+      "domains": [
+        "marketing",
+        "product"
+      ],
+      "artifacts": [
+        "documents",
+        "interfaces"
+      ],
+      "distinguish": "Reviewable supported marketing copy; drafting does not authorize publishing."
+    },
+    "launch": {
+      "description_sha256": "4f9e8b4197efa11516acf70a82a62f063ee2931783026e0559d57a9118061f4d",
+      "function": "Plan a product launch, announcement or release strategy",
+      "work": [
+        "plan",
+        "design"
+      ],
+      "domains": [
+        "product",
+        "marketing"
+      ],
+      "artifacts": [
+        "workflows",
+        "documents"
+      ],
+      "distinguish": ""
+    },
+    "emails": {
+      "description_sha256": "3642c7083317477f2097b03047c7244375a0f90301595666f24fa338d652d34f",
+      "function": "Design or improve a multi-email lifecycle or nurture sequence",
+      "work": [
+        "design",
+        "create",
+        "transform"
+      ],
+      "domains": [
+        "marketing"
+      ],
+      "artifacts": [
+        "documents",
+        "workflows"
+      ],
+      "distinguish": "Multi-email lifecycle flows; outbound cold-email drafting and sending authority are separate."
+    },
+    "pricing": {
+      "description_sha256": "7d00b3aa8d32404fa1502699f79cf3374fd18f070b360dd2bb320a7236aac57d",
+      "function": "Evaluate pricing, packaging, value metrics and monetization choices",
+      "work": [
+        "investigate",
+        "design",
+        "review"
+      ],
+      "domains": [
+        "product",
+        "finance",
+        "marketing"
+      ],
+      "artifacts": [
+        "models",
+        "reports"
+      ],
+      "distinguish": ""
+    },
+    "identify-assumptions-new": {
+      "description_sha256": "6034b8d28ca8b32875ae36cd2bea9ff7c50a125901301687068d6d8b3de8458a",
+      "function": "Identify risky assumptions in a new product or venture",
+      "work": [
+        "investigate",
+        "review",
+        "plan"
+      ],
+      "domains": [
+        "product"
+      ],
+      "artifacts": [
+        "models",
+        "reports"
+      ],
+      "distinguish": ""
+    },
+    "interview-script": {
+      "description_sha256": "16f600d95d692f17f26bf5c30135ad9bf88270fa940f51c995df357a9a83bdba",
+      "function": "Design customer interviews that probe past behavior without leading",
+      "work": [
+        "design",
+        "create"
+      ],
+      "domains": [
+        "product",
+        "research"
+      ],
+      "artifacts": [
+        "documents"
+      ],
+      "distinguish": ""
+    },
+    "seo-technical": {
+      "description_sha256": "06256bfe2f72a2df123adab731ff9ea63ed140cdfb52ac82df49589eed2c8fb9",
+      "function": "Audit site crawlability, indexability, rendering and technical SEO",
+      "work": [
+        "review",
+        "diagnose"
+      ],
+      "domains": [
+        "web",
+        "marketing"
+      ],
+      "artifacts": [
+        "reports",
+        "interfaces"
+      ],
+      "distinguish": "Technical crawl, index and rendering questions; excludes content strategy and backlinks."
+    },
+    "seo-audit": {
+      "description_sha256": "5aa1a2729b245d3215598dff419e2019d39ce1caa8443dfc41dbd6c2e78104b3",
+      "function": "Audit whole-site content, structure and technical search performance",
+      "work": [
+        "review",
+        "investigate"
+      ],
+      "domains": [
+        "web",
+        "marketing"
+      ],
+      "artifacts": [
+        "reports",
+        "datasets"
+      ],
+      "distinguish": "Whole-site scored audit; a technical-only review has a narrower method."
+    },
+    "ads-audit": {
+      "description_sha256": "10a81009e5d4ac20410dc8a6cfcb18639e44bda41ae886b0e6584e90aa79520b",
+      "function": "Audit paid-advertising evidence across requested platforms and scoring scopes",
+      "work": [
+        "review",
+        "investigate"
+      ],
+      "domains": [
+        "marketing"
+      ],
+      "artifacts": [
+        "reports",
+        "measurements"
+      ],
+      "distinguish": ""
+    },
+    "ads-math": {
+      "description_sha256": "c02207dbf465d1c70dfa04042230c1829fb2a3cf45bda8ba94850151ff692d24",
+      "function": "Model paid-media economics, budgets, forecasts and break-even targets",
+      "work": [
+        "measure",
+        "design"
+      ],
+      "domains": [
+        "marketing",
+        "finance"
+      ],
+      "artifacts": [
+        "models",
+        "spreadsheets"
+      ],
+      "distinguish": ""
+    },
+    "career-ops": {
+      "description_sha256": "fbeb7416a684e2e513ee164a7f03bcbbb0a9483bf53222a4a07d0524bb0a9105",
+      "function": "Evaluate jobs, prepare application materials and track job-search work",
+      "work": [
+        "investigate",
+        "create",
+        "operate"
+      ],
+      "domains": [
+        "career"
+      ],
+      "artifacts": [
+        "documents",
+        "datasets"
+      ],
+      "distinguish": ""
+    },
+    "infographic-creator": {
+      "description_sha256": "551308f5eede979bb351899f83e47b8531f97e10ebfdf6c271ca45d187d36ee1",
+      "function": "Turn supplied content into a designed infographic",
+      "work": [
+        "design",
+        "create"
+      ],
+      "domains": [
+        "graphics",
+        "knowledge"
+      ],
+      "artifacts": [
+        "images",
+        "diagrams"
+      ],
+      "distinguish": ""
+    },
+    "gh-fix-ci": {
+      "description_sha256": "411942d297c75e02237636dae56d488e53ed1f35e0b84d919f5aa8eeaa7a1bc5",
+      "function": "Diagnose failing GitHub Actions checks and implement a bounded repair",
+      "work": [
+        "diagnose",
+        "implement",
+        "validate"
+      ],
+      "domains": [
+        "software",
+        "operations",
+        "automation"
+      ],
+      "artifacts": [
+        "source-code",
+        "reports"
+      ],
+      "distinguish": ""
+    },
+    "gh-address-comments": {
+      "description_sha256": "7317d59b8129cf80aae8fcedb68b224ae8d2cddababe612d0fa5a60ed12c8445",
+      "function": "Inspect and resolve requested GitHub pull-request discussions",
+      "work": [
+        "investigate",
+        "implement",
+        "review"
+      ],
+      "domains": [
+        "software"
+      ],
+      "artifacts": [
+        "source-code",
+        "reports"
+      ],
+      "distinguish": "Requested PR discussion work; replies or other mutations retain their specific authority."
+    },
+    "jupyter-notebook": {
+      "description_sha256": "e473c98ce7f6622739adf8a7cdaca291e2125e41914df235f945188813a4ee79",
+      "function": "Create or edit executable Jupyter notebooks for exploration or teaching",
+      "work": [
+        "create",
+        "implement"
+      ],
+      "domains": [
+        "data",
+        "research",
+        "ml"
+      ],
+      "artifacts": [
+        "source-code",
+        "documents"
+      ],
+      "distinguish": ""
+    },
+    "frontend-design": {
+      "description_sha256": "f6aca329665c9761de344b5e6dad22a0318b84a356c6f059d641dcb973bb62ec",
+      "function": "Design a distinctive web interface with intentional type and visual hierarchy",
+      "work": [
+        "design",
+        "create"
+      ],
+      "domains": [
+        "web",
+        "graphics"
+      ],
+      "artifacts": [
+        "interfaces",
+        "source-code"
+      ],
+      "distinguish": ""
+    },
+    "mcp-builder": {
+      "description_sha256": "dd9ba25d52050d05dbb6a41c828679972d696de348b966e2935e718d3d1bae86",
+      "function": "Design and implement MCP servers that expose useful service tools",
+      "work": [
+        "design",
+        "implement",
+        "validate"
+      ],
+      "domains": [
+        "agents",
+        "software"
+      ],
+      "artifacts": [
+        "source-code",
+        "environments"
+      ],
+      "distinguish": ""
+    },
+    "synthesize-research": {
+      "description_sha256": "16111c049f4d1bf4761461b6728570d8c39081036032dafa307e95b6f953eef0",
+      "function": "Synthesize interviews, surveys and support feedback into product insights",
+      "work": [
+        "investigate",
+        "review",
+        "transform"
+      ],
+      "domains": [
+        "product",
+        "research",
+        "data"
+      ],
+      "artifacts": [
+        "reports",
+        "datasets"
+      ],
+      "distinguish": ""
+    },
+    "gcloud": {
+      "description_sha256": "50d893cb974d3f4e199ea378279851301d11a5dd7907be85bcc69c0f76149b4f",
+      "function": "Construct or operate Google Cloud CLI commands with scoped validation",
+      "work": [
+        "operate",
+        "validate",
+        "plan"
+      ],
+      "domains": [
+        "operations"
+      ],
+      "artifacts": [
+        "environments",
+        "source-code"
+      ],
+      "distinguish": ""
+    },
+    "bigquery-optimization": {
+      "description_sha256": "2fb86875d511affcc4086bf07cf01933cbcb11d828d50be3207ae012fac05a4c",
+      "function": "Optimize BigQuery storage, capacity, cost and SQL design",
+      "work": [
+        "design",
+        "measure",
+        "implement"
+      ],
+      "domains": [
+        "data",
+        "operations"
+      ],
+      "artifacts": [
+        "source-code",
+        "models"
+      ],
+      "distinguish": "Capacity, storage and SQL design optimization; not raw usage reporting or job troubleshooting."
+    },
+    "compute-sanitizer-diagnose-cuda-bugs": {
+      "description_sha256": "a3517ba73edb0fc9655ff6e001dae9a754897127c4b1673b3b9fc19642955110",
+      "function": "Diagnose supported CUDA correctness faults with Compute Sanitizer",
+      "work": [
+        "diagnose",
+        "validate"
+      ],
+      "domains": [
+        "software",
+        "ml"
+      ],
+      "artifacts": [
+        "source-code",
+        "reports"
+      ],
+      "distinguish": "Supported GPU correctness faults; host/CPU bugs and global-memory races are outside this method."
+    },
+    "physical-ai-physics-selection": {
+      "description_sha256": "0fbe52fdb83573a4e7ddfaa9fed95deee7e5a81415fbc5dc4ea28af8dee3323b",
+      "function": "Compare and integrate physics engines for robotics or Physical AI simulation",
+      "work": [
+        "discover",
+        "design",
+        "validate"
+      ],
+      "domains": [
+        "robotics",
+        "research"
+      ],
+      "artifacts": [
+        "models",
+        "environments"
+      ],
+      "distinguish": "Choose an engine for the actual physics requirement; preserve an explicit user engine choice."
+    },
+    "eve": {
+      "description_sha256": "989614194d32a87456c28bc31cdbbcb94af1484be482ee2c07fab42cb224eb8b",
+      "function": "Develop durable application agents with sessions and suspendable interactions",
+      "work": [
+        "design",
+        "implement"
+      ],
+      "domains": [
+        "agents",
+        "software"
+      ],
+      "artifacts": [
+        "source-code",
+        "workflows"
+      ],
+      "distinguish": "Builds a durable user-facing agent application; not a router for the current Codex or OpenCode chat."
+    },
+    "scenario-blender-expert": {
+      "description_sha256": "1b82ffef3a59375b17ca3b608b770e633611110beaee6042bdd08b5c92b091ca",
+      "function": "Coordinate Blender production work and check asset readiness",
+      "work": [
+        "coordinate",
+        "create",
+        "validate"
+      ],
+      "domains": [
+        "graphics",
+        "games",
+        "workflows"
+      ],
+      "artifacts": [
+        "3d-assets",
+        "images",
+        "video"
+      ],
+      "distinguish": "General Blender production coordination; use a narrower asset specialist for its actual contribution."
+    },
+    "scenario-blender-hard-surface": {
+      "description_sha256": "60fbd16256d67de594e3acde84d921627f259c5976e8ce5153069c9fff2fb65d",
+      "function": "Model hard-surface Blender assets and repair geometry or shading defects",
+      "work": [
+        "design",
+        "create",
+        "diagnose"
+      ],
+      "domains": [
+        "graphics",
+        "games"
+      ],
+      "artifacts": [
+        "3d-assets"
+      ],
+      "distinguish": ""
+    },
+    "scenario-blender-rigging": {
+      "description_sha256": "c1229705a47907ec6a751037c3afd470e0c477b4706a3e87321516f494724192",
+      "function": "Rig Blender characters or props and check deformation behavior",
+      "work": [
+        "design",
+        "implement",
+        "validate"
+      ],
+      "domains": [
+        "graphics",
+        "games"
+      ],
+      "artifacts": [
+        "3d-assets"
+      ],
+      "distinguish": ""
+    },
+    "scenario-blender-previs-storyboard": {
+      "description_sha256": "ba53e772b310b3eb0515d266ae91c8c4c3e00b857ae4fb3fc69555d181a8526f",
+      "function": "Turn a script into Blender shot layout, storyboards or an animatic",
+      "work": [
+        "design",
+        "create"
+      ],
+      "domains": [
+        "media",
+        "graphics"
+      ],
+      "artifacts": [
+        "3d-assets",
+        "video"
+      ],
+      "distinguish": ""
+    },
+    "scenario-blender-animation": {
+      "description_sha256": "c9a2a2e0d18be48533ecef2e291b4d191f670071276c59cbb718a2d4c26775ad",
+      "function": "Animate Blender characters and objects with deliberate motion and timing",
+      "work": [
+        "create",
+        "transform",
+        "review"
+      ],
+      "domains": [
+        "graphics",
+        "media",
+        "games"
+      ],
+      "artifacts": [
+        "3d-assets",
+        "video"
+      ],
+      "distinguish": ""
+    },
+    "scenario-blender-texturing-shading": {
+      "description_sha256": "74c2aaebe650ff396f9b38bd5d96b8eb543f6e8be356b8e68aea0ece15c97f88",
+      "function": "Develop and repair Blender materials, textures and surface appearance",
+      "work": [
+        "create",
+        "transform",
+        "diagnose"
+      ],
+      "domains": [
+        "graphics",
+        "games"
+      ],
+      "artifacts": [
+        "3d-assets",
+        "images"
+      ],
+      "distinguish": ""
+    },
+    "scenario-blender-lighting-rendering": {
+      "description_sha256": "64cac08b9a3990f52095f2f80799422ba7fddc42b267984a74a430216d87f01a",
+      "function": "Light, render and composite Blender scenes with visual review",
+      "work": [
+        "create",
+        "transform",
+        "review"
+      ],
+      "domains": [
+        "graphics",
+        "media"
+      ],
+      "artifacts": [
+        "3d-assets",
+        "images",
+        "video"
+      ],
+      "distinguish": ""
+    },
+    "scenario-blender-export": {
+      "description_sha256": "0fb65f489a30c9e823b3926aed1ea0f7fef457ebe21aca52f342467b76e0211d",
+      "function": "Export Blender assets and verify scale, orientation and retained content",
+      "work": [
+        "transform",
+        "validate"
+      ],
+      "domains": [
+        "graphics",
+        "games"
+      ],
+      "artifacts": [
+        "3d-assets"
+      ],
+      "distinguish": "Check the exported artifact by reimport or equivalent evidence; source settings alone do not prove delivery."
+    },
+    "scenario-unreal-expert": {
+      "description_sha256": "13038fd19e01d24c16910c26c5624466dbfb4e8c38a5393870f83b9c7da5f15b",
+      "function": "Choose an Unreal execution route and run measured project development checks",
+      "work": [
+        "coordinate",
+        "operate",
+        "validate"
+      ],
+      "domains": [
+        "games",
+        "software",
+        "workflows"
+      ],
+      "artifacts": [
+        "source-code",
+        "environments"
+      ],
+      "distinguish": "Version-checked technical project route; offline preparation does not establish editor or hardware acceptance."
+    },
+    "scenario-unreal-cinematics": {
+      "description_sha256": "933bfe4a5c69972f82d02076f8f3bb4590c80366adf0e1fc254461486b3b2054",
+      "function": "Create Unreal Sequencer shots and render cinematic delivery",
+      "work": [
+        "design",
+        "create",
+        "transform"
+      ],
+      "domains": [
+        "media",
+        "games",
+        "graphics"
+      ],
+      "artifacts": [
+        "video",
+        "3d-assets"
+      ],
+      "distinguish": ""
+    },
+    "colorfigures": {
+      "description_sha256": "47f50f7f0a660446676fe705d3706ada0413e22e5647a01474404a59bdca009d",
+      "function": "Build an interactive fixed-view explanation of a physical mechanism",
+      "work": [
+        "design",
+        "create",
+        "implement"
+      ],
+      "domains": [
+        "graphics",
+        "knowledge",
+        "hardware"
+      ],
+      "artifacts": [
+        "diagrams",
+        "interfaces"
+      ],
+      "distinguish": "Fixed-view physical mechanisms with real process steps and controls; not an arbitrary system topology or freely rotatable scene."
+    },
+    "archify": {
+      "description_sha256": "7d5ad09970f4d08e02573b3a640af2a6e7263f6fd0cacaeaaf68996e398a1570",
+      "function": "Build schema-checked explorable HTML diagrams or one-page explainers",
+      "work": [
+        "design",
+        "create",
+        "validate"
+      ],
+      "domains": [
+        "graphics",
+        "knowledge",
+        "software"
+      ],
+      "artifacts": [
+        "diagrams",
+        "documents"
+      ],
+      "distinguish": "Schema-based native diagram/explainer rendering with finalize gates; automated browser checks are not perceptual review."
+    },
+    "prospecting": {
+      "description_sha256": "f2e154c028d36b4f91ca2d9a65466a55d4d29f7c2f44e80e2baeb25cfa450deb",
+      "function": "Find read-only evidence for named-account shortlists or early demand",
+      "work": [
+        "discover",
+        "investigate"
+      ],
+      "domains": [
+        "marketing",
+        "product"
+      ],
+      "artifacts": [
+        "datasets",
+        "reports"
+      ],
+      "distinguish": "Read-only named-account or demand evidence; no contact or enrichment."
+    },
+    "cold-email": {
+      "description_sha256": "fd4bc1a9baee113857b48ded7f105c567590c490ddbdfb235f577035b09c6d12",
+      "function": "Draft a requested outbound email from approved offer and proof",
+      "work": [
+        "create",
+        "review"
+      ],
+      "domains": [
+        "marketing"
+      ],
+      "artifacts": [
+        "documents"
+      ],
+      "distinguish": "Requested reviewable draft or reply classification only; no sending or campaign action."
+    },
+    "skill-seekers-import": {
+      "description_sha256": "c45c247412bc936d754816e4bbd266f3a0fac2daa05a27445bfacc1389336283",
+      "function": "Build an agent skill from documentation, repositories or other source material",
+      "work": [
+        "transform",
+        "create"
+      ],
+      "domains": [
+        "agents",
+        "knowledge"
+      ],
+      "artifacts": [
+        "documents",
+        "environments"
+      ],
+      "distinguish": ""
+    },
+    "embedded-systems": {
+      "description_sha256": "9d2f9a4fd2a97443f7fdc6da494f602262d78d7ebcd6f30ac1563ab5377d135a",
+      "function": "Develop microcontroller firmware, RTOS behavior and peripheral integration",
+      "work": [
+        "design",
+        "implement",
+        "diagnose"
+      ],
+      "domains": [
+        "hardware",
+        "software"
+      ],
+      "artifacts": [
+        "source-code",
+        "hardware-designs"
+      ],
+      "distinguish": ""
+    },
+    "repomix-handoff": {
+      "description_sha256": "6a5e0881f7a7463a4d1ddbe26c78794f283240a4b0053f5ff180baa6422f200b",
+      "function": "Package a scoped repository into a reproducible handoff",
+      "work": [
+        "transform",
+        "coordinate"
+      ],
+      "domains": [
+        "software",
+        "agents",
+        "workflows"
+      ],
+      "artifacts": [
+        "documents",
+        "source-code"
+      ],
+      "distinguish": "Scoped source packaging for handoff; not a whole-codebase refactoring mandate."
+    },
+    "trigger-authoring-tasks": {
+      "description_sha256": "fd574eb8a26e79c08c38a8816b7030512cd22376dbda738dadfe8ec7cd4052c3",
+      "function": "Implement durable Trigger.dev jobs with retries, waits and cancellation",
+      "work": [
+        "design",
+        "implement"
+      ],
+      "domains": [
+        "software",
+        "operations",
+        "agents",
+        "automation"
+      ],
+      "artifacts": [
+        "source-code",
+        "workflows"
+      ],
+      "distinguish": ""
+    },
+    "trigger-cost-savings": {
+      "description_sha256": "aeec7bf848b3f80f52ab4eaa02c54c2df9a782635454e6849e92ce9c4e6d30f5",
+      "function": "Audit Trigger.dev job cost, sizing, retries and concurrency",
+      "work": [
+        "review",
+        "measure"
+      ],
+      "domains": [
+        "operations",
+        "finance",
+        "automation"
+      ],
+      "artifacts": [
+        "reports",
+        "measurements"
+      ],
+      "distinguish": ""
+    },
+    "last30days": {
+      "description_sha256": "eb370863de0a2e6f5a9c117479a452489b1b98fb21b0a6e5c5ee56aa98cd185d",
+      "function": "Research recent practitioner or community evidence with source and date records",
+      "work": [
+        "discover",
+        "investigate"
+      ],
+      "domains": [
+        "research",
+        "product"
+      ],
+      "artifacts": [
+        "reports",
+        "datasets"
+      ],
+      "distinguish": "Recent community evidence, distinguished from scholarly systematic review and authoritative product documentation."
+    },
+    "ml-paper-writing": {
+      "description_sha256": "e7f961fb7ee11759af3d15b8d52f3a56c1e44e85a156f2f44885916b14e3c7be",
+      "function": "Draft ML and AI papers from research artifacts and verified citations",
+      "work": [
+        "create",
+        "transform",
+        "review"
+      ],
+      "domains": [
+        "ml",
+        "research"
+      ],
+      "artifacts": [
+        "papers"
+      ],
+      "distinguish": ""
+    },
+    "mlx-lm-development": {
+      "description_sha256": "9cdb2f410187e024515d9456454962be35a7d35d4e6fb61f0dcdce71897d0099",
+      "function": "Run and develop local MLX language models, quantization and adapters",
+      "work": [
+        "implement",
+        "operate",
+        "measure"
+      ],
+      "domains": [
+        "ml"
+      ],
+      "artifacts": [
+        "source-code",
+        "models"
+      ],
+      "distinguish": ""
+    },
+    "trufflehog-scan": {
+      "description_sha256": "e7233a980f34593c6b2c0a04bcccd528f664e6e7ea45181d84ec171194997127",
+      "function": "Discover exposed secrets in a scoped repository or incident search",
+      "work": [
+        "investigate",
+        "operate",
+        "review"
+      ],
+      "domains": [
+        "software",
+        "operations",
+        "security"
+      ],
+      "artifacts": [
+        "reports"
+      ],
+      "distinguish": ""
+    },
+    "motion-canvas-production": {
+      "description_sha256": "a2224c7c86448211c8bee1fc184154e8defaaedf54450473153b20fbcf47bcb6",
+      "function": "Author editable vector animation synchronized to audio cues",
+      "work": [
+        "create",
+        "implement",
+        "transform"
+      ],
+      "domains": [
+        "media",
+        "graphics"
+      ],
+      "artifacts": [
+        "source-code",
+        "video"
+      ],
+      "distinguish": ""
+    },
+    "baoyu-comic": {
+      "description_sha256": "a75c14d4bd29a7aa2a65f0000a629a3926cb393dad97331f49ea048ab5b60162",
+      "function": "Create educational comics with original panels, layouts and art direction",
+      "work": [
+        "design",
+        "create"
+      ],
+      "domains": [
+        "graphics",
+        "knowledge"
+      ],
+      "artifacts": [
+        "images",
+        "documents"
+      ],
+      "distinguish": ""
+    },
+    "slidev-production": {
+      "description_sha256": "210e22bde2edc7e94cb94c0c64a3a43c6fb66632368a1a2624f22a83d6413525",
+      "function": "Build technical web presentations with Markdown, Vue and interactive examples",
+      "work": [
+        "create",
+        "implement"
+      ],
+      "domains": [
+        "knowledge",
+        "software"
+      ],
+      "artifacts": [
+        "presentations",
+        "source-code"
+      ],
+      "distinguish": ""
+    },
+    "finance-3-statement-model": {
+      "description_sha256": "80ffe8b1a1aaa83322acbf14842df969362642aad56b28e3aba6976cb0cc8d31",
+      "function": "Complete and link an existing three-statement financial model",
+      "work": [
+        "transform",
+        "validate"
+      ],
+      "domains": [
+        "finance"
+      ],
+      "artifacts": [
+        "spreadsheets",
+        "models"
+      ],
+      "distinguish": "Completes an existing integrated template; valuation and formula audit are distinct tasks."
+    },
+    "finance-dcf-model": {
+      "description_sha256": "9267dedfdf188c683ba81dcc0353772abdbffc92ff8677b5526a872f9154e18b",
+      "function": "Build a discounted-cash-flow valuation with grounded inputs and sensitivities",
+      "work": [
+        "investigate",
+        "design",
+        "measure"
+      ],
+      "domains": [
+        "finance"
+      ],
+      "artifacts": [
+        "spreadsheets",
+        "models"
+      ],
+      "distinguish": "Intrinsic valuation through cash flows; comparable-company multiples use another model."
+    },
+    "finance-comps-analysis": {
+      "description_sha256": "1d5b91f50d215d33cd7aeae7d0db02e39ab1c1958fff540d407b10d063030a15",
+      "function": "Build a comparable-company valuation with justified peers and consistent periods",
+      "work": [
+        "investigate",
+        "design",
+        "measure"
+      ],
+      "domains": [
+        "finance"
+      ],
+      "artifacts": [
+        "spreadsheets",
+        "models"
+      ],
+      "distinguish": "Relative valuation through peers and multiples; not an intrinsic DCF valuation."
+    },
+    "finance-audit-xls": {
+      "description_sha256": "0ebe549065a0995ed84d62ff445207206ac23abce5a1d3a6e09b05ae9b7b8de4",
+      "function": "Audit workbook formulas and financial-model consistency",
+      "work": [
+        "review",
+        "validate",
+        "diagnose"
+      ],
+      "domains": [
+        "finance",
+        "data"
+      ],
+      "artifacts": [
+        "spreadsheets",
+        "reports"
+      ],
+      "distinguish": "Formula and model-integrity review; does not supply missing business assumptions."
+    },
+    "training-tuning-playbook": {
+      "description_sha256": "13eae3cbb148afe5520cc7d150fe4c08044fce3eda433aa16e9345b07cf7971a",
+      "function": "Diagnose neural-network training and compare measured tuning experiments",
+      "work": [
+        "diagnose",
+        "measure",
+        "plan"
+      ],
+      "domains": [
+        "ml",
+        "research"
+      ],
+      "artifacts": [
+        "models",
+        "measurements"
+      ],
+      "distinguish": ""
+    },
+    "worktrunk": {
+      "description_sha256": "a73fed1c952bdc4126f30db22aaadf5cbf493ca09a7ac8418142ee2a5cbc05fd",
+      "function": "Manage Git worktrees, hooks and Worktrunk command targeting",
+      "work": [
+        "operate",
+        "diagnose"
+      ],
+      "domains": [
+        "software",
+        "operations"
+      ],
+      "artifacts": [
+        "environments",
+        "source-code"
+      ],
+      "distinguish": ""
+    },
+    "euclidean-geometry-ddar": {
+      "description_sha256": "50cb6e91c4d0e21846acec9934a37376eef3248876265716a7576cf83b63c08f",
+      "function": "Solve supported synthetic Euclidean constructions with symbolic deduction",
+      "work": [
+        "investigate",
+        "validate"
+      ],
+      "domains": [
+        "mathematics"
+      ],
+      "artifacts": [
+        "proofs",
+        "models"
+      ],
+      "distinguish": ""
+    },
+    "instrument-control": {
+      "description_sha256": "53248f769834fcbe8f9abd5e7283c600e56fb6775ba3eb247f6c7495adee7ad1",
+      "function": "Communicate with SCPI instruments and perform bounded measurements",
+      "work": [
+        "operate",
+        "measure",
+        "validate"
+      ],
+      "domains": [
+        "hardware",
+        "research"
+      ],
+      "artifacts": [
+        "measurements",
+        "source-code"
+      ],
+      "distinguish": ""
+    },
+    "pstack-statechart": {
+      "description_sha256": "0e27192a6370d29fb56fb5031183cbad3cb20e9ceef65e932aa177a33efe8e8f",
+      "function": "Model system states in TLA+ and expose invariant-breaking execution paths",
+      "work": [
+        "design",
+        "validate"
+      ],
+      "domains": [
+        "software",
+        "mathematics"
+      ],
+      "artifacts": [
+        "models",
+        "proofs",
+        "diagrams"
+      ],
+      "distinguish": "Checks an explicit finite/state model and counterexample paths; not proof of arbitrary implementation behavior."
+    },
+    "gstack-qa": {
+      "description_sha256": "7db7dc7273889d599d6f4f1b1d44d1991f214aa07a5b2bd858429ecc5eb66f67",
+      "function": "Reproduce application failures, repair them and verify affected contracts",
+      "work": [
+        "diagnose",
+        "implement",
+        "validate"
+      ],
+      "domains": [
+        "software",
+        "web"
+      ],
+      "artifacts": [
+        "source-code",
+        "interfaces",
+        "reports"
+      ],
+      "distinguish": "Hands-on reproduce, repair and verify; a read-only structural diff review is a different workflow."
+    },
+    "gstack-review": {
+      "description_sha256": "d5f0d2ea604b4cf37d0cc6e08e977ef60e6874db2c1212b9a06f31012adcdd0f",
+      "function": "Review a diff for structural defects, weak checks and downstream effects",
+      "work": [
+        "review",
+        "investigate",
+        "validate"
+      ],
+      "domains": [
+        "software"
+      ],
+      "artifacts": [
+        "source-code",
+        "reports"
+      ],
+      "distinguish": "Structural differential review with related callers and test gates; security-only analysis is distinct."
+    },
+    "gstack-plan-eng-review": {
+      "description_sha256": "f89ddb5d9625595efd6b05641d9f03277579daaef280fd5dbc817d085721ae97",
+      "function": "Review an engineering plan for architecture, failures, tests and rollout",
+      "work": [
+        "review",
+        "plan"
+      ],
+      "domains": [
+        "software"
+      ],
+      "artifacts": [
+        "documents",
+        "reports"
+      ],
+      "distinguish": "Reviews an engineering plan before implementation; not product discovery or a code diff audit."
+    },
+    "remotion-interactivity": {
+      "description_sha256": "09b70f801bbde4d458432a484182ac075e62fc55a3c58ed91a42df1c6e1a65f7",
+      "function": "Expose Remotion source for Studio selection, editing and keyframes",
+      "work": [
+        "implement",
+        "transform"
+      ],
+      "domains": [
+        "media",
+        "software"
+      ],
+      "artifacts": [
+        "source-code",
+        "video"
+      ],
+      "distinguish": "Studio-editable source and exposed controls; not every ordinary composition needs this layer."
+    },
+    "remotion-captions": {
+      "description_sha256": "5f7ebf06a3245590dd27ac0da314f61eea1ddb55b74ce637a8db1bce59cb8723",
+      "function": "Transcribe media and create animated Remotion captions",
+      "work": [
+        "create",
+        "transform"
+      ],
+      "domains": [
+        "media"
+      ],
+      "artifacts": [
+        "audio",
+        "video",
+        "source-code"
+      ],
+      "distinguish": ""
+    },
+    "remotion-studio": {
+      "description_sha256": "17cda31fe72a619b20c8502a4e8cfa6bdfbaa4191edc37a48ea4f2258c026270",
+      "function": "Preview a Remotion composition in its project environment",
+      "work": [
+        "operate",
+        "review"
+      ],
+      "domains": [
+        "media"
+      ],
+      "artifacts": [
+        "video",
+        "environments"
+      ],
+      "distinguish": ""
+    },
+    "remotion-multimedia": {
+      "description_sha256": "ad132dbee3fcb941fe94d5822c891d3d02c8b43efbe0798cfd85f875418778ff",
+      "function": "Read media duration and dimensions through Mediabunny",
+      "work": [
+        "measure",
+        "operate"
+      ],
+      "domains": [
+        "media"
+      ],
+      "artifacts": [
+        "measurements",
+        "video",
+        "audio"
+      ],
+      "distinguish": "Media duration and dimensions only; does not crop or trim a composition."
+    },
+    "remotion-docs": {
+      "description_sha256": "59a3e22f3d4018b586862315e5a90cd28415375952757406d62e3bd2f3c51afd",
+      "function": "Find current Remotion documentation for a concrete operation",
+      "work": [
+        "discover"
+      ],
+      "domains": [
+        "media",
+        "software"
+      ],
+      "artifacts": [
+        "documents"
+      ],
+      "distinguish": ""
+    },
+    "remotion-license": {
+      "description_sha256": "4d74950b003c63f668cbdd5c49c383cb15a36f43c18e6f4b8ec5d324ddd90ed9",
+      "function": "Find Remotion licensing terms and purchase information",
+      "work": [
+        "discover",
+        "investigate"
+      ],
+      "domains": [
+        "media",
+        "operations"
+      ],
+      "artifacts": [
+        "documents"
+      ],
+      "distinguish": ""
+    },
+    "manim-production": {
+      "description_sha256": "7ae17390277fa370a740e0d9e6138cbc692a6fa00f25f3439afeef271b2456ec",
+      "function": "Create checked mathematical explanations and animations in Manim",
+      "work": [
+        "create",
+        "validate"
+      ],
+      "domains": [
+        "mathematics",
+        "media",
+        "research"
+      ],
+      "artifacts": [
+        "video",
+        "source-code"
+      ],
+      "distinguish": ""
+    },
+    "scenario-unreal-animation": {
+      "description_sha256": "96ddfc6d4a4ca8dbc3b434834aa2ef77167ee94421b845c306fee3f5a16644a7",
+      "function": "Develop Unreal skeleton, retargeting and locomotion animation workflows",
+      "work": [
+        "implement",
+        "transform",
+        "validate"
+      ],
+      "domains": [
+        "games",
+        "graphics"
+      ],
+      "artifacts": [
+        "3d-assets",
+        "source-code"
+      ],
+      "distinguish": ""
+    },
+    "scenario-unreal-pipeline-automation": {
+      "description_sha256": "3e5bd520c7757ec5a000a358153020fb1f06ee1a5cb1426f2b4f9268f94f3767",
+      "function": "Automate Unreal asset processing, packaging and boot checks",
+      "work": [
+        "implement",
+        "operate",
+        "validate"
+      ],
+      "domains": [
+        "games",
+        "software",
+        "operations",
+        "automation"
+      ],
+      "artifacts": [
+        "3d-assets",
+        "source-code",
+        "workflows"
+      ],
+      "distinguish": ""
+    },
+    "scenario-blender-grease-pencil": {
+      "description_sha256": "d52e7b9770be8ae80a2f9608c2b0a796193be93583ccc3837d54fb9ee93cdf6c",
+      "function": "Create and repair Blender Grease Pencil drawing and 2D animation",
+      "work": [
+        "create",
+        "implement",
+        "diagnose"
+      ],
+      "domains": [
+        "graphics",
+        "media"
+      ],
+      "artifacts": [
+        "3d-assets",
+        "images",
+        "video"
+      ],
+      "distinguish": ""
+    },
+    "01": {
+      "description_sha256": "b3e8b4cf4b172b10a3b1a28f5ee24d7f7aceea9e04b4af277568b8b650fb42d9",
+      "function": "Select and combine useful capabilities as an active chat's needs evolve",
+      "work": [
+        "coordinate",
+        "discover",
+        "validate"
+      ],
+      "domains": [
+        "agents",
+        "workflows"
+      ],
+      "artifacts": [
+        "workflows"
+      ],
+      "distinguish": "Continuous capability selection during active chat work; no background service or added authority."
+    },
+    "deep-research": {
+      "description_sha256": "dae72bb82a5bfe0dc78cf9cbc95cc81d0f23e5f603ee030e33a9429013a8e9fa",
+      "function": "Coordinate literature research, source verification and academic synthesis",
+      "work": [
+        "coordinate",
+        "investigate",
+        "review"
+      ],
+      "domains": [
+        "research",
+        "workflows"
+      ],
+      "artifacts": [
+        "papers",
+        "reports"
+      ],
+      "distinguish": "Coordinated academic investigation and synthesis; a single bibliographic lookup can stay narrow."
+    },
+    "academic-paper": {
+      "description_sha256": "e22ae2c11be541ed77baef10231d2805a8b3ba6c90270240ad9e6a0e0404a7d4",
+      "function": "Coordinate academic drafting, revision and reference integrity checks",
+      "work": [
+        "coordinate",
+        "create",
+        "review"
+      ],
+      "domains": [
+        "research",
+        "workflows"
+      ],
+      "artifacts": [
+        "papers"
+      ],
+      "distinguish": "Coordinated paper drafting and revision; not the end-to-end research campaign."
+    },
+    "academic-paper-reviewer": {
+      "description_sha256": "15c34cc4f7ddc240783a15c8fa7506876e77f381043e3c3deb38a88c56a43d5c",
+      "function": "Conduct a role-separated multi-perspective academic manuscript review",
+      "work": [
+        "coordinate",
+        "review",
+        "validate"
+      ],
+      "domains": [
+        "research",
+        "workflows"
+      ],
+      "artifacts": [
+        "papers",
+        "reports"
+      ],
+      "distinguish": "Role-separated multi-perspective panel; role separation alone does not establish independent error processes."
+    },
+    "academic-pipeline": {
+      "description_sha256": "dcbae3e7305d1bc5ba3107949721407e5f610f2a89f83a6fba3629f265d19260",
+      "function": "Coordinate research, writing, integrity checks, review and revision",
+      "work": [
+        "coordinate",
+        "plan",
+        "review"
+      ],
+      "domains": [
+        "research",
+        "workflows"
+      ],
+      "artifacts": [
+        "papers",
+        "workflows"
+      ],
+      "distinguish": "Full research-to-manuscript coordination; use narrower methods when the task needs only one stage."
+    },
+    "agent-desktop": {
+      "description_sha256": "ce61680823b7e6e98d4b571bc602d6d662677c6be6146996312a6fc5734c6794",
+      "function": "Operate desktop applications through the selected agent-desktop CLI",
+      "work": [
+        "operate",
+        "validate"
+      ],
+      "domains": [
+        "agents",
+        "operations"
+      ],
+      "artifacts": [
+        "interfaces",
+        "environments"
+      ],
+      "distinguish": "Method availability does not establish native binary admission or operation-specific readiness."
+    },
+    "eval-harness": {
+      "description_sha256": "e7ad88ae35c18857a48ac8b31bd14f3c5ca5b47e3b6257c6bb2a0bd5a7a5784d",
+      "function": "Define and grade capability and regression evaluations for agent behavior",
+      "work": [
+        "design",
+        "measure",
+        "validate"
+      ],
+      "domains": [
+        "agents",
+        "software"
+      ],
+      "artifacts": [
+        "source-code",
+        "reports",
+        "measurements"
+      ],
+      "distinguish": "Defines behavioral and regression evidence; repeated success does not by itself establish universal reliability."
+    },
+    "agent-reach": {
+      "description_sha256": "3ae8069bab491c1b9194312db466a71806fd461679ce60770e940652b25a6a59",
+      "function": "Research public platforms and obtainable YouTube or Twitter/X video evidence",
+      "work": [
+        "discover",
+        "investigate"
+      ],
+      "domains": [
+        "research",
+        "knowledge",
+        "media"
+      ],
+      "artifacts": [
+        "datasets",
+        "documents",
+        "video"
+      ],
+      "distinguish": "Read-only gap filler; post text, timed captions and actual media samples establish different evidence. Extraction may be unavailable; no login, access-denial fallback or hosted-transcription authority."
+    },
+    "ai-scientist": {
+      "description_sha256": "d6221388a386c9124581d82d919e3e565eff30ebf9483e6477324925a2a6e919",
+      "function": "Execute a computational study with baselines, ablations and grounded paper artifacts",
+      "work": [
+        "coordinate",
+        "implement",
+        "measure",
+        "validate"
+      ],
+      "domains": [
+        "research",
+        "ml",
+        "workflows"
+      ],
+      "artifacts": [
+        "source-code",
+        "measurements",
+        "papers"
+      ],
+      "distinguish": "Executable computational study, not literature search alone; campaign prerequisites and authority remain separate."
+    },
+    "roast-room": {
+      "description_sha256": "e3a21b244aecfd3ae8763ed869cb3e25ade6b0d71bb3311f87cfd2879b9f294e",
+      "function": "Review a business decision through the Roast Room's named council method",
+      "work": [
+        "review",
+        "investigate"
+      ],
+      "domains": [
+        "product",
+        "marketing"
+      ],
+      "artifacts": [
+        "reports"
+      ],
+      "distinguish": "Named business-board method with its original source brains and rounds; not generic worker coordination."
+    },
+    "cirq": {
+      "description_sha256": "90426c90cb406c1779b7681ac89a163216e428e708ea0eb90d828dc8814668a5",
+      "function": "Build and characterize quantum circuits with device and noise models",
+      "work": [
+        "design",
+        "implement",
+        "measure"
+      ],
+      "domains": [
+        "quantum",
+        "research"
+      ],
+      "artifacts": [
+        "source-code",
+        "models"
+      ],
+      "distinguish": "Device/noise-aware circuit work and characterization; other quantum tasks may require a different engine."
+    },
+    "cloudflare-security-audit": {
+      "description_sha256": "06594056a04d3a0d6eb098d4f33564cea3faa733ed33d9438a1eda6b8b268126",
+      "function": "Review codebase security with scoped investigation and evidence-backed findings",
+      "work": [
+        "review",
+        "investigate",
+        "validate"
+      ],
+      "domains": [
+        "software",
+        "security"
+      ],
+      "artifacts": [
+        "source-code",
+        "reports"
+      ],
+      "distinguish": "Focused security guidance can stay bounded; full audit or pentest workflow requires that actual task scope."
+    },
+    "codebase-onboarding": {
+      "description_sha256": "5084468f182964772284c948a32340c9c28b07ee365a4a5af4c8c2dc387702ca",
+      "function": "Map an unfamiliar repository's architecture, entry points and conventions",
+      "work": [
+        "investigate",
+        "create"
+      ],
+      "domains": [
+        "software",
+        "agents"
+      ],
+      "artifacts": [
+        "documents",
+        "diagrams"
+      ],
+      "distinguish": ""
+    },
+    "craft-anything": {
+      "description_sha256": "e0051f60a39f9df9c24efde4f0c840bfdd17cf4c892ad9c8550caa12bc9d5e4a",
+      "function": "Investigate shipped software artifacts and prepare evidence for reconstruction",
+      "work": [
+        "investigate",
+        "transform"
+      ],
+      "domains": [
+        "software",
+        "agents",
+        "reverse-engineering"
+      ],
+      "artifacts": [
+        "source-code",
+        "reports"
+      ],
+      "distinguish": "Shipped-artifact analysis and reconstruction evidence; ordinary source questions use source-native tools."
+    },
+    "creative-reframing": {
+      "description_sha256": "8e1ed249ea1c4c22feeffaedbf5fbaa1a6ee534179c9da28ba8f8b61bda44417",
+      "function": "Generate useful alternatives by changing assumptions, viewpoints or representations",
+      "work": [
+        "investigate",
+        "design"
+      ],
+      "domains": [
+        "product",
+        "research",
+        "software"
+      ],
+      "artifacts": [
+        "models",
+        "reports"
+      ],
+      "distinguish": "Adds purposeful alternatives when a weak assumption or stuck approach warrants them; no routine appended brainstorm."
+    },
+    "pstack-create-formal-verification": {
+      "description_sha256": "b65ef67d4ad3c2020d28d4428bf549b7f035584764ad33e6079af6d66c5fde2f",
+      "function": "Author a project-local verification workflow for costly or poorly tested bugs",
+      "work": [
+        "design",
+        "implement",
+        "validate"
+      ],
+      "domains": [
+        "software",
+        "mathematics"
+      ],
+      "artifacts": [
+        "source-code",
+        "proofs"
+      ],
+      "distinguish": "Authors a project-specific verification workflow; choosing a tool does not itself prove an invariant."
+    },
+    "pstack-maintain-formal-verification": {
+      "description_sha256": "32709dd5e57feb8ca05516deb20b8e1549a37ad4d8d1fba52a2e195243dedd24",
+      "function": "Reconcile a formal model or harness with changed code and rerun properties",
+      "work": [
+        "transform",
+        "validate",
+        "diagnose"
+      ],
+      "domains": [
+        "software",
+        "mathematics"
+      ],
+      "artifacts": [
+        "source-code",
+        "proofs"
+      ],
+      "distinguish": "Distinguishes verification drift from a code bug after implementation changes."
+    },
+    "game-systems-review": {
+      "description_sha256": "3e151b357a3e96b5ee7625554831a91d8866a7f528eada73225256d3ed916680",
+      "function": "Review game rules, balance, formulas and cross-document scenarios",
+      "work": [
+        "review",
+        "validate"
+      ],
+      "domains": [
+        "games",
+        "product"
+      ],
+      "artifacts": [
+        "models",
+        "reports"
+      ],
+      "distinguish": "Game rules, economics and cross-GDD consistency; not art direction or playtest observation."
+    },
+    "google-maps-scraper": {
+      "description_sha256": "d8f5d7d0f6f8a19a54c0265e13994b7abe6c4c0b97a5366d01f31d7a1edbdc5b",
+      "function": "Extract public business listings, contacts and reviews from Google Maps",
+      "work": [
+        "discover",
+        "transform"
+      ],
+      "domains": [
+        "marketing",
+        "data"
+      ],
+      "artifacts": [
+        "datasets"
+      ],
+      "distinguish": ""
+    },
+    "llm-council": {
+      "description_sha256": "4e09f50a6a4e74f3972397a7a4257a25b7a9bfdcad02a2b6e0671e20fcb11f0f",
+      "function": "Compare independent answer drafts through anonymous reviews and synthesis",
+      "work": [
+        "coordinate",
+        "review"
+      ],
+      "domains": [
+        "agents",
+        "knowledge",
+        "workflows"
+      ],
+      "artifacts": [
+        "documents",
+        "reports"
+      ],
+      "distinguish": "Independent answer drafts, anonymous fresh review and a synthesis; not project execution ownership."
+    },
+    "agent-orchestration": {
+      "description_sha256": "d1d43d838f45799446ca70f3464202f16cc3be228ffe15acd5e0803f4f2725c6",
+      "function": "Coordinate specialists, owned handoffs and checked integration through the host",
+      "work": [
+        "coordinate",
+        "plan",
+        "validate"
+      ],
+      "domains": [
+        "agents",
+        "software",
+        "workflows"
+      ],
+      "artifacts": [
+        "workflows"
+      ],
+      "distinguish": "Owns worker handoffs and checked integration; 01 still owns capability selection and user direction."
+    },
+    "council-of-high-intelligence": {
+      "description_sha256": "278940d094078ceb86854881faf196c4dfd7727b80431708daea5fdcc9cf8a80",
+      "function": "Explore a decision through selected persona debates and multi-perspective deliberation",
+      "work": [
+        "coordinate",
+        "investigate",
+        "review"
+      ],
+      "domains": [
+        "product",
+        "knowledge",
+        "workflows"
+      ],
+      "artifacts": [
+        "reports"
+      ],
+      "distinguish": "Persona-based deliberation; persona variety is not independent empirical evidence."
+    },
+    "playwright-mcp": {
+      "description_sha256": "f77af878179585aa660f7c3695b1ab2420517f5c09825fad12b9959900f4b953",
+      "function": "Operate a task-scoped browser with persistent state and structured Playwright tools",
+      "work": [
+        "operate",
+        "validate"
+      ],
+      "domains": [
+        "web",
+        "agents",
+        "automation"
+      ],
+      "artifacts": [
+        "interfaces",
+        "environments"
+      ],
+      "distinguish": "Persistent task-scoped structured browser route; ordinary browsing can use supported host tools."
+    },
+    "raea": {
+      "description_sha256": "6e254cdae084cb5fe2d55e72317c6225521038fea4877faacea4216e4bfa8964",
+      "function": "Create GPU-rendered video, 3D scenes or playable games from TypeScript",
+      "work": [
+        "create",
+        "implement",
+        "transform"
+      ],
+      "domains": [
+        "media",
+        "graphics",
+        "games"
+      ],
+      "artifacts": [
+        "source-code",
+        "video",
+        "3d-assets"
+      ],
+      "distinguish": ""
+    },
+    "rea": {
+      "description_sha256": "6a252e0422b35d52a1ccaea5cbf03d06a4613c9b1151d754ba45398a9f908f16",
+      "function": "Investigate shipped software or runtime evidence and construct supported agent environments",
+      "work": [
+        "investigate",
+        "transform"
+      ],
+      "domains": [
+        "software",
+        "agents",
+        "reverse-engineering"
+      ],
+      "artifacts": [
+        "source-code",
+        "reports",
+        "environments"
+      ],
+      "distinguish": "Shipped-artifact or runtime investigation; ordinary repository architecture work does not require reverse engineering."
+    },
+    "repository-docs": {
+      "description_sha256": "9c356d0104db78bcbf086ea5ea37e318ea15dd25d8257ac885b5ec996ccceb93",
+      "function": "Retrieve documentation for an unfamiliar public repository when existing sources fall short",
+      "work": [
+        "discover",
+        "investigate"
+      ],
+      "domains": [
+        "software"
+      ],
+      "artifacts": [
+        "documents"
+      ],
+      "distinguish": "Documentation fallback after available local/native/versioned sources prove insufficient."
+    },
+    "fpga-development": {
+      "description_sha256": "1692ec9a3e9957976ed9a81b3f1de673f5397fb8048fbc523309522b902d0b88",
+      "function": "Design and verify FPGA RTL contracts, clocking, constraints and implementation evidence",
+      "work": [
+        "design",
+        "implement",
+        "validate"
+      ],
+      "domains": [
+        "hardware",
+        "software"
+      ],
+      "artifacts": [
+        "source-code",
+        "hardware-designs"
+      ],
+      "distinguish": "RTL and implementation evidence; unsupported hardware or timing signoff remains out of scope."
+    },
+    "shinka-evolve": {
+      "description_sha256": "d81e707c84650eff5e55ea358db70461ef5dd651bed63119ba9b2d96369a83d0",
+      "function": "Optimize executable programs through repeated measured candidate evaluation",
+      "work": [
+        "design",
+        "implement",
+        "measure"
+      ],
+      "domains": [
+        "software",
+        "research"
+      ],
+      "artifacts": [
+        "source-code",
+        "measurements"
+      ],
+      "distinguish": "Repeated executable optimization with real evaluators; candidate generation alone is not an accepted improvement."
+    },
+    "skillspector": {
+      "description_sha256": "a3bb672cf6f335d81e188ea08ce72afdd733b57a33c4a48affe7e2396ffd5859",
+      "function": "Audit agent-skill and bundled tool source before admission or integrity acceptance",
+      "work": [
+        "review",
+        "validate"
+      ],
+      "domains": [
+        "agents",
+        "software",
+        "security"
+      ],
+      "artifacts": [
+        "source-code",
+        "reports"
+      ],
+      "distinguish": "Static source-aware admission/integrity review; a scan result does not establish runtime behavior."
+    },
+    "strix-security-testing": {
+      "description_sha256": "4462a05e3f49021a8752273f9f9b47138367579802ddbb690021373a5dad29d4",
+      "function": "Apply Strix methods to an authorized application, API or code security assessment",
+      "work": [
+        "investigate",
+        "review",
+        "validate"
+      ],
+      "domains": [
+        "software",
+        "web",
+        "security"
+      ],
+      "artifacts": [
+        "source-code",
+        "reports"
+      ],
+      "distinguish": ""
+    },
+    "sr-screener": {
+      "description_sha256": "b728d8ede1357af4728937ae3d1d893c238402de247d1285d9239fae6798173a",
+      "function": "Screen study records against explicit eligibility rules and reconcile reviewer decisions",
+      "work": [
+        "investigate",
+        "review",
+        "validate"
+      ],
+      "domains": [
+        "research"
+      ],
+      "artifacts": [
+        "datasets",
+        "reports"
+      ],
+      "distinguish": "Protocol-driven eligibility and study-selection records; not a substitute for full literature synthesis."
+    },
+    "unslop": {
+      "description_sha256": "4c78f95195d2e59fe4090a76cf50c93b98929dce46805f42ce16bfba43f5625b",
+      "function": "Polish an existing interface into a coherent product-specific visual design",
+      "work": [
+        "design",
+        "transform",
+        "review"
+      ],
+      "domains": [
+        "web",
+        "graphics"
+      ],
+      "artifacts": [
+        "interfaces",
+        "source-code"
+      ],
+      "distinguish": "Visual polish of an existing interface; interaction reliability and technical audit are distinct contributions."
+    },
+    "untangle-codebase": {
+      "description_sha256": "ceab30e7508ae3dc3b0605a84daefa34c08728a19d39ae71dcb7fb6a166c9cb3",
+      "function": "Refactor whole-codebase structure to reduce navigation and change complexity",
+      "work": [
+        "design",
+        "transform",
+        "validate"
+      ],
+      "domains": [
+        "software",
+        "agents"
+      ],
+      "artifacts": [
+        "source-code"
+      ],
+      "distinguish": "Whole-codebase restructuring scope; not necessary for a small local defect."
+    },
+    "dream-loop": {
+      "description_sha256": "f0fe2411ba4353a0bcac6f2ca2780e9516c749c65cf65c3fad5c44fc7a6e8f97",
+      "function": "Iteratively build and compare a live app or game with a generated visual target",
+      "work": [
+        "design",
+        "implement",
+        "review"
+      ],
+      "domains": [
+        "web",
+        "games",
+        "graphics"
+      ],
+      "artifacts": [
+        "interfaces",
+        "images",
+        "source-code"
+      ],
+      "distinguish": "Iterative screenshot-to-target visual development; graphical similarity alone does not establish functional correctness."
+    },
+    "ui-design-hallmark": {
+      "function": "Design a new website, page or UI component with visual direction, design tokens and implementation checks",
+      "work": [
+        "design",
+        "create",
+        "validate"
+      ],
+      "domains": [
+        "web",
+        "graphics"
+      ],
+      "artifacts": [
+        "interfaces",
+        "source-code"
+      ],
+      "distinguish": "Hallmark supplies an optional interface design method and checks; user direction and an approved existing design control scope.",
+      "description_sha256": "54331c5af8d1abf97b2e79f2ef31d0623e8410faea042aa529dda1634e3b3d9d"
+    },
+    "pixel-art-effects": {
+      "function": "Create, adapt, preview and export code-driven pixel-art effects and sprite animation for games",
+      "work": [
+        "create",
+        "transform",
+        "validate"
+      ],
+      "domains": [
+        "games",
+        "graphics",
+        "media"
+      ],
+      "artifacts": [
+        "images",
+        "source-code",
+        "video"
+      ],
+      "distinguish": "Produces editable effect code and sprite atlases; it is not a game engine, physics simulator or publishing service.",
+      "description_sha256": "90a2dbb7f2afd9ce5cb3b3d8112caa40a05471c8e8d9b8d8fe84bf32a3fda6ef"
+    },
+    "design-specification-workflow": {
+      "description_sha256": "4ebc670e5539520aa82da591555b2de2c9dfe0ae5e629e0d29d18180813360a4",
+      "function": "Develop an engineering specification through self-contained handoffs and fresh-context design review",
+      "distinguish": "Produces and checks a design specification; it is not a background agent, foundation model or universal code-review replacement.",
+      "work": [
+        "plan",
+        "design",
+        "review",
+        "validate"
+      ],
+      "domains": [
+        "software",
+        "agents",
+        "workflows"
+      ],
+      "artifacts": [
+        "documents",
+        "reports",
+        "workflows"
+      ]
+    },
+    "presentation-visual-design": {
+      "description_sha256": "5a30c543a27adc09abf3ca92e3414c0bc1d3e32c0cf1713450d98b25c0f6fe8b",
+      "function": "Design a presentation's visual identity, typography, slide composition and data treatment",
+      "work": [
+        "design",
+        "create",
+        "review"
+      ],
+      "domains": [
+        "graphics",
+        "knowledge"
+      ],
+      "artifacts": [
+        "presentations"
+      ],
+      "distinguish": "Presentation art direction alongside the existing authoring provider; preserve editable content and use separate PPTX quality gates for local files."
+    },
+    "iphone-mirroring-automation": {
+      "description_sha256": "5fe1a64fbca36f78afc9a8bcbea178232c30402cbc4c45cc6d4128c33594ff94",
+      "function": "Read and operate an explicitly authorized iPhone Mirroring target using OCR-guided actions and checked replay",
+      "work": [
+        "operate",
+        "validate"
+      ],
+      "domains": [
+        "automation",
+        "software",
+        "workflows"
+      ],
+      "artifacts": [
+        "environments",
+        "interfaces",
+        "workflows"
+      ],
+      "distinguish": "Skill/protocol availability does not establish phone pairing or macOS permission readiness. Live phone work needs explicit authority; no global MCP registration."
+    }
+  }
+}

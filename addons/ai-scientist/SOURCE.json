@@ -1,0 +1,461 @@
+{
+  "repository": "SakanaAI/AI-Scientist-v3",
+  "revision": "df8313889a004f8a44a472e19a833cd547bb828a",
+  "source_url": "https://github.com/SakanaAI/AI-Scientist-v3/tree/df8313889a004f8a44a472e19a833cd547bb828a",
+  "license": "Apache-2.0",
+  "license_source_sha256": "420f6e94d4266a7628735be654b7a99ead74976feb9e99f50bd834d92d03b6e5",
+  "installation_adaptation": "Authored native entry links complete original phase methods and all their scripts/templates; original method filenames relocated to METHOD.md to expose one skill only. Runtime remains separate and on demand. Any content changes are listed with exact originals and replayable diffs.",
+  "runtime_key": "AI Scientist v3",
+  "runtime_guide": "integrations/research/README.md",
+  "upstream_files": {
+    "methods/src/agents/skills/create-idea/METHOD.md": {
+      "source_path": "src/agents/skills/create-idea/SKILL.md",
+      "source_sha256": "0d1445fd52928ec7627b3eba29b9810ca82431c285b09c7a3e8c0699ec263eb9",
+      "sha256": "0d1445fd52928ec7627b3eba29b9810ca82431c285b09c7a3e8c0699ec263eb9",
+      "relocation": "SKILL.md renamed METHOD.md to retain complete operative methods without duplicate discovery",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/create-idea/scripts/create_idea_placeholder.py": {
+      "source_path": "src/agents/skills/create-idea/scripts/create_idea_placeholder.py",
+      "source_sha256": "b0d162b44bc77d670d528e6da6147576f4abb0365db29a321a9dd5c4059003c2",
+      "sha256": "b0d162b44bc77d670d528e6da6147576f4abb0365db29a321a9dd5c4059003c2",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/draft-task/METHOD.md": {
+      "source_path": "src/agents/skills/draft-task/SKILL.md",
+      "source_sha256": "66762bc903b54fcbaa5105b514d5e2852671c0aba875a31ef8f38e892c60d76f",
+      "sha256": "66762bc903b54fcbaa5105b514d5e2852671c0aba875a31ef8f38e892c60d76f",
+      "relocation": "SKILL.md renamed METHOD.md to retain complete operative methods without duplicate discovery",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/edit-program/METHOD.md": {
+      "source_path": "src/agents/skills/edit-program/SKILL.md",
+      "source_sha256": "d375e68d20ef0ee6370e6bf5e6566c910643c84a615a8783b6e3f0755315d5be",
+      "sha256": "d375e68d20ef0ee6370e6bf5e6566c910643c84a615a8783b6e3f0755315d5be",
+      "relocation": "SKILL.md renamed METHOD.md to retain complete operative methods without duplicate discovery",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/evaluate-program/METHOD.md": {
+      "source_path": "src/agents/skills/evaluate-program/SKILL.md",
+      "source_sha256": "250ef36ef16bf6b6c79da057ed92a609c4bc7fc582bc0c98009b1df6fa461c94",
+      "sha256": "250ef36ef16bf6b6c79da057ed92a609c4bc7fc582bc0c98009b1df6fa461c94",
+      "relocation": "SKILL.md renamed METHOD.md to retain complete operative methods without duplicate discovery",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/generate-concept-figure/METHOD.md": {
+      "source_path": "src/agents/skills/generate-concept-figure/SKILL.md",
+      "source_sha256": "23b62bb7ab5b98704b0d2ed8d271db0c11702090f12ae08becac5636ac42a54f",
+      "sha256": "23b62bb7ab5b98704b0d2ed8d271db0c11702090f12ae08becac5636ac42a54f",
+      "relocation": "SKILL.md renamed METHOD.md to retain complete operative methods without duplicate discovery",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/memory-log/METHOD.md": {
+      "source_path": "src/agents/skills/memory-log/SKILL.md",
+      "source_sha256": "676902cc5dd38f5675f27f713a689a1029e3142894c5fc34bfc36996ed9afff9",
+      "sha256": "676902cc5dd38f5675f27f713a689a1029e3142894c5fc34bfc36996ed9afff9",
+      "relocation": "SKILL.md renamed METHOD.md to retain complete operative methods without duplicate discovery",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/memory-log/scripts/append_memory.py": {
+      "source_path": "src/agents/skills/memory-log/scripts/append_memory.py",
+      "source_sha256": "968658767a9158352d465650ebbd801e61ff797e6c21b49316d2553553a733a7",
+      "sha256": "968658767a9158352d465650ebbd801e61ff797e6c21b49316d2553553a733a7",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": true
+    },
+    "methods/src/agents/skills/retrieve-references/METHOD.md": {
+      "source_path": "src/agents/skills/retrieve-references/SKILL.md",
+      "source_sha256": "1a7db01a842268ee71e64c7c4ecae107c0bdae50198f43aedb86162457f2cffa",
+      "sha256": "1a7db01a842268ee71e64c7c4ecae107c0bdae50198f43aedb86162457f2cffa",
+      "relocation": "SKILL.md renamed METHOD.md to retain complete operative methods without duplicate discovery",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/retrieve-references/scripts/openalex_fetch.py": {
+      "source_path": "src/agents/skills/retrieve-references/scripts/openalex_fetch.py",
+      "source_sha256": "c598b132565302b890318b4997ea9bb93698637ffb89838dd1351bc98e62f367",
+      "sha256": "c598b132565302b890318b4997ea9bb93698637ffb89838dd1351bc98e62f367",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/retrieve-references/scripts/s2_fetch.py": {
+      "source_path": "src/agents/skills/retrieve-references/scripts/s2_fetch.py",
+      "source_sha256": "158be5cad15f17981b7e759cd8b462e3a32c3404e6bf3dd47cc65871bc4ee918",
+      "sha256": "158be5cad15f17981b7e759cd8b462e3a32c3404e6bf3dd47cc65871bc4ee918",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": true
+    },
+    "methods/src/agents/skills/retrieve-references/scripts/scholarly_fetch.py": {
+      "source_path": "src/agents/skills/retrieve-references/scripts/scholarly_fetch.py",
+      "source_sha256": "addbed33104cac59ec5acd740e869892cd2fe1d8b2ed77460436394254bf4c44",
+      "sha256": "addbed33104cac59ec5acd740e869892cd2fe1d8b2ed77460436394254bf4c44",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": true
+    },
+    "methods/src/agents/skills/retrieve-references/templates/provenance.schema.json": {
+      "source_path": "src/agents/skills/retrieve-references/templates/provenance.schema.json",
+      "source_sha256": "2dd916cfdf88610ee557733ef61e0d2ecaa32cb1b05ef5a92d157a1e23b239e1",
+      "sha256": "2dd916cfdf88610ee557733ef61e0d2ecaa32cb1b05ef5a92d157a1e23b239e1",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/review-paper/METHOD.md": {
+      "source_path": "src/agents/skills/review-paper/SKILL.md",
+      "source_sha256": "709c752dafd53070ded6cf0a305a3412fbc607662d756564acccdb2ffa6b1acd",
+      "sha256": "709c752dafd53070ded6cf0a305a3412fbc607662d756564acccdb2ffa6b1acd",
+      "relocation": "SKILL.md renamed METHOD.md to retain complete operative methods without duplicate discovery",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/scientific-evidence/METHOD.md": {
+      "source_path": "src/agents/skills/scientific-evidence/SKILL.md",
+      "source_sha256": "7f23790561ccda35f460d3b428853d6890417c381cf46078be8a973632a9c800",
+      "sha256": "7f23790561ccda35f460d3b428853d6890417c381cf46078be8a973632a9c800",
+      "relocation": "SKILL.md renamed METHOD.md to retain complete operative methods without duplicate discovery",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/scientific-evidence/scripts/scientific_evidence.py": {
+      "source_path": "src/agents/skills/scientific-evidence/scripts/scientific_evidence.py",
+      "source_sha256": "47670ef1109902f95f9b1ccbe7b66e091fc21467f807c1e6a99a16c7cd398b7c",
+      "sha256": "47670ef1109902f95f9b1ccbe7b66e091fc21467f807c1e6a99a16c7cd398b7c",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": true
+    },
+    "methods/src/agents/skills/scientific-evidence/scripts/scientific_evidence.sh": {
+      "source_path": "src/agents/skills/scientific-evidence/scripts/scientific_evidence.sh",
+      "source_sha256": "ab294f8e430975a53c5f54d5f5b13098c06e998e721f29266466686fc4bd42c3",
+      "sha256": "ab294f8e430975a53c5f54d5f5b13098c06e998e721f29266466686fc4bd42c3",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": true
+    },
+    "methods/src/agents/skills/validate-paper/METHOD.md": {
+      "source_path": "src/agents/skills/validate-paper/SKILL.md",
+      "source_sha256": "000e726a4e9c77a64026e1cefd2ea8409360336321a4e64eaebc506af1c4b33b",
+      "sha256": "000e726a4e9c77a64026e1cefd2ea8409360336321a4e64eaebc506af1c4b33b",
+      "relocation": "SKILL.md renamed METHOD.md to retain complete operative methods without duplicate discovery",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/validate-paper/scripts/compile_latex.sh": {
+      "source_path": "src/agents/skills/validate-paper/scripts/compile_latex.sh",
+      "source_sha256": "cc6f0388c4f1659b75c3816c15cbafd897f2405001c69c7f103ab8ff72923a7c",
+      "sha256": "cc6f0388c4f1659b75c3816c15cbafd897f2405001c69c7f103ab8ff72923a7c",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": true
+    },
+    "methods/src/agents/skills/validate-paper/scripts/validate_compile_inputs.py": {
+      "source_path": "src/agents/skills/validate-paper/scripts/validate_compile_inputs.py",
+      "source_sha256": "f44ddb223cc352788cc43274082bf0e460631e56a240cfbcdceb2c567e813ce8",
+      "sha256": "f44ddb223cc352788cc43274082bf0e460631e56a240cfbcdceb2c567e813ce8",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/validate-paper/scripts/validate_figures.py": {
+      "source_path": "src/agents/skills/validate-paper/scripts/validate_figures.py",
+      "source_sha256": "3438997ff6c69351b2274b931ed921c18413ddee34cf6530b975166e6592dcba",
+      "sha256": "3438997ff6c69351b2274b931ed921c18413ddee34cf6530b975166e6592dcba",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/validate-paper/scripts/validate_rendered_si.py": {
+      "source_path": "src/agents/skills/validate-paper/scripts/validate_rendered_si.py",
+      "source_sha256": "b512e7e3680a64c7d042fdd1fe21ac5c6141b0bc9d2a9f15a96b8e11e429d2a8",
+      "sha256": "b512e7e3680a64c7d042fdd1fe21ac5c6141b0bc9d2a9f15a96b8e11e429d2a8",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/validate-paper/scripts/validate_tex_refs.py": {
+      "source_path": "src/agents/skills/validate-paper/scripts/validate_tex_refs.py",
+      "source_sha256": "b93cef8b2f21475ba4c28f815ab86dc53730a11e8415af5b170b10af5978f414",
+      "sha256": "b93cef8b2f21475ba4c28f815ab86dc53730a11e8415af5b170b10af5978f414",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": true
+    },
+    "methods/src/agents/skills/validate-paper/templates/figure_manifest.schema.json": {
+      "source_path": "src/agents/skills/validate-paper/templates/figure_manifest.schema.json",
+      "source_sha256": "f8a9af94ce3ae788d6985e0ab40f37bf0c21657f9094a754c485ec64a419f51c",
+      "sha256": "f8a9af94ce3ae788d6985e0ab40f37bf0c21657f9094a754c485ec64a419f51c",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/verify-rubrics/METHOD.md": {
+      "source_path": "src/agents/skills/verify-rubrics/SKILL.md",
+      "source_sha256": "266d46ab8b79c44b2f07f398d9843f69a486235cae1ed323d6ec3c7ee16c6e7d",
+      "sha256": "266d46ab8b79c44b2f07f398d9843f69a486235cae1ed323d6ec3c7ee16c6e7d",
+      "relocation": "SKILL.md renamed METHOD.md to retain complete operative methods without duplicate discovery",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/verify-rubrics/scripts/create_rubric_status_placeholder.py": {
+      "source_path": "src/agents/skills/verify-rubrics/scripts/create_rubric_status_placeholder.py",
+      "source_sha256": "bb0a4ae41ea449b631bf0852592ba7b9871c715e01196edc98c4febf20c5f3d3",
+      "sha256": "bb0a4ae41ea449b631bf0852592ba7b9871c715e01196edc98c4febf20c5f3d3",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/write-paper/METHOD.md": {
+      "source_path": "src/agents/skills/write-paper/SKILL.md",
+      "source_sha256": "0079a9aee8a63f162ad7023d26fa66aa5763a99060be547ef2fc5e0adcaae0a3",
+      "sha256": "0079a9aee8a63f162ad7023d26fa66aa5763a99060be547ef2fc5e0adcaae0a3",
+      "relocation": "SKILL.md renamed METHOD.md to retain complete operative methods without duplicate discovery",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/write-paper/scripts/validate_claims.py": {
+      "source_path": "src/agents/skills/write-paper/scripts/validate_claims.py",
+      "source_sha256": "8d2a449b8e716e7cdfdf98e9e60c0386e0f9784440bf39c94591114f4d500aa6",
+      "sha256": "8d2a449b8e716e7cdfdf98e9e60c0386e0f9784440bf39c94591114f4d500aa6",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": true
+    },
+    "methods/src/agents/skills/write-paper/templates/alife/alifeconf.sty": {
+      "source_path": "src/agents/skills/write-paper/templates/alife/alifeconf.sty",
+      "source_sha256": "07d255dd5bf107fbf6e53a8670f4f0474737ac651a233392add7528b84d6e357",
+      "sha256": "07d255dd5bf107fbf6e53a8670f4f0474737ac651a233392add7528b84d6e357",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/write-paper/templates/alife/paper.tex": {
+      "source_path": "src/agents/skills/write-paper/templates/alife/paper.tex",
+      "source_sha256": "896c69f20d31c06cd1e58ab5ce4b6231de81aee3f1e94506d891e484f43de900",
+      "sha256": "896c69f20d31c06cd1e58ab5ce4b6231de81aee3f1e94506d891e484f43de900",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/write-paper/templates/claims_grounding.schema.json": {
+      "source_path": "src/agents/skills/write-paper/templates/claims_grounding.schema.json",
+      "source_sha256": "d2e751eb5c2aca0ccd3a1ff56b55cea7946edf8b61d86c2328edf1603a04ad56",
+      "sha256": "d2e751eb5c2aca0ccd3a1ff56b55cea7946edf8b61d86c2328edf1603a04ad56",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/write-paper/templates/iclr/paper.bst": {
+      "source_path": "src/agents/skills/write-paper/templates/iclr/paper.bst",
+      "source_sha256": "2d67552db7ed38ccfccb5957b52f95656e25c249724761d3cf5f7922ad1844c5",
+      "sha256": "2d67552db7ed38ccfccb5957b52f95656e25c249724761d3cf5f7922ad1844c5",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/write-paper/templates/iclr/paper.sty": {
+      "source_path": "src/agents/skills/write-paper/templates/iclr/paper.sty",
+      "source_sha256": "c6ba63e52da9be4cb3805cec51b1fdeab2c6e93135cd3954a1250cd68e3a45d0",
+      "sha256": "c6ba63e52da9be4cb3805cec51b1fdeab2c6e93135cd3954a1250cd68e3a45d0",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/write-paper/templates/iclr/paper.tex": {
+      "source_path": "src/agents/skills/write-paper/templates/iclr/paper.tex",
+      "source_sha256": "a2c791e13e851d969af6177430eee4106cfab86c5454e08c416eeab765317e98",
+      "sha256": "a2c791e13e851d969af6177430eee4106cfab86c5454e08c416eeab765317e98",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/write-paper/templates/references.bib": {
+      "source_path": "src/agents/skills/write-paper/templates/references.bib",
+      "source_sha256": "4703631b012b644ced627f7d1b9b88b58392e6188419a7bc29774a779650971e",
+      "sha256": "4703631b012b644ced627f7d1b9b88b58392e6188419a7bc29774a779650971e",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/write-paper-standalone/METHOD.md": {
+      "source_path": "src/agents/skills/write-paper-standalone/SKILL.md",
+      "source_sha256": "18a6f353ba1846585273c24f0c4c2525822f73026e48573cf5a44016a8174bd6",
+      "sha256": "18a6f353ba1846585273c24f0c4c2525822f73026e48573cf5a44016a8174bd6",
+      "relocation": "SKILL.md renamed METHOD.md to retain complete operative methods without duplicate discovery",
+      "source_executable": false
+    },
+    "methods/src/agents/skills/write-paper-standalone/scripts/validate_claims.py": {
+      "source_path": "src/agents/skills/write-paper-standalone/scripts/validate_claims.py",
+      "source_sha256": "8d2a449b8e716e7cdfdf98e9e60c0386e0f9784440bf39c94591114f4d500aa6",
+      "sha256": "8d2a449b8e716e7cdfdf98e9e60c0386e0f9784440bf39c94591114f4d500aa6",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": true
+    },
+    "methods/docs/agent_billing.md": {
+      "source_path": "docs/agent_billing.md",
+      "source_sha256": "7eefa412b656937b7b8e6feaaea3ce8c090787522e9a44ed9775d419ebe95055",
+      "sha256": "7eefa412b656937b7b8e6feaaea3ce8c090787522e9a44ed9775d419ebe95055",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/docs/evaluation_evidence.md": {
+      "source_path": "docs/evaluation_evidence.md",
+      "source_sha256": "1a7c826c7cb3286be60fe55f6117208fe712f821febc2f9b65c2202fc6f2ef7f",
+      "sha256": "1a7c826c7cb3286be60fe55f6117208fe712f821febc2f9b65c2202fc6f2ef7f",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/docs/gpu_quarantine.md": {
+      "source_path": "docs/gpu_quarantine.md",
+      "source_sha256": "ec9b08cb5c24da4a1972e85cb095174b3ab673081f51866aa398565b3b15a446",
+      "sha256": "ec9b08cb5c24da4a1972e85cb095174b3ab673081f51866aa398565b3b15a446",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/docs/install.md": {
+      "source_path": "docs/install.md",
+      "source_sha256": "51ddf9d8dff7a8fdf4d36ba149f5a60a21eb3f1c0f140547e8656a77c830d560",
+      "sha256": "51ddf9d8dff7a8fdf4d36ba149f5a60a21eb3f1c0f140547e8656a77c830d560",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/docs/no_winner_studies.md": {
+      "source_path": "docs/no_winner_studies.md",
+      "source_sha256": "6eb4c9aa746914b20ed643959f4a565d82c519a9f46f8ef5a10c073c06272359",
+      "sha256": "6eb4c9aa746914b20ed643959f4a565d82c519a9f46f8ef5a10c073c06272359",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/docs/paper_final_outcomes.md": {
+      "source_path": "docs/paper_final_outcomes.md",
+      "source_sha256": "fe8e7acf3a8eca2ed9a1fa0e781ef373c8d703c74af27c79822ff3e06d50b94c",
+      "sha256": "fe8e7acf3a8eca2ed9a1fa0e781ef373c8d703c74af27c79822ff3e06d50b94c",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/docs/pipeline.md": {
+      "source_path": "docs/pipeline.md",
+      "source_sha256": "c6f905d663d4b16274d5f6a8e1acb5bf70addaff82b6316be9ddc3c9e446c4f4",
+      "sha256": "c6f905d663d4b16274d5f6a8e1acb5bf70addaff82b6316be9ddc3c9e446c4f4",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/docs/posthoc_pipeline.md": {
+      "source_path": "docs/posthoc_pipeline.md",
+      "source_sha256": "f383354171651428c57fc127f347d9c807d2163c57d26595a618aa2ed0b0de93",
+      "sha256": "f383354171651428c57fc127f347d9c807d2163c57d26595a618aa2ed0b0de93",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/docs/run_inspector.md": {
+      "source_path": "docs/run_inspector.md",
+      "source_sha256": "69a2c85cc320608ad735847a77f39dc4d7c67fbb2e5f1eb832264dc86aef902c",
+      "sha256": "69a2c85cc320608ad735847a77f39dc4d7c67fbb2e5f1eb832264dc86aef902c",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/docs/scripts.md": {
+      "source_path": "docs/scripts.md",
+      "source_sha256": "86acb96dd722b64f2328d8c07dfbcf294b231b164f7fcdffdc059132ace41568",
+      "sha256": "86acb96dd722b64f2328d8c07dfbcf294b231b164f7fcdffdc059132ace41568",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/docs/task_drafting.md": {
+      "source_path": "docs/task_drafting.md",
+      "source_sha256": "46507123e36072b9e5d92960bc291dc2aa6d418b339a79fe3f06f098d1b0ab95",
+      "sha256": "46507123e36072b9e5d92960bc291dc2aa6d418b339a79fe3f06f098d1b0ab95",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/docs/temporary_storage.md": {
+      "source_path": "docs/temporary_storage.md",
+      "source_sha256": "fb9415c269ad3c2452da0839c2179739041d5de94b5ed905e44779be732062c1",
+      "sha256": "fb9415c269ad3c2452da0839c2179739041d5de94b5ed905e44779be732062c1",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/docs/usage.md": {
+      "source_path": "docs/usage.md",
+      "source_sha256": "5c87136dc83e738c2741b0718cc01d34a1ccd7711312ea7f0067353c060d16ab",
+      "sha256": "5c87136dc83e738c2741b0718cc01d34a1ccd7711312ea7f0067353c060d16ab",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/configs/config.yaml": {
+      "source_path": "configs/config.yaml",
+      "source_sha256": "4adf454834452448c57d43011807c7a170cdddeec299f3372e8583df63da169e",
+      "sha256": "4adf454834452448c57d43011807c7a170cdddeec299f3372e8583df63da169e",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/configs/paper_config.yaml": {
+      "source_path": "configs/paper_config.yaml",
+      "source_sha256": "056253ab94e20dbf4df6177d5f471072abe29119527ce5b97b345c14a8294570",
+      "sha256": "056253ab94e20dbf4df6177d5f471072abe29119527ce5b97b345c14a8294570",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/configs/pipeline_config.yaml": {
+      "source_path": "configs/pipeline_config.yaml",
+      "source_sha256": "53995809560e65c233a49359bd02435331bf8226f190d72d20ca22f1acf7428d",
+      "sha256": "53995809560e65c233a49359bd02435331bf8226f190d72d20ca22f1acf7428d",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/configs/posthoc_config.yaml": {
+      "source_path": "configs/posthoc_config.yaml",
+      "source_sha256": "1043cd013714b843fae9f664c31f778104ea855dfc3db69afc124e299dcf5672",
+      "sha256": "1043cd013714b843fae9f664c31f778104ea855dfc3db69afc124e299dcf5672",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/configs/preset/grpo.yaml": {
+      "source_path": "configs/preset/grpo.yaml",
+      "source_sha256": "efc824daeb70d0c4ef3ac3eea176557b1d8f061e9de2f99932ae5464e6f0f4b4",
+      "sha256": "efc824daeb70d0c4ef3ac3eea176557b1d8f061e9de2f99932ae5464e6f0f4b4",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/configs/preset/paper.yaml": {
+      "source_path": "configs/preset/paper.yaml",
+      "source_sha256": "a3baff26f0ae91fd008cef194c29fe12b82198ef8893d8f89d4d99f093cd4aeb",
+      "sha256": "a3baff26f0ae91fd008cef194c29fe12b82198ef8893d8f89d4d99f093cd4aeb",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/configs/variants_config.yaml": {
+      "source_path": "configs/variants_config.yaml",
+      "source_sha256": "1afed9ca12017878ec303321c747e14c72359932fcab19a8575f4e49ad0e02cc",
+      "sha256": "1afed9ca12017878ec303321c747e14c72359932fcab19a8575f4e49ad0e02cc",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/configs/venue/alife.yaml": {
+      "source_path": "configs/venue/alife.yaml",
+      "source_sha256": "d34f5eb64b1ddf97a0e284213d93b0f6652e2c5e4e556154c929810f0209bb30",
+      "sha256": "d34f5eb64b1ddf97a0e284213d93b0f6652e2c5e4e556154c929810f0209bb30",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/configs/venue/iclr.yaml": {
+      "source_path": "configs/venue/iclr.yaml",
+      "source_sha256": "90c8b63e0d317f40c865641f8174b0ae0dc19605276f180036c39753e958d0fd",
+      "sha256": "90c8b63e0d317f40c865641f8174b0ae0dc19605276f180036c39753e958d0fd",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/src/investigation/temp_storage.py": {
+      "source_path": "src/investigation/temp_storage.py",
+      "source_sha256": "11d8b6264d7752c786e2aa229c45c1fabda2ac292121aed8f1e8533feeef7b54",
+      "sha256": "11d8b6264d7752c786e2aa229c45c1fabda2ac292121aed8f1e8533feeef7b54",
+      "relocation": "Required source linked by retained temporary-storage documentation; structure unchanged under methods/",
+      "source_executable": false
+    },
+    "methods/src/investigation/temp_bootstrap.py": {
+      "source_path": "src/investigation/temp_bootstrap.py",
+      "source_sha256": "0ea0c8ffc03e1ed87deeeaf94692884ef0dbc0a99513ad21eebf3fa10f411ec6",
+      "sha256": "0ea0c8ffc03e1ed87deeeaf94692884ef0dbc0a99513ad21eebf3fa10f411ec6",
+      "relocation": "Required source linked by retained temporary-storage documentation; structure unchanged under methods/",
+      "source_executable": false
+    },
+    "methods/src/scripts/lib/container_temp.py": {
+      "source_path": "src/scripts/lib/container_temp.py",
+      "source_sha256": "5f6ac9dddf7f7aa71e940fc50eec66bcd0aa4fe11f54ad08178cff5b17b3f962",
+      "sha256": "5f6ac9dddf7f7aa71e940fc50eec66bcd0aa4fe11f54ad08178cff5b17b3f962",
+      "relocation": "Required source linked by retained temporary-storage documentation; structure unchanged under methods/",
+      "source_executable": false
+    }
+  },
+  "adapted_files": [],
+  "authored_native_files": [
+    "SKILL.md",
+    "NATIVE-BINDINGS.md",
+    "THIRD-PARTY-NOTICES.md"
+  ],
+  "source_path_hashes_sha256": "2139dd3eec0455f3a03eb97a0b2b6eb5303077927ce973af130374c72dc112cd",
+  "additional_license_files": {
+    "LICENSE-LPPL-1.3c.txt": {
+      "url": "https://www.latex-project.org/lppl/lppl-1-3c.txt",
+      "sha256": "c1ae6e179a6d28bbd5c483fbacc744acc75e922d598281dc3390aab26126e163",
+      "version": "1.3c2008-05-04",
+      "modification": "Unchanged official license text"
+    }
+  }
+}

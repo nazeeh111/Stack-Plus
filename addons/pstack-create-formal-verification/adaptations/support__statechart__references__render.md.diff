@@ -1,0 +1,15 @@
+--- a/support/statechart/references/render.md
++++ b/support/statechart/references/render.md
+@@ -1,10 +1,10 @@
+ # Render a chart
+ 
+-Render each `.mmd` file that you show with the npm package `pele@1.9.0`, and give the user the SVG. Install Pele once, outside the repo. Write each SVG next to its `.mmd` file, with the same name. The API is at https://pele.run/api. Pass `{ limit: 1_000_000, outputLimit: 8_000_000, maxEdges: 10_000 }` as the options of `render`. Pele's defaults are smaller than a chart of 500 states can be. When Pele throws a `PeleError`, show the user the Mermaid text and the error.
++Keep the actual Mermaid source and use the existing native Mermaid viewer or selected diagram exporter when an SVG/image is needed. Verify labels, bug paths and marks in the exported artifact. A renderer failure does not negate the model result; return source and error. No global Pele install or browser bootstrap is required.
+ 
+ ## Colors
+ 
+-Pele ignores Mermaid `theme` and `themeVariables`. Set its `--pele-*` CSS variables on `.pele`. https://pele.run/theming lists them. The command gives each state the color class of its group, such as `class sN teal`. It marks each bad state with `class sN breaks` or `class sN mayBreak`, each state on the shortest path to a bug with `class sN bugPath`, and each state that a PROPERTY counterexample repeats forever with `class sN repeats`. Pele puts these classes on the state's node. Color the classes with CSS.
++Historical Pele-specific styles below are reference examples, not a required renderer. Native Mermaid uses its own theme support. Set its `--pele-*` CSS variables on `.pele`. https://pele.run/theming lists them. The command gives each state the color class of its group, such as `class sN teal`. It marks each bad state with `class sN breaks` or `class sN mayBreak`, each state on the shortest path to a bug with `class sN bugPath`, and each state that a PROPERTY counterexample repeats forever with `class sN repeats`. Pele puts these classes on the state's node. Color the classes with CSS.
+ 
+ The `.mmd` file has a `classDef` line for `breaks` and for `mayBreak`, so that any Mermaid viewer shows the bug marks. It has no `classDef` for the group colors, `bugPath`, or `repeats`. Pele writes each `classDef` color as a `style` attribute on the node, and a `style` attribute wins over a normal CSS rule. So the rules for the marks below use `!important`. Without it, a dark theme keeps the light mark colors. A bug mark sets the fill and the text, and `bugPath` and `repeats` set the border. Put the mark rules after the group colors, so that a mark shows over the group color.
+ 

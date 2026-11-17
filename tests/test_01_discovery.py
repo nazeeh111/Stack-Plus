@@ -82,6 +82,59 @@ class DiscoveryTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "array"):
                 module.search(state, ["render"])
 
+    def test_bad_skill_paths_do_not_hide_valid_index_runtime_or_project_entries(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            state = Path(tmp).resolve()
+            entry = state / 'native-releases/fixture/bundles/valid/SKILL.md'
+            entry.parent.mkdir(parents=True)
+            entry.write_text('---\nname: valid\ndescription: Render local figures\n---\n')
+            rows = [{'name': 'bad-' + str(i), 'skill_path': value}
+                    for i, value in enumerate((None, {}, [], 7, True, '', '  ', '\x00'))]
+            rows.extend([{'name': 'missing-path'}, {'name': 'valid', 'skill_path': str(entry)}])
+            (state / 'native-skill-index.json').write_text(json.dumps(rows))
+            tools = state / 'native-tools'; tools.mkdir()
+            (tools / 'index.json').write_text(json.dumps([
+                {'name': 'engine', 'description': 'Render local figures', 'callable': False}]))
+            project = state / 'project-skills/local'; project.mkdir(parents=True)
+            (project / 'SKILL.md').write_text('---\nname: local\ndescription: Render local figures\n---\n')
+            for body in (False, True):
+                with self.subTest(body=body):
+                    found = module.search(state, ['render'], skill_roots=[project.parent], body=body)
+                    self.assertEqual({r['name'] for r in found['matches']}, {'valid', 'engine', 'local'})
+                    self.assertFalse(next(r for r in found['matches'] if r['name'] == 'engine')['callable'])
+
+    def test_index_byte_limit_rejects_before_json_decode(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            state = Path(tmp).resolve()
+            (state / 'native-skill-index.json').write_bytes(b'[' + b' ' * 1000)
+            with patch.object(module, 'MAX_INDEX_BYTES', 128):
+                with self.assertRaisesRegex(ValueError, 'index exceeds byte limit'):
+                    module.search(state, ['beacon'])
+
+    def test_oversized_runtime_fields_and_malformed_deployment_are_not_emitted(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            state = Path(tmp).resolve()
+            entry = state / 'native-releases/fixture/bundles/valid/SKILL.md'
+            entry.parent.mkdir(parents=True)
+            entry.write_text('---\nname: valid\ndescription: Render local figures\n---\n')
+            (state / 'native-skill-index.json').write_text(json.dumps([
+                {'name': 'valid', 'skill_path': str(entry), 'deployment': {'unexpected': 'SENTINEL'}}]))
+            tools = state / 'native-tools'; tools.mkdir()
+            large = 'oversized-sentinel' * module.MAX_RUNTIME_FIELD_CHARS
+            (tools / 'index.json').write_text(json.dumps([
+                {'name': 'engine', 'description': large, 'limits': [large],
+                 'aliases': ['alias'] * (module.MAX_RUNTIME_LIST_ITEMS + 1),
+                 'command': ['python3', large], 'callable': False, 'readiness': 'Denied'}]))
+            found = module.search(state, ['engine', 'render'])
+            self.assertEqual({r['name'] for r in found['matches']}, {'valid', 'engine'})
+            runtime = next(r for r in found['matches'] if r['name'] == 'engine')
+            self.assertEqual(set(runtime['oversized_fields_omitted']), {'description', 'limits', 'aliases', 'command'})
+            self.assertFalse(runtime['callable'])
+            self.assertEqual(runtime['readiness'], 'Denied')
+            self.assertNotIn('SENTINEL', json.dumps(found))
+            self.assertNotIn('oversized-sentinel', json.dumps(found))
+            self.assertEqual(module.search(state, ['oversized-sentinel'])['matches'], [])
+
 
 class FunctionalRankingTests(unittest.TestCase):
     def fixture(self, state, skills, runtimes=()):

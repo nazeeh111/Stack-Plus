@@ -1,0 +1,214 @@
+{
+  "repository": "SakanaAI/AI-Scientist-v3",
+  "commit": "df8313889a004f8a44a472e19a833cd547bb828a",
+  "files": [
+    {
+      "path": "src/investigation/script_runners.py",
+      "original_sha256": "c6d7ee1ed152168b0942d68d433ea4d65287a8bf81d848b85b7e83b33f924915",
+      "patched_sha256": "19ae18a3021ae313b5472afac2152c84fb6e5629760a5b7d8898d537a0b2754f",
+      "patch": "src__investigation__script_runners.py.patch",
+      "replace_before": "    cmd = [\"env\", \"HEADLESS_MODELS_DEV_CACHE=\"]\n    cmd.extend(",
+      "replace_after": "    # Task-owned native transport; the default remains the pinned upstream CLI.\n    native_transport = os.environ.get(\"HEADLESS_BIN\", \"\")\n    if native_transport:\n        transport_path = Path(native_transport)\n        if not transport_path.is_absolute() or not transport_path.is_file():\n            raise ValueError(\"HEADLESS_BIN must name an absolute task-owned executable\")\n        cmd = [str(transport_path)]\n        cmd.extend([agent, \"--debug\", \"--usage\", \"--allow\", \"yolo\"])\n        if model:\n            cmd.extend([\"--model\", model])\n        if profile:\n            raise ValueError(\"native research transport does not accept profiles\")\n        if reasoning_effort:\n            cmd.extend([\"--reasoning-effort\", reasoning_effort])\n        cmd.extend([\"--prompt-file\", prompt_file])\n        return cmd\n    cmd = [\"env\", \"HEADLESS_MODELS_DEV_CACHE=\"]\n    cmd.extend("
+    },
+    {
+      "path": "src/final_evaluation/runner.py",
+      "original_sha256": "37b88cc26769a596d2db4037b4b62865f6f476cc849d28ce0f2ea9991dfe8025",
+      "patched_sha256": "9baf758eb1413332629d53254614c1c60e610ad1cd95fa56d69c6ca9614218c2",
+      "patch": "src__final_evaluation__runner.py.patch",
+      "replace_before": "f\"type=bind,src={broker_dir},dst=/broker\",",
+      "replace_after": "f\"type=bind,src={broker_dir},dst=/broker,readonly\","
+    },
+    {
+      "path": "src/investigation/task_setup.py",
+      "original_sha256": "a1cb04dc8024c3996f6a82db1ff5e862e3a3e95da7af48e7759e78ddfe252732",
+      "patched_sha256": "a2873a2766b30f57f64f65eeeac16aa8cbab9e3a2e9f6b36b02f2595279a68cb",
+      "patch": "src__investigation__task_setup.py.patch",
+      "replace_before": "\"\"\"Run an optional task-level setup.py before the main orchestration loop.\"\"\"\n\nfrom __future__ import annotations\n\nimport json\nimport logging\nimport subprocess\nimport sys\nfrom pathlib import Path\nfrom typing import Any\n\nlogger = logging.getLogger(__name__)\n\n\ndef run_task_setup(\n    task_dir: Path,\n    extra_task_args: dict[str, Any],\n    timeout_seconds: int = 120,\n) -> bool:\n    \"\"\"Run ``setup.py`` in *task_dir* if it exists, passing *extra_task_args* as JSON.\n\n    Returns ``True`` on success (or when no setup.py is present).\n    Returns ``False`` on failure or timeout.\n    \"\"\"\n    setup_script = task_dir / \"setup.py\"\n    if not setup_script.is_file():\n        logger.debug(\"No setup.py in %s \u2014 skipping task setup\", task_dir)\n        return True\n\n    args_json = json.dumps(extra_task_args)\n    cmd = [sys.executable, str(setup_script), \"--args\", args_json]\n    logger.info(\"Running task setup: %s\", \" \".join(cmd))\n\n    try:\n        result = subprocess.run(\n            cmd,\n            cwd=str(task_dir),\n            capture_output=True,\n            text=True,\n            timeout=timeout_seconds,\n        )\n    except subprocess.TimeoutExpired:\n        logger.error(\"Task setup timed out after %ds in %s\", timeout_seconds, task_dir)\n        return False\n    except OSError as exc:\n        logger.error(\"Task setup failed to launch in %s: %s\", task_dir, exc)\n        return False\n\n    if result.stdout.strip():\n        logger.info(\"task setup stdout: %s\", result.stdout.strip())\n    if result.stderr.strip():\n        logger.warning(\"task setup stderr: %s\", result.stderr.strip())\n\n    if result.returncode != 0:\n        logger.error(\n            \"Task setup exited with code %d in %s\", result.returncode, task_dir\n        )\n        return False\n\n    logger.info(\"Task setup completed successfully in %s\", task_dir)\n    return True\n",
+      "replace_after": "\"\"\"Run an optional task-level setup.py before the main orchestration loop.\"\"\"\n\nfrom __future__ import annotations\n\nimport json\nimport logging\nimport os\nimport subprocess\nimport sys\nfrom pathlib import Path\nfrom typing import Any\n\nlogger = logging.getLogger(__name__)\n\n\ndef run_task_setup(\n    task_dir: Path,\n    extra_task_args: dict[str, Any],\n    timeout_seconds: int = 120,\n) -> bool:\n    \"\"\"Run ``setup.py`` in *task_dir* if it exists, passing *extra_task_args* as JSON.\n\n    Returns ``True`` on success (or when no setup.py is present).\n    Returns ``False`` on failure or timeout.\n    \"\"\"\n    setup_script = task_dir / \"setup.py\"\n    # The native bridge controller owns the Docker socket. Unreviewed task\n    # setup is unsupported here; an actually absent setup keeps original behavior.\n    if os.environ.get(\"NSTACK_NATIVE_BRIDGE\") == \"1\" and (\n        setup_script.exists() or setup_script.is_symlink()\n    ):\n        logger.error(\"Native bridge rejects task setup.py before controller execution\")\n        return False\n    if not setup_script.is_file():\n        logger.debug(\"No setup.py in %s \u2014 skipping task setup\", task_dir)\n        return True\n\n    args_json = json.dumps(extra_task_args)\n    cmd = [sys.executable, str(setup_script), \"--args\", args_json]\n    logger.info(\"Running task setup: %s\", \" \".join(cmd))\n\n    try:\n        result = subprocess.run(\n            cmd,\n            cwd=str(task_dir),\n            capture_output=True,\n            text=True,\n            timeout=timeout_seconds,\n        )\n    except subprocess.TimeoutExpired:\n        logger.error(\"Task setup timed out after %ds in %s\", timeout_seconds, task_dir)\n        return False\n    except OSError as exc:\n        logger.error(\"Task setup failed to launch in %s: %s\", task_dir, exc)\n        return False\n\n    if result.stdout.strip():\n        logger.info(\"task setup stdout: %s\", result.stdout.strip())\n    if result.stderr.strip():\n        logger.warning(\"task setup stderr: %s\", result.stderr.strip())\n\n    if result.returncode != 0:\n        logger.error(\n            \"Task setup exited with code %d in %s\", result.returncode, task_dir\n        )\n        return False\n\n    logger.info(\"Task setup completed successfully in %s\", task_dir)\n    return True\n"
+    },
+    {
+      "path": "src/scripts/lib/container_agent.sh",
+      "original_sha256": "bf34e9cb42e42da68ed33009ad2ef379ff3fa1d3a018f207158f50814fa2670c",
+      "patched_sha256": "57f953ad6fb956478d8ae1d7535ba0b69c8344660e5a911f8ce8672a81bb617e",
+      "patch": "src__scripts__lib__container_agent.sh.patch",
+      "replacements": [
+        {
+          "before": "AGENT_INNER_CMD=()\n",
+          "after": "AGENT_INNER_CMD=()\n\n# Native transport replaces model dispatch after original role preparation.\n# Every actual task-source/workspace copy is sealed; credentials stay on host.\nnstack_native_role() {\n  local origin role\n  for origin in \"${BASH_SOURCE[@]}\"; do\n    role=\"${origin##*/}\"\n    case \"$role\" in\n      task.sh|idea.sh|run.sh|variant_agent.sh|posthoc_agent.sh|paper.sh|paper_edit.sh)\n        printf '%s\\n' \"$role\"; return 0 ;;\n    esac\n  done\n  echo \"native bridge cannot identify original scientific role\" >&2\n  return 2\n}\n\nappend_native_sealed_masks() {\n  [ \"${NSTACK_NATIVE_BRIDGE:-0}\" = \"1\" ] || return 0\n  local source=\"$1\" destination=\"$2\" role masks_file flag mount existing found\n  role=\"$(nstack_native_role)\" || return $?\n  masks_file=\"$(mktemp \"${TMPDIR:-/tmp}/native-masks-XXXXXX\")\" || return $?\n  if ! \"$PYTHON_BIN\" \"${NSTACK_NATIVE_BRIDGE_HELPER:?}\" --mode masks --role \"$role\" \\\n      --source \"$source\" --destination \"$destination\" > \"$masks_file\"; then\n    rm -f \"$masks_file\"; return 2\n  fi\n  while IFS= read -r -d '' flag && IFS= read -r -d '' mount; do\n    [ \"$flag\" = \"-v\" ] || { rm -f \"$masks_file\"; return 2; }\n    found=0\n    # Preserve original contract masks, adding each identical mask only once.\n    for existing in \"${docker_cmd[@]}\"; do\n      if [ \"$existing\" = \"$mount\" ]; then found=1; break; fi\n    done\n    [ \"$found\" = \"1\" ] || docker_cmd+=(\"$flag\" \"$mount\")\n  done < \"$masks_file\"\n  rm -f \"$masks_file\"\n}\n\nappend_native_agent_controls() {\n  [ \"${NSTACK_NATIVE_BRIDGE:-0}\" = \"1\" ] || return 0\n  docker_cmd+=(\n    --read-only --cap-drop ALL --security-opt no-new-privileges\n    --security-opt \"seccomp=${NSTACK_NATIVE_AGENT_SECCOMP:?}\"\n    --label nstack.research.agent=true --pids-limit 128\n    --cpus \"${NSTACK_NATIVE_AGENT_CPUS:?}\" --memory \"${NSTACK_NATIVE_AGENT_MEMORY:?}\"\n    --memory-swap \"${NSTACK_NATIVE_AGENT_MEMORY:?}\"\n    --tmpfs /tmp:rw,nosuid,nodev,size=268435456,mode=1777\n    --tmpfs /home/agent-home:rw,nosuid,nodev,size=67108864,mode=0700,uid=$(id -u),gid=$(id -g)\n  )\n  append_native_sealed_masks \"$1\" \"$2\"\n}\n"
+        },
+        {
+          "before": "should_mount_docker_sock() {\n",
+          "after": "should_mount_docker_sock() {\n  [ \"${NSTACK_NATIVE_BRIDGE:-0}\" != \"1\" ] || return 1\n"
+        },
+        {
+          "before": "append_passthrough_envs() {\n",
+          "after": "append_passthrough_envs() {\n  [ \"${NSTACK_NATIVE_BRIDGE:-0}\" != \"1\" ] || return 0\n"
+        },
+        {
+          "before": "append_secret_passthrough_envs() {\n",
+          "after": "append_secret_passthrough_envs() {\n  [ \"${NSTACK_NATIVE_BRIDGE:-0}\" != \"1\" ] || return 0\n"
+        },
+        {
+          "before": "append_codex_backup_env() {\n",
+          "after": "append_codex_backup_env() {\n  [ \"${NSTACK_NATIVE_BRIDGE:-0}\" != \"1\" ] || return 0\n"
+        },
+        {
+          "before": "seed_auth_into_home() {\n",
+          "after": "seed_auth_into_home() {\n  # Return before enumerating or probing any host credential path.\n  [ \"${NSTACK_NATIVE_BRIDGE:-0}\" != \"1\" ] || return 0\n"
+        },
+        {
+          "before": "  docker_cmd+=(\n    -v \"$container_mount_root:/workspace\"\n    -v \"$container_home_dir:/home/agent-home\"\n    -w /workspace\n  )",
+          "after": "  docker_cmd+=(-v \"$container_mount_root:/workspace\" -w /workspace)\n  if [ \"${NSTACK_NATIVE_BRIDGE:-0}\" = \"1\" ]; then\n    append_native_agent_controls \"$container_mount_root\" /workspace || return $?\n  else\n    docker_cmd+=(-v \"$container_home_dir:/home/agent-home\")\n  fi"
+        },
+        {
+          "before": "  local -a AGENT_INNER_CMD=(\"${AGENT_INNER_CMD[@]}\")\n  local capacity_retries",
+          "after": "  local -a AGENT_INNER_CMD=(\"${AGENT_INNER_CMD[@]}\")\n  if [ \"${NSTACK_NATIVE_BRIDGE:-0}\" = \"1\" ]; then\n    [ \"$agent\" = \"codex\" ] && [ \"$use_container\" = \"1\" ] \\\n      && [ \"$container_network\" = \"none\" ] && [ -z \"$container_env_file\" ] || return 2\n  fi\n  local capacity_retries"
+        },
+        {
+          "before": "      # Inject env vars that may not have existed when the session container\n",
+          "after": "      if [ \"${NSTACK_NATIVE_BRIDGE:-0}\" = \"1\" ]; then\n        \"$PYTHON_BIN\" \"$NSTACK_NATIVE_BRIDGE_HELPER\" --mode dispatch \\\n          --role \"$(nstack_native_role)\" --container \"$container_session_name\" \\\n          --cwd \"$container_work_dir\" -- \"${AGENT_INNER_CMD[@]}\"\n        return $?\n      fi\n\n      # Inject env vars that may not have existed when the session container\n"
+        },
+        {
+          "before": "    docker_cmd+=(\n      -v \"$container_home_dir:/home/agent-home\"\n      -w \"$container_work_dir\"\n    )",
+          "after": "    docker_cmd+=(-w \"$container_work_dir\")\n    if [ \"${NSTACK_NATIVE_BRIDGE:-0}\" = \"1\" ]; then\n      append_native_agent_controls \"$container_mount_root\" \"$workspace_root\" || return $?\n    else\n      docker_cmd+=(-v \"$container_home_dir:/home/agent-home\")\n    fi"
+        },
+        {
+          "before": "    for ((attempt = 1; attempt <= max_run_attempts; attempt += 1)); do\n      if ! wait_for_docker_daemon; then\n        echo \"[container_agent] docker daemon not ready (attempt",
+          "after": "    if [ \"${NSTACK_NATIVE_BRIDGE:-0}\" = \"1\" ]; then\n      \"$PYTHON_BIN\" \"$NSTACK_NATIVE_BRIDGE_HELPER\" --mode oneshot \\\n        --role \"$(nstack_native_role)\" --cwd \"$container_work_dir\" \\\n        --inner-count \"${#AGENT_INNER_CMD[@]}\" -- \"${docker_cmd[@]}\"\n      return $?\n    fi\n\n    for ((attempt = 1; attempt <= max_run_attempts; attempt += 1)); do\n      if ! wait_for_docker_daemon; then\n        echo \"[container_agent] docker daemon not ready (attempt"
+        },
+        {
+          "before": "  AGENT_INNER_CMD=(bash -lc \"$command\")",
+          "after": "  if [ \"${NSTACK_NATIVE_BRIDGE:-0}\" = \"1\" ]; then\n    echo \"native bridge does not commission direct provider/figure command pipelines\" >&2\n    return 2\n  fi\n  AGENT_INNER_CMD=(bash -lc \"$command\")"
+        },
+        {
+          "before": "  append_task_sealed_masks \"$task_source_container\"\n",
+          "after": "  append_task_sealed_masks \"$task_source_container\"\n  if [ \"${NSTACK_NATIVE_BRIDGE:-0}\" = \"1\" ] && [ -n \"$task_source_mount\" ]; then\n    append_native_sealed_masks \"${TASK_SOURCE_DIR:?}\" \"$task_source_container\" || return $?\n  fi\n"
+        },
+        {
+          "before": "  local empty_dir=\"${AGENT_TASK_SEAL_EMPTY_DIR:-}\"\n",
+          "after": "  local empty_dir=\"${AGENT_TASK_SEAL_EMPTY_DIR:-}\"\n  if [ \"${NSTACK_NATIVE_BRIDGE:-0}\" = \"1\" ]; then\n    empty_dir=\"${NSTACK_NATIVE_EMPTY_MASK:?}\"\n  fi\n"
+        }
+      ]
+    },
+    {
+      "path": "src/orchestrator/paper_watermark.py",
+      "original_sha256": "18924691f4a27c9e374a27f318480b46e565781f5221290d4e0ad85aeda29319",
+      "patched_sha256": "ad2d7474ea2374a77d02fa1895f6dd3017af78e152ece726d0ad533b48ffbc38",
+      "patch": "src__orchestrator__paper_watermark.py.patch",
+      "replacements": [
+        {
+          "before": "    block = build_watermark_block()\n    if has_managed_watermark(src):",
+          "after": "    if os.environ.get(\"NSTACK_NATIVE_SUPPRESS_BRANDING\") == \"1\":\n        # User output authority: no tool author or generated-by block. Required\n        # third-party source notices and actual experiment lineage are retained.\n        src = strip_managed_block(src)\n        return re.sub(r\"\\\\author\\s*\\{The Agentic Scientist\\}\", r\"\\\\author{}\", src)\n    block = build_watermark_block()\n    if has_managed_watermark(src):"
+        }
+      ]
+    },
+    {
+      "path": "src/orchestrator/paper_step.py",
+      "original_sha256": "9012b86c0c80c3aecb4105853e3b47594c297719009375ffff4393a0f3272567",
+      "patched_sha256": "98b150280f8e9d8d801de4a0fc25be1e85d442672028135abe8f84b6e4f8727e",
+      "patch": "src__orchestrator__paper_step.py.patch",
+      "replacements": [
+        {
+          "before": "    \"\"\"Handle compile latex logic for this module.\"\"\"\n    tex_commands = [",
+          "after": "    \"\"\"Handle compile latex logic for this module.\"\"\"\n    # Trusted orchestration may isolate TeX while agent inference stays native.\n    trusted_tex_image = os.environ.get(\"AGSCI_TRUSTED_TEX_IMAGE\", \"\")\n    if trusted_tex_image and container_image is None:\n        if not re.fullmatch(r\"(?:sha256:[0-9a-f]{64}|[^\\s@]+@sha256:[0-9a-f]{64})\", trusted_tex_image):\n            raise PaperValidationInfrastructureError(\"Trusted TeX image must be immutable\")\n        container_image = trusted_tex_image\n        container_network = \"none\"\n    tex_commands = ["
+        },
+        {
+          "before": "        if not has_managed_watermark(tex_text):",
+          "after": "        suppress_branding = os.environ.get(\"NSTACK_NATIVE_SUPPRESS_BRANDING\") == \"1\"\n        if suppress_branding:\n            watermark_report.update(checked=False, text=None, applied=False,\n                                    state=\"suppressed_by_explicit_user_output_direction\")\n        if not suppress_branding and not has_managed_watermark(tex_text):"
+        },
+        {
+          "before": "        watermark_report[\"applied\"] = True\n        bib_text",
+          "after": "        if not suppress_branding:\n            watermark_report[\"applied\"] = True\n        bib_text"
+        }
+      ]
+    },
+    {
+      "path": "src/investigation/skill_scope.py",
+      "original_sha256": "8d623d93155a0103f88d01e28cb01ebc6da713f8810a9e8800ba5d132f2a276a",
+      "patched_sha256": "675ec9359c13c6c176612c50d576efc5d9a93518b091afb27fbdf627afa86d00",
+      "patch": "src__investigation__skill_scope.py.patch",
+      "replacements": [
+        {
+          "before": "import os\n",
+          "after": "import os\nimport json\nimport stat\n"
+        },
+        {
+          "before": "def paper_templates_dir(skills_src: Path) -> Path:\n",
+          "after": "def _native_staging_target(src: Path, dst: Path) -> bool:\n    \"\"\"Validate owned run copies before copytree/copy2 can follow any alias.\"\"\"\n    if os.environ.get(\"NSTACK_NATIVE_BRIDGE\") != \"1\":\n        return False\n    roots = [Path(value) for value in json.loads(os.environ[\"NSTACK_NATIVE_STAGING_ROOTS\"])]\n    if not roots or any(not value.is_absolute() or value.resolve() != value\n                        or value.stat().st_uid != os.getuid()\n                        or value.stat().st_mode & 0o077 for value in roots):\n        raise ValueError(\"Native staging roots must be owned private run directories\")\n    destination = dst.absolute()\n    source = src.absolute()\n    if (source.resolve() != source or destination.resolve() != destination\n            or not any(destination != value and destination.is_relative_to(value) for value in roots)\n            or destination.is_relative_to(source) or source.is_relative_to(destination)):\n        raise ValueError(\"Native staging destination is outside the owned run scope\")\n    # Reject source and existing destination aliases BEFORE the original copy.\n    # rglob does not recurse through symlink directories; lstat never follows one.\n    for tree in (source, destination):\n        if not tree.exists() and not tree.is_symlink():\n            continue\n        paths = [tree, *tree.rglob(\"*\")] if tree.is_dir() and not tree.is_symlink() else [tree]\n        for path in paths:\n            metadata = path.lstat()\n            if (stat.S_ISLNK(metadata.st_mode)\n                    or not (stat.S_ISDIR(metadata.st_mode) or stat.S_ISREG(metadata.st_mode))\n                    or (tree == destination and metadata.st_uid != os.getuid())):\n                raise ValueError(\"Unsafe native staging source/destination alias or owner\")\n    return True\n\n\ndef stage_skill_file(src: Path, dst: Path) -> None:\n    \"\"\"Keep original leaf-copy semantics; native owned copies remain writable.\"\"\"\n    native = _native_staging_target(src, dst)\n    if native:\n        _copy_replacing(str(src), str(dst))\n        metadata = dst.lstat()\n        if dst.is_symlink() or metadata.st_uid != os.getuid():\n            raise ValueError(\"Unsafe native staging leaf copy\")\n        dst.chmod(metadata.st_mode | 0o200, follow_symlinks=False)\n    else:\n        shutil.copy2(src, dst)\n\n\ndef paper_templates_dir(skills_src: Path) -> Path:\n"
+        },
+        {
+          "before": "    shutil.copytree(\n        src_dir,\n",
+          "after": "    native_stage = _native_staging_target(src_dir, dst_dir)\n    shutil.copytree(\n        src_dir,\n"
+        },
+        {
+          "before": "    for root, dirs, _files in os.walk(dst_dir):\n",
+          "after": "    if native_stage:\n        # Only source-corresponding copied entries, never untracked user files.\n        copied_paths = [dst_dir]\n        for source_root, source_dirs, source_files in os.walk(src_dir):\n            source_dirs[:] = [name for name in source_dirs if name not in _STAGING_IGNORED_DIRS]\n            relative = Path(source_root).relative_to(src_dir)\n            copied_paths.extend(dst_dir / relative / name for name in [*source_dirs, *source_files])\n        for staged in copied_paths:\n            metadata = staged.lstat()\n            if staged.is_symlink() or metadata.st_uid != os.getuid():\n                raise ValueError(\"Unsafe native staging copy\")\n            staged.chmod(metadata.st_mode | 0o200, follow_symlinks=False)\n    for root, dirs, _files in os.walk(dst_dir):\n"
+        }
+      ]
+    },
+    {
+      "path": "src/scripts/posthoc_agent.sh",
+      "original_sha256": "8453fa6d869d0bb50ad7305a9aec601fcdea13267f0bf5df41434a675c1acda6",
+      "patched_sha256": "24f0f0a040bae774b2b1d0485a81e8a8e1faf6db9c318308c3bcc044ba43fdad",
+      "patch": "src__scripts__posthoc_agent.sh.patch",
+      "replacements": [
+        {
+          "before": "from src.investigation.skill_scope import skills_for_step, validate_skill_set",
+          "after": "from src.investigation.skill_scope import skills_for_step, validate_skill_set, stage_skill_tree"
+        },
+        {
+          "before": "shutil.copytree(src_dir, dst_dir, dirs_exist_ok=True)",
+          "after": "stage_skill_tree(src_dir, dst_dir)"
+        }
+      ]
+    },
+    {
+      "path": "src/scripts/variant_agent.sh",
+      "original_sha256": "2e56fe6d90bcbca100b734904e9462c5d24a07915c58e90892969e451226b9d2",
+      "patched_sha256": "1511a44766d2a33eaad705e877adde859a48e895d70db376ac3465d47057d2e5",
+      "patch": "src__scripts__variant_agent.sh.patch",
+      "replacements": [
+        {
+          "before": "from src.investigation.skill_scope import skills_for_step, validate_skill_set",
+          "after": "from src.investigation.skill_scope import skills_for_step, validate_skill_set, stage_skill_tree"
+        },
+        {
+          "before": "shutil.copytree(src_dir, dst_dir)",
+          "after": "stage_skill_tree(src_dir, dst_dir)"
+        }
+      ]
+    },
+    {
+      "path": "src/scripts/paper.sh",
+      "original_sha256": "363f24ee25129947f2a71240cfb550a7d8d1606aa3d5ba458a044464d0f2966c",
+      "patched_sha256": "bf34e303cbfc41a25f562c69875cd7b5c85b944f6f9eefad484da440fc621a3c",
+      "patch": "src__scripts__paper.sh.patch",
+      "replacements": [
+        {
+          "before": "    stage_skill_tree,\n",
+          "after": "    stage_skill_tree,\n    stage_skill_file,\n"
+        },
+        {
+          "before": "        shutil.copy2(support_file, Path(\".\"))",
+          "after": "        stage_skill_file(support_file, Path(\".\") / support_file.name)"
+        }
+      ]
+    },
+    {
+      "path": "src/scripts/paper_edit.sh",
+      "original_sha256": "c6cd16f3ea5796ec6e85fdb1fd985d99f16ccc6943961b321b1ebe49d6073f1e",
+      "patched_sha256": "f8d73c221dd20e0e792949f3b5a77f4b8c06f3f511aa204c94f077331c095107",
+      "patch": "src__scripts__paper_edit.sh.patch",
+      "replacements": [
+        {
+          "before": "    stage_skill_tree,\n",
+          "after": "    stage_skill_tree,\n    stage_skill_file,\n"
+        },
+        {
+          "before": "        shutil.copy2(support_file, Path(\".\"))",
+          "after": "        stage_skill_file(support_file, Path(\".\") / support_file.name)"
+        }
+      ]
+    }
+  ]
+}

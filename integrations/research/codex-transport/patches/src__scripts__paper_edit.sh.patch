@@ -1,0 +1,19 @@
+--- a/src/scripts/paper_edit.sh
++++ b/src/scripts/paper_edit.sh
+@@ -1507,6 +1507,7 @@
+     paper_templates_dir,
+     stage_paper_templates,
+     stage_skill_tree,
++    stage_skill_file,
+     validate_skill_set,
+ )
+ from src.investigation.paper_prompt_context import (  # noqa: E402
+@@ -1682,7 +1683,7 @@
+ fmt_dir = paper_templates_dir(skills_src) / paper_format
+ for pattern in ("*.sty", "*.bst", "*.cls", "*.png", "*.jpg", "*.jpeg", "*.pdf", "*.eps"):
+     for support_file in fmt_dir.glob(pattern):
+-        shutil.copy2(support_file, Path("."))
++        stage_skill_file(support_file, Path(".") / support_file.name)
+ PY
+   )
+ }

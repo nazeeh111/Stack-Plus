@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "observed_date": "2026-11-15",
+  "existing_full_ffmpeg": {
+    "state": "existing installation; synthetic media acceptance passed separately from P230",
+    "version": "7.1",
+    "distribution": "imageio-ffmpeg 0.6.0",
+    "platform": "macosx_11_0_arm64",
+    "url": "https://files.pythonhosted.org/packages/40/5c/f3d8a657d362cc93b81aab8feda487317da5b5d31c0e1fdfd5e986e55d17/imageio_ffmpeg-0.6.0-py3-none-macosx_11_0_arm64.whl",
+    "sha256": "b1ae3173414b5fc5f538a726c4e48ea97edc0d2cdc11f103afee655c463fa742",
+    "binary_member": "imageio_ffmpeg/binaries/ffmpeg-macos-aarch64-v7.1",
+    "binary_sha256": "6d175a4743ca50256e89a8cdd731100f9cee33bd79aeea46894d209410dc6617",
+    "rights": "imageio-ffmpeg package BSD-2-Clause; executable build enables GPL components. Preserve distribution/source notices; this repository does not redistribute the binary."
+  },
+  "existing_ffprobe": {
+    "state": "existing exact publisher archive bytes; frame/stream/packet checks passed",
+    "version": "8.1.2-tessus",
+    "publisher_info": "https://evermeet.cx/ffmpeg/info/ffprobe/8.1.2",
+    "url": "https://evermeet.cx/ffmpeg/ffprobe-8.1.2.zip",
+    "sha256": "399b93f0b9862f69767afa343e90c2f48d7e7958cadbb6deb76a012d0e3b7ce3",
+    "binary_sha256": "a45033d0e45ede2683cee401545becd7ef1a9873ea6f640c0acf0b90f7730b67",
+    "publisher_gpg_signature_verified": false,
+    "rights": "Publisher GPL-enabled build; preserve relevant source/license obligations. No binary redistributed here."
+  },
+  "auto_editor_candidate": {
+    "state": "prepared-blocked; not executed, installed or commissioned",
+    "version": "31.9.0",
+    "source_repository": "WyattBlue/auto-editor",
+    "source_revision": "1fb5d4939ee2632674d2de117a434622443a0acb",
+    "installed_method_revision": "5ad05f9ee76bc9fe4126bd25463eada082576f88",
+    "url": "https://github.com/WyattBlue/auto-editor/releases/download/31.9.0/auto-editor-macos-arm64",
+    "sha256": "84823f8132a40d1ad072cfaabe432d2a35d1ad022421d7436c51a24bac9e86a5",
+    "platform": "macOS arm64",
+    "native_assessment": "codesign byte verification passes as ad-hoc; spctl execute assessment exit3 rejected",
+    "next_requirement": "Signed/notarized upstream artifact or normal scoped user-native approval before execution. No trust bypass or alternate-platform retry.",
+    "compatibility": "Installed method and candidate source pins differ; native CLI/export compatibility remains unexecuted.",
+    "rights": "Core Unlicense; native library/codec/optional-model notices remain separate."
+  },
+  "cmake_private_build_tool": {
+    "version": "3.31.10",
+    "url": "https://github.com/Kitware/CMake/releases/download/v3.31.10/cmake-3.31.10-macos-universal.tar.gz",
+    "sha256": "be9f3faeeaf7921cc2d77cea711dd5e6f72c63af2810cacd9205b3ce8d1593c9",
+    "publisher_checksums": "https://github.com/Kitware/CMake/releases/download/v3.31.10/cmake-3.31.10-SHA-256.txt",
+    "native_identity": "Kitware Inc. W38PE5Y733; stapled notarization ticket; codesign strict/deep and spctl accepted",
+    "scope": "Private versioned toolchain, no global PATH or package changes",
+    "license": "BSD-3-Clause and retained bundled notices"
+  },
+  "whisper_cpu": {
+    "state": "installed source-built CPU route; bounded public-speech acceptance passed",
+    "source_repository": "ggml-org/whisper.cpp",
+    "tag": "b4938",
+    "source_revision": "371b5a7561823ab2bb32142d2751e35e7534727b",
+    "source_url": "https://codeload.github.com/ggml-org/whisper.cpp/tar.gz/371b5a7561823ab2bb32142d2751e35e7534727b",
+    "source_archive_sha256": "89051d8fca516a3ad1f5c2f8f9d2fccb089afbaec338fca3f8731999babc6f81",
+    "observed_version": "1.9.3-dev (upstream build option defaults dev suffix on)",
+    "local_binary_sha256": "91b362525324775cdd1a9eda46e509c74f2043236b71736125d3a7b02af8f333",
+    "backend": "CPU only; static vendored GGML, system libc++ and libSystem",
+    "disabled": [
+      "METAL",
+      "COREML",
+      "BLAS",
+      "ACCELERATE",
+      "CUDA",
+      "VULKAN",
+      "OPENCL",
+      "HIP",
+      "RPC",
+      "SYCL",
+      "OPENMP",
+      "KLEIDIAI",
+      "DYNAMIC_BACKENDS",
+      "CURL",
+      "SDL2"
+    ],
+    "model": {
+      "existing_only": true,
+      "name": "ggml-base.en.bin",
+      "repository": "ggerganov/whisper.cpp",
+      "revision": "5359861c739e955e79d9a303bcbc70fb988958b1",
+      "sha256": "a03779c86df3323075f5e796cb2ce5029f00ec8869eee3fdfb897afe36c6d002",
+      "license": "MIT OpenAI2022"
+    },
+    "sample": {
+      "path_in_source": "samples/jfk.wav",
+      "sha256": "59dfb9a4acb36fe2a2affc14bacbee2920ff435cb13cc314a08c13f66ba7860e",
+      "duration_seconds": 11
+    },
+    "checks": "55 bounded CPU transcript/timestamp/negative-input assertions;22-word excerpt WER0; source-selected125120audio samples exact; retimed captions. No new models/providers/GPU or real user recordings.",
+    "limits": "One public English fixture; approximate word boundaries, not general ASR/diarization/highlights/forced-alignment acceptance. Invalid input may exit0 without output; validate artifacts.",
+    "rights": "Whisper/GGML MIT; vendored miniaudio alternatives retained, including MIT No Attribution; model MIT notice retained. No binary/model redistributed in this repository."
+  }
+}

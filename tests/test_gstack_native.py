@@ -168,6 +168,90 @@ class NativeGstackPinnedReplay(unittest.TestCase):
         self.assertIn('silent failure', sections)
         self.assertNotIn('Outside Voice and outputs', self.outputs['plan-eng-review'][1].read_text())
 
+    def test_review_obligations_retain_source_defaults_and_distinct_failure_branches(self):
+        # Read the pinned operating requirements, not the port's own comments.
+        plan_source = (self.source / 'plan-eng-review/sections/review-sections.md').read_text()
+        self.assertIn('Independent Plan Challenge (default-on)', plan_source)
+        self.assertIn('No prompt, outside process or native replacement.', plan_source)
+        self.assertIn('Native fallback unavailable or fails', plan_source)
+        plan = (self.outputs['plan-eng-review'][0] /
+                'source/plan-eng-review/sections/review-sections.md').read_text()
+        challenge = plan[plan.index('## Independent Plan Challenge'):plan.index('## Final planning decisions')]
+        self.assertIn('unless the user explicitly disabled', challenge)
+        self.assertIn('including native fallback', challenge)
+        self.assertIn('without a replacement reviewer', challenge)
+        self.assertIn('Missing challenge coverage is non-blocking', challenge)
+        self.assertIn('never a clean review', challenge)
+        self.assertNotIn('For consequential uncertainty', challenge)
+        self.assertNotIn('optional independent', challenge.casefold())
+        for method in ['logical gaps', 'fundamentally simpler', 'feasibility risks',
+                       'missing dependencies or sequencing', 'strategic miscalibration',
+                       'Recommendation:', 'does not edit', 'fresh reviewer context',
+                       "current model and effort", 'distinct-family coverage']:
+            self.assertIn(method, challenge)
+
+        adversarial_source = (self.source / 'review/sections/adversarial.md').read_text()
+        self.assertIn('Every diff gets the Claude adversarial pass.', adversarial_source)
+        self.assertIn('The native pass is required for Step 5.8 completion.', adversarial_source)
+        review = self.outputs['review'][1].read_text()
+        required = review[review.index('### Step 4.8:'):review.index('## Step 5:')]
+        self.assertIn('required native pass for every diff', required)
+        self.assertIn('without claiming the full required review completed', required)
+        adversarial = (self.outputs['review'][0] / 'source/review/sections/adversarial.md').read_text()
+        self.assertIn('Every diff requires the native adversarial pass.', adversarial)
+        self.assertIn('record native coverage as incomplete', adversarial)
+        self.assertIn('do not claim this required review', adversarial)
+        self.assertIn('distinct-family coverage', adversarial)
+        self.assertIn("current model and effort", adversarial)
+        # The full original domain challenge remains operative, not a new summary.
+        original_brief = adversarial_source[adversarial_source.index('Think like an attacker and a chaos engineer.'):]
+        original_brief = original_brief[:original_brief.index('\n\nPresent findings')].rstrip('"')
+        self.assertIn(original_brief, adversarial)
+
+    def test_optional_office_hours_voices_are_not_made_compulsory(self):
+        # Negative control: fixing default-on plan/diff review must not expand
+        # the source's separately optional product/design review stages.
+        source = (self.source / 'office-hours/SKILL.md').read_text()
+        self.assertIn('Cross-Model Second Opinion (optional)', source)
+        office = self.outputs['office-hours'][1].read_text()
+        self.assertIn('Independent Second Opinion (optional)', office)
+        office_root = self.outputs['office-hours'][0] / 'source/office-hours'
+        self.assertIn('## Optional independent second opinion',
+                      (office_root / 'sections/second-opinion.md').read_text())
+        for relative in ['sections/visual-design.md', 'sections/design-and-handoff.md']:
+            self.assertIn('## Optional independent challenge', (office_root / relative).read_text())
+
+    def test_review_army_keeps_original_selection_and_independent_seats(self):
+        source = (self.source / 'review/sections/review-army.md').read_text()
+        active = (self.outputs['review'][0] / 'source/review/sections/review-army.md').read_text()
+        source_selection = source[source.index('### Select specialists'):source.index('### Adaptive gating')]
+        normalize = lambda text: re.sub(r'~/.claude/skills/gstack/review/|\.\./', 'REVIEW/', text)
+        # Exact original role/activation prose for all eight non-matrix roles.
+        for line in source_selection.splitlines():
+            if re.match(r'^[1-8]\. \*\*', line):
+                self.assertIn(normalize(line), normalize(active))
+        for clause in ['**Always-on (every review with 50+ changed lines):**',
+                       '**If DIFF_LINES < 50:** Skip all specialists except State Machines',
+                       'if SCOPE_STATE_MACHINE is true or unknown:',
+                       '**Activation:** Only if DIFF_LINES > 200 OR any specialist produced a CRITICAL finding.',
+                       '`--all-specialists`']:
+            self.assertIn(clause, source)
+            self.assertIn(clause, active)
+        for requirement in ['For each selected specialist, launch an independent native reviewer',
+                            'serialized independent waves', 'zero findings in at least ten actual dispatches',
+                            'Without valid scoped historical evidence, do not gate',
+                            'Inline checklist use does not replace this independent dispatch.',
+                            'Missing required seats remain incomplete coverage.',
+                            'required Red Team coverage as incomplete']:
+            self.assertIn(requirement, active)
+        # The original numeric boundaries remain distinct, including negatives:
+        # 49 lines skips ordinary specialists; 50 activates Testing/Maintainability;
+        # 100 does not trigger >100 rules; 200 does not trigger >200 Red Team.
+        for condition in ['DIFF_LINES > 100', 'DIFF_LINES > 200', 'DIFF_LINES < 50']:
+            self.assertEqual(condition in active, condition in source)
+        self.assertNotIn('no changed-line threshold requires or forbids a reviewer', active)
+        self.assertNotIn('Use a native independent reviewer only when it adds value', active)
+
     def test_each_mutation_and_reply_step_respects_actual_operation_authority(self):
         review = self.outputs['review'][1].read_text()
         for start, end in [('### Step 5b:', '### Step 5c:'),

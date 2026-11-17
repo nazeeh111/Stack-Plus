@@ -1,4 +1,17 @@
-# REA static artifact routes
+# REA software investigation
+
+The complete upstream REA6.9.0 method is operative in `addons/rea/SKILL.md`, with narrow execution and authority bindings. It covers shipped-artifact routing, JavaScript/Electron feature tracing, native decompilation, Evidence paging/composition, version comparisons, unknowns and reconstruction verification. It is separate from Craft Anything and RAEA.
+
+Two complementary runtimes preserve useful existing work:
+
+- [Owned Linux REA/Ghidra backend](linux/README.md): one pinned on-demand Linuxamd64 image, original REA6.9.0, Ghidra12.1.4, full JDK21 and supported Node24.22.1. A task-scoped stdio controller enforces72 selected static tools while retaining the original255-tool/196-command payload. Real synthetic JS graph/feature trace/version comparison and native function/assembly/call-site comparison passed, with source hashes, authentic Evidence export/import and verified cleanup. This is the prepared route for meaningful JS/native investigation; inspect actual current readiness.
+- Preserved Mac recipe below: independent PE/ELF export-table inventories and saved Evidence summaries. Its denied JavaScript worker route remains uncommissioned and must not be retried unchanged or bypassed.
+
+For either Codex or OpenCode, resolve the skill's recorded durable recipe and use one task-scoped stdio MCP client/attachment for the selected target. Keep that connection for retained Evidence and native sessions, then export, close/reset and verify actual cleanup. An executor-operated local MCP client can use the same command when a running host cannot add native tools mid-chat; do not describe it as global/native host registration. Avoid duplicate plugin/setup/task server owners. See the operative `NATIVE-BINDINGS.md` for the full workflow and [the Linux binding](linux/README.md) for preparation, scope, controls and lifecycle.
+
+Installing instructions, verifying payloads, displaying255 schemas or passing one fixture does not commission every operation. Broader runtime/device/browser/environment modes need their matching prerequisites and actual task authority. Upstream mutable acquisition, client-setup, credential and paid-evaluation defaults do not grant that authority. No global service, model/provider change or default budget is added.
+
+# Preserved Mac static artifact routes
 
 `recipes/rea.py` owns a dormant private REA6.9.0 + Node24.22.1 runtime on Apple Silicon macOS. It preserves the complete official npm payload, its42 bundled dependencies and notices, plus the complete official Node archive. It does not run npm, setup, lifecycle hooks or target code; it adds no global PATH, service, provider or MCP entry. Existing Node versions and Craft Anything remain separate.
 
@@ -22,4 +35,4 @@ Each inspect/summary saves complete Evidence, stderr progress, execution metadat
 
 A separate JavaScript development trial produced correct graph Evidence but exited1 during cleanup because native `ps` spawning returned EPERM. This operation is not accepted; the worker/process-table failure has no supported release6.9.0 selector. Do not retry it, weaken the sandbox or modify/copy ps as a setup fix. Saved-Evidence summary is independently usable without reopening the target. The native-export reader is a separate providerless operation that reads stable file bytes and does not start the denied JavaScript worker/process-table path.
 
-REA's full CLI and MCP have broader capabilities. The static wrapper intentionally accepts only native-exports, inspect and summary. Operational readiness is recorded separately for each route. Commission any broader route for a real task using its current source, native approvals and matching acceptance. An MCP tool-family scope reduces advertisement; it is not a read-only permission boundary. No extra global MCP registration is necessary for the active static skill binding.
+REA's full CLI and MCP have broader capabilities. This Mac static wrapper intentionally accepts only native-exports, inspect and summary. Operational readiness is recorded separately for each route. Commission any broader route for a real task using its current source, native approvals and matching acceptance. An MCP tool-family scope reduces advertisement; it is not a read-only permission boundary. No extra global MCP registration is necessary for the active static skill binding.

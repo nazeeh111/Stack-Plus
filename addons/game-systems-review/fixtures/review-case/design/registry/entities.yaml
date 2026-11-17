@@ -1,0 +1,11 @@
+constants:
+  - name: weapon_damage
+    value: 100
+    output_range: [90, 110]
+    unit: damage_per_attack
+    source: design/gdd/combat.md#formulas
+  - name: incoming_kill_gold
+    output_range: [8, 12]
+    unit: gold_per_kill
+    source: design/gdd/economy.md#formulas
+formulas: []

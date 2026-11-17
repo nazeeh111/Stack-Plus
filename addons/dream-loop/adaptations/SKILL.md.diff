@@ -1,0 +1,18 @@
+--- upstream/SKILL.md
++++ SKILL.md
+@@ -8,10 +8,12 @@
+ 
+ This is a process for you to autonomously build extremely impressive visuals, especially for 3D scenes (e.g. in a game or app).
+ 
++Read [native operation](references/native-operation.md) first. This is a source-preserving native adaptation, not unchanged upstream text. Original bytes, hashes and adaptation diffs are recorded in [SOURCE.json](SOURCE.json). The target-image method and selected workflow below remain required.
++
+ Your first step is to determine which workflow to use:
+-- If the user told you to use the Plus or Pro workflow explicitly, that's your answer
+-- If not, check if the user is on a low or high tier coding subscription. "Low tier" means ChatGPT Plus or equivalent. "High tier" means ChatGPT Pro. For low-tier subscriptions, use the Plus workflow. For high-tier, use the Pro workflow.
+-
++- If the user explicitly selected Plus or Pro, use it.
++- Otherwise use the known subscription tier as upstream specifies: Plus or equivalent uses Plus; Pro uses Pro. Do not inspect account or credential stores to determine a tier.
++- If the tier is unknown, the native default is Pro: the current agent builds and a fresh independent agent judges. Record this assumption. Preserve the user's current model and effort in either workflow; native subagents inherit them.
+ Plus workflow: read [references/plus-mode/workflow.md](references/plus-mode/workflow.md)
+ 
+ Pro workflow: read [references/pro-mode/workflow.md](references/pro-mode/workflow.md)

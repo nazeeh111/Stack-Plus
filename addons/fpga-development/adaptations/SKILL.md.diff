@@ -1,0 +1,12 @@
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -6,6 +6,9 @@
+ ---
+ 
+ # FPGA Development
++
++Read [native bindings](NATIVE-BINDINGS.md) first. Exact source bytes and the narrow adaptation diff are recorded in [SOURCE.json](SOURCE.json).
++
+ 
+ Treat HDL as a description of concurrent hardware with explicit temporal and electrical interfaces. A correct design requires consistent functional intent, language semantics, clock/reset behavior, implementation constraints and verification evidence. Compilation, simulation, synthesis, timing and physical observation establish different facts.
+ 

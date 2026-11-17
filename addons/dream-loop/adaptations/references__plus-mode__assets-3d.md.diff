@@ -1,0 +1,20 @@
+--- upstream/references/plus-mode/assets-3d.md
++++ references/plus-mode/assets-3d.md
+@@ -12,13 +12,13 @@
+ 
+ ### 2. Use an image-to-3D model
+ 
+-The recommendation is fal.ai. Check your environment for a Fal API key. If present, use it.
++The upstream recommendation is fal.ai. It is separately billed: use it only with explicit user authorization for this provider, scope and budget. Do not inspect credentials or environment variables to decide authorization. If not authorized, treat image-to-3D as disallowed and continue to the next upstream option below.
+ 
+-For Fal requests, read [fal.md](fal.md) and use the bundled batch helper. Use Fal’s HTTP API or SDK through the shell. Only report Fal as unavailable after an actual request fails and reasonable recovery fails, or credentials/access are absent.
++For Fal requests, read [Fal execution](../fal.md) and use the bundled batch helper. Use Fal’s HTTP API or SDK through the shell. Only report Fal as unavailable after an actual request fails and reasonable recovery fails, or credentials/access are absent.
+ 
+-This does not count as "downloading assets". You are allowed to do this, even if the user says not to download internet assets (that refers to 1 above, not this).
++Upstream distinguishes generated image-to-3D assets from downloaded stock assets. The user's actual restrictions and paid-provider authorization still govern both. Do not infer spending authority from this distinction.
+ 
+-Start with the two verified endpoint/input recipes in [fal.md](fal.md), using its offline check and batch commands. The default model roles are:
++Start with the two verified endpoint/input recipes in [Fal execution](../fal.md), using its offline check and batch commands. The default model roles are:
+ - A strong model (like tripo3d/h3.1/image-to-3d or newer equivalent) - around $0.30/asset. Use this for large assets or key, important ones like characters, buildings, scenery, greenery.
+ - A smaller model (like fal-ai/trellis or newer equivalent) - around $0.02/asset. Use this for things like small environmental/decorative objects, etc.
+ 

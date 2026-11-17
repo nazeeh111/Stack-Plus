@@ -1,0 +1,272 @@
+{
+  "upstream_revision": "abc0de79d6ceb0b5d7aa693945849b3937afbe6a",
+  "scanner_revision": "9dbf4fc75386169275e5f18c47686cb0d7274afa",
+  "full_report_sha256": "8adc856900bcbb9e943265124d17e512425d6690e329c3b3004fbe6312ae3479",
+  "scope": "All seven findings intersecting the sixteen retained originals. Full repository scan and incomplete-coverage ledger retained with owning task evidence.",
+  "findings": [
+    {
+      "id": "AR2",
+      "finding_id": "finding-f7bdf48f91e6473fa3abe931fc373e7f",
+      "category": "Anti-Refusal",
+      "pattern": "Anti-Refusal Statement",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": ".claude/scripts/review-scope.sh",
+        "start_line": 16,
+        "end_line": 16,
+        "start_column": 26,
+        "end_column": 41
+      },
+      "finding": "without warning",
+      "explanation": "Skill instructs the agent to omit warnings, disclaimers, or ethical commentary. Stripping safety caveats hides risk from the user and is a common jailbreak preamble.",
+      "remediation": "Remove instructions that suppress warnings, disclaimers, or ethical commentary. Let the agent surface safety-relevant caveats to the user.",
+      "code_snippet": "#   DEPS ...:                     declared .md dependencies of the changed GDDs\n#\n# CORRECTNESS NOTES \u2014 three silent-data-loss bugs were fixed when porting this.\n# All three dropped files without warning, which in a review tool means a changed\n# design doc quietly escapes review:\n#\n#   1. git pathspecs are fnmatch WITHOUT FNM_PATHNAME, so `*` crosses `/`:",
+      "intent": null,
+      "tags": [
+        "Anti-Refusal"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e1c52694e854c5bd049e3a3ae66f3efcfe098f61a8ee160655ad3b90035f67fd",
+      "occurrences": [
+        {
+          "file": ".claude/scripts/review-scope.sh",
+          "start_line": 16,
+          "end_line": 16,
+          "start_column": 26,
+          "end_column": 41
+        }
+      ],
+      "surface": "comments"
+    },
+    {
+      "id": "SC9",
+      "finding_id": "finding-925c697b90d44df9a8b1722852164f17",
+      "category": "Supply Chain",
+      "pattern": "Concealed Executable Artifact",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "location": {
+        "file": ".claude/scripts/review-scope.sh",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": ".claude/scripts/review-scope.sh",
+      "explanation": "An executable nested in a document or hidden/disguised artifact can evade ordinary extension-based review while still being available to the skill at runtime.",
+      "remediation": "Review the artifact provenance and the reason executable content is packaged in this location; keep executable files explicit and directly reviewable.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "supply-chain",
+        "concealed-executable",
+        "local-only"
+      ],
+      "evidence": {
+        "outer_path": ".claude/scripts/review-scope.sh",
+        "nested_path": ".claude/scripts/review-scope.sh",
+        "container_type": "filesystem",
+        "container_ancestry": [
+          "filesystem"
+        ],
+        "container_depth": 0,
+        "concealment": "hidden_artifact",
+        "concealment_reasons": [
+          "hidden_artifact"
+        ],
+        "local_only": true,
+        "referenced": false,
+        "excluded_from_analysis": false,
+        "partially_analyzed_executable": false,
+        "excluded_inspection_incomplete": false,
+        "inherited_exclusion_reason": null,
+        "inspection_limitation_reason": null
+      },
+      "match_fingerprint": "23afc3ca614874627059047e90e5e501b24df216986e4982dbf0fea4fc730ed9",
+      "occurrences": [
+        {
+          "file": ".claude/scripts/review-scope.sh",
+          "start_line": 1,
+          "end_line": null
+        }
+      ],
+      "surface": "code"
+    },
+    {
+      "id": "AR2",
+      "finding_id": "finding-e7bc949625de416ea5c861cf9bea928f",
+      "category": "Anti-Refusal",
+      "pattern": "Anti-Refusal Statement",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": ".claude/skills/review-all-gdds/references/5-report.md",
+        "start_line": 79,
+        "end_line": 79,
+        "start_column": 29,
+        "end_column": 40
+      },
+      "finding": "no warnings",
+      "explanation": "Skill instructs the agent to omit warnings, disclaimers, or ethical commentary. Stripping safety caveats hides risk from the user and is a common jailbreak preamble.",
+      "remediation": "Remove instructions that suppress warnings, disclaimers, or ethical commentary. Let the agent surface safety-relevant caveats to the user.",
+      "code_snippet": "\n### Verdict: [PASS / NOT ASSESSED / CONCERNS / FAIL]\n\nPASS: No blocking issues and no warnings.\nNOT ASSESSED: One or more review phases could not run \u2014 named below.\nCONCERNS: Warnings present that should be resolved, but nothing blocking.\nFAIL: One or more blocking issues must be resolved before architecture begins.",
+      "intent": null,
+      "tags": [
+        "Anti-Refusal"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6c8054857f33a9ba7845d7c88384ccfa0cdb75d2cd98c594df12b25a3c301d9c",
+      "occurrences": [
+        {
+          "file": ".claude/skills/review-all-gdds/references/5-report.md",
+          "start_line": 79,
+          "end_line": 79,
+          "start_column": 29,
+          "end_column": 40
+        }
+      ],
+      "surface": "docs"
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-27f14d78a631427cb1b3ae1827b5cc77",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": ".claude/skills/review-all-gdds/references/4-scenarios.md",
+        "start_line": 65,
+        "end_line": null,
+        "start_column": 42
+      },
+      "finding": "without checking",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "\u2192 quest.md: kill-count criterion met \u2192 triggers quest completion event\n  Output: quest reward XP (500 pts), completion fanfare\n\u2192 progression.md (again): quest XP added \u2192 triggers SECOND level-up in same frame\n  \u26a0\ufe0f  Data flow issue: quest.md awards XP without checking if a level-up\n  is already in progress. progression.md has no guard against concurrent\n  level-up events. Undefined behavior: does the player level up once or twice?\n  Does the ability popup fire twice? Does the second level use the updated or",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9341b6f34d6af9081a0d6673f4217b7307d273da9f43357efd9029e15c5da76c",
+      "occurrences": [
+        {
+          "file": ".claude/skills/review-all-gdds/references/4-scenarios.md",
+          "start_line": 65,
+          "end_line": null,
+          "start_column": 42
+        }
+      ],
+      "surface": "docs"
+    },
+    {
+      "id": "AS3",
+      "finding_id": "finding-a3bbff6ce87948f4af761aa5496b4c9a",
+      "category": "Agent Snooping",
+      "pattern": "Skill Enumeration",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": ".claude/docs/workflow-modes.md",
+        "start_line": 79,
+        "end_line": null,
+        "start_column": 11
+      },
+      "finding": "skills/gate-check/SKILL.md",
+      "explanation": "Skill enumerates or reads other installed skills. Access to other skills' SKILL.md files or the skills directory reveals prompt instructions, capabilities, and secrets that should be invisible to peer skills.",
+      "remediation": "Remove all code or instructions that list or read other skills' files or directories. Skills should operate independently; cross-skill access is a privilege escalation.",
+      "code_snippet": "\n> **Checked where GDDs are expected to already exist \u2014 not by the skill that\n> writes them.** `/gate-check` is the single implementing site (see\n> `.claude/skills/gate-check/SKILL.md` \u00a7\"Per-system overrides\"), and it runs at a\n> phase boundary, by which point every in-scope GDD should be on disk. An\n> unmatched key there is genuinely suspicious.\n>",
+      "intent": null,
+      "tags": [
+        "Agent Snooping"
+      ],
+      "evidence": {},
+      "match_fingerprint": "fa574dd7c95e5e95bb34c84a51968995534152f48c9b0270d2b8e3d7f99ac99a",
+      "occurrences": [
+        {
+          "file": ".claude/docs/workflow-modes.md",
+          "start_line": 79,
+          "end_line": null,
+          "start_column": 11
+        }
+      ],
+      "surface": "docs"
+    },
+    {
+      "id": "EA5",
+      "finding_id": "finding-d96c5b50a19642aea559a1e783d9787f",
+      "category": "Excessive Agency",
+      "pattern": "External Model or Provider Selection",
+      "severity": "MEDIUM",
+      "confidence": 0.9,
+      "location": {
+        "file": ".claude/skills/balance-check/SKILL.md",
+        "start_line": 7,
+        "end_line": 7,
+        "start_column": 0,
+        "end_column": 13
+      },
+      "finding": "model: sonnet",
+      "explanation": "Skill selects an external model or provider that may use a different account or billing plan than the operator expects. Undisclosed model switches can cause unexpected cost or quota consumption.",
+      "remediation": "Remove the model/provider override or disclose it prominently and require explicit operator approval before invoking an external coding CLI or billed model.",
+      "code_snippet": "argument-hint: \"[system-name|path-to-data-file]\"\nuser-invocable: true\nallowed-tools: Read, Glob, Grep, Write, AskUserQuestion, Bash(bash \"*/.claude/skills/balance-check/../../hooks/yaml-helper.sh\" resolve_config *)\nmodel: sonnet\n---\n\n!`bash \"${CLAUDE_SKILL_DIR}/../../hooks/yaml-helper.sh\" resolve_config --keys automation`",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {
+        "selection_surface": "frontmatter",
+        "selection_key": "model"
+      },
+      "match_fingerprint": "7900c66a34788b5a1355dcb123db6ee475ac5e8ff15e144d422d66040f06a652",
+      "occurrences": [
+        {
+          "file": ".claude/skills/balance-check/SKILL.md",
+          "start_line": 7,
+          "end_line": 7,
+          "start_column": 0,
+          "end_column": 13
+        }
+      ],
+      "surface": "instructions"
+    },
+    {
+      "id": "EA5",
+      "finding_id": "finding-cb6f01b807f24bd79a765c6d8b26eb1e",
+      "category": "Excessive Agency",
+      "pattern": "External Model or Provider Selection",
+      "severity": "MEDIUM",
+      "confidence": 0.9,
+      "location": {
+        "file": ".claude/skills/review-all-gdds/SKILL.md",
+        "start_line": 7,
+        "end_line": 7,
+        "start_column": 0,
+        "end_column": 11
+      },
+      "finding": "model: opus",
+      "explanation": "Skill selects an external model or provider that may use a different account or billing plan than the operator expects. Undisclosed model switches can cause unexpected cost or quota consumption.",
+      "remediation": "Remove the model/provider override or disclose it prominently and require explicit operator approval before invoking an external coding CLI or billed model.",
+      "code_snippet": "argument-hint: \"[focus: full | consistency | design-theory | since-last-review]\"\nuser-invocable: true\nallowed-tools: Read, Glob, Grep, Write, Edit, AskUserQuestion, Agent, Bash(bash \"*/.claude/skills/review-all-gdds/../../hooks/yaml-helper.sh\" resolve_config *), Bash(bash .claude/scripts/review-scope.sh*)\nmodel: opus\n---\n\n!`bash \"${CLAUDE_SKILL_DIR}/../../hooks/yaml-helper.sh\" resolve_config --keys automation,workflow,system_overrides`",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {
+        "selection_surface": "frontmatter",
+        "selection_key": "model"
+      },
+      "match_fingerprint": "585382cc0b6e7536fa54c4695904b2a114f8a8d0beaa7d7f1a9fa9549250195f",
+      "occurrences": [
+        {
+          "file": ".claude/skills/review-all-gdds/SKILL.md",
+          "start_line": 7,
+          "end_line": 7,
+          "start_column": 0,
+          "end_column": 11
+        }
+      ],
+      "surface": "instructions"
+    }
+  ]
+}

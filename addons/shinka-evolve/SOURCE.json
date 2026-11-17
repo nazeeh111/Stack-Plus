@@ -1,0 +1,100 @@
+{
+  "repository": "SakanaAI/ShinkaEvolve",
+  "revision": "7ab55d7254d2732b26d9c30dde23ab777de631cb",
+  "source_url": "https://github.com/SakanaAI/ShinkaEvolve/tree/7ab55d7254d2732b26d9c30dde23ab777de631cb",
+  "license": "Apache-2.0",
+  "license_source_sha256": "c3e5b1c26607caf7208d5a105c113fe240630bb873fdb8ca5b4c2e32c721ddaf",
+  "installation_adaptation": "Authored native entry links complete original phase methods and all their scripts/templates; original method filenames relocated to METHOD.md to expose one skill only. Runtime remains separate and on demand. Any content changes are listed with exact originals and replayable diffs.",
+  "runtime_key": "ShinkaEvolve",
+  "runtime_guide": "integrations/research/README.md",
+  "upstream_files": {
+    "methods/skills/shinka-convert/METHOD.md": {
+      "source_path": "skills/shinka-convert/SKILL.md",
+      "source_sha256": "88daa14d50f5a89abdf9aafe4aa87612794fd7bbc2e0def443d24750f40b6c1c",
+      "sha256": "88daa14d50f5a89abdf9aafe4aa87612794fd7bbc2e0def443d24750f40b6c1c",
+      "relocation": "SKILL.md renamed METHOD.md to retain complete operative methods without duplicate discovery",
+      "source_executable": false
+    },
+    "methods/skills/shinka-convert/scripts/run_evo.py": {
+      "source_path": "skills/shinka-convert/scripts/run_evo.py",
+      "source_sha256": "e1ceeffafb0c4c7ec7205af9a4d2e0a0ac3a7bc9676e6a838cb69956eacfe400",
+      "sha256": "e1ceeffafb0c4c7ec7205af9a4d2e0a0ac3a7bc9676e6a838cb69956eacfe400",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/skills/shinka-convert/scripts/shinka.yaml": {
+      "source_path": "skills/shinka-convert/scripts/shinka.yaml",
+      "source_sha256": "f71584452be1fe33f36c37bf357709c95f35050c5b69ee7e43394066c8d6ab9a",
+      "sha256": "f71584452be1fe33f36c37bf357709c95f35050c5b69ee7e43394066c8d6ab9a",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/skills/shinka-inspect/METHOD.md": {
+      "source_path": "skills/shinka-inspect/SKILL.md",
+      "source_sha256": "1ed7c5c1cd1727c4c8d177673a2c5b5831972a4852dd26734e51e4cee3aaf1ff",
+      "sha256": "1ed7c5c1cd1727c4c8d177673a2c5b5831972a4852dd26734e51e4cee3aaf1ff",
+      "relocation": "SKILL.md renamed METHOD.md to retain complete operative methods without duplicate discovery",
+      "source_executable": false
+    },
+    "methods/skills/shinka-inspect/scripts/inspect_best_programs.py": {
+      "source_path": "skills/shinka-inspect/scripts/inspect_best_programs.py",
+      "source_sha256": "21f8d9e85316ecc7a75336609283cb9bfd40cd50d452ffbd30d759e55318185f",
+      "sha256": "21f8d9e85316ecc7a75336609283cb9bfd40cd50d452ffbd30d759e55318185f",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/skills/shinka-run/METHOD.md": {
+      "source_path": "skills/shinka-run/SKILL.md",
+      "source_sha256": "b730e37e7ed5d70aeedb181329011f4d12bd052990cfee6ea14c0c36d439a5be",
+      "sha256": "5734e7b16ad1838417604693946e5ca71bb89c884bd5ba15bf6c0774e093e78c",
+      "relocation": "SKILL.md renamed METHOD.md to retain complete operative methods without duplicate discovery",
+      "source_executable": false
+    },
+    "methods/skills/shinka-setup/METHOD.md": {
+      "source_path": "skills/shinka-setup/SKILL.md",
+      "source_sha256": "6f8176e18eb730174bd63bf069ac2909f92163474d47dc6a43c927cb4dc7565a",
+      "sha256": "4be858527a7f491fca8e1fc9a124caced486744c6af44f32dda80c00a29ac946",
+      "relocation": "SKILL.md renamed METHOD.md to retain complete operative methods without duplicate discovery",
+      "source_executable": false
+    },
+    "methods/skills/shinka-setup/scripts/run_evo.py": {
+      "source_path": "skills/shinka-setup/scripts/run_evo.py",
+      "source_sha256": "4f2982a860951900c65f281dcd3fa7589bbfb51d7d77b6b9c18e381fcbea0a1b",
+      "sha256": "4f2982a860951900c65f281dcd3fa7589bbfb51d7d77b6b9c18e381fcbea0a1b",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    },
+    "methods/skills/shinka-setup/scripts/shinka.yaml": {
+      "source_path": "skills/shinka-setup/scripts/shinka.yaml",
+      "source_sha256": "e1887624489223fd1ac0f2233c3b7902732324da912a4cf775fe0d533ac57fb4",
+      "sha256": "e1887624489223fd1ac0f2233c3b7902732324da912a4cf775fe0d533ac57fb4",
+      "relocation": "Source-relative structure retained under methods/",
+      "source_executable": false
+    }
+  },
+  "adapted_files": [
+    {
+      "source_path": "skills/shinka-run/SKILL.md",
+      "active_path": "methods/skills/shinka-run/METHOD.md",
+      "original": "originals/skills/shinka-run/ORIGINAL-SKILL.md",
+      "source_sha256": "b730e37e7ed5d70aeedb181329011f4d12bd052990cfee6ea14c0c36d439a5be",
+      "active_sha256": "5734e7b16ad1838417604693946e5ca71bb89c884bd5ba15bf6c0774e093e78c",
+      "diff": "adaptations/skills__shinka-run__SKILL.md.diff",
+      "reason": "Correct upstream paper URL: original2212.04180 is evosax; owning README and arXiv identify ShinkaEvolve2509.19349. Method unchanged."
+    },
+    {
+      "source_path": "skills/shinka-setup/SKILL.md",
+      "active_path": "methods/skills/shinka-setup/METHOD.md",
+      "original": "originals/skills/shinka-setup/ORIGINAL-SKILL.md",
+      "source_sha256": "6f8176e18eb730174bd63bf069ac2909f92163474d47dc6a43c927cb4dc7565a",
+      "active_sha256": "4be858527a7f491fca8e1fc9a124caced486744c6af44f32dda80c00a29ac946",
+      "diff": "adaptations/skills__shinka-setup__SKILL.md.diff",
+      "reason": "Correct upstream paper URL: original2212.04180 is evosax; owning README and arXiv identify ShinkaEvolve2509.19349. Method unchanged."
+    }
+  ],
+  "authored_native_files": [
+    "SKILL.md",
+    "NATIVE-BINDINGS.md"
+  ],
+  "source_path_hashes_sha256": "6b1ac3824daea05a35a270bcda67790ae5998dd30f34de9cfd895c9d002c4002"
+}

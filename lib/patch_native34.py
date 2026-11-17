@@ -93,13 +93,6 @@ def native_text(text,kind,file,source_root):
   from patch_pstack import text_port
   text=text_port(text,file)
   text=re.sub(r'(?m)^In Codex, read \[the Codex adapter\].*\n','',text)
-  text=text.replace('Run the **how** skill over the relevant subsystems.','Read the relevant current source and trace its actual entrypoints and callers.')
-  text=text.replace('also run the **why** skill on the existing shape','also inspect the existing design history and rationale')
-  text=text.replace('Run the **how** skill over what\'s been built.','Read and trace what has actually been built.')
-  text=text.replace('Companion to `how` and `why`. `how` tells you what the code does. `why` tells you why it\'s shaped that way. Blast radius tells you what it breaks somewhere else.',
-                    'Use current local source, behavior and Git history. Trace the concrete dependency and prove the affected invariant with an executable check.')
-  text=text.replace('Same rules as `why`.','Use current source, scoped Git evidence and observed behavior.')
-  text=text.replace('Use `why` step 2 to pull the PR and commits.','Read the actual local diff/history; fetch the exact PR only when relevant and authorized.')
   text=text.replace('`perf`','the target profiler (`xctrace`/Instruments on macOS, perf only on an appropriate Linux target)')
  if kind=='P401':
   from patch_paperbanana import text_port
@@ -237,6 +230,9 @@ def materialize(source,out,s,c):
   from patch_pstack import entry_policy
   text=entry_policy(text)
  skill.write_text(text)
+ if s['candidate_id']=='P028':
+  from patch_pstack import support_methods
+  support_methods(source,root,lambda text,file:native_text(text,'P028',file,root))
  from closure import support,validate
  support(source,root,text_transform=lambda text,file:native_text(text,s['candidate_id'],file,root))
  if s['candidate_id']=='P111':

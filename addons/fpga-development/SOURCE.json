@@ -1,0 +1,125 @@
+{
+  "repository": "magnus919/agent-skills",
+  "revision": "6e472b033750c23e3139fd83744e089a6ee66ad1",
+  "source_url": "https://github.com/magnus919/agent-skills/tree/6e472b033750c23e3139fd83744e089a6ee66ad1/fpga-development",
+  "license": "MIT",
+  "upstream_files": {
+    "upstream/README.md": {
+      "source_path": "README.md",
+      "sha256": "f24bb1c43b573c97e6e69362913e287bcee5763bf9d81edc95461b25ba655290"
+    },
+    "upstream/ORIGINAL-SKILL.md": {
+      "source_path": "SKILL.md",
+      "sha256": "00694220016dba54fac820f04f9c970362b70371b48ce436ce913cb4faa7074a"
+    },
+    "upstream/assets/rv_buffer.sv": {
+      "source_path": "assets/rv_buffer.sv",
+      "sha256": "be68c415f54fda5b817e54bd6086162fcff66c0bdaa973532eea47c5ba6de404"
+    },
+    "upstream/assets/tb_rv_buffer.sv": {
+      "source_path": "assets/tb_rv_buffer.sv",
+      "sha256": "c90aeaded52c0028ce2f47b53b1590c7b24866b3316f8a7160cebe7803ff6679"
+    },
+    "upstream/evals/evals.json": {
+      "source_path": "evals/evals.json",
+      "sha256": "157ab169e1ed1a7d6692f976eead6f7dba72d4c4b6f3c345e1f757b18483e68f"
+    },
+    "upstream/references/01-target-and-interface-contracts.md": {
+      "source_path": "references/01-target-and-interface-contracts.md",
+      "sha256": "36a1c38b09322f8b3f083e3c5090ca402663bbe5a532a49f538c15ffa10ac9a1"
+    },
+    "upstream/references/02-rtl-synthesizability-and-arithmetic.md": {
+      "source_path": "references/02-rtl-synthesizability-and-arithmetic.md",
+      "sha256": "eb3c962cad53b6a5e2f2a2dd3deaf3ca3d2bac2e8d801ff1d412afed692bfdb1"
+    },
+    "upstream/references/03-simulation-and-verification.md": {
+      "source_path": "references/03-simulation-and-verification.md",
+      "sha256": "239b5ad59c3a6dd0ced09f8bdd089c78e34cce653bc74dfff7a6254c952e9fc1"
+    },
+    "upstream/references/04-clocks-reset-and-cdc.md": {
+      "source_path": "references/04-clocks-reset-and-cdc.md",
+      "sha256": "866794c31f0e42fa75336f6fb34f85c71b1c78eaebdfae620a3de363f3a9bb4f"
+    },
+    "upstream/references/05-timing-and-constraints.md": {
+      "source_path": "references/05-timing-and-constraints.md",
+      "sha256": "6242c752696968c0dfcd9d28fc014d127cddca571940a92a7506e3afdd7ed7f1"
+    },
+    "upstream/references/06-implementation-and-resource-tradeoffs.md": {
+      "source_path": "references/06-implementation-and-resource-tradeoffs.md",
+      "sha256": "7ff294fe746dd004ea91391ec54c6b59562dcdb628f8595d70b0841ebeb4a0ae"
+    },
+    "upstream/references/07-release-and-hardware-verification.md": {
+      "source_path": "references/07-release-and-hardware-verification.md",
+      "sha256": "1fa3f0f503a346f9ecda4c18a7215039439f55c1b9217117f17e0aeb90b1c2d3"
+    },
+    "upstream/scripts/fpga_fixture.py": {
+      "source_path": "scripts/fpga_fixture.py",
+      "sha256": "e5292ff2cdf372e179a495994de4fe673decebc1b11d3778aa3a29595ddbba50"
+    },
+    "upstream/scripts/test_fixture.py": {
+      "source_path": "scripts/test_fixture.py",
+      "sha256": "68d02f7ce99baff943709db3c2b4ba27e90861b7d1da9d4ff89f536388d72bc2"
+    },
+    "upstream/templates/cdc-review.md": {
+      "source_path": "templates/cdc-review.md",
+      "sha256": "59f44797b00069e3043911e01822a530ce26b44f97ce72fc4921ac6d7c246056"
+    },
+    "upstream/templates/implementation-release.md": {
+      "source_path": "templates/implementation-release.md",
+      "sha256": "7bd7af52badacc5271033a4bcc6d9f4b9f4f83080e4f7b0de22975ed42b1007b"
+    },
+    "upstream/templates/rtl-contract.md": {
+      "source_path": "templates/rtl-contract.md",
+      "sha256": "7720fb60d7d096fa82bdab820b9d015b6113bece00d9cff93d83db5b5a506d1b"
+    },
+    "upstream/templates/simulation-plan.md": {
+      "source_path": "templates/simulation-plan.md",
+      "sha256": "25221e71d809ab38fbf2acbb135d3b0c6c9e18acbff580bbdaf5d64585667f36"
+    },
+    "upstream/templates/target-contract.md": {
+      "source_path": "templates/target-contract.md",
+      "sha256": "618a6fa996d73ce72602ee3dc4e8a9a9e3dcdbd088f53527711f5e3e83955570"
+    },
+    "upstream/templates/timing-review.md": {
+      "source_path": "templates/timing-review.md",
+      "sha256": "6d33de5a675c5afb27bffbda5863a679f9e2cd88aca8dc95bf908ccff9c2b14a"
+    },
+    "upstream/LICENSE.md": {
+      "source_path": "LICENSE.md",
+      "sha256": "22fa3b1ec405fe440e86d0d293ce21de0c637ebc37f263dbe3032ee47215cfe2"
+    }
+  },
+  "adapted_files": [
+    {
+      "source_path": "SKILL.md",
+      "active_path": "SKILL.md",
+      "source_sha256": "00694220016dba54fac820f04f9c970362b70371b48ce436ce913cb4faa7074a",
+      "active_sha256": "5ae1f75f5df78de301655299fd6bf2a9579c585d51de05bf393a00b0e126cf9a",
+      "diff": "adaptations/SKILL.md.diff"
+    }
+  ],
+  "unchanged_active_files": [
+    "README.md",
+    "assets/rv_buffer.sv",
+    "assets/tb_rv_buffer.sv",
+    "evals/evals.json",
+    "references/01-target-and-interface-contracts.md",
+    "references/02-rtl-synthesizability-and-arithmetic.md",
+    "references/03-simulation-and-verification.md",
+    "references/04-clocks-reset-and-cdc.md",
+    "references/05-timing-and-constraints.md",
+    "references/06-implementation-and-resource-tradeoffs.md",
+    "references/07-release-and-hardware-verification.md",
+    "scripts/fpga_fixture.py",
+    "scripts/test_fixture.py",
+    "templates/cdc-review.md",
+    "templates/implementation-release.md",
+    "templates/rtl-contract.md",
+    "templates/simulation-plan.md",
+    "templates/target-contract.md",
+    "templates/timing-review.md"
+  ],
+  "authored_native_files": [
+    "NATIVE-BINDINGS.md"
+  ]
+}

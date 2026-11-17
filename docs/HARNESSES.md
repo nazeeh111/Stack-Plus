@@ -11,7 +11,7 @@ tested engine and avoids a second background orchestration service.
 
 | Source reviewed | Role | Decision |
 | --- | --- | --- |
-| [OpenAI Codex](https://github.com/openai/codex), installed CLI 0.167.0 | Native coding agent with its own tools, permissions, sessions and subscription access | Chosen for the explicit everyday launch lane |
+| [OpenAI Codex](https://github.com/openai/codex/releases/tag/rust-v0.169.0), checked CLI 0.169.0 | Native coding agent with its own tools, permissions, sessions and subscription access | Chosen for the explicit everyday launch lane |
 | [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness/tree/fcc0ad462172522aaf5c93a7b2e01f6b9f0b0159), root 0.2.2-rc.1 | Separate plugin-based agent runtime and web/desktop interface | Developer preview; a future isolated experiment, not an OpenCode engine drop-in |
 | [DeepSeek Superagent prototype](https://github.com/deepseek-ai/dsh-superagent-prototype/tree/8c32a9dc5d72c033816c6a8110b37f40cf94fba4), 0.1.0 | One-repository request intake, ticket execution and GitHub replies/PRs using DeepSeek Harness | Reviewed, not installed or activated for ordinary local tasks |
 | [OpenHarness](https://github.com/autonomous-ai/openharness/tree/6b0963497eed7f711270ffba730c61e48fd91d24) | A command center around existing agent terminals, with daemon, hooks and optional machine links | Adds overlap for this single-Mac setup; does not replace an agent's internal engine |

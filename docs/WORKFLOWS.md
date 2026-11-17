@@ -1,5 +1,12 @@
 # On-demand workflows
 
+For clipping and video editing, [media editing](../integrations/media-editing/README.md)
+distinguishes the minimal P230 fixture encoder from a verified full FFmpeg build,
+frame/sample clocks, captions, audio delivery and editable timeline evidence.
+Auto-editor's installed method is separate from native executable admission;
+the reviewed candidate remains blocked by Gatekeeper. Keep that limitation
+explicit rather than treating a prepared runtime or parsed XML as editor acceptance.
+
 For CPU quantum circuits, open-system physics and differentiable models, use
 the existing Qiskit, QuTiP and PennyLane skills with the optional shared
 [local quantum environment](../integrations/quantum/README.md). Its small
@@ -7,6 +14,22 @@ analytic checks are real acceptance; hardware and large algorithms need their
 own verification. [Creative reframing](../addons/creative-reframing/SKILL.md)
 can improve a weak assumption or approach without adding a controller or
 requiring a brainstorming block in every answer.
+
+For RTL/FPGA work, `--fpga` adds the full engineering method, including width,
+arithmetic, handshake, CDC and timing considerations. The optional
+[Icarus/Yosys runtime](../integrations/fpga/README.md) provides CPU simulation and
+synthesis; its checked fault-detection fixture is separate from board signoff.
+`--cirq` adds [Cirq](../integrations/cirq/README.md) for device-aware circuits,
+noise and characterization alongside the existing three quantum methods.
+`--formal-verification` adds pstack's authoring and maintenance methods: turn a
+consequential real-code promise into a runnable check, challenge it with a real
+mutation, and keep its model/code mapping current. It does not create global
+hooks or certify arbitrary software.
+
+`--dream-loop` adds [visual target development](../integrations/dream-loop/README.md):
+implement an actual reference, compare fresh captures with independent critique,
+and refine or stop using the original quality, performance and stall criteria.
+It reuses useful existing visual tools rather than adding another controller.
 
 For agent applications, the existing OpenAI Developers `agents` skill covers
 the [Agents API and SDK](https://developers.openai.com/api/docs/guides/agents-api/overview),
@@ -21,8 +44,11 @@ inference route and model/effort; API billing and deployment are separate choice
 
 The local AI recipes prefer Docker on the command's current PATH, then look in
 existing standard Docker installation locations. This supports nonlogin agent
-shells without another Docker install or a global PATH change. Fresh typed-tool,
-crash/resume and local trace/evaluation checks passed through that fallback.
+shells without another Docker install or a global PATH change. The resolved CLI
+then runs with an explicit local socket, private configuration and a system-only
+PATH, preventing Docker's implicit credential-helper discovery. Fresh typed-tool,
+crash/resume and local trace/evaluation checks passed through the fallback; Docker,
+Compose and Buildx load with the restricted execution PATH.
 
 For a browser workflow needing persistent MCP state, the existing P061 Playwright
 runtime also supplies [Microsoft's MCP server](../integrations/playwright-mcp/README.md).
@@ -72,3 +98,13 @@ Licenses and pinned upstream revisions are recorded beside each integration. Run
 Use [REA](REA.md) for authorized artifact inspection and retained Evidence views.
 Its pinned CLI is separate from Craft Anything and RAEA. Install the shared
 method with `--rea`; runtime installation and operation checks are explicit.
+
+## Executable research studies
+
+`--research-engines` adds the complete ShinkaEvolve program-evolution methods
+and AI Scientist task-qualified study/paper methods. They complement literature
+research rather than replace it. Read the [runtime guide](../integrations/research/README.md)
+for the exact supported transport, source locks, role boundaries and actual
+commissioning status. Methods, runtimes and completed scientific evidence are
+separate: optional modes and missing prerequisites do not become ready through
+installation alone.

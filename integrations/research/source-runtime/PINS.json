@@ -1,0 +1,14 @@
+{
+  "ai-scientist": {
+    "archive_sha256": "0bcd017d989a3eedd8048cf01b3dcfa0276c73a804a46f5902ed8ff89b2547b7",
+    "repository": "https://github.com/SakanaAI/AI-Scientist-v3",
+    "revision": "df8313889a004f8a44a472e19a833cd547bb828a",
+    "tree_sha256": "8e28cdb2bc17f86247fa3c16c4cfd21eb7bb0596f568565d7adeea6d0f38f587"
+  },
+  "shinka": {
+    "archive_sha256": "d89316532018387ea7741a5b7b1a49b1f50622372181200f4513dd49628e10c5",
+    "repository": "https://github.com/SakanaAI/ShinkaEvolve",
+    "revision": "7ab55d7254d2732b26d9c30dde23ab777de631cb",
+    "tree_sha256": "8de444c7e4a8835c19517a31531f6f44ff634e14864b98da7962887d57d32d8e"
+  }
+}

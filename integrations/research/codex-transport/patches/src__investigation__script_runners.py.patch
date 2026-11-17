@@ -1,0 +1,25 @@
+--- a/src/investigation/script_runners.py
++++ b/src/investigation/script_runners.py
+@@ -1169,6 +1169,22 @@
+         raise ValueError(f"unsupported agent: {agent}")
+     if agent == "gemini" and reasoning_effort:
+         raise ValueError("reasoning_effort is not supported for gemini")
++    # Task-owned native transport; the default remains the pinned upstream CLI.
++    native_transport = os.environ.get("HEADLESS_BIN", "")
++    if native_transport:
++        transport_path = Path(native_transport)
++        if not transport_path.is_absolute() or not transport_path.is_file():
++            raise ValueError("HEADLESS_BIN must name an absolute task-owned executable")
++        cmd = [str(transport_path)]
++        cmd.extend([agent, "--debug", "--usage", "--allow", "yolo"])
++        if model:
++            cmd.extend(["--model", model])
++        if profile:
++            raise ValueError("native research transport does not accept profiles")
++        if reasoning_effort:
++            cmd.extend(["--reasoning-effort", reasoning_effort])
++        cmd.extend(["--prompt-file", prompt_file])
++        return cmd
+     cmd = ["env", "HEADLESS_MODELS_DEV_CACHE="]
+     cmd.extend(
+         [

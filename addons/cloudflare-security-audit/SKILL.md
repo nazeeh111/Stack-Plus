@@ -7,6 +7,8 @@ description: Security guidance and vulnerability review for codebases, APIs, ser
 
 Find vulnerabilities that violate a real trust boundary, then give owners the source evidence, safe reproduction, priority, and smallest effective fix. This is a defensive, source-first workflow. A candidate without a concrete affected principal, resource, or security outcome is not a confirmed finding.
 
+> Native supplement: For execution-backed findings and patch validation, read [independent execution and patch evidence](references/defending-code-evidence.md). It adds pristine-baseline and completion checks using the existing native workflow; it does not activate the upstream harness.
+
 ## Operating modes
 
 This skill is guidance by default. Loading it does not authorize the complete audit workflow or file creation.

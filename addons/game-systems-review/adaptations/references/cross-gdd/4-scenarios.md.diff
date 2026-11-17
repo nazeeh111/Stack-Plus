@@ -1,0 +1,12 @@
+--- a/references/cross-gdd/4-scenarios.md
++++ b/references/cross-gdd/4-scenarios.md
+@@ -1,7 +1,6 @@
+-# /review-all-gdds — Phase 4: Cross-System Scenario Walkthrough
++# game-systems-review cross-GDD workflow — Phase 4: Cross-System Scenario Walkthrough
+ 
+-> Part of `/review-all-gdds`. `SKILL.md` names when to read this file; the settings it
+-> resolved and the rules under its later headings still apply here.
++> Part of the [complete cross-GDD method](../cross-gdd-review.md). Use the [native mapping](../../NATIVE-BINDINGS.md) for execution and authority.
+ 
+ ## Phase 4: Cross-System Scenario Walkthrough
+ 

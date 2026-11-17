@@ -1,0 +1,18 @@
+--- upstream/references/fal.md
++++ references/fal.md
+@@ -1,4 +1,6 @@
+ # Fal bootstrap and batch generation
++
++Read [native operation](native-operation.md) before these optional paid commands. Use requires explicit provider, scope and budget authority; this installed reference does not activate Fal.
+ 
+ Use [scripts/fal-batch.mjs](../scripts/fal-batch.mjs) for the Fal queue workflow. It requires Node 18+ and `FAL_KEY` or `FAL_API_KEY`, reads images without platform-specific shell encoding, and preserves the actual queue URLs returned by Fal. It submits independent ready jobs concurrently and never automatically repeats an accepted or uncertain submission.
+ 
+@@ -48,7 +50,7 @@
+ 
+ The helper sends the selected source images to Fal as data URIs; use it within the user's authorization. It prints only compact job status, never image payloads or credentials.
+ 
+-If the sandbox blocks network access, use the environment’s normal approved network execution path. A DNS or connection failure recorded as `not-submitted` can be retried once access is available; do not mistake it for a rejected Fal generation or invent a procedural fallback.
++If a native permission boundary denies network access, report the rejecting control and seek a scoped remedy. Do not bypass it through another execution tool. A DNS or connection failure recorded as `not-submitted` can be retried only once authorized access is available; do not mistake it for a rejected Fal generation or invent a procedural fallback.
+ 
+ `downloaded` means a complete GLB was saved, not that visual validation passed. Preview the models and materials before marking assets ready.
+ 

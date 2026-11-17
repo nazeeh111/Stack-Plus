@@ -65,38 +65,31 @@ nstack, including stripped PATH. Reuse that runtime instead of installing a
 second browser or globally registering another server. Browser automation does
 not require rearranging the Mac's windows or repair native desktop input.
 
-Native host computer use reaches Mac windows, menus and dialogs, but an input
-acknowledgement is not a verified effect. On the author Mac, fresh pointer calls
-returned `noWindowsAvailable` in Obsidian, Calculator and System Settings after a
-full host restart. The old processes were gone, the app/helper signatures were
-valid, the helper matched its bundled bytes and the native updater was current.
-Both control and capture entries were enabled in macOS settings; native Calculator
-accessibility input actually changed0→7→0. Earlier same-desktop dialog cycles had
-passed, with a helper restart confounding the cause. These observations do not
-establish a full-screen-only cause or a general repair. Another identical restart,
-cache deletion or permission reset has no demonstrated benefit for this case.
+Native host computer use reaches Mac windows, menus and dialogs, but verify the
+actual effect before retrying. The November15 check reproduced
+`noWindowsAvailable` while Calculator was on another macOS Space. The same native
+pointer route worked once the window was on the current Space, without changing
+the helper or permissions. Native accessibility input could also deliver before
+its following capture failed with `SCStream-3811`. These checks implicate window
+visibility and possible partial delivery; they do not establish corrupted settings
+or a universal fix. Repeated resets and window rearrangement are not the routine route.
 
 For note data, use the existing Obsidian CLI with an explicit vault and file.
-Home read and the six-row Base query passed without pointer input. A GUI command
-returning Executed did not establish that its dialog appeared: keep data-operation
-and visible-UI acceptance separate. An older windowless help process had coincided
-with native read timeouts; stopping only that precisely identified process restored
-reads. Do not terminate an unknown duplicate or the live window owner. Bounded
-CLI timeouts must clean up their own children. If an app bundle ID is ambiguous,
-use its verified full path.
+Read/search/Base operations do not require pointer input. Verify a requested UI
+effect separately from a data-operation result. Stop only an identified owned
+stuck process, never an unknown duplicate or live window owner.
 
-Existing official Cua Driver0.49.3 has scoped Calculator background pixel/AX
-acceptance, with fresh images and an independent value check. Its later off-Space
-Obsidian menu/pointer trials did not establish reliable effects. Persistent
-foreground activation can redirect concurrent user typing; it is not an unattended
-repair for background delivery. Select any visible control deliberately and verify
-actual effects. A valid capture or activation acknowledgement is insufficient.
-Record the driver's actual binary, matching guides and tested scope in the local
-runtime index; the selected0.38 guide does not identify a0.49 executable. Capture
-IDs bind one pixel action and cannot be reused. A partial batch or UNKNOWN predicate
-needs readback. Use a temporary owned service/session and clean it up; no duplicate
-skill, global daemon, downgrade or grant change is needed. Permission and target
-denials remain binding across all routes.
+Official signed [Cua Driver0.51.3](../integrations/cua-driver/README.md) provides
+an independent on-demand native route.
+The reviewed update preserved the previous app and rehearsed restoration.
+Calculator background pixel7 through accessibility hit-testing and semantic
+7×6=42 passed with image/value readback; expired capture input was refused.
+This does not establish pure HID, drag, every application or off-Space pixels.
+Read the installed runtime index for its launcher, exact version, matching guides
+and evidence. The selected skill's source version is separate from the runtime.
+Use an owned temporary session/service; add no global daemon or permission grant.
+Foreground activation can redirect concurrent typing. Honor permission and target
+denials, reconcile partial delivery and verify the user's requested result.
 
 ChromeDevTools stays an explicit per-task tool, not another globally active
 browser. Use isolated/headless profiles, no usage statistics/performance CrUX,

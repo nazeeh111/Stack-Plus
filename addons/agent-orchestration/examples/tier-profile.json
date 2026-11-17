@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "purpose": "Task-local human-readable record; not host configuration or automatically loaded",
+  "lead": "preserve current chosen model and effort",
+  "tiers": {
+    "Y": {
+      "requested_selector": null,
+      "requested_effort_or_variant": null,
+      "user_authority": null,
+      "availability_evidence": null,
+      "tool_context_limits": null,
+      "observed_task_results": []
+    },
+    "Z": {
+      "requested_selector": null,
+      "requested_effort_or_variant": null,
+      "user_authority": null,
+      "availability_evidence": null,
+      "tool_context_limits": null,
+      "observed_task_results": []
+    }
+  },
+  "task_scope": null,
+  "task_caps": {
+    "attempts": null,
+    "elapsed_time": null,
+    "requests_or_tokens": null,
+    "cost": null,
+    "enforcement": null
+  }
+}

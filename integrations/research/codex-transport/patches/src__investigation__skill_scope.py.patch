@@ -1,0 +1,88 @@
+--- a/src/investigation/skill_scope.py
++++ b/src/investigation/skill_scope.py
+@@ -3,6 +3,8 @@
+ from __future__ import annotations
+ 
+ import os
++import json
++import stat
+ import shutil
+ from pathlib import Path
+ from typing import Sequence
+@@ -148,6 +150,49 @@
+     return shutil.copy2(src, dst, follow_symlinks=follow_symlinks)
+ 
+ 
++def _native_staging_target(src: Path, dst: Path) -> bool:
++    """Validate owned run copies before copytree/copy2 can follow any alias."""
++    if os.environ.get("NSTACK_NATIVE_BRIDGE") != "1":
++        return False
++    roots = [Path(value) for value in json.loads(os.environ["NSTACK_NATIVE_STAGING_ROOTS"])]
++    if not roots or any(not value.is_absolute() or value.resolve() != value
++                        or value.stat().st_uid != os.getuid()
++                        or value.stat().st_mode & 0o077 for value in roots):
++        raise ValueError("Native staging roots must be owned private run directories")
++    destination = dst.absolute()
++    source = src.absolute()
++    if (source.resolve() != source or destination.resolve() != destination
++            or not any(destination != value and destination.is_relative_to(value) for value in roots)
++            or destination.is_relative_to(source) or source.is_relative_to(destination)):
++        raise ValueError("Native staging destination is outside the owned run scope")
++    # Reject source and existing destination aliases BEFORE the original copy.
++    # rglob does not recurse through symlink directories; lstat never follows one.
++    for tree in (source, destination):
++        if not tree.exists() and not tree.is_symlink():
++            continue
++        paths = [tree, *tree.rglob("*")] if tree.is_dir() and not tree.is_symlink() else [tree]
++        for path in paths:
++            metadata = path.lstat()
++            if (stat.S_ISLNK(metadata.st_mode)
++                    or not (stat.S_ISDIR(metadata.st_mode) or stat.S_ISREG(metadata.st_mode))
++                    or (tree == destination and metadata.st_uid != os.getuid())):
++                raise ValueError("Unsafe native staging source/destination alias or owner")
++    return True
++
++
++def stage_skill_file(src: Path, dst: Path) -> None:
++    """Keep original leaf-copy semantics; native owned copies remain writable."""
++    native = _native_staging_target(src, dst)
++    if native:
++        _copy_replacing(str(src), str(dst))
++        metadata = dst.lstat()
++        if dst.is_symlink() or metadata.st_uid != os.getuid():
++            raise ValueError("Unsafe native staging leaf copy")
++        dst.chmod(metadata.st_mode | 0o200, follow_symlinks=False)
++    else:
++        shutil.copy2(src, dst)
++
++
+ def paper_templates_dir(skills_src: Path) -> Path:
+     """Return the checked-in paper templates shared by every writer skill."""
+     return skills_src / PAPER_TEMPLATES_SKILL / "templates"
+@@ -171,6 +216,7 @@
+     files read-only, so re-staging over a previous copy would fail with EACCES. Stale
+     ``.git`` copies left by earlier stagings are removed from the destination.
+     """
++    native_stage = _native_staging_target(src_dir, dst_dir)
+     shutil.copytree(
+         src_dir,
+         dst_dir,
+@@ -178,6 +224,18 @@
+         ignore=_ignore_staging_dirs,
+         copy_function=_copy_replacing,
+     )
++    if native_stage:
++        # Only source-corresponding copied entries, never untracked user files.
++        copied_paths = [dst_dir]
++        for source_root, source_dirs, source_files in os.walk(src_dir):
++            source_dirs[:] = [name for name in source_dirs if name not in _STAGING_IGNORED_DIRS]
++            relative = Path(source_root).relative_to(src_dir)
++            copied_paths.extend(dst_dir / relative / name for name in [*source_dirs, *source_files])
++        for staged in copied_paths:
++            metadata = staged.lstat()
++            if staged.is_symlink() or metadata.st_uid != os.getuid():
++                raise ValueError("Unsafe native staging copy")
++            staged.chmod(metadata.st_mode | 0o200, follow_symlinks=False)
+     for root, dirs, _files in os.walk(dst_dir):
+         stale = [name for name in dirs if name in _STAGING_IGNORED_DIRS]
+         for name in stale:

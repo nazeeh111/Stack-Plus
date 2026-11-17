@@ -1,0 +1,282 @@
+{
+  "repository": "Donchitos/Claude-Code-Game-Studios",
+  "revision": "abc0de79d6ceb0b5d7aa693945849b3937afbe6a",
+  "source_url": "https://github.com/Donchitos/Claude-Code-Game-Studios/tree/abc0de79d6ceb0b5d7aa693945849b3937afbe6a",
+  "archive_sha256": "724f8e96e4d0585a07b27cf191f9ac84c251a99d716e6dba89cfa9924a82a9f4",
+  "license": "MIT; Copyright (c) 2026 Donchitos. Full original notice retained.",
+  "upstream_files": {
+    "upstream/.claude/skills/balance-check/SKILL.md": {
+      "source_path": ".claude/skills/balance-check/SKILL.md",
+      "sha256": "4eafe0eb9569c953b75ed639eede35310663598933e62e2039cfd1bf39292bd5",
+      "bytes": 9246
+    },
+    "upstream/.claude/skills/review-all-gdds/SKILL.md": {
+      "source_path": ".claude/skills/review-all-gdds/SKILL.md",
+      "sha256": "b8c32178939feb494a860a2ddb575af0eb8802fa529d7f0ffe9c3ba2c1b748c0",
+      "bytes": 7461
+    },
+    "upstream/.claude/skills/review-all-gdds/references/1-load.md": {
+      "source_path": ".claude/skills/review-all-gdds/references/1-load.md",
+      "sha256": "db1b6e59f09522e6fb4134f7498954e73c28fa878b390380b5793ada0eff82a5",
+      "bytes": 5046
+    },
+    "upstream/.claude/skills/review-all-gdds/references/2-consistency.md": {
+      "source_path": ".claude/skills/review-all-gdds/references/2-consistency.md",
+      "sha256": "38596caeb557efbca1ecb7b767f558865453b2266a35a59f7e34f173b44a2351",
+      "bytes": 6503
+    },
+    "upstream/.claude/skills/review-all-gdds/references/3-design-holism.md": {
+      "source_path": ".claude/skills/review-all-gdds/references/3-design-holism.md",
+      "sha256": "8855ba326fc36a2406c15afbcbdb22f01875ed079e4cd1446d8ffed668e819ee",
+      "bytes": 7695
+    },
+    "upstream/.claude/skills/review-all-gdds/references/4-scenarios.md": {
+      "source_path": ".claude/skills/review-all-gdds/references/4-scenarios.md",
+      "sha256": "6cbabdb03c253ab2c2fe384ae075d68fbeeef705fc5acd60fcb60f9784ae286d",
+      "bytes": 4485
+    },
+    "upstream/.claude/skills/review-all-gdds/references/5-report.md": {
+      "source_path": ".claude/skills/review-all-gdds/references/5-report.md",
+      "sha256": "ae51d4b943c57dbedb5f08a78ec7b4608324c0a9bb97b509c40bb1772e4040cb",
+      "bytes": 4662
+    },
+    "upstream/.claude/skills/review-all-gdds/references/6-write.md": {
+      "source_path": ".claude/skills/review-all-gdds/references/6-write.md",
+      "sha256": "e4f3a48fd218f010138b5ef0453178dc7d4617db93044a1c57b7f2d35cbd2942",
+      "bytes": 2487
+    },
+    "upstream/.claude/skills/review-all-gdds/references/7-handoff.md": {
+      "source_path": ".claude/skills/review-all-gdds/references/7-handoff.md",
+      "sha256": "76a11e26daef756825db1aabf6380c3781a1ac479eea38a63104ad697163b4c6",
+      "bytes": 2050
+    },
+    "upstream/.claude/agents/game-designer.md": {
+      "source_path": ".claude/agents/game-designer.md",
+      "sha256": "8eb1ddb6f56ec4ee06be5f41d32370dcd82dda65a3ad5d512bfcf4d731902518",
+      "bytes": 13729
+    },
+    "upstream/.claude/docs/error-recovery-protocol.md": {
+      "source_path": ".claude/docs/error-recovery-protocol.md",
+      "sha256": "e98a3b47f921e9c83f3ef586e564382a15aaf34e8cf8648938ba6443eea1c1c9",
+      "bytes": 3402
+    },
+    "upstream/.claude/docs/workflow-modes.md": {
+      "source_path": ".claude/docs/workflow-modes.md",
+      "sha256": "74a787b9ce6d2ddea440e0f88d7439c2bca9cbfaeaa597a4c3740f04331bd619",
+      "bytes": 16446
+    },
+    "upstream/.claude/docs/config-resolution.md": {
+      "source_path": ".claude/docs/config-resolution.md",
+      "sha256": "ef9832403c173ee6318f712fea968097d59f75d247551955585f980753d19cd5",
+      "bytes": 20290
+    },
+    "upstream/.claude/docs/automation-modes.md": {
+      "source_path": ".claude/docs/automation-modes.md",
+      "sha256": "b7b41583cbd4496e7aac325b3173cbd8c5823b36993be7e6fdb48b3aca0aa588",
+      "bytes": 12191
+    },
+    "upstream/.claude/scripts/review-scope.sh": {
+      "source_path": ".claude/scripts/review-scope.sh",
+      "sha256": "cb45e02862d469ed0eaf1805e8a6c8cf25007feebbb3ec7843f94b949285624b",
+      "bytes": 5126
+    },
+    "upstream/LICENSE": {
+      "source_path": "LICENSE",
+      "sha256": "6ecc068715c0edffc4bc21e5dca450803e0a45af145f72221da23d14e7588359",
+      "bytes": 1066
+    }
+  },
+  "adapted_files": {
+    "references/balance-check.md": {
+      "source_path": ".claude/skills/balance-check/SKILL.md",
+      "source_sha256": "4eafe0eb9569c953b75ed639eede35310663598933e62e2039cfd1bf39292bd5",
+      "active_sha256": "fbc6a9ee7f5dbbf8a7df3f076ce55a628805d3e02d85e4b7b2117650901ba987",
+      "diff": "adaptations/references/balance-check.md.diff",
+      "diff_sha256": "b2046217745f2ffdca67017ea1e52db5fdd55b2d69c4b4de4f56d9051accaa57"
+    },
+    "references/cross-gdd-review.md": {
+      "source_path": ".claude/skills/review-all-gdds/SKILL.md",
+      "source_sha256": "b8c32178939feb494a860a2ddb575af0eb8802fa529d7f0ffe9c3ba2c1b748c0",
+      "active_sha256": "f1e8f54edd3b963a38e615578fa6750355f618b569bb22583476fae29b332964",
+      "diff": "adaptations/references/cross-gdd-review.md.diff",
+      "diff_sha256": "46ab6584a45d6b9681858efc8e06abd623a2dd360475ff38dc0c237f806c3440"
+    },
+    "references/cross-gdd/1-load.md": {
+      "source_path": ".claude/skills/review-all-gdds/references/1-load.md",
+      "source_sha256": "db1b6e59f09522e6fb4134f7498954e73c28fa878b390380b5793ada0eff82a5",
+      "active_sha256": "0e40b6d2610406282dbc0e537aac8ff8d63aa284baaaf4ef4e62438fc9333bc7",
+      "diff": "adaptations/references/cross-gdd/1-load.md.diff",
+      "diff_sha256": "40e571be58fa8ac2365e91c84c127f9f33cd409e9756b0dc80cd79fc1f6aa1ad"
+    },
+    "references/cross-gdd/2-consistency.md": {
+      "source_path": ".claude/skills/review-all-gdds/references/2-consistency.md",
+      "source_sha256": "38596caeb557efbca1ecb7b767f558865453b2266a35a59f7e34f173b44a2351",
+      "active_sha256": "8a8208c318117ccf46b1caa020185e2cc85f958c192d6ad470bcdf9875d1b8ec",
+      "diff": "adaptations/references/cross-gdd/2-consistency.md.diff",
+      "diff_sha256": "ba5cd78fd946b6706a62b3df15a8b2af99f5792a0ec6447d3d6bde8195986fdd"
+    },
+    "references/cross-gdd/3-design-holism.md": {
+      "source_path": ".claude/skills/review-all-gdds/references/3-design-holism.md",
+      "source_sha256": "8855ba326fc36a2406c15afbcbdb22f01875ed079e4cd1446d8ffed668e819ee",
+      "active_sha256": "0e605970669aff61b751443012b20bc25d8e1d448b66ea403f459f9a50cce62f",
+      "diff": "adaptations/references/cross-gdd/3-design-holism.md.diff",
+      "diff_sha256": "5c49ed2c7ad2e3fdfe506b177f193178631538e69514d29975529f2de5aed9cc"
+    },
+    "references/cross-gdd/4-scenarios.md": {
+      "source_path": ".claude/skills/review-all-gdds/references/4-scenarios.md",
+      "source_sha256": "6cbabdb03c253ab2c2fe384ae075d68fbeeef705fc5acd60fcb60f9784ae286d",
+      "active_sha256": "e1155db79324e6886a8d26f0cfcc741ea35e8204013a1ee90d4eb6dec06d1e0a",
+      "diff": "adaptations/references/cross-gdd/4-scenarios.md.diff",
+      "diff_sha256": "631828f22f269b45df42f2c94c860f37c93383d6b06d8594854dc5f071babed8"
+    },
+    "references/cross-gdd/5-report.md": {
+      "source_path": ".claude/skills/review-all-gdds/references/5-report.md",
+      "source_sha256": "ae51d4b943c57dbedb5f08a78ec7b4608324c0a9bb97b509c40bb1772e4040cb",
+      "active_sha256": "40ca28320e479a781f0f0361ffcaa5081244689dcb03b17180d37a3f055ceb12",
+      "diff": "adaptations/references/cross-gdd/5-report.md.diff",
+      "diff_sha256": "689d1da0765b82eaf0dfdefac3e907c1c20b960ba7be5d2880dad162c6045337"
+    },
+    "references/cross-gdd/6-write.md": {
+      "source_path": ".claude/skills/review-all-gdds/references/6-write.md",
+      "source_sha256": "e4f3a48fd218f010138b5ef0453178dc7d4617db93044a1c57b7f2d35cbd2942",
+      "active_sha256": "dd747005d90157e373ef16d3afecb05baa2c3cb4a5df2b48f6280b827cce5c51",
+      "diff": "adaptations/references/cross-gdd/6-write.md.diff",
+      "diff_sha256": "51653bde8afcdcd75f18e6a0dc2e0e96b3ed1cf6109a128fd21466c063e8b62d"
+    },
+    "references/cross-gdd/7-handoff.md": {
+      "source_path": ".claude/skills/review-all-gdds/references/7-handoff.md",
+      "source_sha256": "76a11e26daef756825db1aabf6380c3781a1ac479eea38a63104ad697163b4c6",
+      "active_sha256": "5a40ded2f7c6ae77446be6fb4cd2606988f7e777a9fed286a6904ff66f9cd27d",
+      "diff": "adaptations/references/cross-gdd/7-handoff.md.diff",
+      "diff_sha256": "52965f9177ffdbeb68d1fb837110a670bcead7693a9fcc3ab8552a8ef4d4e176"
+    },
+    "references/game-designer.md": {
+      "source_path": ".claude/agents/game-designer.md",
+      "source_sha256": "8eb1ddb6f56ec4ee06be5f41d32370dcd82dda65a3ad5d512bfcf4d731902518",
+      "active_sha256": "5e37a4500a3cc0c910c174892114cdd2e4b1540f55a5b9c15c744b03e9883515",
+      "diff": "adaptations/references/game-designer.md.diff",
+      "diff_sha256": "f0e29d015fe8f6f80a2ca94322f90a1fa48450a97bbbee644ea46f8b0820975f"
+    }
+  },
+  "unchanged_active_files": {
+    "LICENSE": "LICENSE"
+  },
+  "adaptation": "Complete balance-check and all seven review-all-gdds phases plus game-designer craft retained. Native authority/tool/config/dispatch/follow-up mapping and explicit game-evidence qualifications replace only host/process assumptions. Framework originals and helper remain archival, not executable native callbacks. No prototype/studio/runtime installation.",
+  "static_source_review": "Full source static score100/CRITICAL, partial715/794; narrow closure seven findings adjudicated. See review evidence reference; no blanket security acceptance.",
+  "authored_native_files": {
+    "NATIVE-BINDINGS.md": {
+      "sha256": "dc3813527045ede7607022ec9968461c022981b84894dad0fb687f3a1f3c7042",
+      "bytes": 7861
+    },
+    "SKILL.md": {
+      "sha256": "8d3abf2296c44c3addfe5e7ef3e7d2e3fd4e41cea476a76e373d38ade5be4cb9",
+      "bytes": 1981
+    },
+    "fixtures/REVIEW-REQUEST.md": {
+      "sha256": "7b5cf19fd42f1d47d6618d205b56777bad59a9c2c7a46c01fdfdc271d7fcc75e",
+      "bytes": 1080
+    },
+    "fixtures/consistent-case/data/config.json": {
+      "sha256": "30a33d8dbe34b98b0ef703a9aa5647574ca3d9f8900e161342d9169d95fcb6db",
+      "bytes": 86
+    },
+    "fixtures/consistent-case/design/game-brief.md": {
+      "sha256": "f29147d6df16692bcacf8b1d32e7527eac86a5439d0ebcc2d4c235c6bab38f72",
+      "bytes": 287
+    },
+    "fixtures/consistent-case/design/gdd/combat.md": {
+      "sha256": "879164d90c52025d4a23e89283e61cd83ed11bef546b226cbd6dd3a1f475f6a2",
+      "bytes": 1217
+    },
+    "fixtures/consistent-case/design/gdd/economy.md": {
+      "sha256": "ee6960a1eebd85e8016b64bcba81d34be2fea886b05beeef71ae65f5b772c941",
+      "bytes": 1358
+    },
+    "fixtures/consistent-case/design/gdd/game-pillars.md": {
+      "sha256": "ec4b69d046f283b77edca92ebee4c223abde5d25d053dcc9e1876795abea8f1e",
+      "bytes": 98
+    },
+    "fixtures/consistent-case/design/gdd/systems-index.md": {
+      "sha256": "278a1458b75c6657c0b303783adbce5839d8b453c686cfb227ffa226b6e680be",
+      "bytes": 126
+    },
+    "fixtures/edge-only-case/REVIEW-REQUEST.md": {
+      "sha256": "ed17c74275c3321ab68951e5b32d2e6ec17d72e4e794a8f33d5b6d8552f5f470",
+      "bytes": 455
+    },
+    "fixtures/edge-only-case/design/game-brief.md": {
+      "sha256": "4b635c3c82249c78f47595c4ab7e73d24b8ab1e655525dd01123724871389cbd",
+      "bytes": 205
+    },
+    "fixtures/edge-only-case/design/gdd/combat.md": {
+      "sha256": "74f5dfe7ea8b7224f3990b8fcd3c90f4e75839dc95de084241c9b103650234cf",
+      "bytes": 1046
+    },
+    "fixtures/edge-only-case/design/gdd/economy.md": {
+      "sha256": "c2f38fe781b60a30ab7088a5c4a8a518a2c67bd26a1545be310a64a28dbe3eef",
+      "bytes": 1071
+    },
+    "fixtures/edge-only-case/design/gdd/game-pillars.md": {
+      "sha256": "914b78fe041848449a5f5f4bb0f157744108928a72246dd9c213851e9cf72643",
+      "bytes": 93
+    },
+    "fixtures/edge-only-case/design/gdd/systems-index.md": {
+      "sha256": "278a1458b75c6657c0b303783adbce5839d8b453c686cfb227ffa226b6e680be",
+      "bytes": 126
+    },
+    "fixtures/review-case/data/combat.json": {
+      "sha256": "7eb432246cc922dc55ee095f857947d32584a0161ce604775f77aa88c176593c",
+      "bytes": 99
+    },
+    "fixtures/review-case/data/economy.json": {
+      "sha256": "7780426c85ea11eef73a3ea696e28b092c5ebf40773e7608a968f7ec4b92b8c3",
+      "bytes": 109
+    },
+    "fixtures/review-case/design/game-brief.md": {
+      "sha256": "d0a866c3b8989cabcd512cc2db131620d323781cae1e25841c0ab987b3729be2",
+      "bytes": 388
+    },
+    "fixtures/review-case/design/gdd/combat.md": {
+      "sha256": "478b778f6c4fe04949b1ea07954dbb95f1870a9a9d7985ede49e049683555f2f",
+      "bytes": 1429
+    },
+    "fixtures/review-case/design/gdd/economy.md": {
+      "sha256": "6d0e590a43617496dbb6451b689e2f88910b2d98da52d3f298be0346b10a229a",
+      "bytes": 1341
+    },
+    "fixtures/review-case/design/gdd/game-pillars.md": {
+      "sha256": "61046948caa0c77823ac5e5ca910370cc634feaba9659ce17689e1ca3df713c3",
+      "bytes": 225
+    },
+    "fixtures/review-case/design/gdd/systems-index.md": {
+      "sha256": "278a1458b75c6657c0b303783adbce5839d8b453c686cfb227ffa226b6e680be",
+      "bytes": 126
+    },
+    "fixtures/review-case/design/registry/entities.yaml": {
+      "sha256": "c96a6612f124f8e8ff64eac3832ab3437abb228affdc50f0b0310edf46b75396",
+      "bytes": 283
+    },
+    "references/method-notes.md": {
+      "sha256": "e1d4ac2cfbbfff3565831ce926323475d2ac6e72caec877362d1de16c998e705",
+      "bytes": 2451
+    },
+    "references/port-corrections.md": {
+      "sha256": "f4196f15926f4b7997ee43a15943fc7b71537b3395700fae57816bfbf282e04e",
+      "bytes": 2036
+    },
+    "references/source-review.md": {
+      "sha256": "3fe54e564792d73aad793cb63dd90398387c2e7d9324e7bc6b9f30b8169e584b",
+      "bytes": 3185
+    },
+    "references/static-findings.json": {
+      "sha256": "85e96d2ae79ed7faaa0289b8b69aeb4de475c43a5a2b85971223193100bb6cc4",
+      "bytes": 12695
+    }
+  },
+  "review_evidence": "references/source-review.md",
+  "native_adaptation_revision": 2,
+  "source_review_corrections": {
+    "F1": "Preserve negative expertise boundary; no department dispatch targets.",
+    "F2": "Admit all rule-bearing sections including Edge Cases and Cross-References; intentionally correct inherited section-selection optimization based on source Phase2/4 checks and its own Edge Cases definition. See references/port-corrections.md."
+  }
+}

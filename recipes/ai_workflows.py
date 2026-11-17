@@ -80,7 +80,7 @@ class Runtime:
         # Docker buildx writes its own metadata. A fresh empty directory per
         # invocation avoids reading either host credentials or old client state.
         config = safe_directory(self.parent / 'client-configs' / uuid.uuid4().hex)
-        self.env = {'PATH': '/usr/local/bin:/usr/bin:/bin', 'HOME': str(home), 'DOCKER_CONFIG': str(config),
+        self.env = {'PATH': '/usr/bin:/bin', 'HOME': str(home), 'DOCKER_CONFIG': str(config),
                     'DOCKER_HOST': docker_host, 'LANG': 'C.UTF-8'}
         self.image = 'nstack-ai-workflows:' + self.fingerprint
 

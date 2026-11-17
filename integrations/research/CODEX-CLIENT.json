@@ -1,0 +1,26 @@
+{
+  "repository": "openai/codex",
+  "tag": "rust-v0.169.0",
+  "target_commitish": "main",
+  "source_commit": "d32063f96c2dff1dc96af839b3952abb6acfeda4",
+  "license": "Apache-2.0",
+  "release_api": "https://api.github.com/repos/openai/codex/releases/tags/rust-v0.169.0",
+  "release_url": "https://github.com/openai/codex/releases/tag/rust-v0.169.0",
+  "published_at": "2026-11-13T08:37:05Z",
+  "asset": {
+    "name": "codex-aarch64-apple-darwin.tar.gz",
+    "size": 113553246,
+    "digest": "sha256:7f4c49c80bae1d0b4e347acfcdf11faa3475d87ae5e65a5eb1261d3c358145ee",
+    "browser_download_url": "https://github.com/openai/codex/releases/download/rust-v0.169.0/codex-aarch64-apple-darwin.tar.gz",
+    "id": 742912577,
+    "created_at": "2026-11-13T08:34:52Z",
+    "updated_at": "2026-11-13T08:34:56Z"
+  },
+  "observation_date": "2026-11-15",
+  "authority": "independent anonymous official owning release metadata; protected registry used only as lookup lead",
+  "execution": "none; existing compatible client preferred; no global replacement",
+  "archive_member": "codex-aarch64-apple-darwin",
+  "version": "codex-cli 0.169.0",
+  "platform": "Darwin arm64",
+  "readiness": "Exact compatible client prerequisite; does not establish research-engine acceptance"
+}

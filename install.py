@@ -12,17 +12,42 @@ import config_merge as cm
 from transaction import Transaction,atomic_json,fingerprint,copy,same
 
 def portable_files():
+ provenance={}
  for p in sorted(ROOT.rglob('*')):
   rel=p.relative_to(ROOT)
-  if any(x.startswith('.') or x in ['__pycache__','node_modules','private'] for x in rel.parts):continue
+  if any(x in ['.git','.DS_Store','__pycache__','node_modules','private'] for x in rel.parts):continue
+  if any(x.startswith('.') for x in rel.parts):
+   # An archived upstream host directory is provenance, not live host config.
+   # Admit only exact SOURCE-declared original files with matching bytes.
+   if len(rel.parts)<4 or rel.parts[0]!='addons' or rel.parts[2]!='upstream':continue
+   addon=rel.parts[1]
+   if addon not in provenance:
+    manifest=ROOT/'addons'/addon/'SOURCE.json'
+    if manifest.is_symlink():raise ValueError('Linked addon provenance manifest')
+    receipt=json.loads(manifest.read_text()) if manifest.is_file() else {}
+    originals=receipt.get('upstream_files',{})
+    provenance[addon]=originals if isinstance(originals,dict) else {}
+   original=provenance[addon].get(str(pathlib.PurePosixPath(*rel.parts[2:])))
+   if not isinstance(original,dict) or not isinstance(original.get('sha256'),str):continue
+   if p.is_symlink():raise ValueError('Portable source must not contain linked files')
+   if not p.is_file():continue
+   if hashlib.sha256(p.read_bytes()).hexdigest()!=original['sha256']:raise ValueError('Archived addon provenance changed')
   if p.is_symlink():raise ValueError('Portable source must not contain linked files')
   if p.name=='INSTALL-MANIFEST.json':continue
   if p.is_file() and (rel.parts[0] in ('addons','integrations') or p.suffix in ['.py','.cjs','.mjs','.json','.md','.txt','.in','.lock','.sh','.yml','.yaml','.base','.canvas','.patch'] or p.name in ('LICENSE','NOTICE','COPYING','INTEGRATION-LICENSE','METADATA','RECORD','WHEEL','py.typed')):yield p,rel
 
 def stage(state):
  files=list(portable_files());hashes={str(rel):hashlib.sha256(p.read_bytes()).hexdigest() for p,rel in files};addon_exec={str(rel):bool(p.stat().st_mode & 0o111) for p,rel in files if rel.parts[0]=='addons'};digest=hashlib.sha256(json.dumps({'files':hashes,'addon_executable':addon_exec},sort_keys=True).encode()).hexdigest();dest=state/'releases'/digest
- if dest.exists():
-  actual={str(p.relative_to(dest)):hashlib.sha256(p.read_bytes()).hexdigest() for p in dest.rglob('*') if p.is_file() and p.name!='INSTALL-MANIFEST.json'}
+ if dest.exists() or dest.is_symlink():
+  seal=dest/'INSTALL-MANIFEST.json'
+  if dest.is_symlink() or not dest.is_dir():raise ValueError('Installed code release is not a regular directory')
+  paths=list(dest.rglob('*'))
+  if any(p.is_symlink() or not (p.is_dir() or p.is_file()) for p in paths):raise ValueError('Installed code release contains redirected or special paths')
+  if not seal.is_file():raise ValueError('Installed code release manifest is missing')
+  try:recorded=json.loads(seal.read_text())
+  except (OSError,ValueError) as error:raise ValueError('Installed code release manifest is unreadable') from error
+  if recorded!=hashes:raise ValueError('Installed code release manifest changed')
+  actual={str(p.relative_to(dest)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths if p.is_file() and p!=seal}
   if actual!=hashes:raise ValueError('Installed code release changed')
   if any(bool((dest/rel).stat().st_mode & 0o111)!=executable for rel,executable in addon_exec.items()):raise ValueError('Installed addon executable mode changed')
   return dest

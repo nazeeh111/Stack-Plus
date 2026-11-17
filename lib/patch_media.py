@@ -11,6 +11,51 @@ Cloud, sign-in, provider and bundled-audio examples below retain upstream method
 '''
 UNADMITTED='UNADMITTED media client: credential discovery is disabled; use an admitted native/local route.'
 
+REMOTION_ROUTER = P('packages/skills/skills/remotion-best-practices/SKILL.md')
+
+
+def finalize_remotion_router(source, out, spec):
+    """Correct the shared router wherever this Remotion leaf's closure includes it."""
+    if spec['candidate_id'] != 'P226':
+        raise ValueError('Remotion routing correction requires P226')
+    router = out / REMOTION_ROUTER
+    if not router.exists():
+        return
+
+    original = (source / REMOTION_ROUTER).read_bytes()
+    original_hash = hashlib.sha256(original).hexdigest()
+    if original_hash != 'e84ef671d5c5bc866800fd6b3337cfa13f3f45005227df9952786f82f939bef8':
+        raise ValueError('Pinned Remotion router changed; review the upstream handoff')
+    preimage = router.read_text()
+    old = ('For achieving multimedia tasks in the browser, such as trimming, cropping videos, '
+           'or getting metadata from them, load [Remotion Multimedia](../remotion-multimedia/SKILL.md)\n')
+    lines = preimage.splitlines(keepends=True)
+    if lines.count(old) != 1:
+        raise ValueError('Expected exactly one reviewed multimedia handoff in the Remotion router')
+    new = ('For audio or video duration and video dimensions, read '
+           '[Remotion Multimedia](../remotion-multimedia/SKILL.md).\n'
+           'To trim a clip in a composition, use [timing props](../remotion-markup/timing-props.md). '
+           'To crop its visible area, use [crop props](../remotion-markup/cropping.md).\n')
+    lines[lines.index(old)] = new
+    corrected = ''.join(lines)
+
+    record = out / 'NATIVE-REMOTION-ROUTING'
+    record.mkdir()
+    archive = record / 'SKILL.md.original'
+    archive.write_bytes(original)
+    router.write_text(corrected)
+    patch = difflib.unified_diff(original.decode().splitlines(True), corrected.splitlines(True),
+                                 fromfile='upstream/' + str(REMOTION_ROUTER),
+                                 tofile='native/' + str(REMOTION_ROUTER))
+    (record / 'ADAPTATION.patch').write_text(''.join(patch))
+    (record / 'SOURCE-ADAPTATION.json').write_text(json.dumps({
+        'candidate_id': 'P226', 'repository': spec['source_repository'], 'revision': spec['revision'],
+        'path': str(REMOTION_ROUTER), 'original': str(archive.relative_to(out)),
+        'upstream_sha256': original_hash, 'materialized_sha256': hashlib.sha256(router.read_bytes()).hexdigest(),
+        'stage': 'Materialized closure, before host exposure metadata',
+    }, indent=2) + '\n')
+
+
 def finalize_credentials(source,out,spec):
  """Gate every mirrored P215 client copy after support closure is complete."""
  if spec['candidate_id']!='P215':raise ValueError('Media privacy gate is P215-only')

@@ -1,0 +1,62 @@
+--- a/references/cross-gdd/3-design-holism.md
++++ b/references/cross-gdd/3-design-holism.md
+@@ -1,7 +1,6 @@
+-# /review-all-gdds — Phase 3: Game Design Holism
++# game-systems-review cross-GDD workflow — Phase 3: Game Design Holism
+ 
+-> Part of `/review-all-gdds`. `SKILL.md` names when to read this file; the settings it
+-> resolved and the rules under its later headings still apply here.
++> Part of the [complete cross-GDD method](../cross-gdd-review.md). Use the [native mapping](../../NATIVE-BINDINGS.md) for execution and authority.
+ 
+ ## Phase 3: Game Design Holism
+ 
+@@ -15,14 +14,13 @@
+ - 3f: Pillar Alignment
+ - 3g: Player Fantasy Coherence
+ 
+-Review all GDDs together through the lens of game design theory and player
+-psychology. These are issues that individual GDD reviews cannot catch because
++Read [game evidence qualifications](../method-notes.md). Review all GDDs together through game-design questions and hypotheses; design theory and player
++psychology examples below are not empirical acceptance thresholds. These are issues that individual GDD reviews cannot catch because
+ they require seeing all systems at once.
+ 
+ ### 3a: Progression Loop Competition
+ 
+-A game should have one dominant progression loop that players feel is "the
+-point" of the game, with supporting loops that feed into it. When multiple
++Ask whether the intended game has one primary progression loop, or deliberately supports several; use the brief and player evidence. In the source's common pattern, supporting loops feed a primary loop. When multiple
+ systems compete equally as the primary progression driver, players don't know
+ what the game is about.
+ 
+@@ -49,8 +47,7 @@
+ - Active = player must make decisions about this system regularly during play
+ - Passive = system runs automatically, player sees results but doesn't manage it
+ 
+-More than 3-4 simultaneously active systems creates cognitive overload for most
+-players. Present the count and flag if it exceeds 4 concurrent active systems:
++Present the simultaneous active-system count as a design question. The source's 3–4-system example below is a heuristic, not a measured universal limit; a count above four prompts a game-specific usability hypothesis, not a finding of proven overload:
+ 
+ ```
+ ⚠️  Cognitive Load Risk
+@@ -62,7 +59,7 @@
+   5. [system-e].md — [cooldown/timer management] (active)
+   6. [system-f].md — [coordination decisions] (active)
+ → 6 simultaneously active systems during the core loop.
+-  Research suggests 3-4 is the comfortable limit for most players.
++  Source heuristic: test whether this combination overloads this game's intended players.
+   Consider: which of these can be made passive or simplified?
+ ```
+ 
+@@ -83,9 +80,9 @@
+ ⚠️  Potential Dominant Strategy
+ combat.md: Ranged attacks deal 80% of melee damage with no risk
+ combat.md: Melee attacks deal 100% damage but require close range
+-→ Unless melee has a significant compensating advantage (AOE, stagger,
+-  resource regeneration), ranged is dominant — higher safety, only 20% less
+-  damage. Consider what melee offers that ranged cannot.
++→ Investigate whether melee has compensating advantages (AOE, stagger,
++  resource regeneration), and measure range, accuracy, exposure and encounter costs.
++  The 80% damage example alone does not prove mathematical dominance. Consider what melee offers that ranged cannot.
+ ```
+ 
+ ### 3d: Economic Loop Analysis

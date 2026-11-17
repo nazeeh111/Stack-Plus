@@ -1,0 +1,55 @@
+--- upstream/ORIGINAL-SKILL.txt
++++ SKILL.md
+@@ -1,9 +1,12 @@
+ ---
+-name: mirroir
+-description: "Drive a real iPhone through macOS iPhone Mirroring with the mirroir MCP tools: read the screen, tap, type, swipe, open apps, and replay skills. Use whenever a task needs the user's phone."
++name: iphone-mirroring-automation
++description: "Read and control an explicitly authorized iPhone Mirroring target with Mirroir MCP: OCR-guided actions, checked state changes and reusable replay. Use for requested iPhone interaction or Mirroir workflows, after verifying the target and permissions."
+ license: Apache-2.0
+-compatibility: "macOS 15 or later with iPhone Mirroring connected, and the mirroir-mcp server."
++metadata:
++  compatibility: "macOS15+; paired iPhone/iPhone Mirroring and explicit phone authority for live operation; indexed Mirroir runtime/tools."
+ ---
++
++> Before source setup or tool calls, read [native operation](NATIVE-BINDINGS.md). The complete original operating method follows; current user/host authority governs its examples.
+ 
+ # Driving an iPhone with mirroir
+ 
+--- upstream/references/onboarding.md
++++ references/onboarding.md
+@@ -50,7 +50,7 @@
+ openclaw mcp add mirroir --command mirroir-mcp
+ ```
+ 
+-For Cursor, VS Code and Claude Desktop, use the configuration block for that client in the [Install guide](install.md#install).
++For Cursor, VS Code and Claude Desktop, use the configuration block for that client in the [Install guide](https://github.com/jfarcand/mirroir-mcp/blob/6b51c9f388b4d1956107cb0e664e75151e70d62d/docs/install.md#install).
+ 
+ Then install the operating manual, which teaches you (and later sessions) how to drive the phone:
+ 
+@@ -102,5 +102,5 @@
+ 
+ ## If something does not fit
+ 
+-- The user's Mac is fine but iPhone Mirroring will not connect: point them to [Apple's iPhone Mirroring page](https://support.apple.com/en-us/120421) and to [Troubleshooting](troubleshooting.md).
++- The user's Mac is fine but iPhone Mirroring will not connect: point them to [Apple's iPhone Mirroring page](https://support.apple.com/en-us/120421) and to [Troubleshooting](https://github.com/jfarcand/mirroir-mcp/blob/6b51c9f388b4d1956107cb0e664e75151e70d62d/docs/troubleshooting.md).
+ - The client cannot run MCP servers: say so; mirroir needs an MCP client.
+--- upstream/references/security.md
++++ references/security.md
+@@ -39,7 +39,7 @@
+ - **A LaunchAgent is persistent background access.** Once installed it starts at every login until you run `launchctl bootout gui/$(id -u)/dev.mirroir.serve` and delete `~/Library/LaunchAgents/dev.mirroir.serve.plist`. It runs from its own app bundle, `~/.mirroir-mcp/mirroir serve.app`, which holds its own Accessibility and Screen Recording grants under the name "mirroir serve": removing the agent does not remove them, so turn them off in Privacy & Security too.
+ - **The bundle is signed with a certificate in your login keychain.** `install-agent` creates a self-signed code-signing certificate, "mirroir serve local signing", so the grants hold across upgrades. macOS grants them to whatever bundle with the identifier `dev.mirroir.serve` that certificate signs: any process running as you can use the key to sign other code under that identifier and inherit both grants. A process running as you can already read the token and drive the agent, so this adds no access, but delete the certificate when you remove the agent.
+ 
+-The [kill switch](#kill-switch) is the same as on stdio: unlock the iPhone, lock the Mac, or stop the agent. See [CLI tools](cli.md#serve) for setup.
++The [kill switch](#kill-switch) is the same as on stdio: unlock the iPhone, lock the Mac, or stop the agent. See [CLI tools](https://github.com/jfarcand/mirroir-mcp/blob/6b51c9f388b4d1956107cb0e664e75151e70d62d/docs/cli.md#serve) for setup.
+ 
+ ## No Root Required
+ 
+--- upstream/references/permissions.md
++++ references/permissions.md
+@@ -77,4 +77,4 @@
+ 
+ Both flags expose all tools regardless of config. Do not use in production.
+ 
+-[`mirroir-mcp serve`](cli.md#serve) refuses both flags: over HTTP, a tool is opened only by listing it in `~/.mirroir-mcp/permissions.json`.
++[`mirroir-mcp serve`](https://github.com/jfarcand/mirroir-mcp/blob/6b51c9f388b4d1956107cb0e664e75151e70d62d/docs/cli.md#serve) refuses both flags: over HTTP, a tool is opened only by listing it in `~/.mirroir-mcp/permissions.json`.

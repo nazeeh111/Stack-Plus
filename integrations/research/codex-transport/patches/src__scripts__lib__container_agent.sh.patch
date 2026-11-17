@@ -1,0 +1,205 @@
+--- a/src/scripts/lib/container_agent.sh
++++ b/src/scripts/lib/container_agent.sh
+@@ -3,6 +3,56 @@
+ set -euo pipefail
+ 
+ AGENT_INNER_CMD=()
++
++# Native transport replaces model dispatch after original role preparation.
++# Every actual task-source/workspace copy is sealed; credentials stay on host.
++nstack_native_role() {
++  local origin role
++  for origin in "${BASH_SOURCE[@]}"; do
++    role="${origin##*/}"
++    case "$role" in
++      task.sh|idea.sh|run.sh|variant_agent.sh|posthoc_agent.sh|paper.sh|paper_edit.sh)
++        printf '%s\n' "$role"; return 0 ;;
++    esac
++  done
++  echo "native bridge cannot identify original scientific role" >&2
++  return 2
++}
++
++append_native_sealed_masks() {
++  [ "${NSTACK_NATIVE_BRIDGE:-0}" = "1" ] || return 0
++  local source="$1" destination="$2" role masks_file flag mount existing found
++  role="$(nstack_native_role)" || return $?
++  masks_file="$(mktemp "${TMPDIR:-/tmp}/native-masks-XXXXXX")" || return $?
++  if ! "$PYTHON_BIN" "${NSTACK_NATIVE_BRIDGE_HELPER:?}" --mode masks --role "$role" \
++      --source "$source" --destination "$destination" > "$masks_file"; then
++    rm -f "$masks_file"; return 2
++  fi
++  while IFS= read -r -d '' flag && IFS= read -r -d '' mount; do
++    [ "$flag" = "-v" ] || { rm -f "$masks_file"; return 2; }
++    found=0
++    # Preserve original contract masks, adding each identical mask only once.
++    for existing in "${docker_cmd[@]}"; do
++      if [ "$existing" = "$mount" ]; then found=1; break; fi
++    done
++    [ "$found" = "1" ] || docker_cmd+=("$flag" "$mount")
++  done < "$masks_file"
++  rm -f "$masks_file"
++}
++
++append_native_agent_controls() {
++  [ "${NSTACK_NATIVE_BRIDGE:-0}" = "1" ] || return 0
++  docker_cmd+=(
++    --read-only --cap-drop ALL --security-opt no-new-privileges
++    --security-opt "seccomp=${NSTACK_NATIVE_AGENT_SECCOMP:?}"
++    --label nstack.research.agent=true --pids-limit 128
++    --cpus "${NSTACK_NATIVE_AGENT_CPUS:?}" --memory "${NSTACK_NATIVE_AGENT_MEMORY:?}"
++    --memory-swap "${NSTACK_NATIVE_AGENT_MEMORY:?}"
++    --tmpfs /tmp:rw,nosuid,nodev,size=268435456,mode=1777
++    --tmpfs /home/agent-home:rw,nosuid,nodev,size=67108864,mode=0700,uid=$(id -u),gid=$(id -g)
++  )
++  append_native_sealed_masks "$1" "$2"
++}
+ HEADLESS_NPX_SPEC="git+https://github.com/RobertTLange/headless-cli.git#93cd9b06b85f848af1308c41e018991b33907c5e"
+ case "${BASH_SOURCE[0]}" in
+   */*) container_agent_lib_source_dir="${BASH_SOURCE[0]%/*}" ;;
+@@ -270,6 +320,7 @@
+ }
+ 
+ should_mount_docker_sock() {
++  [ "${NSTACK_NATIVE_BRIDGE:-0}" != "1" ] || return 1
+   case "${AGENT_CONTAINER_MOUNT_DOCKER_SOCK:-0}" in
+     1|true|TRUE|yes|YES|y|Y) return 0 ;;
+   esac
+@@ -342,6 +393,7 @@
+ }
+ 
+ append_passthrough_envs() {
++  [ "${NSTACK_NATIVE_BRIDGE:-0}" != "1" ] || return 0
+   local keys_raw="${AGENT_CONTAINER_PASSTHROUGH_KEYS:-}"
+   [ -n "$keys_raw" ] || return 0
+ 
+@@ -361,6 +413,7 @@
+ # Docker inherits these values from its own environment. Keeping values out of
+ # the command arguments prevents secrets from appearing in process listings.
+ append_secret_passthrough_envs() {
++  [ "${NSTACK_NATIVE_BRIDGE:-0}" != "1" ] || return 0
+   local keys_raw="${AGENT_CONTAINER_SECRET_PASSTHROUGH_KEYS:-}"
+   [ -n "$keys_raw" ] || return 0
+ 
+@@ -377,6 +430,7 @@
+ }
+ 
+ append_codex_backup_env() {
++  [ "${NSTACK_NATIVE_BRIDGE:-0}" != "1" ] || return 0
+   local -n backup_command="$1"
+   local agent="$2"
+   [ "$agent" = "codex" ] || return 0
+@@ -447,6 +501,9 @@
+     docker_cmd+=(-v "$task_source_mount")
+   fi
+   append_task_sealed_masks "$task_source_container"
++  if [ "${NSTACK_NATIVE_BRIDGE:-0}" = "1" ] && [ -n "$task_source_mount" ]; then
++    append_native_sealed_masks "${TASK_SOURCE_DIR:?}" "$task_source_container" || return $?
++  fi
+   docker_cmd+=(-e "TASK_SOURCE_DIR=$task_source_container")
+ }
+ 
+@@ -481,6 +538,9 @@
+ 
+   [ -n "${AGENT_TASK_SEALED_DIRS:-}" ] || return 0
+   local empty_dir="${AGENT_TASK_SEAL_EMPTY_DIR:-}"
++  if [ "${NSTACK_NATIVE_BRIDGE:-0}" = "1" ]; then
++    empty_dir="${NSTACK_NATIVE_EMPTY_MASK:?}"
++  fi
+   if [[ "$empty_dir" != /* ]] || [ -L "$empty_dir" ] || [ ! -d "$empty_dir" ]; then
+     echo "AGENT_TASK_SEAL_EMPTY_DIR must be an absolute, non-symlink directory" >&2
+     return 1
+@@ -867,6 +927,8 @@
+ }
+ 
+ seed_auth_into_home() {
++  # Return before enumerating or probing any host credential path.
++  [ "${NSTACK_NATIVE_BRIDGE:-0}" != "1" ] || return 0
+   local agent="$1"
+   local auth_root="$2"
+   local home_dir="$3"
+@@ -1201,11 +1263,12 @@
+     -e "TASK_PYTHON=$(container_task_python "$task_source_container")"
+   )
+   append_extra_mounts
+-  docker_cmd+=(
+-    -v "$container_mount_root:/workspace"
+-    -v "$container_home_dir:/home/agent-home"
+-    -w /workspace
+-  )
++  docker_cmd+=(-v "$container_mount_root:/workspace" -w /workspace)
++  if [ "${NSTACK_NATIVE_BRIDGE:-0}" = "1" ]; then
++    append_native_agent_controls "$container_mount_root" /workspace || return $?
++  else
++    docker_cmd+=(-v "$container_home_dir:/home/agent-home")
++  fi
+   if [ "$agent" = "cursor" ]; then
+     docker_cmd+=(-e CURSOR_CLI_BIN=/home/agent/.local/bin/agent)
+   fi
+@@ -1386,6 +1449,10 @@
+   local workdir_readonly="${AGENT_WORKDIR_READONLY:-0}"
+   local AGENT_CONTAINER_ACTIVE_DENY_ENV_KEYS="${AGENT_CONTAINER_DENY_ENV_KEYS:-}"
+   local -a AGENT_INNER_CMD=("${AGENT_INNER_CMD[@]}")
++  if [ "${NSTACK_NATIVE_BRIDGE:-0}" = "1" ]; then
++    [ "$agent" = "codex" ] && [ "$use_container" = "1" ] \
++      && [ "$container_network" = "none" ] && [ -z "$container_env_file" ] || return 2
++  fi
+   local capacity_retries
+   capacity_retries="$(resolve_agent_capacity_retries "$agent" "$container_env_file")" || return $?
+   if [ -n "$capacity_retries" ]; then
+@@ -1477,6 +1544,13 @@
+         return "$docker_rc"
+       fi
+ 
++      if [ "${NSTACK_NATIVE_BRIDGE:-0}" = "1" ]; then
++        "$PYTHON_BIN" "$NSTACK_NATIVE_BRIDGE_HELPER" --mode dispatch \
++          --role "$(nstack_native_role)" --container "$container_session_name" \
++          --cwd "$container_work_dir" -- "${AGENT_INNER_CMD[@]}"
++        return $?
++      fi
++
+       # Inject env vars that may not have existed when the session container
+       # was first started.
+       local -a exec_cmd=(docker exec -w "$container_work_dir")
+@@ -1583,10 +1657,12 @@
+       docker_cmd+=(-v "$container_mount_root:$workspace_root")
+     fi
+     append_workdir_writable_file_mount "$workspace_root" "$workdir_readonly"
+-    docker_cmd+=(
+-      -v "$container_home_dir:/home/agent-home"
+-      -w "$container_work_dir"
+-    )
++    docker_cmd+=(-w "$container_work_dir")
++    if [ "${NSTACK_NATIVE_BRIDGE:-0}" = "1" ]; then
++      append_native_agent_controls "$container_mount_root" "$workspace_root" || return $?
++    else
++      docker_cmd+=(-v "$container_home_dir:/home/agent-home")
++    fi
+     if [ "$agent" = "cursor" ]; then
+       docker_cmd+=(-e CURSOR_CLI_BIN=/home/agent/.local/bin/agent)
+     fi
+@@ -1617,6 +1693,13 @@
+       "$container_image"
+       "${AGENT_INNER_CMD[@]}"
+     )
++
++    if [ "${NSTACK_NATIVE_BRIDGE:-0}" = "1" ]; then
++      "$PYTHON_BIN" "$NSTACK_NATIVE_BRIDGE_HELPER" --mode oneshot \
++        --role "$(nstack_native_role)" --cwd "$container_work_dir" \
++        --inner-count "${#AGENT_INNER_CMD[@]}" -- "${docker_cmd[@]}"
++      return $?
++    fi
+ 
+     for ((attempt = 1; attempt <= max_run_attempts; attempt += 1)); do
+       if ! wait_for_docker_daemon; then
+@@ -1719,6 +1802,10 @@
+     return 2
+   fi
+ 
++  if [ "${NSTACK_NATIVE_BRIDGE:-0}" = "1" ]; then
++    echo "native bridge does not commission direct provider/figure command pipelines" >&2
++    return 2
++  fi
+   AGENT_INNER_CMD=(bash -lc "$command")
+ 
+   _dispatch_inner_command \

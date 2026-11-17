@@ -8,6 +8,29 @@ from transaction import Transaction, atomic_json, copy, fingerprint, same
 import install as profile_install
 
 
+def local_provider_settings(value):
+    """Accept only nonsecret tuning of the built-in local Ollama provider."""
+    if not isinstance(value, dict) or set(value) != {'ollama'}:
+        return False
+    provider = value['ollama']
+    if not isinstance(provider, dict) or set(provider) - {'settings', 'models'}:
+        return False
+    settings, models = provider.get('settings', {}), provider.get('models', {})
+    if (not isinstance(settings, dict) or set(settings) - {'headerTimeout'}
+            or not isinstance(models, dict)):
+        return False
+    if any(type(v) is not int or not 0 < v <= 1800000 for v in settings.values()):
+        return False
+    for model in models.values():
+        if not isinstance(model, dict) or set(model) != {'limit'}:
+            return False
+        limits = model['limit']
+        if (not isinstance(limits, dict) or set(limits) - {'context', 'input', 'output'}
+                or any(type(v) is not int or v <= 0 for v in limits.values())):
+            return False
+    return True
+
+
 
 def knowledge_permissions(config, home, vault, write=None):
     """Share the explicit vault without weakening native read-only roles."""
@@ -107,8 +130,8 @@ def plan(home, state, cli, codex=None, vault=None, vault_write=None):
     previous_config = (json.dumps(config, indent=2) + '\n').encode()
     if codex is not None:
         codex = P(codex).absolute()
-        if version != 'opencode v2.2.6':
-            raise ValueError('The optional Codex terminal launcher is checked against OpenCode 2.2.6')
+        if version not in ('opencode v2.2.6', 'opencode v2.3.0'):
+            raise ValueError('The optional Codex terminal launcher is checked against OpenCode 2.2.6 and 2.3.0')
         if not codex.is_file() or not os.access(codex, os.X_OK):
             raise ValueError('An existing executable native Codex CLI is required')
         native_version = subprocess.run([str(codex), '--version'], check=True, text=True, capture_output=True).stdout.strip()
@@ -129,12 +152,17 @@ def plan(home, state, cli, codex=None, vault=None, vault_write=None):
             current = json.loads(raw)
         except (ValueError, UnicodeError):
             raise ValueError('Existing configuration is preserved; review before replacing: ' + str(config_path)) from None
-        allowed = set(config) | {'permissions', 'policies', 'agents'}
+        user_fields = {'permissions', 'policies', 'agents', 'share', 'update', 'snapshots', 'providers'}
+        allowed = set(config) | user_fields
         if not isinstance(current, dict) or set(current) - allowed:
             raise ValueError('Existing configuration is preserved; review before replacing: ' + str(config_path))
-        extra = {k: current[k] for k in ('permissions', 'policies', 'agents') if k in current}
+        extra = {k: current[k] for k in user_fields if k in current}
         owned = {k: v for k, v in current.items() if k not in extra}
-        if (any(not isinstance(v, list) for k,v in extra.items() if k != 'agents')
+        if (any(not isinstance(extra[k], list) for k in ('permissions', 'policies') if k in extra)
+                or ('share' in extra and extra['share'] not in ('manual', 'auto', 'disabled'))
+                or ('update' in extra and extra['update'] not in ('disable', 'notify', 'auto'))
+                or ('snapshots' in extra and not isinstance(extra['snapshots'], bool))
+                or ('providers' in extra and not local_provider_settings(extra['providers']))
                 or ('agents' in extra and (not isinstance(extra['agents'],dict)
                     or any(not isinstance(v,dict) or set(v)-{'permissions'} or not isinstance(v.get('permissions',[]),list) for v in extra['agents'].values())))):
             raise ValueError('Existing configuration is preserved; review before replacing: ' + str(config_path))
@@ -236,7 +264,7 @@ def main():
     install = sub.add_parser('install'); install.add_argument('--home', default=str(P.home()))
     install.add_argument('--state', default=str(P.home() / 'Library/Application Support/nstack'))
     install.add_argument('--cli', default='/Applications/OpenCode.app/Contents/Resources/opencode-cli')
-    install.add_argument('--codex-harness', metavar='EXECUTABLE', help='Add an explicit native Codex terminal command in OpenCode Desktop 2.2.6')
+    install.add_argument('--codex-harness', metavar='EXECUTABLE', help='Add an explicit native Codex terminal command in verified OpenCode Desktop 2.2.6 or 2.3.0')
     install.add_argument('--vault', metavar='DIRECTORY', help='Share the explicit vault directory; preserve its write choice, initially ask')
     install.add_argument('--vault-write', choices=('ask', 'allow'), help='Explicit vault edit choice for build/general only; otherwise preserve its current policy')
     undo = sub.add_parser('rollback'); undo.add_argument('run'); undo.add_argument('--chain', action='store_true')

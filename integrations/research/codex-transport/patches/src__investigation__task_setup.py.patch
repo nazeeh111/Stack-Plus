@@ -1,0 +1,24 @@
+--- a/src/investigation/task_setup.py
++++ b/src/investigation/task_setup.py
+@@ -4,6 +4,7 @@
+ 
+ import json
+ import logging
++import os
+ import subprocess
+ import sys
+ from pathlib import Path
+@@ -23,6 +24,13 @@
+     Returns ``False`` on failure or timeout.
+     """
+     setup_script = task_dir / "setup.py"
++    # The native bridge controller owns the Docker socket. Unreviewed task
++    # setup is unsupported here; an actually absent setup keeps original behavior.
++    if os.environ.get("NSTACK_NATIVE_BRIDGE") == "1" and (
++        setup_script.exists() or setup_script.is_symlink()
++    ):
++        logger.error("Native bridge rejects task setup.py before controller execution")
++        return False
+     if not setup_script.is_file():
+         logger.debug("No setup.py in %s — skipping task setup", task_dir)
+         return True

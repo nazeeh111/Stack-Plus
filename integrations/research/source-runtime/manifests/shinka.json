@@ -1,0 +1,4671 @@
+{
+  "archive_bytes": 13864960,
+  "archive_command": [
+    "git",
+    "-C",
+    "REVIEWED_CHECKOUT",
+    "archive",
+    "--format=tar",
+    "--output=OWNED_ARCHIVE",
+    "7ab55d7254d2732b26d9c30dde23ab777de631cb"
+  ],
+  "archive_sha256": "d89316532018387ea7741a5b7b1a49b1f50622372181200f4513dd49628e10c5",
+  "files": {
+    ".githooks/pre-push": {
+      "mode": 509,
+      "sha256": "7a649f2dce37c6600605e292b49ddb8f28f13e41eb31dfd2971cc350385cf33c",
+      "size": 400
+    },
+    ".github/ISSUE_TEMPLATE/bug_report.yml": {
+      "mode": 436,
+      "sha256": "6dbf22ff11c0e8d1e964acbff17d732d974994a5681e64758001df73f7ef4901",
+      "size": 1972
+    },
+    ".github/ISSUE_TEMPLATE/config.yml": {
+      "mode": 436,
+      "sha256": "1f103c6a9dd07cd13a9a6f17ace6b813f47747eb9cb7e00488cb2073caaf91bb",
+      "size": 28
+    },
+    ".github/ISSUE_TEMPLATE/feature_request.yml": {
+      "mode": 436,
+      "sha256": "41ada841dcf46ab1126f82af498165a50c35e2bc4354c3ff54779e491b22eea1",
+      "size": 1768
+    },
+    ".github/pull_request_template.md": {
+      "mode": 436,
+      "sha256": "2725cfffff9f9498b9bb1986ee07a8e5af7f2eb05cb02e83ba32d8022c42c6ed",
+      "size": 965
+    },
+    ".github/workflows/ci.yml": {
+      "mode": 436,
+      "sha256": "20861d1227a39d7421004f244fd0aca8d89e90e9315082b95408de444f315682",
+      "size": 1191
+    },
+    ".github/workflows/claude.yml": {
+      "mode": 436,
+      "sha256": "89cdad9b83513590cb8c437d853bbfc5b83925df9fb0ec7a68c3a52b2ec46f37",
+      "size": 2818
+    },
+    ".github/workflows/docs-release.yml": {
+      "mode": 436,
+      "sha256": "adae31a5b2af8bdc9b4fb53b9799e6e58920c72e21c4e2e63c894fd4deda71aa",
+      "size": 1082
+    },
+    ".github/workflows/integration.yml": {
+      "mode": 436,
+      "sha256": "f8497afcfc8facf260219a8a9c58fec921595767e8e3b7ef535f31f846086dbc",
+      "size": 1676
+    },
+    ".github/workflows/pypi-release.yml": {
+      "mode": 436,
+      "sha256": "9069a02c4e2aa68faf961ceab22250b6863dc72dac66b5d4e0cf22a4e429cc13",
+      "size": 1383
+    },
+    ".gitignore": {
+      "mode": 436,
+      "sha256": "385ae42bdc86568e449ffc1298fc227e32c97956ecd89e181b15e500014254b7",
+      "size": 3858
+    },
+    "CHANGELOG.md": {
+      "mode": 436,
+      "sha256": "b1ad5e5faea6b7f0a30f7c958ae94d2d04aa5b967a60b8f3709dd08fb0200e61",
+      "size": 27857
+    },
+    "CONTRIBUTING.md": {
+      "mode": 436,
+      "sha256": "e83145345119dd12732f2abf382e3e1a5365a9e288cb761b8fbae77c33f01f8a",
+      "size": 5217
+    },
+    "LICENSE": {
+      "mode": 436,
+      "sha256": "c3e5b1c26607caf7208d5a105c113fe240630bb873fdb8ca5b4c2e32c721ddaf",
+      "size": 10237
+    },
+    "README.md": {
+      "mode": 436,
+      "sha256": "59479b30a6292024ee0d32ccf156e96539d7221ca259402b1dc41aa59ebb666c",
+      "size": 31860
+    },
+    "docs/agentic_usage.md": {
+      "mode": 436,
+      "sha256": "c7f21168dfaa2f94139bb978e8cd24869f71496c6f391123f296fb0c40459458",
+      "size": 5221
+    },
+    "docs/assets/javascripts/async_throughput_demo.js": {
+      "mode": 436,
+      "sha256": "711a2a5b68741f4a3c468ebd5c1a758f63cc4f971bd04e391640fea95e9dc6eb",
+      "size": 6743
+    },
+    "docs/assets/javascripts/async_throughput_demo_core.js": {
+      "mode": 436,
+      "sha256": "a2ddbefb6225b86da348645d4cd4b2a68495dc5aaae76430874724941bd4615e",
+      "size": 15166
+    },
+    "docs/assets/javascripts/bandit_selection.js": {
+      "mode": 436,
+      "sha256": "a5ad777dc7044e20a4e3c3252af8439bd616713288af650aa0c0f6dd4c309737",
+      "size": 6268
+    },
+    "docs/assets/javascripts/bandit_selection_core.js": {
+      "mode": 436,
+      "sha256": "47c0462bc47ceb82a95966742daf5c56705b6c09eb38e07d9fcf1841ac07e84a",
+      "size": 19633
+    },
+    "docs/assets/stylesheets/async_throughput_demo.css": {
+      "mode": 436,
+      "sha256": "28c571446b87e76c5788c5f6dd72326d2dc31460ae731e73f0f149205e0f0edd",
+      "size": 3641
+    },
+    "docs/assets/stylesheets/bandit_selection.css": {
+      "mode": 436,
+      "sha256": "fb9904afbf834fc142a255b010f6f048ebfc9ff20035f8d002fc5cb0559b670c",
+      "size": 6721
+    },
+    "docs/assets/stylesheets/extra.css": {
+      "mode": 436,
+      "sha256": "5155ebb0d95d1591bc6e74b5e26dd55e5f65b55b6f9525b88c7a90a133231715",
+      "size": 12308
+    },
+    "docs/async_evolution.md": {
+      "mode": 436,
+      "sha256": "2abe5ff9a7d425298a0084d547a8a98556571c21434b7df07b3f37a71ee040d5",
+      "size": 8167
+    },
+    "docs/bandit_selection.md": {
+      "mode": 436,
+      "sha256": "484a643b31424cd4404527c75de247962b8af4aa4ad4f7efd22916f4e39b28af",
+      "size": 4625
+    },
+    "docs/cli_usage.md": {
+      "mode": 436,
+      "sha256": "91f7c033a37651bb84ec0cf35af173d780a11b6823ea5c6b11a7a45fc2dcb66a",
+      "size": 3563
+    },
+    "docs/configuration.md": {
+      "mode": 436,
+      "sha256": "740b56351467dbab2d4c3ae930095f1820ccffd1dbcfa48d35e35e3de2f42c30",
+      "size": 23282
+    },
+    "docs/core_concepts.md": {
+      "mode": 436,
+      "sha256": "82f2a9b6137e7829e623418ad0d2d4dd54b47d2d425848cd15ab407f8a997b2e",
+      "size": 3741
+    },
+    "docs/examples.md": {
+      "mode": 436,
+      "sha256": "b1f8657144119023bffe92da2f9c2a96ac3c37b9b0aab1e61250f847dc4bc5ea",
+      "size": 4109
+    },
+    "docs/getting_started.md": {
+      "mode": 436,
+      "sha256": "89a2d6bfd00e8654f7fba132140c50e34cc4ea038374f286d2f785bc68ecc7f6",
+      "size": 13477
+    },
+    "docs/index.md": {
+      "mode": 436,
+      "sha256": "377dba9383c72d50d142afc781fa55ee2b7e9544d82055db76ae45f00948c231",
+      "size": 4121
+    },
+    "docs/media/async_speed.png": {
+      "mode": 436,
+      "sha256": "520fa70516f5ae91413f56e4468ab0c22f8b27fddd3df832aab38214eb11021b",
+      "size": 563402
+    },
+    "docs/media/claude_run_1.png": {
+      "mode": 436,
+      "sha256": "e7b0e524f5cfbccd6d445366e41baf92d5037c161816b859e3021e5b3d501785",
+      "size": 196499
+    },
+    "docs/media/claude_run_2.png": {
+      "mode": 436,
+      "sha256": "60566ea0155707a95739221df91280fdc75688a2007dac2347ba4511d40ad518",
+      "size": 192539
+    },
+    "docs/media/claude_setup_1.png": {
+      "mode": 436,
+      "sha256": "af133734af30f6839c69c3e822f7bc59cb64c1b1c6ebda99f18016ef0151658f",
+      "size": 206491
+    },
+    "docs/media/claude_setup_2.png": {
+      "mode": 436,
+      "sha256": "aadccca0e9cbfb74be87ff4fe69b0c6029b7a717d4bc6fc8a3157d2f4dee3d1c",
+      "size": 192582
+    },
+    "docs/media/conceptual.png": {
+      "mode": 436,
+      "sha256": "eac2c3bf9ec79108b87e650a4fb2adf7844e0c32d160ec4d2b6547df222b0f1e",
+      "size": 716899
+    },
+    "docs/media/favicon.png": {
+      "mode": 436,
+      "sha256": "259a0e53fa638d9ddcc0eac446c6d4cc3fe86a89a0c17f4fb7d1560e59fd245f",
+      "size": 1657176
+    },
+    "docs/media/tournament_luna_circle_packing.png": {
+      "mode": 436,
+      "sha256": "7e364cbd136e1e5e09fb502e921a125f79db5b04d5a17c1ff612ba842c79f3a7",
+      "size": 103445
+    },
+    "docs/media/webui.png": {
+      "mode": 436,
+      "sha256": "721c8b96c2bb1a84ebe59596783d407b0bbab324cd3758c954deccd575ef5ffc",
+      "size": 841867
+    },
+    "docs/reference/core_api.md": {
+      "mode": 436,
+      "sha256": "500b8117950066c619811e265cedd3f2e56c31cf0da88e21ccf85e153539b1e4",
+      "size": 1155
+    },
+    "docs/reference/database_api.md": {
+      "mode": 436,
+      "sha256": "78db24428429e5c21b45246168d8b68d433d5620d6f7ff1e665096fb9a0866fc",
+      "size": 1190
+    },
+    "docs/reference/embed_api.md": {
+      "mode": 436,
+      "sha256": "28248b38aeb906c4b08311eb95503ad2a9840a3b9ddf314c05ea4546c6816d57",
+      "size": 1173
+    },
+    "docs/reference/index.md": {
+      "mode": 436,
+      "sha256": "06de82e1ac776e4eadb64497ae51f10395bcc93ddb5813d6ee9226162d5028fc",
+      "size": 907
+    },
+    "docs/reference/launch_api.md": {
+      "mode": 436,
+      "sha256": "9226546ad164e715094c3c826f7de23b506081f45ea2101d88ed716961b0241d",
+      "size": 994
+    },
+    "docs/reference/llm_api.md": {
+      "mode": 436,
+      "sha256": "f63087dbef524a95fa2fc16d3eed079c83b2725ec4a38034e647fc95255a8f20",
+      "size": 2513
+    },
+    "docs/support_local_models.md": {
+      "mode": 436,
+      "sha256": "832284caade8adb9305f4fd9a685ec94d921c21cc59e4f0dfa5508bd69d6a0c6",
+      "size": 5727
+    },
+    "docs/webui.md": {
+      "mode": 436,
+      "sha256": "12bd538dcdf8f7b0214adab0da413cb08682441c08422f4bb2b475dfb578fccd",
+      "size": 4747
+    },
+    "examples/__init__.py": {
+      "mode": 436,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "examples/circle_packing/README.md": {
+      "mode": 436,
+      "sha256": "6737073e0e1cef55a0c0d9371441a9be8a6ccbb3ff8c091796f72bd4fb150ce7",
+      "size": 2280
+    },
+    "examples/circle_packing/evaluate.py": {
+      "mode": 436,
+      "sha256": "b8c6de3144b0d1c77e41b9ec62c4845b1e87bbd30692279d17cb2a0d1a7f22ab",
+      "size": 6342
+    },
+    "examples/circle_packing/initial.py": {
+      "mode": 436,
+      "sha256": "09da8428a85792a94a9c6cc2193b6a0db1090ce598a17b75bc0db48d0953d098",
+      "size": 3161
+    },
+    "examples/circle_packing/load_results.ipynb": {
+      "mode": 436,
+      "sha256": "9488cb67025b9f02d99fc9c17973cbcbeabe6f5a5508bd6b06fc3eb8ed7691e9",
+      "size": 1274967
+    },
+    "examples/circle_packing/run_evo.py": {
+      "mode": 436,
+      "sha256": "ed3bc17057296e2611c2421a4607ea4e9d062412b37e3f520cc435b1b5e75535",
+      "size": 2175
+    },
+    "examples/circle_packing/shinka_large.yaml": {
+      "mode": 436,
+      "sha256": "eb42554fdde26ce56f9fa92c05d5ac6e78552ef81c0879e9593a81153a3bab6f",
+      "size": 6144
+    },
+    "examples/circle_packing/shinka_medium.yaml": {
+      "mode": 436,
+      "sha256": "2b72036a3b2f0ba6ac6d7139d10cae51aaac10bd5dcf39b130c9ee253eb04501",
+      "size": 6140
+    },
+    "examples/circle_packing/shinka_small.yaml": {
+      "mode": 436,
+      "sha256": "ab49cf8ff4aa3d1310ffb790751c56abc6762ec24634375d23311d94ed1e7f3c",
+      "size": 6134
+    },
+    "examples/circle_packing/shinka_tournament.yaml": {
+      "mode": 436,
+      "sha256": "c03d93b263bef92eb379b943e9e4112c396565328215dbcbbd7b1b241f085e0a",
+      "size": 658
+    },
+    "examples/circle_packing/viz_circles.ipynb": {
+      "mode": 436,
+      "sha256": "0def5b5f923b8b3ae384fc1e0e1969639f5ea11da027523c336062fd13634eb6",
+      "size": 391326
+    },
+    "examples/fortran_heat_diffusion/README.md": {
+      "mode": 436,
+      "sha256": "fb16328844693394db51d743404720b6069be2c67e942c7d72a4ae2efc6607ed",
+      "size": 1002
+    },
+    "examples/fortran_heat_diffusion/evaluate.py": {
+      "mode": 436,
+      "sha256": "78ac2effb12ac73d7886f9fced57534b596049b8a926d9dbc9600409b9979c27",
+      "size": 8640
+    },
+    "examples/fortran_heat_diffusion/initial.f90": {
+      "mode": 436,
+      "sha256": "c9c3430d549aadf142467d18e6a67c35e24b1f0011865b9651ed072df1bcb367",
+      "size": 3604
+    },
+    "examples/fortran_heat_diffusion/run_evo.py": {
+      "mode": 436,
+      "sha256": "e782451de2a02b56cf76fae423483ef7aa37814cb0933b6ad7284fa2dbc9cc33",
+      "size": 2178
+    },
+    "examples/game_2048/animate.py": {
+      "mode": 436,
+      "sha256": "c45d65662f2a319842766e55e00a9625c549df7c93c05d68b0c94b7e51a8b760",
+      "size": 23293
+    },
+    "examples/game_2048/env.py": {
+      "mode": 436,
+      "sha256": "1533b363131bb27349627c6d4db00959a7164ef1d70d800713fa7e43fe28a1b7",
+      "size": 12918
+    },
+    "examples/game_2048/evaluate.py": {
+      "mode": 436,
+      "sha256": "24ca5494194f749253818a5e9fd65cd74cfef71e636a706121de0c55b40f42e5",
+      "size": 5286
+    },
+    "examples/game_2048/initial.py": {
+      "mode": 436,
+      "sha256": "bac7934a0df09629534e2b6f8142c5084ed1649822bb55090773182c68af467c",
+      "size": 1538
+    },
+    "examples/game_2048/run_evo.py": {
+      "mode": 436,
+      "sha256": "46c207b8a960e307c6c11c62b477aa4b82bd0e331bcd58b6dcbbecf28a3a1688",
+      "size": 3206
+    },
+    "examples/go_collatz_steps/README.md": {
+      "mode": 436,
+      "sha256": "c6e14294ac52834a5cb431e6fb816cb0b496a3fc91ce57413a1d2e09a544529c",
+      "size": 769
+    },
+    "examples/go_collatz_steps/evaluate.py": {
+      "mode": 436,
+      "sha256": "6708e289f154914c1161303b2b3e2d5d44e9b4d606087ce93ea6761eaff85d93",
+      "size": 6292
+    },
+    "examples/go_collatz_steps/initial.go": {
+      "mode": 436,
+      "sha256": "6b11ad79889bda3ee0e8a24aef1f3c0747238dcda0131e59d1dc88a7f0e7de92",
+      "size": 2089
+    },
+    "examples/go_collatz_steps/run_evo.py": {
+      "mode": 436,
+      "sha256": "4cb14295415de4beb669078a3ff2d4d92ddd4765b48593b040300eb3d7966a7e",
+      "size": 2085
+    },
+    "examples/julia_prime_counting/README.md": {
+      "mode": 436,
+      "sha256": "c2bf51790e0beee0030f3be6fa361b33717e5f35a9947e18c986539270b2f976",
+      "size": 1597
+    },
+    "examples/julia_prime_counting/evaluate.py": {
+      "mode": 436,
+      "sha256": "530fec55490e0618cdc7c778c120f5a792257b59b9539ad23d6f3b8983c97f59",
+      "size": 6982
+    },
+    "examples/julia_prime_counting/initial.jl": {
+      "mode": 436,
+      "sha256": "b802a41cdf6f86a50d359487a596269232a66ec483837d5f3b8fe2a5b9b6a1ee",
+      "size": 1837
+    },
+    "examples/julia_prime_counting/run_evo.py": {
+      "mode": 436,
+      "sha256": "993b520b06e1620ce003d85f9d8ad894454ba5382694d57d7684d71031006655",
+      "size": 2083
+    },
+    "examples/novelty_generator/evaluate.py": {
+      "mode": 436,
+      "sha256": "43be61e99005afa616b960f65267e3746257b81f5c5c153d7a4c589105ad64e8",
+      "size": 5404
+    },
+    "examples/novelty_generator/initial.py": {
+      "mode": 436,
+      "sha256": "da1e6b1a431808fb9235caae763a45370265e149ccae57e51af5dcffb0b19eef",
+      "size": 542
+    },
+    "examples/novelty_generator/lm_judge_prompt.py": {
+      "mode": 436,
+      "sha256": "b3515568a20c2089126aa1804219a3181723ac6b9a0551a5202cc74b88bd327b",
+      "size": 5387
+    },
+    "examples/rtllm/.gitignore": {
+      "mode": 436,
+      "sha256": "86da38618052bfa467e39337af260df97622363094fc49586ede9f7b216fa1d3",
+      "size": 576
+    },
+    "examples/rtllm/README.md": {
+      "mode": 436,
+      "sha256": "8eed9e9504868cd8b0e4fbd97da05f8698ee31292971f78f9149216a27c3e11d",
+      "size": 5412
+    },
+    "examples/rtllm/evaluate.py": {
+      "mode": 436,
+      "sha256": "a40c2fb8f25d5e50933eec154398017487195df2b7f35c1059ed7b587b28165c",
+      "size": 24212
+    },
+    "examples/rtllm/example.jsonl": {
+      "mode": 436,
+      "sha256": "263ab6d3ee2bfb2e44ad2ec5028a84a36615db58ce39a509def0ba4bb5eb0a30",
+      "size": 2652
+    },
+    "examples/rtllm/extract_dataset.py": {
+      "mode": 436,
+      "sha256": "3ceef61e99bcb1e219edf4e9da5af4879713d7c7d4b24b04d2932b3a128c8365",
+      "size": 7817
+    },
+    "examples/rtllm/initial.sv": {
+      "mode": 436,
+      "sha256": "d7430819531003a26c30a6a5851073bbea5692c0f35d74ad53738f012e0e9d3c",
+      "size": 935
+    },
+    "examples/rtllm/run_evo.py": {
+      "mode": 436,
+      "sha256": "5f80021a616ce003476db52221600fb05edd84b3b06323f024526840890e89e9",
+      "size": 5340
+    },
+    "examples/rtllm/shinka.yaml": {
+      "mode": 436,
+      "sha256": "e36ff4e8dba961b90fdfe7d380611f99e43cd2f5ef6948a9816b60fc3ad076f5",
+      "size": 1677
+    },
+    "examples/shinka_tutorial.ipynb": {
+      "mode": 436,
+      "sha256": "142eb32eaf8765506ad041d161a45c490027d8fe8e6c6144809fe9678f1c96ae",
+      "size": 30819
+    },
+    "examples/sine_approx_headless/README.md": {
+      "mode": 436,
+      "sha256": "fa4a027aa2fa7cbcb4f249d5c0c1d49d9717b976fed4adfb47da0dcf12dc1d9f",
+      "size": 1151
+    },
+    "examples/sine_approx_headless/evaluate.py": {
+      "mode": 436,
+      "sha256": "5916ae3f4a00970f081b5cc7c41391502bd3e091687a873cbe7fcd4f421d295a",
+      "size": 3758
+    },
+    "examples/sine_approx_headless/initial.py": {
+      "mode": 436,
+      "sha256": "9756a6b1bbfe868988a99f8be55460419ac1d72f8a710825dfe76e2d8fd8e15e",
+      "size": 91
+    },
+    "examples/sine_approx_headless/run_evo.py": {
+      "mode": 436,
+      "sha256": "ea550532f48daf5d465ac78f2e8aa3adf93f61e564bf0ff7bb41a8e5e74ec80c",
+      "size": 1502
+    },
+    "examples/wolfram_gcd_sum/README.md": {
+      "mode": 436,
+      "sha256": "76defcfb6dbf6559d79eb8d20fa30e0d94e279b45748e373cc0e0480d10e3213",
+      "size": 3143
+    },
+    "examples/wolfram_gcd_sum/evaluate.py": {
+      "mode": 436,
+      "sha256": "11d3bbe50f0ec288539bfc7bb454e561ec0fe0e066a949ea0eb6ffaff7d874b2",
+      "size": 6905
+    },
+    "examples/wolfram_gcd_sum/initial.wl": {
+      "mode": 436,
+      "sha256": "fe85cd305317c1b79489831143f6c76ba25d7a3e137998299b05823f7cdf8dd2",
+      "size": 2637
+    },
+    "examples/wolfram_gcd_sum/run_evo.py": {
+      "mode": 436,
+      "sha256": "18ad3792f7a4243b63990debc6454c0e7d166f75243ef6d14d8ea856d648d24f",
+      "size": 2483
+    },
+    "mkdocs.yml": {
+      "mode": 436,
+      "sha256": "e4a3d3ea9ff5247906f6b4671042b349f9864c8a03af1d5b9d9de6c04dd4390a",
+      "size": 2770
+    },
+    "pyproject.toml": {
+      "mode": 436,
+      "sha256": "494c0e433dbb80ee0c1f9181c8a57f3d28e49f505418234590aed272b35d00fe",
+      "size": 2543
+    },
+    "shinka/__init__.py": {
+      "mode": 436,
+      "sha256": "41e4694a12536c004b7d1ed081abc2fd518ca8fdbe623682c44b336c3821ca0d",
+      "size": 113
+    },
+    "shinka/azure_openai_config.py": {
+      "mode": 436,
+      "sha256": "11cc3d5b0f66512db402f43139b02850e39d4a1e505266796a9d223e6ff822f2",
+      "size": 707
+    },
+    "shinka/cli/__init__.py": {
+      "mode": 436,
+      "sha256": "4393ea9f01d919692f24f831633a536f5b2b47bddea6d01741d1f6bfe122e630",
+      "size": 35
+    },
+    "shinka/cli/launch.py": {
+      "mode": 436,
+      "sha256": "8ac2d0134b22193e72921c008c6b1410148d82949f46288f55ceac0b8966eaa3",
+      "size": 750
+    },
+    "shinka/cli/models.py": {
+      "mode": 436,
+      "sha256": "82d6a98de0a01b48a8ac6438fb0d829ff6d2f2e41961c8a91a6d7678124b5c40",
+      "size": 3506
+    },
+    "shinka/cli/run.py": {
+      "mode": 436,
+      "sha256": "87a2c80e5807b958cb96d2735466912a7ecd7a197446ea64e1b12c5ff4798a63",
+      "size": 17558
+    },
+    "shinka/cli/run_config.py": {
+      "mode": 436,
+      "sha256": "40d04707ac12b3e69cd4b20c54617075c81430e107a305668bae962ff15ff533",
+      "size": 3788
+    },
+    "shinka/cli/shinka_launch": {
+      "mode": 509,
+      "sha256": "8013fd1da8f82c5c8d6eeb141f9ade71659b0c10cab0b4d6d80309c01d5adefa",
+      "size": 399
+    },
+    "shinka/cli/shinka_run": {
+      "mode": 509,
+      "sha256": "6de4e7bd5e490a42c688521d4f6d01d6a578656939751f1a5cf82fac75217853",
+      "size": 58
+    },
+    "shinka/cli/shinka_visualize": {
+      "mode": 509,
+      "sha256": "ccdad576a17ee545137e62490701073822ec3ed2dcf8982b5ad232f0aca82050",
+      "size": 70
+    },
+    "shinka/configs/__init__.py": {
+      "mode": 436,
+      "sha256": "0ffc7f5ff800432b6ecdfc54957b752ef2e319e1f84a0c467de692ff914985ba",
+      "size": 429
+    },
+    "shinka/configs/cluster/__init__.py": {
+      "mode": 436,
+      "sha256": "028f1c6fceff0212aa968c5c2fa5390bd8d481938910305483d5d75fdddded02",
+      "size": 28
+    },
+    "shinka/configs/cluster/gcp.yaml": {
+      "mode": 436,
+      "sha256": "eff033162c17148a3787d3c99d0b156579b70b2f71c2c4825d5f8f4d842a6ff5",
+      "size": 81
+    },
+    "shinka/configs/cluster/local.yaml": {
+      "mode": 436,
+      "sha256": "0ec53d9e4652bf6e7141f2243e71b2aa9ad086a8f0c4b6f8938b3fa963d865d5",
+      "size": 153
+    },
+    "shinka/configs/cluster/remote.yaml": {
+      "mode": 436,
+      "sha256": "39c50dbee6a901dcfa3bcd03497e836f9cd8b262d5ee0862001512664f17c73b",
+      "size": 38
+    },
+    "shinka/configs/config.yaml": {
+      "mode": 436,
+      "sha256": "73b1c16d4d2d69ddfe86cad9deffc41463613bfe14f1aaf2406c4b206667c351",
+      "size": 371
+    },
+    "shinka/configs/database/__init__.py": {
+      "mode": 436,
+      "sha256": "d4db612d80944948637f84f428ae737f23df5bc7d8938779233e60537f128215",
+      "size": 29
+    },
+    "shinka/configs/database/island_large.yaml": {
+      "mode": 436,
+      "sha256": "70990149e7b96ccef9e5e1807875204b00dffb9f151f696a36f983a2d3ee0931",
+      "size": 625
+    },
+    "shinka/configs/database/island_medium.yaml": {
+      "mode": 436,
+      "sha256": "9020e13c99994957ef944d965405675a4cb4a301c000bb86d3f28f0e9b9a3709",
+      "size": 418
+    },
+    "shinka/configs/database/island_small.yaml": {
+      "mode": 436,
+      "sha256": "a3e4c001e223d9a475e32aa51c50a78ce9dbd0be5502646b48e4dad4a91ed6e1",
+      "size": 338
+    },
+    "shinka/configs/evolution/__init__.py": {
+      "mode": 436,
+      "sha256": "3eb630091a5bbac4b163269e332fe037d36b0569b98d1a8151cc62ad0b56e062",
+      "size": 30
+    },
+    "shinka/configs/evolution/large_budget.yaml": {
+      "mode": 436,
+      "sha256": "78a145e4bee3b0daec2214466f70c331ff74807e514a9ddb24a58d0d97c546c1",
+      "size": 771
+    },
+    "shinka/configs/evolution/medium_budget.yaml": {
+      "mode": 436,
+      "sha256": "f4281f8afa696d83a81973e7f1f12f2be7603d02e27b694266d20baeee05901b",
+      "size": 752
+    },
+    "shinka/configs/evolution/small_budget.yaml": {
+      "mode": 436,
+      "sha256": "e1cdee79257f56d2eb6696a2978f701baefc22ece91109b45da535876bef579c",
+      "size": 420
+    },
+    "shinka/configs/task/__init__.py": {
+      "mode": 436,
+      "sha256": "2f0fe4243abd5bbb4fcad10fa59b0a064977896c70aba9dbfaff9b44d6ff9f6c",
+      "size": 25
+    },
+    "shinka/configs/task/circle_packing.yaml": {
+      "mode": 436,
+      "sha256": "a2bdd310a01c7768e58086a5601ff6d0d49cc33d676aeb9fda99a7c97dd7e341",
+      "size": 1387
+    },
+    "shinka/configs/task/novelty_generator.yaml": {
+      "mode": 436,
+      "sha256": "bf04325e06e4d8c0b58fde9333a989abffd427ad450302e7fd0298a04a67cab5",
+      "size": 1971
+    },
+    "shinka/configs/variant/__init__.py": {
+      "mode": 436,
+      "sha256": "bdb7376f83c44c6bf1632eb8b7ba98ef64e268a970c2839e36a767406f55931e",
+      "size": 28
+    },
+    "shinka/configs/variant/circle_packing_example.yaml": {
+      "mode": 436,
+      "sha256": "571418d5d686369cdb682eefd9059ee9cb81291b45209014caa7cbc1d91a2279",
+      "size": 223
+    },
+    "shinka/configs/variant/default.yaml": {
+      "mode": 436,
+      "sha256": "3cfc3c2d9b04f21c31d7fb9f0dcd37fbc063d628323e7989e97d5ea57839e31f",
+      "size": 27
+    },
+    "shinka/configs/variant/novelty_generator_example.yaml": {
+      "mode": 436,
+      "sha256": "0b4e4dc85618b5aec2e7e47eb3841ba65cd6f11535152545a64e018c8d6789b3",
+      "size": 228
+    },
+    "shinka/core/__init__.py": {
+      "mode": 436,
+      "sha256": "2e849c6789cdcf766de0a4cb10fc8abb1e04ed2a32a62ba16631a7de2b3fcc92",
+      "size": 658
+    },
+    "shinka/core/async_novelty_judge.py": {
+      "mode": 436,
+      "sha256": "9fd4d6919f7db83574005c326fce693f4f30c95af484d08936b620d3bac38bfc",
+      "size": 11291
+    },
+    "shinka/core/async_runner.py": {
+      "mode": 436,
+      "sha256": "c70ff4f123ac0bf94bc1456dd6394335fdc2b9a96951d610cbbce99760ed67b1",
+      "size": 278632
+    },
+    "shinka/core/async_summarizer.py": {
+      "mode": 436,
+      "sha256": "82e674ab7acc6f35f7fb646874d114b61bc87945dcdf0d6967371cc88838ffec",
+      "size": 18006
+    },
+    "shinka/core/billing.py": {
+      "mode": 436,
+      "sha256": "44da0e2ed93fd16c7062d5f53a4816ed745fd131059ef6bc4ab8968bebb1dea6",
+      "size": 1629
+    },
+    "shinka/core/config.py": {
+      "mode": 436,
+      "sha256": "c1ef2fab4b9707b5e2d6d280ec4bcf383d0fb99ad4b570501f6333bc411bf39e",
+      "size": 3374
+    },
+    "shinka/core/novelty_judge.py": {
+      "mode": 436,
+      "sha256": "3daf090d56adfd7c42de96639c944fc3fc6b6cb36d82d790de0f74c3fcb2a083",
+      "size": 8886
+    },
+    "shinka/core/pipeline_timing.py": {
+      "mode": 436,
+      "sha256": "19efcefaec740c3a397bcceb118e57c39fd2051627875534be0f62f31a531eba",
+      "size": 4843
+    },
+    "shinka/core/prompt_evolver.py": {
+      "mode": 436,
+      "sha256": "40fc195baadf310a12479eeb48cb2b3634328d29332e9d6c6b84dd0a28078d5c",
+      "size": 23241
+    },
+    "shinka/core/runtime_slots.py": {
+      "mode": 436,
+      "sha256": "78ba0440ca18a77eeb77d75cf1f6e65751366a4c31eab76675f5f386c2ce6d13",
+      "size": 1400
+    },
+    "shinka/core/sampler.py": {
+      "mode": 436,
+      "sha256": "cdfa7fcbe0d3be09a0901f972ca579628074b87df34224d4549bb03bd758e29d",
+      "size": 10517
+    },
+    "shinka/core/summarizer.py": {
+      "mode": 436,
+      "sha256": "b2d3ec67866d4c641c43fd45d24336a96fec36c1213dbbf56a7fe0eb706750fc",
+      "size": 30858
+    },
+    "shinka/core/wrap_eval.py": {
+      "mode": 436,
+      "sha256": "439655a7964711df4d1319c6cd3c6d354a6b2348cd8dc4e84d4774158fe3ae6b",
+      "size": 21470
+    },
+    "shinka/database/__init__.py": {
+      "mode": 436,
+      "sha256": "5422f5d1ae8438014532c5fcf062593ed40cf4838acd984850ec3601f68f38ec",
+      "size": 435
+    },
+    "shinka/database/async_dbase.py": {
+      "mode": 436,
+      "sha256": "2dce0625e4b9d47c3e48a65dfd0da7b564a4a237e17367de17c2e8144a33bd20",
+      "size": 51833
+    },
+    "shinka/database/complexity.py": {
+      "mode": 436,
+      "sha256": "814778b7aeff4ec5f35f81a110690dd0972a2799dba3d427d0495915c3be41de",
+      "size": 8347
+    },
+    "shinka/database/dbase.py": {
+      "mode": 436,
+      "sha256": "982c5839b60912eeef90fbc12789ec0be0ab37909201a25d490711d20885248b",
+      "size": 123852
+    },
+    "shinka/database/display.py": {
+      "mode": 436,
+      "sha256": "e6b50d8db588d3168827446e0c7cf9bf1c669f8c77ddc629701a016b01d7974e",
+      "size": 28173
+    },
+    "shinka/database/inspirations.py": {
+      "mode": 436,
+      "sha256": "5486b8a1b8f86654e5308e0228c0561a54c7246688257942e0f0160f1055f47d",
+      "size": 14584
+    },
+    "shinka/database/island_sampler.py": {
+      "mode": 436,
+      "sha256": "ba42c62835496b0bd1e1192ba0f02a6ddf5780bb0002766c1f77bfddf30e34e6",
+      "size": 8215
+    },
+    "shinka/database/islands.py": {
+      "mode": 436,
+      "sha256": "2f96e91cd1b390a636b5e84d1704786c3de67fb197e171499e127449ffe7abb3",
+      "size": 40397
+    },
+    "shinka/database/parents.py": {
+      "mode": 436,
+      "sha256": "9196760166d91184a37e2a9f35671c68297095012f73f041b27ef70e35a60aa0",
+      "size": 34208
+    },
+    "shinka/database/prompt_dbase.py": {
+      "mode": 436,
+      "sha256": "e61fa0c383180c46208e00bcca14217782e215aa055701072d6cb3b8f68d286f",
+      "size": 50086
+    },
+    "shinka/database/tournament.py": {
+      "mode": 436,
+      "sha256": "02cfc5a23229e56dcb02bce97d79c0be10af81d1152e8c2cd57026306bb62714",
+      "size": 2384
+    },
+    "shinka/defaults.py": {
+      "mode": 436,
+      "sha256": "a4842f9ebdc07d7b602e7c9d72c0d04548deeecc0e893fd6578fdc918da0e0f2",
+      "size": 1100
+    },
+    "shinka/edit/__init__.py": {
+      "mode": 436,
+      "sha256": "b2ec3a6b6990382a03bba4e32a78e7e199dd5d1b27783c918c3672bbb66e8d26",
+      "size": 331
+    },
+    "shinka/edit/apply_diff.py": {
+      "mode": 436,
+      "sha256": "7d1abe6a7512c8ec46ba7a0590c94413b0142c1d994e08fba598cc3cfe3d4056",
+      "size": 29635
+    },
+    "shinka/edit/apply_full.py": {
+      "mode": 436,
+      "sha256": "5f92e6ca0fd833c8bc86ed1aced3102a4f1bedbcc8486454509482f7c9611e07",
+      "size": 14022
+    },
+    "shinka/edit/async_apply.py": {
+      "mode": 436,
+      "sha256": "c1b2e55764a55d5754b1a6ab286ca3252ce1aae9fb0fa687b8ee28edb9cb56a9",
+      "size": 13032
+    },
+    "shinka/edit/marker_validation.py": {
+      "mode": 436,
+      "sha256": "c876c6f87804c7f135a55781c6f62fef276bf345956f30a2e1842391df960027",
+      "size": 3545
+    },
+    "shinka/edit/summary.py": {
+      "mode": 436,
+      "sha256": "2abeda7cc509ae4a073913dc656ee49bd13214a64595e4d46b752e7d4261c6b1",
+      "size": 1637
+    },
+    "shinka/embed/__init__.py": {
+      "mode": 436,
+      "sha256": "ba794327413a599cb047381a273579d8482f34b0258b823ccbf6d925ebbdc20a",
+      "size": 337
+    },
+    "shinka/embed/client.py": {
+      "mode": 436,
+      "sha256": "1c6745c39a312d3a6db0f949f26bd60f6d64a2a1c3bea0679e970a6b834ff7d5",
+      "size": 5048
+    },
+    "shinka/embed/embedding.py": {
+      "mode": 436,
+      "sha256": "ecd371ae3233722d6a8b3e03770e45305fba1e3524cac6f34098f971f226a581",
+      "size": 25474
+    },
+    "shinka/embed/providers/__init__.py": {
+      "mode": 436,
+      "sha256": "5ed289162270ad2b4756a3d31152997a71ad399323cde759c363779b045a959d",
+      "size": 260
+    },
+    "shinka/embed/providers/pricing.csv": {
+      "mode": 436,
+      "sha256": "41076a5c97eb169d08ef5825f3018b8ccf2852aeca9ef9356ecbd03edad8ac27",
+      "size": 291
+    },
+    "shinka/embed/providers/pricing.py": {
+      "mode": 436,
+      "sha256": "20b13401c35bca7b558f00b2f483b26eb0eb59af05debd8416d1009980c3deec",
+      "size": 1546
+    },
+    "shinka/env.py": {
+      "mode": 436,
+      "sha256": "f4735c598fb2c6bc3a11fcff44d9374b18ff5ae02b29e7d518db8a588dd3c565",
+      "size": 875
+    },
+    "shinka/eval_hydra.py": {
+      "mode": 436,
+      "sha256": "2e61fe5a22bca04bc1f46f6191d1209cd41d37f970d02176dda875e7a857bfbc",
+      "size": 2002
+    },
+    "shinka/favicon.png": {
+      "mode": 436,
+      "sha256": "259a0e53fa638d9ddcc0eac446c6d4cc3fe86a89a0c17f4fb7d1560e59fd245f",
+      "size": 1657176
+    },
+    "shinka/google_genai.py": {
+      "mode": 436,
+      "sha256": "6769543f13ee3e3ceb33881d044a61f4fc0f9d9a4f6c9fda7a0cb23cabbd5623",
+      "size": 8664
+    },
+    "shinka/launch/__init__.py": {
+      "mode": 436,
+      "sha256": "57a26821e9a6fb89a0368f87b09757c6c9c8db26dc13bfa540f5ac0a840a8043",
+      "size": 386
+    },
+    "shinka/launch/local.py": {
+      "mode": 436,
+      "sha256": "16eccbc364b642383ad8c77034a06645f1f2b7d0e9bd71862ceb5db7f99c6a48",
+      "size": 5945
+    },
+    "shinka/launch/scheduler.py": {
+      "mode": 436,
+      "sha256": "c32d0682ac0c572d01dc10b49887cb54eb7d6b6ba760ba74c132465a1366266b",
+      "size": 17143
+    },
+    "shinka/launch/slurm.py": {
+      "mode": 436,
+      "sha256": "6e0a42b476a1dc86ef708bb4182b68fa114ce9cb0d2e5a696b797cb66116be82",
+      "size": 15710
+    },
+    "shinka/launch_hydra.py": {
+      "mode": 436,
+      "sha256": "4c417e2da33a25eaae887c90836af2ec42b2237bb87839870a806563f5fc6ca6",
+      "size": 1142
+    },
+    "shinka/llm/__init__.py": {
+      "mode": 436,
+      "sha256": "60612197bd0fac545318c9566bc8e2059784b13705d43e9be39eff11977b92ec",
+      "size": 430
+    },
+    "shinka/llm/client.py": {
+      "mode": 436,
+      "sha256": "c39ad62b778a936137653ff800d80f103e561cf3abb2d4a07b87331cf65f8189",
+      "size": 16502
+    },
+    "shinka/llm/constants.py": {
+      "mode": 436,
+      "sha256": "468b81ec8df624f2c67a4223525201f267076ba08ee362658772fa3993b6930b",
+      "size": 1649
+    },
+    "shinka/llm/kwargs.py": {
+      "mode": 436,
+      "sha256": "a7c33e226674f2a93ef215258fefb9ac69e17e10849fe6eec43b2612aab4f80e",
+      "size": 9948
+    },
+    "shinka/llm/llm.py": {
+      "mode": 436,
+      "sha256": "75eba16747ec9adb3ef262f4ac7830c9bfbfac135da79c22717a2adb6a2a243a",
+      "size": 37646
+    },
+    "shinka/llm/prioritization.py": {
+      "mode": 436,
+      "sha256": "6c9bd2674c91db8c228a745c1984db23e177657bc156db725d49fe237ffe857f",
+      "size": 56273
+    },
+    "shinka/llm/providers/__init__.py": {
+      "mode": 436,
+      "sha256": "38e9d18c359ab010d87cfbd9e7882d013ad324dfd77aaab7d46077f5acf05837",
+      "size": 725
+    },
+    "shinka/llm/providers/anthropic.py": {
+      "mode": 436,
+      "sha256": "66daacaf8defb70c0c1a86566336b7633ade4ce2cabfcd02f21fe58f687950cd",
+      "size": 6022
+    },
+    "shinka/llm/providers/deepseek.py": {
+      "mode": 436,
+      "sha256": "3fd5363e40732f77357fb77fa8c757e0b65d30f43f57860da3f1e0d80e16df94",
+      "size": 5249
+    },
+    "shinka/llm/providers/errors.py": {
+      "mode": 436,
+      "sha256": "1ce155907c52123dbd816f5e6d195af80258c5861fb7fdbbeafe8877f9d2cc82",
+      "size": 2015
+    },
+    "shinka/llm/providers/gemini.py": {
+      "mode": 436,
+      "sha256": "95b880148567356080d28c98a71b1a29ec33127f6731f80202eb7141a56beaf3",
+      "size": 11767
+    },
+    "shinka/llm/providers/headless.py": {
+      "mode": 436,
+      "sha256": "c9a5295c615eb9dd2b6dfc353b1f6ca08dcbfb3536582f39dcad048ee6a8693f",
+      "size": 15576
+    },
+    "shinka/llm/providers/local_openai.py": {
+      "mode": 436,
+      "sha256": "b4264a86ee37ec01d0f00d319e1b1d15bf7cd5ffe5f4a8db83414e07cc1f70a6",
+      "size": 5532
+    },
+    "shinka/llm/providers/model_resolver.py": {
+      "mode": 436,
+      "sha256": "969327422c2bbeadb32bccdb3403ca50937ba59d9d70a42331335a60a7147b82",
+      "size": 2717
+    },
+    "shinka/llm/providers/openai.py": {
+      "mode": 436,
+      "sha256": "b1c201b84693479708ab69015841f659f1daab189c2cc0ecce9fd5f3fa006901",
+      "size": 9836
+    },
+    "shinka/llm/providers/pricing.csv": {
+      "mode": 436,
+      "sha256": "49d7a254d7e330e48e05896e0aa9a8ceeb2c7ab730fac70c53860416e0aff602",
+      "size": 4750
+    },
+    "shinka/llm/providers/pricing.py": {
+      "mode": 436,
+      "sha256": "282b559722eaeb67a2c6985d1993385be4d5b8497c1bafb9317088bba4dec484",
+      "size": 2241
+    },
+    "shinka/llm/providers/result.py": {
+      "mode": 436,
+      "sha256": "cb06b4e91d88d8030ca64c801269ff4616747c5326979e8200486abe5ce55ee9",
+      "size": 3756
+    },
+    "shinka/llm/query.py": {
+      "mode": 436,
+      "sha256": "d4aa3210033d453805fc67a6da12e31ab68dba11f1b9d47d9263ece8248259ce",
+      "size": 2812
+    },
+    "shinka/local_openai_config.py": {
+      "mode": 436,
+      "sha256": "479dc1826537af309eab43913b913aa43a722b5f80be757257af51e844ef22c0",
+      "size": 2879
+    },
+    "shinka/logo.py": {
+      "mode": 436,
+      "sha256": "2a575a9e6bc7c5d6fde8b82119f9efa25f559fd969942dad344130e0b96b7f22",
+      "size": 7257
+    },
+    "shinka/model_availability.py": {
+      "mode": 436,
+      "sha256": "5694374ba15f4044c361005cf8f768b4f07aff912603d3ced41ad05d8024fffc",
+      "size": 7661
+    },
+    "shinka/plots/__init__.py": {
+      "mode": 436,
+      "sha256": "3a8d875086b943664143bfd2363f13de2d204ed831db393ac418655f97126164",
+      "size": 1123
+    },
+    "shinka/plots/code_path_anim.py": {
+      "mode": 436,
+      "sha256": "de36f74ad8bed749968c1e059601a75d07afcddf85a12a2742a1e5a8495e43fb",
+      "size": 55791
+    },
+    "shinka/plots/plot_costs.py": {
+      "mode": 436,
+      "sha256": "3a5a9484934a018bc3c9f30fc9fd7811efa85ef7d9ee426c60a1eb0bde66e5cd",
+      "size": 15577
+    },
+    "shinka/plots/plot_evals.py": {
+      "mode": 436,
+      "sha256": "bc423b0b88c4ecfd98c43d9511b0e47174b0ca3efb7fc10dda0807c394b79247",
+      "size": 16682
+    },
+    "shinka/plots/plot_lineage_tree.py": {
+      "mode": 436,
+      "sha256": "711a3c73537740b47d7245b6ca377ab1c1fe5b286adadf6d5b9ae982d9b7b337",
+      "size": 24563
+    },
+    "shinka/plots/plot_llm.py": {
+      "mode": 436,
+      "sha256": "d4a9899d634e48a1fa6ec36d459872044ad45dc933c30f6269abfc4556135547",
+      "size": 3581
+    },
+    "shinka/plots/plot_pareto.py": {
+      "mode": 436,
+      "sha256": "74b7e771755b8d3d1197c9db827dce32ff577f5ff6eeb8ba6ad71ae3bac7c849",
+      "size": 19882
+    },
+    "shinka/plots/plot_similarity.py": {
+      "mode": 436,
+      "sha256": "292c8589d9570c7bf521bdeac8ba8c7884121b3561cc5511e870e32d2ded6bc1",
+      "size": 1869
+    },
+    "shinka/plots/plot_throughput.py": {
+      "mode": 436,
+      "sha256": "6188c72292fae5b71081888cdbecc03c1c56148e28ba2f823ae925fb790c82a7",
+      "size": 20179
+    },
+    "shinka/plots/plot_time.py": {
+      "mode": 436,
+      "sha256": "35606549870036385c68151aa7870d42da0e14f786cfc7b42d562731795580f3",
+      "size": 13404
+    },
+    "shinka/pricing/__init__.py": {
+      "mode": 436,
+      "sha256": "b9c0d1057d9ca38c4767a082be2fb743cc27a90ef833dcf410ccbef51f850e9c",
+      "size": 650
+    },
+    "shinka/pricing/catalog.py": {
+      "mode": 436,
+      "sha256": "f6088e31b9a843b37cfe5cd70955eb6f8635e292e76a07d52282fc30b65e6051",
+      "size": 18217
+    },
+    "shinka/pricing/normalization.py": {
+      "mode": 436,
+      "sha256": "263260520d1c506cdd5839f3bd4757d7459520909d7513871526e486b776eac3",
+      "size": 12818
+    },
+    "shinka/pricing/rendering.py": {
+      "mode": 436,
+      "sha256": "f03479176422d81d1bb15138bfb3e15b2a0d52abb94fac48db2c3fd0be30c4cf",
+      "size": 2145
+    },
+    "shinka/prompts/__init__.py": {
+      "mode": 436,
+      "sha256": "fa2f66681436f46299f654ec8db42c2edf62e882ea9a1b533797cbdc6de2e977",
+      "size": 2298
+    },
+    "shinka/prompts/prompts_base.py": {
+      "mode": 436,
+      "sha256": "81b63d3d90c60e32a7e72c17594c41c6ff310ddd8e2923347b176bd093801039",
+      "size": 3789
+    },
+    "shinka/prompts/prompts_cross.py": {
+      "mode": 436,
+      "sha256": "03cb16c15ce0bce873eb70299d64597665c9cfa3aadb8ab246c7488c4ec465db",
+      "size": 2661
+    },
+    "shinka/prompts/prompts_diff.py": {
+      "mode": 436,
+      "sha256": "5414b3c84f2a544325db1646e9c0dd2c92890e892356689a6f9e9518f02cc54a",
+      "size": 2459
+    },
+    "shinka/prompts/prompts_fix.py": {
+      "mode": 436,
+      "sha256": "3c425716e0059050478d8d5ce466bf07f49c4e8e6de5e5240d1bc7db6477db90",
+      "size": 2440
+    },
+    "shinka/prompts/prompts_full.py": {
+      "mode": 436,
+      "sha256": "ff281a3290768278c4309852de603d72261fb5205a830dda7da10549172b4a28",
+      "size": 6913
+    },
+    "shinka/prompts/prompts_init.py": {
+      "mode": 436,
+      "sha256": "f514d91cf53f952b8d196ad2e5af6e69c027b5d82d8111da59285b5f7d2f72fe",
+      "size": 580
+    },
+    "shinka/prompts/prompts_meta.py": {
+      "mode": 436,
+      "sha256": "3bf40eb1fc8970bbf2d33f2bdcc775ae43e9c9488155e120b70c4e65d0b9f950",
+      "size": 6152
+    },
+    "shinka/prompts/prompts_novelty.py": {
+      "mode": 436,
+      "sha256": "7f1574880c462a2355afabad5854b0047856d9ed46fae85732f3d5d3fae86bac",
+      "size": 1540
+    },
+    "shinka/prompts/prompts_prompt_evo.py": {
+      "mode": 436,
+      "sha256": "4345f8b00468eac1b592253af5ff44097b00b2edee7003bfefd570dc9dc24dae",
+      "size": 11873
+    },
+    "shinka/release_check.py": {
+      "mode": 436,
+      "sha256": "bd63236fb1202fe70f97c96f9343a365168e9cb6a36e33a404972f66e788b7e2",
+      "size": 2043
+    },
+    "shinka/telemetry_safety.py": {
+      "mode": 436,
+      "sha256": "2261738e6bb8393a20b6fd90c1481606b57b9160e7cdd4de5bb47e80aedf5982",
+      "size": 1017
+    },
+    "shinka/tools/__init__.py": {
+      "mode": 436,
+      "sha256": "36916767401bcbdcb4e40325098b038cf4366b771616c0cd96d735812ccf922f",
+      "size": 66
+    },
+    "shinka/tools/pricing/__init__.py": {
+      "mode": 436,
+      "sha256": "6da622b95931e9eb9a2e8248ce7b62dae6d5a0e116254d775dd5836cd248a40e",
+      "size": 56
+    },
+    "shinka/tools/pricing/generate_csvs.py": {
+      "mode": 436,
+      "sha256": "6b8c5782e718b29a81d24fdab94f66a562696608010ec151262f2033699f99fb",
+      "size": 17646
+    },
+    "shinka/tools/pricing/models_dev_overlay.json": {
+      "mode": 436,
+      "sha256": "50cca353e7bb58a8cd2f49c06390fc3e425c1d5b8c56029f77a89b6ba0c4c54e",
+      "size": 11754
+    },
+    "shinka/utils/__init__.py": {
+      "mode": 436,
+      "sha256": "c83904f7bfff913c84196bdae5007c79bb4708b0cc86a74de9aef8925352a0fc",
+      "size": 820
+    },
+    "shinka/utils/eval_stop.py": {
+      "mode": 436,
+      "sha256": "55653c46032ada7c165c71db5876108fb59179f3ff90c4b844625c53dd21d0df",
+      "size": 12871
+    },
+    "shinka/utils/general.py": {
+      "mode": 436,
+      "sha256": "350c68cd1d223362779f8b4a968b477c27d6031c2e5e1c4b5149f3bb010edb0c",
+      "size": 3472
+    },
+    "shinka/utils/languages.py": {
+      "mode": 436,
+      "sha256": "18f9a965a4a95cfef4c851202a62e2e810414943f26be31e04822c605653c1c1",
+      "size": 7963
+    },
+    "shinka/utils/load_df.py": {
+      "mode": 436,
+      "sha256": "5e2c0879be36031e718b6dcf9b2c3bb0a93285d2144b66f6352359e21d21ae5f",
+      "size": 14485
+    },
+    "shinka/utils/utils_hydra.py": {
+      "mode": 436,
+      "sha256": "bf4f2308a5830b0a9b90aef0dfdcfab4bda571df3c695af44e05b07a0f9b152f",
+      "size": 7803
+    },
+    "shinka/utils/wolfram.py": {
+      "mode": 436,
+      "sha256": "c6ff438c5ae94f84dfeb227113473222547f013c7cde434dca58957b117cab60",
+      "size": 3532
+    },
+    "shinka/wandb_logging.py": {
+      "mode": 436,
+      "sha256": "dcec2142c20e6bed1cddc8e51e15a5279b0ab3c3ac7ad978293d27641c393520",
+      "size": 14739
+    },
+    "shinka/wandb_metrics.py": {
+      "mode": 436,
+      "sha256": "8dc78921c443dfdc7019af6e625a46394d9ce010216139ef3c8027f59f95bc16",
+      "size": 15089
+    },
+    "shinka/webui/compare.html": {
+      "mode": 436,
+      "sha256": "7bc6877735dbce1369d8a0c5bf8f83f3c0fd8a538cf5a5aeb63ef3c4f9bcb277",
+      "size": 23492
+    },
+    "shinka/webui/favicon.png": {
+      "mode": 436,
+      "sha256": "259a0e53fa638d9ddcc0eac446c6d4cc3fe86a89a0c17f4fb7d1560e59fd245f",
+      "size": 1657176
+    },
+    "shinka/webui/index.html": {
+      "mode": 436,
+      "sha256": "99ae11d626d1a012055ddac97de427526e36495fa26451c703e424c89e5f37c7",
+      "size": 37684
+    },
+    "shinka/webui/sakana.jpg": {
+      "mode": 436,
+      "sha256": "15df0160652ef7dc8c01c11f437c137afd5bc305fec078af15872ed55dc71ca2",
+      "size": 76773
+    },
+    "shinka/webui/visualization.py": {
+      "mode": 436,
+      "sha256": "e40c924e1634ec7b0b5e0a8be870e7a1234a470aa6c8d61a28768264139f1ae9",
+      "size": 71010
+    },
+    "shinka/webui/viz_tree.html": {
+      "mode": 436,
+      "sha256": "6039b8b58db6a62e308b0eebc1db0b6c57382aa11037e725ff3e2325df76f136",
+      "size": 868708
+    },
+    "skills/shinka-convert/SKILL.md": {
+      "mode": 436,
+      "sha256": "88daa14d50f5a89abdf9aafe4aa87612794fd7bbc2e0def443d24750f40b6c1c",
+      "size": 6465
+    },
+    "skills/shinka-convert/scripts/run_evo.py": {
+      "mode": 436,
+      "sha256": "e1ceeffafb0c4c7ec7205af9a4d2e0a0ac3a7bc9676e6a838cb69956eacfe400",
+      "size": 1453
+    },
+    "skills/shinka-convert/scripts/shinka.yaml": {
+      "mode": 436,
+      "sha256": "f71584452be1fe33f36c37bf357709c95f35050c5b69ee7e43394066c8d6ab9a",
+      "size": 1242
+    },
+    "skills/shinka-inspect/SKILL.md": {
+      "mode": 436,
+      "sha256": "1ed7c5c1cd1727c4c8d177673a2c5b5831972a4852dd26734e51e4cee3aaf1ff",
+      "size": 2274
+    },
+    "skills/shinka-inspect/scripts/inspect_best_programs.py": {
+      "mode": 436,
+      "sha256": "21f8d9e85316ecc7a75336609283cb9bfd40cd50d452ffbd30d759e55318185f",
+      "size": 10344
+    },
+    "skills/shinka-run/SKILL.md": {
+      "mode": 436,
+      "sha256": "b730e37e7ed5d70aeedb181329011f4d12bd052990cfee6ea14c0c36d439a5be",
+      "size": 5439
+    },
+    "skills/shinka-setup/SKILL.md": {
+      "mode": 436,
+      "sha256": "6f8176e18eb730174bd63bf069ac2909f92163474d47dc6a43c927cb4dc7565a",
+      "size": 8859
+    },
+    "skills/shinka-setup/scripts/run_evo.py": {
+      "mode": 436,
+      "sha256": "4f2982a860951900c65f281dcd3fa7589bbfb51d7d77b6b9c18e381fcbea0a1b",
+      "size": 1234
+    },
+    "skills/shinka-setup/scripts/shinka.yaml": {
+      "mode": 436,
+      "sha256": "e1887624489223fd1ac0f2233c3b7902732324da912a4cf775fe0d533ac57fb4",
+      "size": 1352
+    },
+    "tests/circle.py": {
+      "mode": 436,
+      "sha256": "c6f80c89d5baa8ecb14711fd7cd274ad1b9cc7f38f2e6881e69b9417a8afd1c8",
+      "size": 2850
+    },
+    "tests/conftest.py": {
+      "mode": 436,
+      "sha256": "4ff4492eff9fa2e4cd34d22dfb9f6b265e62436acce5ad6e4cf9bd5fbc08292c",
+      "size": 164
+    },
+    "tests/file.py": {
+      "mode": 436,
+      "sha256": "bee9bb1dce40dcc4c54ebc1b07687ec60e6ccbf5985334619778242c7c2756c9",
+      "size": 566
+    },
+    "tests/fixtures/models_dev_catalog.json": {
+      "mode": 436,
+      "sha256": "32fc0159c90763289838aca08b7623b249164085567f3ed9964da114c2fd3b4b",
+      "size": 1613
+    },
+    "tests/test_anthropic_accounting.py": {
+      "mode": 436,
+      "sha256": "08ed99c51d4d405d7084a986006f13f7d830b318c419799296be2fda33c2e828",
+      "size": 5566
+    },
+    "tests/test_archive_inspirations.py": {
+      "mode": 436,
+      "sha256": "9b0aa43025e14bb80d1fdf3280772448a80e059c4aaa7c2a63a341f8759c1cd8",
+      "size": 2566
+    },
+    "tests/test_archive_ranked_criteria.py": {
+      "mode": 436,
+      "sha256": "68ee9bda7dde432b5a195737709f744b6bf51989713119c997b0bfc4147e2df0",
+      "size": 2452
+    },
+    "tests/test_async_apply.py": {
+      "mode": 436,
+      "sha256": "af1d0284e965bcb6ed13a457f8cae9f6740c8feb45138a7037b5fecb52e450dd",
+      "size": 17081
+    },
+    "tests/test_async_complexity_1000.py": {
+      "mode": 436,
+      "sha256": "1f2c4a44f35c5658adf92abc8daf1a24f4c3c3aad166c7cee19cfd247531a5da",
+      "size": 5230
+    },
+    "tests/test_async_runner_recovery.py": {
+      "mode": 436,
+      "sha256": "ee7c07ee9fac131e42bec278328e37a5596c2d7d3af2f19a6d67ee9a36038a3f",
+      "size": 58856
+    },
+    "tests/test_bandit_decay_warnings.py": {
+      "mode": 436,
+      "sha256": "120fb822d04dfef96a38e7ca7762b544196234686a051705d4ea46c03f014d82",
+      "size": 941
+    },
+    "tests/test_bandit_linear_scaling.py": {
+      "mode": 436,
+      "sha256": "a0b9e7a979520d0297c5fc61dc74e39c2e6b4b92bf1275e508062623b8ea87bb",
+      "size": 2131
+    },
+    "tests/test_bandit_persistence.py": {
+      "mode": 436,
+      "sha256": "feb8c20dbcad7f9718edf4ed19060bb42573280124ecefded2ef5e532800f6b7",
+      "size": 21304
+    },
+    "tests/test_bandit_state_migration.py": {
+      "mode": 436,
+      "sha256": "c5baa99531fe5805ae3706d0f6793d7b69946b089dcd47f6206b710a344c27ab",
+      "size": 3077
+    },
+    "tests/test_billed_auxiliary_calls.py": {
+      "mode": 436,
+      "sha256": "c590513afc62caaf2879f6a42c523a3500dde80da44ef5afbb7bb43a44d32a2e",
+      "size": 3264
+    },
+    "tests/test_billed_auxiliary_cancellation.py": {
+      "mode": 436,
+      "sha256": "98b4c7d9706305c101b4ae4124cfd1e11957b0a1cf91638a00c26cf2512ee283",
+      "size": 3078
+    },
+    "tests/test_billed_batch_replies.py": {
+      "mode": 436,
+      "sha256": "163c20a5fe72075ddee9f8c677758a10fe6edcf053f48a23bbfc6b1ea920ebd1",
+      "size": 3025
+    },
+    "tests/test_billed_failure_persistence.py": {
+      "mode": 436,
+      "sha256": "68a18f2296e8b76e95dfc87ec74d00e61587967d57ba5c5a1a3c13b7484873f5",
+      "size": 8999
+    },
+    "tests/test_billed_meta_failures.py": {
+      "mode": 436,
+      "sha256": "2521d954dbeb43a367cf903507196c071abe9368df1f6ec6411e17f8dade4134",
+      "size": 9380
+    },
+    "tests/test_billed_proposal_cancellation.py": {
+      "mode": 436,
+      "sha256": "5e2f8523f46904415147801a7358b90c42c91d37d64ca5e6dc1bb17a1730d1fc",
+      "size": 6924
+    },
+    "tests/test_billed_query_cancellation.py": {
+      "mode": 436,
+      "sha256": "391fc1ff6ba353c82ceb654da00ca37a97d1b6154d0c924efccba9c8b1c6e8b5",
+      "size": 3172
+    },
+    "tests/test_billed_reply_contract.py": {
+      "mode": 436,
+      "sha256": "7e14ecf7ea7b7e675774c529ccc982aa5fe15e03ef70ac7994d12dffc7d349ed",
+      "size": 5433
+    },
+    "tests/test_billed_runner_failures.py": {
+      "mode": 436,
+      "sha256": "c983fcf6784934a45bf34366b0e3b482f399dc3ab55098ac92475d665e11a0f6",
+      "size": 2663
+    },
+    "tests/test_ci_workflows.py": {
+      "mode": 436,
+      "sha256": "293e63d1b09840be0631abf11ad60482c7de9f4d395a5bddd35418295269c29f",
+      "size": 1478
+    },
+    "tests/test_circle_notebook_validation.py": {
+      "mode": 436,
+      "sha256": "94ceb50b8e8e872f87bfe50c37a89abeb0c3abacce19d00b2b2c039beb0d7c3b",
+      "size": 1824
+    },
+    "tests/test_circle_packing_example.py": {
+      "mode": 436,
+      "sha256": "dfe7aa840de97bf2b78a5ed03ea1857127a474c1a53093efcf7f4027a6e6c49e",
+      "size": 3287
+    },
+    "tests/test_compare_webui.py": {
+      "mode": 436,
+      "sha256": "8d4a185c9378f43a42bea43375af73bc468bee50392ca8fd514742ff9af078c7",
+      "size": 1000
+    },
+    "tests/test_complexity.py": {
+      "mode": 436,
+      "sha256": "f120653ffcfd3e6d57f583c41e09b204ebd1353de352cc4bd684388c0d05928a",
+      "size": 2238
+    },
+    "tests/test_current_claude_requests.py": {
+      "mode": 436,
+      "sha256": "00d7ddc5c62022cef26f8e9c1cec39fb11669bd3468a13800d69112e636ec825",
+      "size": 2621
+    },
+    "tests/test_current_model_catalog.py": {
+      "mode": 436,
+      "sha256": "58c0331c22ff026fb31da3bfb6692a47f1f6daee1368f84e2ce08dde12c5aa72",
+      "size": 4844
+    },
+    "tests/test_current_model_kwargs.py": {
+      "mode": 436,
+      "sha256": "32e2c9ae767b738ec9fa759413cb80a259198fa21103bc2e4ba901ef5e49c097",
+      "size": 5597
+    },
+    "tests/test_database_display.py": {
+      "mode": 436,
+      "sha256": "0883005a56044dbe6212c653fa9c061344f20e8f653e411eb7f99e9f6e1f0929",
+      "size": 2318
+    },
+    "tests/test_database_no_api_keys.py": {
+      "mode": 436,
+      "sha256": "9c7a8dcee11b0f98da812f9cd222c4983afbf935d28dadf58c6499973ab6a1ed",
+      "size": 11758
+    },
+    "tests/test_deepseek_accounting.py": {
+      "mode": 436,
+      "sha256": "5f455bde7e1e40128ca9c3f587dd42c97a985f5df8ce2d3af377b0f022a29eb7",
+      "size": 3729
+    },
+    "tests/test_dotenv_loading.py": {
+      "mode": 436,
+      "sha256": "adac47a86f1267493c70cc95adb4d82c8e2542fe99ea124d7d6634fb2f499cf5",
+      "size": 1949
+    },
+    "tests/test_dynamic_islands.py": {
+      "mode": 436,
+      "sha256": "e05d69daf9bf9b5ff3cb6fd1ed2b5849df07525e22845d94359be9e78125dc91",
+      "size": 10926
+    },
+    "tests/test_edit_base.py": {
+      "mode": 436,
+      "sha256": "0500735bd4fbe1099532420079c967a4cd56cd9ebc9eea0c4b214ca903e304f1",
+      "size": 35516
+    },
+    "tests/test_edit_circle.py": {
+      "mode": 436,
+      "sha256": "2125b5fa26fd669e050ea564c9c7cf16d2ca8fcaa846386da9bfa9d97d1565bf",
+      "size": 4919
+    },
+    "tests/test_edit_cpp.py": {
+      "mode": 436,
+      "sha256": "aa34c0c2d1a901a66c1a03ec045d1f088eea18174f0675f8969f5bbd6125b4e1",
+      "size": 2121
+    },
+    "tests/test_edit_fortran.py": {
+      "mode": 436,
+      "sha256": "97e7c5be993655cdcef3f926a36f9ba42571e929acf335feef004e987695d456",
+      "size": 4283
+    },
+    "tests/test_edit_go.py": {
+      "mode": 436,
+      "sha256": "3569eaa845cae3acc601a8895b64823887acf51cbed89f5b75dcfa5959c13689",
+      "size": 3044
+    },
+    "tests/test_edit_julia.py": {
+      "mode": 436,
+      "sha256": "2a01a686b623dc7ebf11490145213e506c0b8a53777c3c9368fab0c49c41f101",
+      "size": 2924
+    },
+    "tests/test_edit_markdown.py": {
+      "mode": 436,
+      "sha256": "41d17b1a75090fdadad4e790b9a9b02879fcb268abd36e38b9a464fc5244e354",
+      "size": 4534
+    },
+    "tests/test_edit_verilog.py": {
+      "mode": 436,
+      "sha256": "d3c26e44529d14ecea4a1711b86a3cd11b27218f650939b668052b1c630cdc98",
+      "size": 3582
+    },
+    "tests/test_edit_wolfram.py": {
+      "mode": 436,
+      "sha256": "eec22d796e491db39b698e4e2ab1d6123f594ff9ae1e2a5a17eb7ac0380125a9",
+      "size": 4425
+    },
+    "tests/test_embedding_client_backends.py": {
+      "mode": 436,
+      "sha256": "34582483a1def730bceb536a3d8e7f9364af38dbd598f8d38c330afb76a53048",
+      "size": 7589
+    },
+    "tests/test_embedding_model_resolver.py": {
+      "mode": 436,
+      "sha256": "4e58da4b349575a91033a35c98b8428053d3dd134983cdf1055bf07b89efbe2a",
+      "size": 1592
+    },
+    "tests/test_endpoint_failures.py": {
+      "mode": 436,
+      "sha256": "c635b998ed87b555ab67ca0a196008dcb217003b0e2dec2ed802a9f85ca52eab",
+      "size": 8712
+    },
+    "tests/test_example_model_catalog.py": {
+      "mode": 436,
+      "sha256": "cdbd259bf60353985682194fce6b55f6830777466ea4c3376ae51a9b5b1ac580",
+      "size": 11300
+    },
+    "tests/test_failure_nodes_webui.py": {
+      "mode": 436,
+      "sha256": "e871180f8722a3eb41fb5a2b6fe3022355c260f6f85db71710f70f44463acbd5",
+      "size": 1561
+    },
+    "tests/test_fortran_heat_diffusion_example.py": {
+      "mode": 436,
+      "sha256": "389254b0f5d88b33093aac84d83a47bd0f47bb9669d27368c2d2bfe5f444424f",
+      "size": 1403
+    },
+    "tests/test_gemini_embedding_integration.py": {
+      "mode": 436,
+      "sha256": "93a9cf43276102ca46e0218520261ff10013d753133ea7ecb4912925d6a8367a",
+      "size": 4023
+    },
+    "tests/test_gemini_provider.py": {
+      "mode": 436,
+      "sha256": "70a3d2f4006bce763a089a7b7b43d6ec3a7c3bde25e5f72457f8a7ebfe86b0c7",
+      "size": 10069
+    },
+    "tests/test_gemini_retry_policy.py": {
+      "mode": 436,
+      "sha256": "b1b7ea31fb80d65bf443c2b766471eb8e6fc91f1f42d84ac727b6d81b177d1f6",
+      "size": 11734
+    },
+    "tests/test_go_collatz_steps_example.py": {
+      "mode": 436,
+      "sha256": "7d1f6fd60bb13cc6cb3979fa4663ff9635fb7c56fd2fc6adcefec0eea2248ca3",
+      "size": 3010
+    },
+    "tests/test_google_genai.py": {
+      "mode": 436,
+      "sha256": "22712e67210dc39aa4aa62c6247e4350769333ef26a99260afba6d8a5050af49",
+      "size": 9165
+    },
+    "tests/test_headless_provider.py": {
+      "mode": 436,
+      "sha256": "fd3d01e1d48383727d58f0ccee100a1bd739ff44700096e0522fda0de5b36161",
+      "size": 12142
+    },
+    "tests/test_index_webui.py": {
+      "mode": 436,
+      "sha256": "8ed63cacaaa3d1c87f4042673ccadc51d7a3370b9999418d1610649768aab7e3",
+      "size": 773
+    },
+    "tests/test_island_copy_costs.py": {
+      "mode": 436,
+      "sha256": "15e3444bf1215e919564dc87601b5de94283ac7d8afd758015294ba4350622df",
+      "size": 5370
+    },
+    "tests/test_island_migration.py": {
+      "mode": 436,
+      "sha256": "16b102359e7b44a7a0872e2fc4947eff32f9e9439c652f024e93dcf7f929bcbb",
+      "size": 2105
+    },
+    "tests/test_island_sampler.py": {
+      "mode": 436,
+      "sha256": "19d6f54b050837894571cf991fe7e756e4dbbbdc2416188b6e531491c021b7a9",
+      "size": 2200
+    },
+    "tests/test_job_timeout_clock.py": {
+      "mode": 436,
+      "sha256": "5a65c1a61c8b1a6f9bc91e572a3fb1ee4d49fed4e21e09404c901c487bac3809",
+      "size": 820
+    },
+    "tests/test_launch_hydra_async.py": {
+      "mode": 436,
+      "sha256": "97f34749451aff287b2bcb853caad258c1768db9a6c345bb7ff7754670b6e83e",
+      "size": 2638
+    },
+    "tests/test_llm_batch_alignment.py": {
+      "mode": 436,
+      "sha256": "8c9d2334c6115ab4945c1ff65b50e328d2d0cd92fe96572955fcede76f287506",
+      "size": 4400
+    },
+    "tests/test_llm_client_backends.py": {
+      "mode": 436,
+      "sha256": "90debbd875bfab5b4ce0ea6b9c448bd817fab7318d148f1efe3f456563e7b207",
+      "size": 7850
+    },
+    "tests/test_llm_client_cache.py": {
+      "mode": 436,
+      "sha256": "c164cf69228c4e20f7598a665fe793f686063a6266905cf2fb9d9066b64645a7",
+      "size": 15408
+    },
+    "tests/test_llm_client_cache_safety.py": {
+      "mode": 436,
+      "sha256": "1892b1404b57b45ef11aed8760bed90982b17dcddbe0d536c5279036f6ff9403",
+      "size": 9289
+    },
+    "tests/test_llm_kwargs.py": {
+      "mode": 436,
+      "sha256": "6dcd06cf762ec52c9cc9dac9ef6a5868f6c1307a45ef25121bea0cf640499dbb",
+      "size": 4971
+    },
+    "tests/test_llm_query_routing.py": {
+      "mode": 436,
+      "sha256": "aa87a93f4d5130d2bdd3bc7a8bbcf51f837a2cb21e3d7b96c9ce6b0800394707",
+      "size": 1897
+    },
+    "tests/test_llm_retry_constants.py": {
+      "mode": 436,
+      "sha256": "54f4d059decf9ee0b0ac135be13b1454192c3de63a8ef7bdd4b8a1128421cfea",
+      "size": 4588
+    },
+    "tests/test_llm_retry_policy.py": {
+      "mode": 436,
+      "sha256": "f82359adaf7a81eaff52a294ad2b200ebc6c48520a8ead4e3329d2619f75e9a9",
+      "size": 5275
+    },
+    "tests/test_llm_stall_timeout.py": {
+      "mode": 436,
+      "sha256": "7277649e8d85fe0026657d2f67a9c76090a812429d1467721fd0e69748c06a45",
+      "size": 4116
+    },
+    "tests/test_local_openai_config.py": {
+      "mode": 436,
+      "sha256": "ead2c0bc29d76dd0652342667bb0d1b7f3e9c8a80616325a209241494d88ea44",
+      "size": 1035
+    },
+    "tests/test_logo.py": {
+      "mode": 436,
+      "sha256": "339b453152a98affb1be286b4d49325ad1b408a485e427563b978eef187973a8",
+      "size": 838
+    },
+    "tests/test_marker_validation.py": {
+      "mode": 436,
+      "sha256": "f872d1d001e6b5f6f60687a373dcc0b759fd966ff769889296a5ee10c7a36925",
+      "size": 10234
+    },
+    "tests/test_meta_summarizer.py": {
+      "mode": 436,
+      "sha256": "cb9612b3cda4dd0d576a60c8416fddc6274def8695b5336dee92e4386bb70723",
+      "size": 8409
+    },
+    "tests/test_model_availability.py": {
+      "mode": 436,
+      "sha256": "7379a0969264da3ca322d79cf6bfd95fc8ef5c43123c049e6a7028e57fb1a931",
+      "size": 4655
+    },
+    "tests/test_model_catalog_startup.py": {
+      "mode": 436,
+      "sha256": "7aec8f0d5411df27904e1d432c5b92539d1263cb8cb934d7f0e9e26987ab54df",
+      "size": 9214
+    },
+    "tests/test_model_resolver.py": {
+      "mode": 436,
+      "sha256": "4c2935c8b8b952eb3b4c6f0fb2b0713a131d355a060be661f312c6ab24c16a51",
+      "size": 4475
+    },
+    "tests/test_models_dev_catalog.py": {
+      "mode": 436,
+      "sha256": "3740b7336e6f1ae517af30f79cf2eabbb68d4ae3b37428ae7f8d4fe468c2e6d0",
+      "size": 11699
+    },
+    "tests/test_models_dev_live.py": {
+      "mode": 436,
+      "sha256": "ba0dddc264614ebaf7d4d93c9cbac9f8365362f646a6a939f5a0f7dd37668bee",
+      "size": 1311
+    },
+    "tests/test_novelty_judge.py": {
+      "mode": 436,
+      "sha256": "73dea186daacfd5d4522332d4c5a2e375f953ca421d96666709609035db3e6aa",
+      "size": 6443
+    },
+    "tests/test_openai_provider.py": {
+      "mode": 436,
+      "sha256": "3ac9a7ee4e9de7578c516752fb39580dd5c8ad11f74ee9a5d2e86eeb925906ae",
+      "size": 7752
+    },
+    "tests/test_packaging_release.py": {
+      "mode": 436,
+      "sha256": "7f19bf83f7b4043b5f3b7f0442deb8af5c5dc433d73db3f93b8889495424749a",
+      "size": 5408
+    },
+    "tests/test_parent_sampling.py": {
+      "mode": 436,
+      "sha256": "a8322b19b2aa8e37027896b48c07f342f25dfa7941d13c551e1439f7d0e2e55b",
+      "size": 7366
+    },
+    "tests/test_pipeline_timing.py": {
+      "mode": 436,
+      "sha256": "d0fa233b99bb5b2f72fbc8cf3be4e9e977aaa50c8584f64fd66417011ca8ff14",
+      "size": 32410
+    },
+    "tests/test_plot_throughput.py": {
+      "mode": 436,
+      "sha256": "1fca716389232cbbfa79a68c5c24a2ecaf98396f80404cbb1839ab569eb12ce0",
+      "size": 10640
+    },
+    "tests/test_pricing_csv_generation.py": {
+      "mode": 436,
+      "sha256": "8757de2437574eb43c27e9b8080e69984e70451b15f22ab1209f7cee9cbfa9d4",
+      "size": 8059
+    },
+    "tests/test_pricing_runtime_overlay.py": {
+      "mode": 436,
+      "sha256": "712bc8b050ac6929bba20b5838310167bab206ac0175fc4055868c7b8111cf47",
+      "size": 1618
+    },
+    "tests/test_program_summary.py": {
+      "mode": 436,
+      "sha256": "816e1851aeb2564c77879571e51a58f596da768c3d32ba44ff0b668441a542b0",
+      "size": 2388
+    },
+    "tests/test_prompt_evolution.py": {
+      "mode": 436,
+      "sha256": "526ba7491c542d4d1f107c6407671f09df0a0ffee4891e10d4238e220a0bb954",
+      "size": 20063
+    },
+    "tests/test_prompt_runner_setup.py": {
+      "mode": 436,
+      "sha256": "279801f3ef343da75ba7322964ab06d7c8bb50ba4a58a20483c7c1b57f24ffa3",
+      "size": 6739
+    },
+    "tests/test_proposal_llm_kwargs.py": {
+      "mode": 436,
+      "sha256": "0f41679d17af432e43332766ebe7ebd1fc649cf110463f5759ae10c7b7f64b70",
+      "size": 4448
+    },
+    "tests/test_proposal_oversubscription.py": {
+      "mode": 436,
+      "sha256": "af7e5ea2f14ccab61fab64cb3f4d5a1e6bb26ebc90f553bed74295fafcd8ef5e",
+      "size": 3314
+    },
+    "tests/test_rtllm_equivalence.py": {
+      "mode": 436,
+      "sha256": "3575aeb23f6eceffa0a42c69570149d2ccdc638189a2aef9106a9b9ab31cf371",
+      "size": 9747
+    },
+    "tests/test_runtime_timeline_webui.py": {
+      "mode": 436,
+      "sha256": "033f25e74ac16ebd598bb5842c4921f9f6e5991a14453b6b093c2f9f2ec6c911",
+      "size": 8797
+    },
+    "tests/test_scheduler_env_activation.py": {
+      "mode": 436,
+      "sha256": "9f5c22a58da68aa4f1274d1044ff21344799b5fa4d114f13afe8864f8d459a3e",
+      "size": 4626
+    },
+    "tests/test_score_chart_webui.py": {
+      "mode": 436,
+      "sha256": "0067bcf125aaeeeeb72c7755822fdd3ef1e94627965e977f02cf3194aff213ca",
+      "size": 1141
+    },
+    "tests/test_shinka_models_cli.py": {
+      "mode": 436,
+      "sha256": "a9bad532abecec5305c59caa52ac0401721c4ce3b0e6c368d55bd95e03671ff5",
+      "size": 13171
+    },
+    "tests/test_shinka_run_cli.py": {
+      "mode": 436,
+      "sha256": "278e46edf972b34bc3d04bd2ad63f1b81682bab8dca6338aab1283c73469bafe",
+      "size": 17575
+    },
+    "tests/test_tournament_selection.py": {
+      "mode": 436,
+      "sha256": "3490c62dba3ce925fe8fe890e645fe4cbe7ae6721ab0f87a40fd6e618091ad28",
+      "size": 10849
+    },
+    "tests/test_tree_roots_webui.py": {
+      "mode": 436,
+      "sha256": "2960515bfc7c390fd479d0b169c709f85d8df34209c6923159379a1705a2966d",
+      "size": 4154
+    },
+    "tests/test_unicode_io.py": {
+      "mode": 436,
+      "sha256": "10387b736fdbcf4e7c7417b9c5ad1acdf3f3a4ad5fb6183abe1c8a7601a93485",
+      "size": 6891
+    },
+    "tests/test_visualization_meta.py": {
+      "mode": 436,
+      "sha256": "72baa309ff09926312bb3a462ca797b696c82b4000b29ffc147158148802bb27",
+      "size": 19658
+    },
+    "tests/test_wandb_database.py": {
+      "mode": 436,
+      "sha256": "0c8ecd2a26c9491dcf39be6c0b66f05af0b5ac5c678c20ed743f1bdf39885265",
+      "size": 10601
+    },
+    "tests/test_wandb_logging.py": {
+      "mode": 436,
+      "sha256": "82672bf7c23f490418d53e8b512dfb747507686df5400f18ee7c84f400ee1174",
+      "size": 12212
+    },
+    "tests/test_wandb_metrics.py": {
+      "mode": 436,
+      "sha256": "bc45679472ab614328b44d9e28c6a112bb83ae458c73cef21c0d915eb1d33a6c",
+      "size": 6860
+    },
+    "tests/test_wolfram_gcd_sum_example.py": {
+      "mode": 436,
+      "sha256": "e26d9baac0fc475fcdc38b717039c99017eabf24803d936da7a0f71daf357459",
+      "size": 4899
+    },
+    "tests/test_wrap_eval_parallel.py": {
+      "mode": 436,
+      "sha256": "a2e97ce68e62af951dd973669ca1684421ebd90cac06da0baa2cfbd0ac5a2aec",
+      "size": 7937
+    },
+    "tests/wandb_test_utils.py": {
+      "mode": 436,
+      "sha256": "3e4d98e9051cc464999c3900495d51487b8790a3320a1c75003086185d358013",
+      "size": 1931
+    }
+  },
+  "license": "Apache-2.0",
+  "members": [
+    {
+      "mode": 509,
+      "path": ".githooks",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 509,
+      "path": ".githooks/pre-push",
+      "sha256": "7a649f2dce37c6600605e292b49ddb8f28f13e41eb31dfd2971cc350385cf33c",
+      "size": 400,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": ".github",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 509,
+      "path": ".github/ISSUE_TEMPLATE",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+      "sha256": "6dbf22ff11c0e8d1e964acbff17d732d974994a5681e64758001df73f7ef4901",
+      "size": 1972,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": ".github/ISSUE_TEMPLATE/config.yml",
+      "sha256": "1f103c6a9dd07cd13a9a6f17ace6b813f47747eb9cb7e00488cb2073caaf91bb",
+      "size": 28,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": ".github/ISSUE_TEMPLATE/feature_request.yml",
+      "sha256": "41ada841dcf46ab1126f82af498165a50c35e2bc4354c3ff54779e491b22eea1",
+      "size": 1768,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": ".github/pull_request_template.md",
+      "sha256": "2725cfffff9f9498b9bb1986ee07a8e5af7f2eb05cb02e83ba32d8022c42c6ed",
+      "size": 965,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": ".github/workflows",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": ".github/workflows/ci.yml",
+      "sha256": "20861d1227a39d7421004f244fd0aca8d89e90e9315082b95408de444f315682",
+      "size": 1191,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": ".github/workflows/claude.yml",
+      "sha256": "89cdad9b83513590cb8c437d853bbfc5b83925df9fb0ec7a68c3a52b2ec46f37",
+      "size": 2818,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": ".github/workflows/docs-release.yml",
+      "sha256": "adae31a5b2af8bdc9b4fb53b9799e6e58920c72e21c4e2e63c894fd4deda71aa",
+      "size": 1082,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": ".github/workflows/integration.yml",
+      "sha256": "f8497afcfc8facf260219a8a9c58fec921595767e8e3b7ef535f31f846086dbc",
+      "size": 1676,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": ".github/workflows/pypi-release.yml",
+      "sha256": "9069a02c4e2aa68faf961ceab22250b6863dc72dac66b5d4e0cf22a4e429cc13",
+      "size": 1383,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": ".gitignore",
+      "sha256": "385ae42bdc86568e449ffc1298fc227e32c97956ecd89e181b15e500014254b7",
+      "size": 3858,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "CHANGELOG.md",
+      "sha256": "b1ad5e5faea6b7f0a30f7c958ae94d2d04aa5b967a60b8f3709dd08fb0200e61",
+      "size": 27857,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "CONTRIBUTING.md",
+      "sha256": "e83145345119dd12732f2abf382e3e1a5365a9e288cb761b8fbae77c33f01f8a",
+      "size": 5217,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "LICENSE",
+      "sha256": "c3e5b1c26607caf7208d5a105c113fe240630bb873fdb8ca5b4c2e32c721ddaf",
+      "size": 10237,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "README.md",
+      "sha256": "59479b30a6292024ee0d32ccf156e96539d7221ca259402b1dc41aa59ebb666c",
+      "size": 31860,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "docs",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "docs/agentic_usage.md",
+      "sha256": "c7f21168dfaa2f94139bb978e8cd24869f71496c6f391123f296fb0c40459458",
+      "size": 5221,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "docs/assets",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 509,
+      "path": "docs/assets/javascripts",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "docs/assets/javascripts/async_throughput_demo.js",
+      "sha256": "711a2a5b68741f4a3c468ebd5c1a758f63cc4f971bd04e391640fea95e9dc6eb",
+      "size": 6743,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/assets/javascripts/async_throughput_demo_core.js",
+      "sha256": "a2ddbefb6225b86da348645d4cd4b2a68495dc5aaae76430874724941bd4615e",
+      "size": 15166,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/assets/javascripts/bandit_selection.js",
+      "sha256": "a5ad777dc7044e20a4e3c3252af8439bd616713288af650aa0c0f6dd4c309737",
+      "size": 6268,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/assets/javascripts/bandit_selection_core.js",
+      "sha256": "47c0462bc47ceb82a95966742daf5c56705b6c09eb38e07d9fcf1841ac07e84a",
+      "size": 19633,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "docs/assets/stylesheets",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "docs/assets/stylesheets/async_throughput_demo.css",
+      "sha256": "28c571446b87e76c5788c5f6dd72326d2dc31460ae731e73f0f149205e0f0edd",
+      "size": 3641,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/assets/stylesheets/bandit_selection.css",
+      "sha256": "fb9904afbf834fc142a255b010f6f048ebfc9ff20035f8d002fc5cb0559b670c",
+      "size": 6721,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/assets/stylesheets/extra.css",
+      "sha256": "5155ebb0d95d1591bc6e74b5e26dd55e5f65b55b6f9525b88c7a90a133231715",
+      "size": 12308,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/async_evolution.md",
+      "sha256": "2abe5ff9a7d425298a0084d547a8a98556571c21434b7df07b3f37a71ee040d5",
+      "size": 8167,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/bandit_selection.md",
+      "sha256": "484a643b31424cd4404527c75de247962b8af4aa4ad4f7efd22916f4e39b28af",
+      "size": 4625,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/cli_usage.md",
+      "sha256": "91f7c033a37651bb84ec0cf35af173d780a11b6823ea5c6b11a7a45fc2dcb66a",
+      "size": 3563,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/configuration.md",
+      "sha256": "740b56351467dbab2d4c3ae930095f1820ccffd1dbcfa48d35e35e3de2f42c30",
+      "size": 23282,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/core_concepts.md",
+      "sha256": "82f2a9b6137e7829e623418ad0d2d4dd54b47d2d425848cd15ab407f8a997b2e",
+      "size": 3741,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/examples.md",
+      "sha256": "b1f8657144119023bffe92da2f9c2a96ac3c37b9b0aab1e61250f847dc4bc5ea",
+      "size": 4109,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/getting_started.md",
+      "sha256": "89a2d6bfd00e8654f7fba132140c50e34cc4ea038374f286d2f785bc68ecc7f6",
+      "size": 13477,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/index.md",
+      "sha256": "377dba9383c72d50d142afc781fa55ee2b7e9544d82055db76ae45f00948c231",
+      "size": 4121,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "docs/media",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "docs/media/async_speed.png",
+      "sha256": "520fa70516f5ae91413f56e4468ab0c22f8b27fddd3df832aab38214eb11021b",
+      "size": 563402,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/media/claude_run_1.png",
+      "sha256": "e7b0e524f5cfbccd6d445366e41baf92d5037c161816b859e3021e5b3d501785",
+      "size": 196499,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/media/claude_run_2.png",
+      "sha256": "60566ea0155707a95739221df91280fdc75688a2007dac2347ba4511d40ad518",
+      "size": 192539,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/media/claude_setup_1.png",
+      "sha256": "af133734af30f6839c69c3e822f7bc59cb64c1b1c6ebda99f18016ef0151658f",
+      "size": 206491,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/media/claude_setup_2.png",
+      "sha256": "aadccca0e9cbfb74be87ff4fe69b0c6029b7a717d4bc6fc8a3157d2f4dee3d1c",
+      "size": 192582,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/media/conceptual.png",
+      "sha256": "eac2c3bf9ec79108b87e650a4fb2adf7844e0c32d160ec4d2b6547df222b0f1e",
+      "size": 716899,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/media/favicon.png",
+      "sha256": "259a0e53fa638d9ddcc0eac446c6d4cc3fe86a89a0c17f4fb7d1560e59fd245f",
+      "size": 1657176,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/media/tournament_luna_circle_packing.png",
+      "sha256": "7e364cbd136e1e5e09fb502e921a125f79db5b04d5a17c1ff612ba842c79f3a7",
+      "size": 103445,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/media/webui.png",
+      "sha256": "721c8b96c2bb1a84ebe59596783d407b0bbab324cd3758c954deccd575ef5ffc",
+      "size": 841867,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "docs/reference",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "docs/reference/core_api.md",
+      "sha256": "500b8117950066c619811e265cedd3f2e56c31cf0da88e21ccf85e153539b1e4",
+      "size": 1155,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/reference/database_api.md",
+      "sha256": "78db24428429e5c21b45246168d8b68d433d5620d6f7ff1e665096fb9a0866fc",
+      "size": 1190,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/reference/embed_api.md",
+      "sha256": "28248b38aeb906c4b08311eb95503ad2a9840a3b9ddf314c05ea4546c6816d57",
+      "size": 1173,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/reference/index.md",
+      "sha256": "06de82e1ac776e4eadb64497ae51f10395bcc93ddb5813d6ee9226162d5028fc",
+      "size": 907,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/reference/launch_api.md",
+      "sha256": "9226546ad164e715094c3c826f7de23b506081f45ea2101d88ed716961b0241d",
+      "size": 994,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/reference/llm_api.md",
+      "sha256": "f63087dbef524a95fa2fc16d3eed079c83b2725ec4a38034e647fc95255a8f20",
+      "size": 2513,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/support_local_models.md",
+      "sha256": "832284caade8adb9305f4fd9a685ec94d921c21cc59e4f0dfa5508bd69d6a0c6",
+      "size": 5727,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "docs/webui.md",
+      "sha256": "12bd538dcdf8f7b0214adab0da413cb08682441c08422f4bb2b475dfb578fccd",
+      "size": 4747,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "examples",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "examples/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "examples/circle_packing",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "examples/circle_packing/README.md",
+      "sha256": "6737073e0e1cef55a0c0d9371441a9be8a6ccbb3ff8c091796f72bd4fb150ce7",
+      "size": 2280,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/circle_packing/evaluate.py",
+      "sha256": "b8c6de3144b0d1c77e41b9ec62c4845b1e87bbd30692279d17cb2a0d1a7f22ab",
+      "size": 6342,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/circle_packing/initial.py",
+      "sha256": "09da8428a85792a94a9c6cc2193b6a0db1090ce598a17b75bc0db48d0953d098",
+      "size": 3161,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/circle_packing/load_results.ipynb",
+      "sha256": "9488cb67025b9f02d99fc9c17973cbcbeabe6f5a5508bd6b06fc3eb8ed7691e9",
+      "size": 1274967,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/circle_packing/run_evo.py",
+      "sha256": "ed3bc17057296e2611c2421a4607ea4e9d062412b37e3f520cc435b1b5e75535",
+      "size": 2175,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/circle_packing/shinka_large.yaml",
+      "sha256": "eb42554fdde26ce56f9fa92c05d5ac6e78552ef81c0879e9593a81153a3bab6f",
+      "size": 6144,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/circle_packing/shinka_medium.yaml",
+      "sha256": "2b72036a3b2f0ba6ac6d7139d10cae51aaac10bd5dcf39b130c9ee253eb04501",
+      "size": 6140,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/circle_packing/shinka_small.yaml",
+      "sha256": "ab49cf8ff4aa3d1310ffb790751c56abc6762ec24634375d23311d94ed1e7f3c",
+      "size": 6134,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/circle_packing/shinka_tournament.yaml",
+      "sha256": "c03d93b263bef92eb379b943e9e4112c396565328215dbcbbd7b1b241f085e0a",
+      "size": 658,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/circle_packing/viz_circles.ipynb",
+      "sha256": "0def5b5f923b8b3ae384fc1e0e1969639f5ea11da027523c336062fd13634eb6",
+      "size": 391326,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "examples/fortran_heat_diffusion",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "examples/fortran_heat_diffusion/README.md",
+      "sha256": "fb16328844693394db51d743404720b6069be2c67e942c7d72a4ae2efc6607ed",
+      "size": 1002,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/fortran_heat_diffusion/evaluate.py",
+      "sha256": "78ac2effb12ac73d7886f9fced57534b596049b8a926d9dbc9600409b9979c27",
+      "size": 8640,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/fortran_heat_diffusion/initial.f90",
+      "sha256": "c9c3430d549aadf142467d18e6a67c35e24b1f0011865b9651ed072df1bcb367",
+      "size": 3604,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/fortran_heat_diffusion/run_evo.py",
+      "sha256": "e782451de2a02b56cf76fae423483ef7aa37814cb0933b6ad7284fa2dbc9cc33",
+      "size": 2178,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "examples/game_2048",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "examples/game_2048/animate.py",
+      "sha256": "c45d65662f2a319842766e55e00a9625c549df7c93c05d68b0c94b7e51a8b760",
+      "size": 23293,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/game_2048/env.py",
+      "sha256": "1533b363131bb27349627c6d4db00959a7164ef1d70d800713fa7e43fe28a1b7",
+      "size": 12918,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/game_2048/evaluate.py",
+      "sha256": "24ca5494194f749253818a5e9fd65cd74cfef71e636a706121de0c55b40f42e5",
+      "size": 5286,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/game_2048/initial.py",
+      "sha256": "bac7934a0df09629534e2b6f8142c5084ed1649822bb55090773182c68af467c",
+      "size": 1538,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/game_2048/run_evo.py",
+      "sha256": "46c207b8a960e307c6c11c62b477aa4b82bd0e331bcd58b6dcbbecf28a3a1688",
+      "size": 3206,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "examples/go_collatz_steps",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "examples/go_collatz_steps/README.md",
+      "sha256": "c6e14294ac52834a5cb431e6fb816cb0b496a3fc91ce57413a1d2e09a544529c",
+      "size": 769,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/go_collatz_steps/evaluate.py",
+      "sha256": "6708e289f154914c1161303b2b3e2d5d44e9b4d606087ce93ea6761eaff85d93",
+      "size": 6292,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/go_collatz_steps/initial.go",
+      "sha256": "6b11ad79889bda3ee0e8a24aef1f3c0747238dcda0131e59d1dc88a7f0e7de92",
+      "size": 2089,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/go_collatz_steps/run_evo.py",
+      "sha256": "4cb14295415de4beb669078a3ff2d4d92ddd4765b48593b040300eb3d7966a7e",
+      "size": 2085,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "examples/julia_prime_counting",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "examples/julia_prime_counting/README.md",
+      "sha256": "c2bf51790e0beee0030f3be6fa361b33717e5f35a9947e18c986539270b2f976",
+      "size": 1597,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/julia_prime_counting/evaluate.py",
+      "sha256": "530fec55490e0618cdc7c778c120f5a792257b59b9539ad23d6f3b8983c97f59",
+      "size": 6982,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/julia_prime_counting/initial.jl",
+      "sha256": "b802a41cdf6f86a50d359487a596269232a66ec483837d5f3b8fe2a5b9b6a1ee",
+      "size": 1837,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/julia_prime_counting/run_evo.py",
+      "sha256": "993b520b06e1620ce003d85f9d8ad894454ba5382694d57d7684d71031006655",
+      "size": 2083,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "examples/novelty_generator",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "examples/novelty_generator/evaluate.py",
+      "sha256": "43be61e99005afa616b960f65267e3746257b81f5c5c153d7a4c589105ad64e8",
+      "size": 5404,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/novelty_generator/initial.py",
+      "sha256": "da1e6b1a431808fb9235caae763a45370265e149ccae57e51af5dcffb0b19eef",
+      "size": 542,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/novelty_generator/lm_judge_prompt.py",
+      "sha256": "b3515568a20c2089126aa1804219a3181723ac6b9a0551a5202cc74b88bd327b",
+      "size": 5387,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "examples/rtllm",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "examples/rtllm/.gitignore",
+      "sha256": "86da38618052bfa467e39337af260df97622363094fc49586ede9f7b216fa1d3",
+      "size": 576,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/rtllm/README.md",
+      "sha256": "8eed9e9504868cd8b0e4fbd97da05f8698ee31292971f78f9149216a27c3e11d",
+      "size": 5412,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/rtllm/evaluate.py",
+      "sha256": "a40c2fb8f25d5e50933eec154398017487195df2b7f35c1059ed7b587b28165c",
+      "size": 24212,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/rtllm/example.jsonl",
+      "sha256": "263ab6d3ee2bfb2e44ad2ec5028a84a36615db58ce39a509def0ba4bb5eb0a30",
+      "size": 2652,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/rtllm/extract_dataset.py",
+      "sha256": "3ceef61e99bcb1e219edf4e9da5af4879713d7c7d4b24b04d2932b3a128c8365",
+      "size": 7817,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/rtllm/initial.sv",
+      "sha256": "d7430819531003a26c30a6a5851073bbea5692c0f35d74ad53738f012e0e9d3c",
+      "size": 935,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/rtllm/run_evo.py",
+      "sha256": "5f80021a616ce003476db52221600fb05edd84b3b06323f024526840890e89e9",
+      "size": 5340,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/rtllm/shinka.yaml",
+      "sha256": "e36ff4e8dba961b90fdfe7d380611f99e43cd2f5ef6948a9816b60fc3ad076f5",
+      "size": 1677,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/shinka_tutorial.ipynb",
+      "sha256": "142eb32eaf8765506ad041d161a45c490027d8fe8e6c6144809fe9678f1c96ae",
+      "size": 30819,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "examples/sine_approx_headless",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "examples/sine_approx_headless/README.md",
+      "sha256": "fa4a027aa2fa7cbcb4f249d5c0c1d49d9717b976fed4adfb47da0dcf12dc1d9f",
+      "size": 1151,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/sine_approx_headless/evaluate.py",
+      "sha256": "5916ae3f4a00970f081b5cc7c41391502bd3e091687a873cbe7fcd4f421d295a",
+      "size": 3758,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/sine_approx_headless/initial.py",
+      "sha256": "9756a6b1bbfe868988a99f8be55460419ac1d72f8a710825dfe76e2d8fd8e15e",
+      "size": 91,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/sine_approx_headless/run_evo.py",
+      "sha256": "ea550532f48daf5d465ac78f2e8aa3adf93f61e564bf0ff7bb41a8e5e74ec80c",
+      "size": 1502,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "examples/wolfram_gcd_sum",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "examples/wolfram_gcd_sum/README.md",
+      "sha256": "76defcfb6dbf6559d79eb8d20fa30e0d94e279b45748e373cc0e0480d10e3213",
+      "size": 3143,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/wolfram_gcd_sum/evaluate.py",
+      "sha256": "11d3bbe50f0ec288539bfc7bb454e561ec0fe0e066a949ea0eb6ffaff7d874b2",
+      "size": 6905,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/wolfram_gcd_sum/initial.wl",
+      "sha256": "fe85cd305317c1b79489831143f6c76ba25d7a3e137998299b05823f7cdf8dd2",
+      "size": 2637,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "examples/wolfram_gcd_sum/run_evo.py",
+      "sha256": "18ad3792f7a4243b63990debc6454c0e7d166f75243ef6d14d8ea856d648d24f",
+      "size": 2483,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "mkdocs.yml",
+      "sha256": "e4a3d3ea9ff5247906f6b4671042b349f9864c8a03af1d5b9d9de6c04dd4390a",
+      "size": 2770,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "pyproject.toml",
+      "sha256": "494c0e433dbb80ee0c1f9181c8a57f3d28e49f505418234590aed272b35d00fe",
+      "size": 2543,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/__init__.py",
+      "sha256": "41e4694a12536c004b7d1ed081abc2fd518ca8fdbe623682c44b336c3821ca0d",
+      "size": 113,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/azure_openai_config.py",
+      "sha256": "11cc3d5b0f66512db402f43139b02850e39d4a1e505266796a9d223e6ff822f2",
+      "size": 707,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka/cli",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/cli/__init__.py",
+      "sha256": "4393ea9f01d919692f24f831633a536f5b2b47bddea6d01741d1f6bfe122e630",
+      "size": 35,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/cli/launch.py",
+      "sha256": "8ac2d0134b22193e72921c008c6b1410148d82949f46288f55ceac0b8966eaa3",
+      "size": 750,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/cli/models.py",
+      "sha256": "82d6a98de0a01b48a8ac6438fb0d829ff6d2f2e41961c8a91a6d7678124b5c40",
+      "size": 3506,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/cli/run.py",
+      "sha256": "87a2c80e5807b958cb96d2735466912a7ecd7a197446ea64e1b12c5ff4798a63",
+      "size": 17558,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/cli/run_config.py",
+      "sha256": "40d04707ac12b3e69cd4b20c54617075c81430e107a305668bae962ff15ff533",
+      "size": 3788,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka/cli/shinka_launch",
+      "sha256": "8013fd1da8f82c5c8d6eeb141f9ade71659b0c10cab0b4d6d80309c01d5adefa",
+      "size": 399,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka/cli/shinka_run",
+      "sha256": "6de4e7bd5e490a42c688521d4f6d01d6a578656939751f1a5cf82fac75217853",
+      "size": 58,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka/cli/shinka_visualize",
+      "sha256": "ccdad576a17ee545137e62490701073822ec3ed2dcf8982b5ad232f0aca82050",
+      "size": 70,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka/configs",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/configs/__init__.py",
+      "sha256": "0ffc7f5ff800432b6ecdfc54957b752ef2e319e1f84a0c467de692ff914985ba",
+      "size": 429,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka/configs/cluster",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/configs/cluster/__init__.py",
+      "sha256": "028f1c6fceff0212aa968c5c2fa5390bd8d481938910305483d5d75fdddded02",
+      "size": 28,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/configs/cluster/gcp.yaml",
+      "sha256": "eff033162c17148a3787d3c99d0b156579b70b2f71c2c4825d5f8f4d842a6ff5",
+      "size": 81,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/configs/cluster/local.yaml",
+      "sha256": "0ec53d9e4652bf6e7141f2243e71b2aa9ad086a8f0c4b6f8938b3fa963d865d5",
+      "size": 153,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/configs/cluster/remote.yaml",
+      "sha256": "39c50dbee6a901dcfa3bcd03497e836f9cd8b262d5ee0862001512664f17c73b",
+      "size": 38,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/configs/config.yaml",
+      "sha256": "73b1c16d4d2d69ddfe86cad9deffc41463613bfe14f1aaf2406c4b206667c351",
+      "size": 371,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka/configs/database",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/configs/database/__init__.py",
+      "sha256": "d4db612d80944948637f84f428ae737f23df5bc7d8938779233e60537f128215",
+      "size": 29,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/configs/database/island_large.yaml",
+      "sha256": "70990149e7b96ccef9e5e1807875204b00dffb9f151f696a36f983a2d3ee0931",
+      "size": 625,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/configs/database/island_medium.yaml",
+      "sha256": "9020e13c99994957ef944d965405675a4cb4a301c000bb86d3f28f0e9b9a3709",
+      "size": 418,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/configs/database/island_small.yaml",
+      "sha256": "a3e4c001e223d9a475e32aa51c50a78ce9dbd0be5502646b48e4dad4a91ed6e1",
+      "size": 338,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka/configs/evolution",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/configs/evolution/__init__.py",
+      "sha256": "3eb630091a5bbac4b163269e332fe037d36b0569b98d1a8151cc62ad0b56e062",
+      "size": 30,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/configs/evolution/large_budget.yaml",
+      "sha256": "78a145e4bee3b0daec2214466f70c331ff74807e514a9ddb24a58d0d97c546c1",
+      "size": 771,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/configs/evolution/medium_budget.yaml",
+      "sha256": "f4281f8afa696d83a81973e7f1f12f2be7603d02e27b694266d20baeee05901b",
+      "size": 752,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/configs/evolution/small_budget.yaml",
+      "sha256": "e1cdee79257f56d2eb6696a2978f701baefc22ece91109b45da535876bef579c",
+      "size": 420,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka/configs/task",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/configs/task/__init__.py",
+      "sha256": "2f0fe4243abd5bbb4fcad10fa59b0a064977896c70aba9dbfaff9b44d6ff9f6c",
+      "size": 25,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/configs/task/circle_packing.yaml",
+      "sha256": "a2bdd310a01c7768e58086a5601ff6d0d49cc33d676aeb9fda99a7c97dd7e341",
+      "size": 1387,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/configs/task/novelty_generator.yaml",
+      "sha256": "bf04325e06e4d8c0b58fde9333a989abffd427ad450302e7fd0298a04a67cab5",
+      "size": 1971,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka/configs/variant",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/configs/variant/__init__.py",
+      "sha256": "bdb7376f83c44c6bf1632eb8b7ba98ef64e268a970c2839e36a767406f55931e",
+      "size": 28,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/configs/variant/circle_packing_example.yaml",
+      "sha256": "571418d5d686369cdb682eefd9059ee9cb81291b45209014caa7cbc1d91a2279",
+      "size": 223,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/configs/variant/default.yaml",
+      "sha256": "3cfc3c2d9b04f21c31d7fb9f0dcd37fbc063d628323e7989e97d5ea57839e31f",
+      "size": 27,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/configs/variant/novelty_generator_example.yaml",
+      "sha256": "0b4e4dc85618b5aec2e7e47eb3841ba65cd6f11535152545a64e018c8d6789b3",
+      "size": 228,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka/core",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/core/__init__.py",
+      "sha256": "2e849c6789cdcf766de0a4cb10fc8abb1e04ed2a32a62ba16631a7de2b3fcc92",
+      "size": 658,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/core/async_novelty_judge.py",
+      "sha256": "9fd4d6919f7db83574005c326fce693f4f30c95af484d08936b620d3bac38bfc",
+      "size": 11291,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/core/async_runner.py",
+      "sha256": "c70ff4f123ac0bf94bc1456dd6394335fdc2b9a96951d610cbbce99760ed67b1",
+      "size": 278632,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/core/async_summarizer.py",
+      "sha256": "82e674ab7acc6f35f7fb646874d114b61bc87945dcdf0d6967371cc88838ffec",
+      "size": 18006,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/core/billing.py",
+      "sha256": "44da0e2ed93fd16c7062d5f53a4816ed745fd131059ef6bc4ab8968bebb1dea6",
+      "size": 1629,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/core/config.py",
+      "sha256": "c1ef2fab4b9707b5e2d6d280ec4bcf383d0fb99ad4b570501f6333bc411bf39e",
+      "size": 3374,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/core/novelty_judge.py",
+      "sha256": "3daf090d56adfd7c42de96639c944fc3fc6b6cb36d82d790de0f74c3fcb2a083",
+      "size": 8886,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/core/pipeline_timing.py",
+      "sha256": "19efcefaec740c3a397bcceb118e57c39fd2051627875534be0f62f31a531eba",
+      "size": 4843,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/core/prompt_evolver.py",
+      "sha256": "40fc195baadf310a12479eeb48cb2b3634328d29332e9d6c6b84dd0a28078d5c",
+      "size": 23241,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/core/runtime_slots.py",
+      "sha256": "78ba0440ca18a77eeb77d75cf1f6e65751366a4c31eab76675f5f386c2ce6d13",
+      "size": 1400,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/core/sampler.py",
+      "sha256": "cdfa7fcbe0d3be09a0901f972ca579628074b87df34224d4549bb03bd758e29d",
+      "size": 10517,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/core/summarizer.py",
+      "sha256": "b2d3ec67866d4c641c43fd45d24336a96fec36c1213dbbf56a7fe0eb706750fc",
+      "size": 30858,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/core/wrap_eval.py",
+      "sha256": "439655a7964711df4d1319c6cd3c6d354a6b2348cd8dc4e84d4774158fe3ae6b",
+      "size": 21470,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka/database",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/database/__init__.py",
+      "sha256": "5422f5d1ae8438014532c5fcf062593ed40cf4838acd984850ec3601f68f38ec",
+      "size": 435,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/database/async_dbase.py",
+      "sha256": "2dce0625e4b9d47c3e48a65dfd0da7b564a4a237e17367de17c2e8144a33bd20",
+      "size": 51833,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/database/complexity.py",
+      "sha256": "814778b7aeff4ec5f35f81a110690dd0972a2799dba3d427d0495915c3be41de",
+      "size": 8347,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/database/dbase.py",
+      "sha256": "982c5839b60912eeef90fbc12789ec0be0ab37909201a25d490711d20885248b",
+      "size": 123852,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/database/display.py",
+      "sha256": "e6b50d8db588d3168827446e0c7cf9bf1c669f8c77ddc629701a016b01d7974e",
+      "size": 28173,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/database/inspirations.py",
+      "sha256": "5486b8a1b8f86654e5308e0228c0561a54c7246688257942e0f0160f1055f47d",
+      "size": 14584,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/database/island_sampler.py",
+      "sha256": "ba42c62835496b0bd1e1192ba0f02a6ddf5780bb0002766c1f77bfddf30e34e6",
+      "size": 8215,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/database/islands.py",
+      "sha256": "2f96e91cd1b390a636b5e84d1704786c3de67fb197e171499e127449ffe7abb3",
+      "size": 40397,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/database/parents.py",
+      "sha256": "9196760166d91184a37e2a9f35671c68297095012f73f041b27ef70e35a60aa0",
+      "size": 34208,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/database/prompt_dbase.py",
+      "sha256": "e61fa0c383180c46208e00bcca14217782e215aa055701072d6cb3b8f68d286f",
+      "size": 50086,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/database/tournament.py",
+      "sha256": "02cfc5a23229e56dcb02bce97d79c0be10af81d1152e8c2cd57026306bb62714",
+      "size": 2384,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/defaults.py",
+      "sha256": "a4842f9ebdc07d7b602e7c9d72c0d04548deeecc0e893fd6578fdc918da0e0f2",
+      "size": 1100,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka/edit",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/edit/__init__.py",
+      "sha256": "b2ec3a6b6990382a03bba4e32a78e7e199dd5d1b27783c918c3672bbb66e8d26",
+      "size": 331,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/edit/apply_diff.py",
+      "sha256": "7d1abe6a7512c8ec46ba7a0590c94413b0142c1d994e08fba598cc3cfe3d4056",
+      "size": 29635,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/edit/apply_full.py",
+      "sha256": "5f92e6ca0fd833c8bc86ed1aced3102a4f1bedbcc8486454509482f7c9611e07",
+      "size": 14022,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/edit/async_apply.py",
+      "sha256": "c1b2e55764a55d5754b1a6ab286ca3252ce1aae9fb0fa687b8ee28edb9cb56a9",
+      "size": 13032,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/edit/marker_validation.py",
+      "sha256": "c876c6f87804c7f135a55781c6f62fef276bf345956f30a2e1842391df960027",
+      "size": 3545,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/edit/summary.py",
+      "sha256": "2abeda7cc509ae4a073913dc656ee49bd13214a64595e4d46b752e7d4261c6b1",
+      "size": 1637,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka/embed",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/embed/__init__.py",
+      "sha256": "ba794327413a599cb047381a273579d8482f34b0258b823ccbf6d925ebbdc20a",
+      "size": 337,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/embed/client.py",
+      "sha256": "1c6745c39a312d3a6db0f949f26bd60f6d64a2a1c3bea0679e970a6b834ff7d5",
+      "size": 5048,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/embed/embedding.py",
+      "sha256": "ecd371ae3233722d6a8b3e03770e45305fba1e3524cac6f34098f971f226a581",
+      "size": 25474,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka/embed/providers",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/embed/providers/__init__.py",
+      "sha256": "5ed289162270ad2b4756a3d31152997a71ad399323cde759c363779b045a959d",
+      "size": 260,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/embed/providers/pricing.csv",
+      "sha256": "41076a5c97eb169d08ef5825f3018b8ccf2852aeca9ef9356ecbd03edad8ac27",
+      "size": 291,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/embed/providers/pricing.py",
+      "sha256": "20b13401c35bca7b558f00b2f483b26eb0eb59af05debd8416d1009980c3deec",
+      "size": 1546,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/env.py",
+      "sha256": "f4735c598fb2c6bc3a11fcff44d9374b18ff5ae02b29e7d518db8a588dd3c565",
+      "size": 875,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/eval_hydra.py",
+      "sha256": "2e61fe5a22bca04bc1f46f6191d1209cd41d37f970d02176dda875e7a857bfbc",
+      "size": 2002,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/favicon.png",
+      "sha256": "259a0e53fa638d9ddcc0eac446c6d4cc3fe86a89a0c17f4fb7d1560e59fd245f",
+      "size": 1657176,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/google_genai.py",
+      "sha256": "6769543f13ee3e3ceb33881d044a61f4fc0f9d9a4f6c9fda7a0cb23cabbd5623",
+      "size": 8664,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka/launch",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/launch/__init__.py",
+      "sha256": "57a26821e9a6fb89a0368f87b09757c6c9c8db26dc13bfa540f5ac0a840a8043",
+      "size": 386,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/launch/local.py",
+      "sha256": "16eccbc364b642383ad8c77034a06645f1f2b7d0e9bd71862ceb5db7f99c6a48",
+      "size": 5945,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/launch/scheduler.py",
+      "sha256": "c32d0682ac0c572d01dc10b49887cb54eb7d6b6ba760ba74c132465a1366266b",
+      "size": 17143,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/launch/slurm.py",
+      "sha256": "6e0a42b476a1dc86ef708bb4182b68fa114ce9cb0d2e5a696b797cb66116be82",
+      "size": 15710,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/launch_hydra.py",
+      "sha256": "4c417e2da33a25eaae887c90836af2ec42b2237bb87839870a806563f5fc6ca6",
+      "size": 1142,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka/llm",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/llm/__init__.py",
+      "sha256": "60612197bd0fac545318c9566bc8e2059784b13705d43e9be39eff11977b92ec",
+      "size": 430,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/llm/client.py",
+      "sha256": "c39ad62b778a936137653ff800d80f103e561cf3abb2d4a07b87331cf65f8189",
+      "size": 16502,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/llm/constants.py",
+      "sha256": "468b81ec8df624f2c67a4223525201f267076ba08ee362658772fa3993b6930b",
+      "size": 1649,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/llm/kwargs.py",
+      "sha256": "a7c33e226674f2a93ef215258fefb9ac69e17e10849fe6eec43b2612aab4f80e",
+      "size": 9948,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/llm/llm.py",
+      "sha256": "75eba16747ec9adb3ef262f4ac7830c9bfbfac135da79c22717a2adb6a2a243a",
+      "size": 37646,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/llm/prioritization.py",
+      "sha256": "6c9bd2674c91db8c228a745c1984db23e177657bc156db725d49fe237ffe857f",
+      "size": 56273,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka/llm/providers",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/llm/providers/__init__.py",
+      "sha256": "38e9d18c359ab010d87cfbd9e7882d013ad324dfd77aaab7d46077f5acf05837",
+      "size": 725,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/llm/providers/anthropic.py",
+      "sha256": "66daacaf8defb70c0c1a86566336b7633ade4ce2cabfcd02f21fe58f687950cd",
+      "size": 6022,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/llm/providers/deepseek.py",
+      "sha256": "3fd5363e40732f77357fb77fa8c757e0b65d30f43f57860da3f1e0d80e16df94",
+      "size": 5249,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/llm/providers/errors.py",
+      "sha256": "1ce155907c52123dbd816f5e6d195af80258c5861fb7fdbbeafe8877f9d2cc82",
+      "size": 2015,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/llm/providers/gemini.py",
+      "sha256": "95b880148567356080d28c98a71b1a29ec33127f6731f80202eb7141a56beaf3",
+      "size": 11767,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/llm/providers/headless.py",
+      "sha256": "c9a5295c615eb9dd2b6dfc353b1f6ca08dcbfb3536582f39dcad048ee6a8693f",
+      "size": 15576,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/llm/providers/local_openai.py",
+      "sha256": "b4264a86ee37ec01d0f00d319e1b1d15bf7cd5ffe5f4a8db83414e07cc1f70a6",
+      "size": 5532,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/llm/providers/model_resolver.py",
+      "sha256": "969327422c2bbeadb32bccdb3403ca50937ba59d9d70a42331335a60a7147b82",
+      "size": 2717,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/llm/providers/openai.py",
+      "sha256": "b1c201b84693479708ab69015841f659f1daab189c2cc0ecce9fd5f3fa006901",
+      "size": 9836,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/llm/providers/pricing.csv",
+      "sha256": "49d7a254d7e330e48e05896e0aa9a8ceeb2c7ab730fac70c53860416e0aff602",
+      "size": 4750,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/llm/providers/pricing.py",
+      "sha256": "282b559722eaeb67a2c6985d1993385be4d5b8497c1bafb9317088bba4dec484",
+      "size": 2241,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/llm/providers/result.py",
+      "sha256": "cb06b4e91d88d8030ca64c801269ff4616747c5326979e8200486abe5ce55ee9",
+      "size": 3756,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/llm/query.py",
+      "sha256": "d4aa3210033d453805fc67a6da12e31ab68dba11f1b9d47d9263ece8248259ce",
+      "size": 2812,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/local_openai_config.py",
+      "sha256": "479dc1826537af309eab43913b913aa43a722b5f80be757257af51e844ef22c0",
+      "size": 2879,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/logo.py",
+      "sha256": "2a575a9e6bc7c5d6fde8b82119f9efa25f559fd969942dad344130e0b96b7f22",
+      "size": 7257,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/model_availability.py",
+      "sha256": "5694374ba15f4044c361005cf8f768b4f07aff912603d3ced41ad05d8024fffc",
+      "size": 7661,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka/plots",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/plots/__init__.py",
+      "sha256": "3a8d875086b943664143bfd2363f13de2d204ed831db393ac418655f97126164",
+      "size": 1123,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/plots/code_path_anim.py",
+      "sha256": "de36f74ad8bed749968c1e059601a75d07afcddf85a12a2742a1e5a8495e43fb",
+      "size": 55791,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/plots/plot_costs.py",
+      "sha256": "3a5a9484934a018bc3c9f30fc9fd7811efa85ef7d9ee426c60a1eb0bde66e5cd",
+      "size": 15577,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/plots/plot_evals.py",
+      "sha256": "bc423b0b88c4ecfd98c43d9511b0e47174b0ca3efb7fc10dda0807c394b79247",
+      "size": 16682,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/plots/plot_lineage_tree.py",
+      "sha256": "711a3c73537740b47d7245b6ca377ab1c1fe5b286adadf6d5b9ae982d9b7b337",
+      "size": 24563,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/plots/plot_llm.py",
+      "sha256": "d4a9899d634e48a1fa6ec36d459872044ad45dc933c30f6269abfc4556135547",
+      "size": 3581,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/plots/plot_pareto.py",
+      "sha256": "74b7e771755b8d3d1197c9db827dce32ff577f5ff6eeb8ba6ad71ae3bac7c849",
+      "size": 19882,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/plots/plot_similarity.py",
+      "sha256": "292c8589d9570c7bf521bdeac8ba8c7884121b3561cc5511e870e32d2ded6bc1",
+      "size": 1869,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/plots/plot_throughput.py",
+      "sha256": "6188c72292fae5b71081888cdbecc03c1c56148e28ba2f823ae925fb790c82a7",
+      "size": 20179,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/plots/plot_time.py",
+      "sha256": "35606549870036385c68151aa7870d42da0e14f786cfc7b42d562731795580f3",
+      "size": 13404,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka/pricing",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/pricing/__init__.py",
+      "sha256": "b9c0d1057d9ca38c4767a082be2fb743cc27a90ef833dcf410ccbef51f850e9c",
+      "size": 650,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/pricing/catalog.py",
+      "sha256": "f6088e31b9a843b37cfe5cd70955eb6f8635e292e76a07d52282fc30b65e6051",
+      "size": 18217,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/pricing/normalization.py",
+      "sha256": "263260520d1c506cdd5839f3bd4757d7459520909d7513871526e486b776eac3",
+      "size": 12818,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/pricing/rendering.py",
+      "sha256": "f03479176422d81d1bb15138bfb3e15b2a0d52abb94fac48db2c3fd0be30c4cf",
+      "size": 2145,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka/prompts",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/prompts/__init__.py",
+      "sha256": "fa2f66681436f46299f654ec8db42c2edf62e882ea9a1b533797cbdc6de2e977",
+      "size": 2298,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/prompts/prompts_base.py",
+      "sha256": "81b63d3d90c60e32a7e72c17594c41c6ff310ddd8e2923347b176bd093801039",
+      "size": 3789,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/prompts/prompts_cross.py",
+      "sha256": "03cb16c15ce0bce873eb70299d64597665c9cfa3aadb8ab246c7488c4ec465db",
+      "size": 2661,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/prompts/prompts_diff.py",
+      "sha256": "5414b3c84f2a544325db1646e9c0dd2c92890e892356689a6f9e9518f02cc54a",
+      "size": 2459,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/prompts/prompts_fix.py",
+      "sha256": "3c425716e0059050478d8d5ce466bf07f49c4e8e6de5e5240d1bc7db6477db90",
+      "size": 2440,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/prompts/prompts_full.py",
+      "sha256": "ff281a3290768278c4309852de603d72261fb5205a830dda7da10549172b4a28",
+      "size": 6913,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/prompts/prompts_init.py",
+      "sha256": "f514d91cf53f952b8d196ad2e5af6e69c027b5d82d8111da59285b5f7d2f72fe",
+      "size": 580,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/prompts/prompts_meta.py",
+      "sha256": "3bf40eb1fc8970bbf2d33f2bdcc775ae43e9c9488155e120b70c4e65d0b9f950",
+      "size": 6152,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/prompts/prompts_novelty.py",
+      "sha256": "7f1574880c462a2355afabad5854b0047856d9ed46fae85732f3d5d3fae86bac",
+      "size": 1540,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/prompts/prompts_prompt_evo.py",
+      "sha256": "4345f8b00468eac1b592253af5ff44097b00b2edee7003bfefd570dc9dc24dae",
+      "size": 11873,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/release_check.py",
+      "sha256": "bd63236fb1202fe70f97c96f9343a365168e9cb6a36e33a404972f66e788b7e2",
+      "size": 2043,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/telemetry_safety.py",
+      "sha256": "2261738e6bb8393a20b6fd90c1481606b57b9160e7cdd4de5bb47e80aedf5982",
+      "size": 1017,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka/tools",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/tools/__init__.py",
+      "sha256": "36916767401bcbdcb4e40325098b038cf4366b771616c0cd96d735812ccf922f",
+      "size": 66,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka/tools/pricing",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/tools/pricing/__init__.py",
+      "sha256": "6da622b95931e9eb9a2e8248ce7b62dae6d5a0e116254d775dd5836cd248a40e",
+      "size": 56,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/tools/pricing/generate_csvs.py",
+      "sha256": "6b8c5782e718b29a81d24fdab94f66a562696608010ec151262f2033699f99fb",
+      "size": 17646,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/tools/pricing/models_dev_overlay.json",
+      "sha256": "50cca353e7bb58a8cd2f49c06390fc3e425c1d5b8c56029f77a89b6ba0c4c54e",
+      "size": 11754,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka/utils",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/utils/__init__.py",
+      "sha256": "c83904f7bfff913c84196bdae5007c79bb4708b0cc86a74de9aef8925352a0fc",
+      "size": 820,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/utils/eval_stop.py",
+      "sha256": "55653c46032ada7c165c71db5876108fb59179f3ff90c4b844625c53dd21d0df",
+      "size": 12871,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/utils/general.py",
+      "sha256": "350c68cd1d223362779f8b4a968b477c27d6031c2e5e1c4b5149f3bb010edb0c",
+      "size": 3472,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/utils/languages.py",
+      "sha256": "18f9a965a4a95cfef4c851202a62e2e810414943f26be31e04822c605653c1c1",
+      "size": 7963,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/utils/load_df.py",
+      "sha256": "5e2c0879be36031e718b6dcf9b2c3bb0a93285d2144b66f6352359e21d21ae5f",
+      "size": 14485,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/utils/utils_hydra.py",
+      "sha256": "bf4f2308a5830b0a9b90aef0dfdcfab4bda571df3c695af44e05b07a0f9b152f",
+      "size": 7803,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/utils/wolfram.py",
+      "sha256": "c6ff438c5ae94f84dfeb227113473222547f013c7cde434dca58957b117cab60",
+      "size": 3532,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/wandb_logging.py",
+      "sha256": "dcec2142c20e6bed1cddc8e51e15a5279b0ab3c3ac7ad978293d27641c393520",
+      "size": 14739,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/wandb_metrics.py",
+      "sha256": "8dc78921c443dfdc7019af6e625a46394d9ce010216139ef3c8027f59f95bc16",
+      "size": 15089,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "shinka/webui",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/webui/compare.html",
+      "sha256": "7bc6877735dbce1369d8a0c5bf8f83f3c0fd8a538cf5a5aeb63ef3c4f9bcb277",
+      "size": 23492,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/webui/favicon.png",
+      "sha256": "259a0e53fa638d9ddcc0eac446c6d4cc3fe86a89a0c17f4fb7d1560e59fd245f",
+      "size": 1657176,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/webui/index.html",
+      "sha256": "99ae11d626d1a012055ddac97de427526e36495fa26451c703e424c89e5f37c7",
+      "size": 37684,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/webui/sakana.jpg",
+      "sha256": "15df0160652ef7dc8c01c11f437c137afd5bc305fec078af15872ed55dc71ca2",
+      "size": 76773,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/webui/visualization.py",
+      "sha256": "e40c924e1634ec7b0b5e0a8be870e7a1234a470aa6c8d61a28768264139f1ae9",
+      "size": 71010,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "shinka/webui/viz_tree.html",
+      "sha256": "6039b8b58db6a62e308b0eebc1db0b6c57382aa11037e725ff3e2325df76f136",
+      "size": 868708,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "skills",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 509,
+      "path": "skills/shinka-convert",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "skills/shinka-convert/SKILL.md",
+      "sha256": "88daa14d50f5a89abdf9aafe4aa87612794fd7bbc2e0def443d24750f40b6c1c",
+      "size": 6465,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "skills/shinka-convert/scripts",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "skills/shinka-convert/scripts/run_evo.py",
+      "sha256": "e1ceeffafb0c4c7ec7205af9a4d2e0a0ac3a7bc9676e6a838cb69956eacfe400",
+      "size": 1453,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "skills/shinka-convert/scripts/shinka.yaml",
+      "sha256": "f71584452be1fe33f36c37bf357709c95f35050c5b69ee7e43394066c8d6ab9a",
+      "size": 1242,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "skills/shinka-inspect",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "skills/shinka-inspect/SKILL.md",
+      "sha256": "1ed7c5c1cd1727c4c8d177673a2c5b5831972a4852dd26734e51e4cee3aaf1ff",
+      "size": 2274,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "skills/shinka-inspect/scripts",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "skills/shinka-inspect/scripts/inspect_best_programs.py",
+      "sha256": "21f8d9e85316ecc7a75336609283cb9bfd40cd50d452ffbd30d759e55318185f",
+      "size": 10344,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "skills/shinka-run",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "skills/shinka-run/SKILL.md",
+      "sha256": "b730e37e7ed5d70aeedb181329011f4d12bd052990cfee6ea14c0c36d439a5be",
+      "size": 5439,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "skills/shinka-setup",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "skills/shinka-setup/SKILL.md",
+      "sha256": "6f8176e18eb730174bd63bf069ac2909f92163474d47dc6a43c927cb4dc7565a",
+      "size": 8859,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "skills/shinka-setup/scripts",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "skills/shinka-setup/scripts/run_evo.py",
+      "sha256": "4f2982a860951900c65f281dcd3fa7589bbfb51d7d77b6b9c18e381fcbea0a1b",
+      "size": 1234,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "skills/shinka-setup/scripts/shinka.yaml",
+      "sha256": "e1887624489223fd1ac0f2233c3b7902732324da912a4cf775fe0d533ac57fb4",
+      "size": 1352,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "tests",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "tests/circle.py",
+      "sha256": "c6f80c89d5baa8ecb14711fd7cd274ad1b9cc7f38f2e6881e69b9417a8afd1c8",
+      "size": 2850,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/conftest.py",
+      "sha256": "4ff4492eff9fa2e4cd34d22dfb9f6b265e62436acce5ad6e4cf9bd5fbc08292c",
+      "size": 164,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/file.py",
+      "sha256": "bee9bb1dce40dcc4c54ebc1b07687ec60e6ccbf5985334619778242c7c2756c9",
+      "size": 566,
+      "type": "file"
+    },
+    {
+      "mode": 509,
+      "path": "tests/fixtures",
+      "size": 0,
+      "type": "directory"
+    },
+    {
+      "mode": 436,
+      "path": "tests/fixtures/models_dev_catalog.json",
+      "sha256": "32fc0159c90763289838aca08b7623b249164085567f3ed9964da114c2fd3b4b",
+      "size": 1613,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_anthropic_accounting.py",
+      "sha256": "08ed99c51d4d405d7084a986006f13f7d830b318c419799296be2fda33c2e828",
+      "size": 5566,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_archive_inspirations.py",
+      "sha256": "9b0aa43025e14bb80d1fdf3280772448a80e059c4aaa7c2a63a341f8759c1cd8",
+      "size": 2566,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_archive_ranked_criteria.py",
+      "sha256": "68ee9bda7dde432b5a195737709f744b6bf51989713119c997b0bfc4147e2df0",
+      "size": 2452,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_async_apply.py",
+      "sha256": "af1d0284e965bcb6ed13a457f8cae9f6740c8feb45138a7037b5fecb52e450dd",
+      "size": 17081,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_async_complexity_1000.py",
+      "sha256": "1f2c4a44f35c5658adf92abc8daf1a24f4c3c3aad166c7cee19cfd247531a5da",
+      "size": 5230,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_async_runner_recovery.py",
+      "sha256": "ee7c07ee9fac131e42bec278328e37a5596c2d7d3af2f19a6d67ee9a36038a3f",
+      "size": 58856,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_bandit_decay_warnings.py",
+      "sha256": "120fb822d04dfef96a38e7ca7762b544196234686a051705d4ea46c03f014d82",
+      "size": 941,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_bandit_linear_scaling.py",
+      "sha256": "a0b9e7a979520d0297c5fc61dc74e39c2e6b4b92bf1275e508062623b8ea87bb",
+      "size": 2131,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_bandit_persistence.py",
+      "sha256": "feb8c20dbcad7f9718edf4ed19060bb42573280124ecefded2ef5e532800f6b7",
+      "size": 21304,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_bandit_state_migration.py",
+      "sha256": "c5baa99531fe5805ae3706d0f6793d7b69946b089dcd47f6206b710a344c27ab",
+      "size": 3077,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_billed_auxiliary_calls.py",
+      "sha256": "c590513afc62caaf2879f6a42c523a3500dde80da44ef5afbb7bb43a44d32a2e",
+      "size": 3264,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_billed_auxiliary_cancellation.py",
+      "sha256": "98b4c7d9706305c101b4ae4124cfd1e11957b0a1cf91638a00c26cf2512ee283",
+      "size": 3078,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_billed_batch_replies.py",
+      "sha256": "163c20a5fe72075ddee9f8c677758a10fe6edcf053f48a23bbfc6b1ea920ebd1",
+      "size": 3025,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_billed_failure_persistence.py",
+      "sha256": "68a18f2296e8b76e95dfc87ec74d00e61587967d57ba5c5a1a3c13b7484873f5",
+      "size": 8999,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_billed_meta_failures.py",
+      "sha256": "2521d954dbeb43a367cf903507196c071abe9368df1f6ec6411e17f8dade4134",
+      "size": 9380,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_billed_proposal_cancellation.py",
+      "sha256": "5e2f8523f46904415147801a7358b90c42c91d37d64ca5e6dc1bb17a1730d1fc",
+      "size": 6924,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_billed_query_cancellation.py",
+      "sha256": "391fc1ff6ba353c82ceb654da00ca37a97d1b6154d0c924efccba9c8b1c6e8b5",
+      "size": 3172,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_billed_reply_contract.py",
+      "sha256": "7e14ecf7ea7b7e675774c529ccc982aa5fe15e03ef70ac7994d12dffc7d349ed",
+      "size": 5433,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_billed_runner_failures.py",
+      "sha256": "c983fcf6784934a45bf34366b0e3b482f399dc3ab55098ac92475d665e11a0f6",
+      "size": 2663,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_ci_workflows.py",
+      "sha256": "293e63d1b09840be0631abf11ad60482c7de9f4d395a5bddd35418295269c29f",
+      "size": 1478,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_circle_notebook_validation.py",
+      "sha256": "94ceb50b8e8e872f87bfe50c37a89abeb0c3abacce19d00b2b2c039beb0d7c3b",
+      "size": 1824,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_circle_packing_example.py",
+      "sha256": "dfe7aa840de97bf2b78a5ed03ea1857127a474c1a53093efcf7f4027a6e6c49e",
+      "size": 3287,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_compare_webui.py",
+      "sha256": "8d4a185c9378f43a42bea43375af73bc468bee50392ca8fd514742ff9af078c7",
+      "size": 1000,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_complexity.py",
+      "sha256": "f120653ffcfd3e6d57f583c41e09b204ebd1353de352cc4bd684388c0d05928a",
+      "size": 2238,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_current_claude_requests.py",
+      "sha256": "00d7ddc5c62022cef26f8e9c1cec39fb11669bd3468a13800d69112e636ec825",
+      "size": 2621,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_current_model_catalog.py",
+      "sha256": "58c0331c22ff026fb31da3bfb6692a47f1f6daee1368f84e2ce08dde12c5aa72",
+      "size": 4844,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_current_model_kwargs.py",
+      "sha256": "32e2c9ae767b738ec9fa759413cb80a259198fa21103bc2e4ba901ef5e49c097",
+      "size": 5597,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_database_display.py",
+      "sha256": "0883005a56044dbe6212c653fa9c061344f20e8f653e411eb7f99e9f6e1f0929",
+      "size": 2318,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_database_no_api_keys.py",
+      "sha256": "9c7a8dcee11b0f98da812f9cd222c4983afbf935d28dadf58c6499973ab6a1ed",
+      "size": 11758,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_deepseek_accounting.py",
+      "sha256": "5f455bde7e1e40128ca9c3f587dd42c97a985f5df8ce2d3af377b0f022a29eb7",
+      "size": 3729,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_dotenv_loading.py",
+      "sha256": "adac47a86f1267493c70cc95adb4d82c8e2542fe99ea124d7d6634fb2f499cf5",
+      "size": 1949,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_dynamic_islands.py",
+      "sha256": "e05d69daf9bf9b5ff3cb6fd1ed2b5849df07525e22845d94359be9e78125dc91",
+      "size": 10926,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_edit_base.py",
+      "sha256": "0500735bd4fbe1099532420079c967a4cd56cd9ebc9eea0c4b214ca903e304f1",
+      "size": 35516,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_edit_circle.py",
+      "sha256": "2125b5fa26fd669e050ea564c9c7cf16d2ca8fcaa846386da9bfa9d97d1565bf",
+      "size": 4919,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_edit_cpp.py",
+      "sha256": "aa34c0c2d1a901a66c1a03ec045d1f088eea18174f0675f8969f5bbd6125b4e1",
+      "size": 2121,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_edit_fortran.py",
+      "sha256": "97e7c5be993655cdcef3f926a36f9ba42571e929acf335feef004e987695d456",
+      "size": 4283,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_edit_go.py",
+      "sha256": "3569eaa845cae3acc601a8895b64823887acf51cbed89f5b75dcfa5959c13689",
+      "size": 3044,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_edit_julia.py",
+      "sha256": "2a01a686b623dc7ebf11490145213e506c0b8a53777c3c9368fab0c49c41f101",
+      "size": 2924,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_edit_markdown.py",
+      "sha256": "41d17b1a75090fdadad4e790b9a9b02879fcb268abd36e38b9a464fc5244e354",
+      "size": 4534,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_edit_verilog.py",
+      "sha256": "d3c26e44529d14ecea4a1711b86a3cd11b27218f650939b668052b1c630cdc98",
+      "size": 3582,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_edit_wolfram.py",
+      "sha256": "eec22d796e491db39b698e4e2ab1d6123f594ff9ae1e2a5a17eb7ac0380125a9",
+      "size": 4425,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_embedding_client_backends.py",
+      "sha256": "34582483a1def730bceb536a3d8e7f9364af38dbd598f8d38c330afb76a53048",
+      "size": 7589,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_embedding_model_resolver.py",
+      "sha256": "4e58da4b349575a91033a35c98b8428053d3dd134983cdf1055bf07b89efbe2a",
+      "size": 1592,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_endpoint_failures.py",
+      "sha256": "c635b998ed87b555ab67ca0a196008dcb217003b0e2dec2ed802a9f85ca52eab",
+      "size": 8712,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_example_model_catalog.py",
+      "sha256": "cdbd259bf60353985682194fce6b55f6830777466ea4c3376ae51a9b5b1ac580",
+      "size": 11300,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_failure_nodes_webui.py",
+      "sha256": "e871180f8722a3eb41fb5a2b6fe3022355c260f6f85db71710f70f44463acbd5",
+      "size": 1561,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_fortran_heat_diffusion_example.py",
+      "sha256": "389254b0f5d88b33093aac84d83a47bd0f47bb9669d27368c2d2bfe5f444424f",
+      "size": 1403,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_gemini_embedding_integration.py",
+      "sha256": "93a9cf43276102ca46e0218520261ff10013d753133ea7ecb4912925d6a8367a",
+      "size": 4023,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_gemini_provider.py",
+      "sha256": "70a3d2f4006bce763a089a7b7b43d6ec3a7c3bde25e5f72457f8a7ebfe86b0c7",
+      "size": 10069,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_gemini_retry_policy.py",
+      "sha256": "b1b7ea31fb80d65bf443c2b766471eb8e6fc91f1f42d84ac727b6d81b177d1f6",
+      "size": 11734,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_go_collatz_steps_example.py",
+      "sha256": "7d1f6fd60bb13cc6cb3979fa4663ff9635fb7c56fd2fc6adcefec0eea2248ca3",
+      "size": 3010,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_google_genai.py",
+      "sha256": "22712e67210dc39aa4aa62c6247e4350769333ef26a99260afba6d8a5050af49",
+      "size": 9165,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_headless_provider.py",
+      "sha256": "fd3d01e1d48383727d58f0ccee100a1bd739ff44700096e0522fda0de5b36161",
+      "size": 12142,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_index_webui.py",
+      "sha256": "8ed63cacaaa3d1c87f4042673ccadc51d7a3370b9999418d1610649768aab7e3",
+      "size": 773,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_island_copy_costs.py",
+      "sha256": "15e3444bf1215e919564dc87601b5de94283ac7d8afd758015294ba4350622df",
+      "size": 5370,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_island_migration.py",
+      "sha256": "16b102359e7b44a7a0872e2fc4947eff32f9e9439c652f024e93dcf7f929bcbb",
+      "size": 2105,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_island_sampler.py",
+      "sha256": "19d6f54b050837894571cf991fe7e756e4dbbbdc2416188b6e531491c021b7a9",
+      "size": 2200,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_job_timeout_clock.py",
+      "sha256": "5a65c1a61c8b1a6f9bc91e572a3fb1ee4d49fed4e21e09404c901c487bac3809",
+      "size": 820,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_launch_hydra_async.py",
+      "sha256": "97f34749451aff287b2bcb853caad258c1768db9a6c345bb7ff7754670b6e83e",
+      "size": 2638,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_llm_batch_alignment.py",
+      "sha256": "8c9d2334c6115ab4945c1ff65b50e328d2d0cd92fe96572955fcede76f287506",
+      "size": 4400,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_llm_client_backends.py",
+      "sha256": "90debbd875bfab5b4ce0ea6b9c448bd817fab7318d148f1efe3f456563e7b207",
+      "size": 7850,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_llm_client_cache.py",
+      "sha256": "c164cf69228c4e20f7598a665fe793f686063a6266905cf2fb9d9066b64645a7",
+      "size": 15408,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_llm_client_cache_safety.py",
+      "sha256": "1892b1404b57b45ef11aed8760bed90982b17dcddbe0d536c5279036f6ff9403",
+      "size": 9289,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_llm_kwargs.py",
+      "sha256": "6dcd06cf762ec52c9cc9dac9ef6a5868f6c1307a45ef25121bea0cf640499dbb",
+      "size": 4971,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_llm_query_routing.py",
+      "sha256": "aa87a93f4d5130d2bdd3bc7a8bbcf51f837a2cb21e3d7b96c9ce6b0800394707",
+      "size": 1897,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_llm_retry_constants.py",
+      "sha256": "54f4d059decf9ee0b0ac135be13b1454192c3de63a8ef7bdd4b8a1128421cfea",
+      "size": 4588,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_llm_retry_policy.py",
+      "sha256": "f82359adaf7a81eaff52a294ad2b200ebc6c48520a8ead4e3329d2619f75e9a9",
+      "size": 5275,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_llm_stall_timeout.py",
+      "sha256": "7277649e8d85fe0026657d2f67a9c76090a812429d1467721fd0e69748c06a45",
+      "size": 4116,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_local_openai_config.py",
+      "sha256": "ead2c0bc29d76dd0652342667bb0d1b7f3e9c8a80616325a209241494d88ea44",
+      "size": 1035,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_logo.py",
+      "sha256": "339b453152a98affb1be286b4d49325ad1b408a485e427563b978eef187973a8",
+      "size": 838,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_marker_validation.py",
+      "sha256": "f872d1d001e6b5f6f60687a373dcc0b759fd966ff769889296a5ee10c7a36925",
+      "size": 10234,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_meta_summarizer.py",
+      "sha256": "cb9612b3cda4dd0d576a60c8416fddc6274def8695b5336dee92e4386bb70723",
+      "size": 8409,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_model_availability.py",
+      "sha256": "7379a0969264da3ca322d79cf6bfd95fc8ef5c43123c049e6a7028e57fb1a931",
+      "size": 4655,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_model_catalog_startup.py",
+      "sha256": "7aec8f0d5411df27904e1d432c5b92539d1263cb8cb934d7f0e9e26987ab54df",
+      "size": 9214,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_model_resolver.py",
+      "sha256": "4c2935c8b8b952eb3b4c6f0fb2b0713a131d355a060be661f312c6ab24c16a51",
+      "size": 4475,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_models_dev_catalog.py",
+      "sha256": "3740b7336e6f1ae517af30f79cf2eabbb68d4ae3b37428ae7f8d4fe468c2e6d0",
+      "size": 11699,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_models_dev_live.py",
+      "sha256": "ba0dddc264614ebaf7d4d93c9cbac9f8365362f646a6a939f5a0f7dd37668bee",
+      "size": 1311,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_novelty_judge.py",
+      "sha256": "73dea186daacfd5d4522332d4c5a2e375f953ca421d96666709609035db3e6aa",
+      "size": 6443,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_openai_provider.py",
+      "sha256": "3ac9a7ee4e9de7578c516752fb39580dd5c8ad11f74ee9a5d2e86eeb925906ae",
+      "size": 7752,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_packaging_release.py",
+      "sha256": "7f19bf83f7b4043b5f3b7f0442deb8af5c5dc433d73db3f93b8889495424749a",
+      "size": 5408,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_parent_sampling.py",
+      "sha256": "a8322b19b2aa8e37027896b48c07f342f25dfa7941d13c551e1439f7d0e2e55b",
+      "size": 7366,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_pipeline_timing.py",
+      "sha256": "d0fa233b99bb5b2f72fbc8cf3be4e9e977aaa50c8584f64fd66417011ca8ff14",
+      "size": 32410,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_plot_throughput.py",
+      "sha256": "1fca716389232cbbfa79a68c5c24a2ecaf98396f80404cbb1839ab569eb12ce0",
+      "size": 10640,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_pricing_csv_generation.py",
+      "sha256": "8757de2437574eb43c27e9b8080e69984e70451b15f22ab1209f7cee9cbfa9d4",
+      "size": 8059,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_pricing_runtime_overlay.py",
+      "sha256": "712bc8b050ac6929bba20b5838310167bab206ac0175fc4055868c7b8111cf47",
+      "size": 1618,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_program_summary.py",
+      "sha256": "816e1851aeb2564c77879571e51a58f596da768c3d32ba44ff0b668441a542b0",
+      "size": 2388,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_prompt_evolution.py",
+      "sha256": "526ba7491c542d4d1f107c6407671f09df0a0ffee4891e10d4238e220a0bb954",
+      "size": 20063,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_prompt_runner_setup.py",
+      "sha256": "279801f3ef343da75ba7322964ab06d7c8bb50ba4a58a20483c7c1b57f24ffa3",
+      "size": 6739,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_proposal_llm_kwargs.py",
+      "sha256": "0f41679d17af432e43332766ebe7ebd1fc649cf110463f5759ae10c7b7f64b70",
+      "size": 4448,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_proposal_oversubscription.py",
+      "sha256": "af7e5ea2f14ccab61fab64cb3f4d5a1e6bb26ebc90f553bed74295fafcd8ef5e",
+      "size": 3314,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_rtllm_equivalence.py",
+      "sha256": "3575aeb23f6eceffa0a42c69570149d2ccdc638189a2aef9106a9b9ab31cf371",
+      "size": 9747,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_runtime_timeline_webui.py",
+      "sha256": "033f25e74ac16ebd598bb5842c4921f9f6e5991a14453b6b093c2f9f2ec6c911",
+      "size": 8797,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_scheduler_env_activation.py",
+      "sha256": "9f5c22a58da68aa4f1274d1044ff21344799b5fa4d114f13afe8864f8d459a3e",
+      "size": 4626,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_score_chart_webui.py",
+      "sha256": "0067bcf125aaeeeeb72c7755822fdd3ef1e94627965e977f02cf3194aff213ca",
+      "size": 1141,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_shinka_models_cli.py",
+      "sha256": "a9bad532abecec5305c59caa52ac0401721c4ce3b0e6c368d55bd95e03671ff5",
+      "size": 13171,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_shinka_run_cli.py",
+      "sha256": "278e46edf972b34bc3d04bd2ad63f1b81682bab8dca6338aab1283c73469bafe",
+      "size": 17575,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_tournament_selection.py",
+      "sha256": "3490c62dba3ce925fe8fe890e645fe4cbe7ae6721ab0f87a40fd6e618091ad28",
+      "size": 10849,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_tree_roots_webui.py",
+      "sha256": "2960515bfc7c390fd479d0b169c709f85d8df34209c6923159379a1705a2966d",
+      "size": 4154,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_unicode_io.py",
+      "sha256": "10387b736fdbcf4e7c7417b9c5ad1acdf3f3a4ad5fb6183abe1c8a7601a93485",
+      "size": 6891,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_visualization_meta.py",
+      "sha256": "72baa309ff09926312bb3a462ca797b696c82b4000b29ffc147158148802bb27",
+      "size": 19658,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_wandb_database.py",
+      "sha256": "0c8ecd2a26c9491dcf39be6c0b66f05af0b5ac5c678c20ed743f1bdf39885265",
+      "size": 10601,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_wandb_logging.py",
+      "sha256": "82672bf7c23f490418d53e8b512dfb747507686df5400f18ee7c84f400ee1174",
+      "size": 12212,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_wandb_metrics.py",
+      "sha256": "bc45679472ab614328b44d9e28c6a112bb83ae458c73cef21c0d915eb1d33a6c",
+      "size": 6860,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_wolfram_gcd_sum_example.py",
+      "sha256": "e26d9baac0fc475fcdc38b717039c99017eabf24803d936da7a0f71daf357459",
+      "size": 4899,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/test_wrap_eval_parallel.py",
+      "sha256": "a2e97ce68e62af951dd973669ca1684421ebd90cac06da0baa2cfbd0ac5a2aec",
+      "size": 7937,
+      "type": "file"
+    },
+    {
+      "mode": 436,
+      "path": "tests/wandb_test_utils.py",
+      "sha256": "3e4d98e9051cc464999c3900495d51487b8790a3320a1c75003086185d358013",
+      "size": 1931,
+      "type": "file"
+    }
+  ],
+  "repository": "https://github.com/SakanaAI/ShinkaEvolve",
+  "revision": "7ab55d7254d2732b26d9c30dde23ab777de631cb",
+  "tree_sha256": "8de444c7e4a8835c19517a31531f6f44ff634e14864b98da7962887d57d32d8e"
+}

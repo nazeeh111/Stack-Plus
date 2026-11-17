@@ -1,0 +1,19 @@
+{
+  "files": {
+    "fixtures/paper/paper.bst": "2d67552db7ed38ccfccb5957b52f95656e25c249724761d3cf5f7922ad1844c5",
+    "fixtures/paper/paper.sty": "c6ba63e52da9be4cb3805cec51b1fdeab2c6e93135cd3954a1250cd68e3a45d0",
+    "fixtures/paper/paper.tex": "a2c791e13e851d969af6177430eee4106cfab86c5454e08c416eeab765317e98",
+    "fixtures/paper/references.bib": "4703631b012b644ced627f7d1b9b88b58392e6188419a7bc29774a779650971e",
+    "source/LICENSE": "420f6e94d4266a7628735be654b7a99ead74976feb9e99f50bd834d92d03b6e5",
+    "source/pyproject.toml": "aeb28e012389da420af67940dc289db39d978416590f68cf825c9fedaedd1225",
+    "source/uv.lock": "6fbaa72e26ca4fd408b9e0f8308b4e09d268bc7f7d6e3231ec20866518be008c"
+  },
+  "repository": "https://github.com/SakanaAI/AI-Scientist-v3",
+  "revision": "df8313889a004f8a44a472e19a833cd547bb828a",
+  "upstream_fixture_paths": {
+    "paper.bst": "src/agents/skills/write-paper/templates/iclr/paper.bst",
+    "paper.sty": "src/agents/skills/write-paper/templates/iclr/paper.sty",
+    "paper.tex": "src/agents/skills/write-paper/templates/iclr/paper.tex",
+    "references.bib": "src/agents/skills/write-paper/templates/references.bib"
+  }
+}

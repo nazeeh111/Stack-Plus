@@ -1,0 +1,41 @@
+{
+  "artifacts": [
+    {
+      "browser_download_url": "https://github.com/openai/codex/releases/download/rust-v0.169.0/codex-exec-server-aarch64-unknown-linux-musl.tar.gz",
+      "digest": "sha256:5e51655c50af831e5de1102e313f97963cdb9a0a03d6c180072ab56fd3647b3f",
+      "id": 742914860,
+      "name": "codex-exec-server-aarch64-unknown-linux-musl.tar.gz",
+      "size": 28183044,
+      "tar_members": [
+        {
+          "mode": "0o755",
+          "name": "codex-exec-server-aarch64-unknown-linux-musl",
+          "size": 71805352
+        }
+      ]
+    },
+    {
+      "browser_download_url": "https://github.com/openai/codex/releases/download/rust-v0.169.0/bwrap-aarch64-unknown-linux-musl.tar.gz",
+      "digest": "sha256:bea7f64d75eb93931535542c61b18da9ec70c35db044d4d43ec6d34027f53fb0",
+      "id": 742914582,
+      "name": "bwrap-aarch64-unknown-linux-musl.tar.gz",
+      "size": 254906,
+      "tar_members": [
+        {
+          "mode": "0o755",
+          "name": "bwrap-aarch64-unknown-linux-musl",
+          "size": 529168
+        }
+      ]
+    }
+  ],
+  "corresponding_source": {
+    "bubblewrap_source": "https://github.com/openai/codex/tree/d32063f96c2dff1dc96af839b3952abb6acfeda4/codex-rs/vendor/bubblewrap",
+    "revision": "d32063f96c2dff1dc96af839b3952abb6acfeda4",
+    "url": "https://github.com/openai/codex/tree/d32063f96c2dff1dc96af839b3952abb6acfeda4"
+  },
+  "executed": false,
+  "rights": "Codex Apache-2.0; bundled bubblewrap retains upstream LGPL rights, vendored source to review",
+  "scope": "Reviewed archive and extracted file hashes only; never acquire or unpack implicitly.",
+  "source": "openai/codex rust-v0.169.0 d32063f96c2dff1dc96af839b3952abb6acfeda4"
+}

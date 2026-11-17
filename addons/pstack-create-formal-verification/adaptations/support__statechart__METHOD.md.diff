@@ -1,0 +1,26 @@
+--- a/support/statechart/METHOD.md
++++ b/support/statechart/METHOD.md
+@@ -13,12 +13,12 @@
+ Work in a scratch folder outside the repo. Write a TLA+ spec and its config. Then run:
+ 
+ ```sh
+-<skill dir>/scripts/statechart SPEC.tla [--config FILE] [--view FILE] [--out DIR]
++node "<skill dir>/scripts/statechart.ts" SPEC.tla [--config FILE] [--view FILE] [--out DIR]
+ ```
+ 
+ `scripts/statechart.ts` is TypeScript, so run it with a runtime that can execute TypeScript.
+ 
+-The first run installs TLC and Java with mise and needs the network.
++Use existing compatible Node and Java11+. Set JAVA to the actual Java executable and TLA2TOOLS to the locally verified TLC1.7.4 jar (SHA256936a262061c914694dfd669a543be24573c45d5aa0ff20a8b96b23d01e050e88). No automatic dependency bootstrap occurs. Inspect custom view code before execution; bound model size and run time.
+ 
+ ## Write the spec
+ 
+@@ -73,7 +73,7 @@
+ 
+ Show `chart.mmd` to the user as a `mermaid` code block. The chart has a budget of 500 states, counted by TLC on the config as written. Above that, the chart draws only the paths to the rules that break, and when no rule breaks, the command writes no `chart.mmd`. It still checks each rule, and the report gives the state count and each bug path. To see the whole graph, make the model smaller.
+ 
+-Render charts with Pele. When the user asks for an image, or a chart is too large to read as text, follow `references/render.md`. Do not use a different renderer unless the user asks for it.
++Render Mermaid with the existing native viewer or selected diagram export capability. Follow `references/render.md` for mark semantics and source-preserving export; no global renderer installation is required.
+ 
+ ## Hand off
+ 

@@ -1,0 +1,1203 @@
+[
+  {
+    "entry_points": {},
+    "filename": "adjusttext-1.4.0-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "6febd6484c0d45c39a22f44b2c1f4a8cd01ef58fada565cab4b629c771df79b5",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "aiofiles-25.1.0-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "abe311e527c862958650f9438e859c1fa7568a141b22abcd015e120e86a85695",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "aiohappyeyeballs-2.7.1-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "9243213661e29250eb41368e5daa826fc017156c3b8a11440826b2e3ed376472",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "aiohttp-3.14.5-cp311-cp311-macosx_11_0_arm64.whl",
+    "native_artifacts": [
+      "aiohttp/_http_parser.cpython-311-darwin.so",
+      "aiohttp/_http_writer.cpython-311-darwin.so",
+      "aiohttp/_websocket/mask.cpython-311-darwin.so",
+      "aiohttp/_websocket/reader_c.cpython-311-darwin.so"
+    ],
+    "scripts": [],
+    "sha256": "a2c473a355f9239efcb72c92d5abfd8fcdb0cc78c8e9af607e72ca12dbb36593",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "aiosignal-1.4.0-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "053243f8b92b990551949e63930a839ff0cf0b0ebbe0597b0f3fb19e1a0fe82e",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "annotated_doc-0.0.6.dist-info/entry_points.txt": "[console_scripts]\n\n[gui_scripts]\n\n"
+    },
+    "filename": "annotated_doc-0.0.6-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "361ca0950cc7082f53fa69e9328409f40a62c61e57e0a47e1825a08078a58a53",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "annotated_types-0.8.0-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "anthropic-2.8.0-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "76ad332e2d500fc54d0112cf100544ad1a7605e71e092b98d9eb664d2b66e283",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "anyio-4.16.0.dist-info/entry_points.txt": "[pytest11]\nanyio = anyio.pytest_plugin\n"
+    },
+    "filename": "anyio-4.16.0-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "c66ae634e0b8228396b801741beb3294326d4b6102f7bba4041c0dfb58c29026",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "attrs-26.1.0-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "backoff-2.2.1-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "63579f9a0628e06278f7e47b7d7d5b6ce20dc65c5e96a6f3ca99a6adca0396e8",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "boto3-1.44.3-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "8c9c4844c7ce184494b102983696d6cdb09f5307ec7f238ca4ad5849fb14e26b",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "botocore-1.44.3-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "793eac2a7ca167e9376b136cf000e1675e9ffe8d7ec609160cc1ee00b93ace28",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "certifi-2026.10.23-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "e9b54de76e530bb6cf0ccd036787103acb58fd42ba930ea8bf948ddbaa2f61d1",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "cffi-2.1.1.dist-info/entry_points.txt": "[console_scripts]\ncffi-gen-src = cffi._cffi_gen_src:run\n\n[distutils.setup_keywords]\ncffi_modules = cffi.setuptools_ext:cffi_modules\n"
+    },
+    "filename": "cffi-2.1.1-cp311-cp311-macosx_11_0_arm64.whl",
+    "native_artifacts": [
+      "_cffi_backend.cpython-311-darwin.so"
+    ],
+    "scripts": [],
+    "sha256": "398aff33cee2767e3e781d2554c54bd0dff386bb437581e0d8011fde1a942ec1",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "charset_normalizer-3.5.2.dist-info/entry_points.txt": "[console_scripts]\nnormalizer = charset_normalizer.cli:cli_detect\n"
+    },
+    "filename": "charset_normalizer-3.5.2-cp311-cp311-macosx_10_9_universal2.whl",
+    "native_artifacts": [
+      "charset_normalizer/cd.cpython-311-darwin.so",
+      "charset_normalizer/md.cpython-311-darwin.so"
+    ],
+    "scripts": [],
+    "sha256": "3d21b8b13c7592db2ac5e544a6d83187b995257472b0c9e8351b6d507ae37ed6",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "click-8.5.1-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "8bb5376d2006950386f8c6427613334a2acadc5f559cb80e638d00b4df957e37",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "cloudpickle-3.1.2-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "9acb47f6afd73f60dc1df93bb801b472f05ff42fa6c84167d25cb206be1fbf4a",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "colorama-0.4.6-py2.py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "contourpy-1.3.3-cp311-cp311-macosx_11_0_arm64.whl",
+    "native_artifacts": [
+      "contourpy/_contourpy.cpython-311-darwin.so"
+    ],
+    "scripts": [],
+    "sha256": "23416f38bfd74d5d28ab8429cc4d63fa67d5068bd711a85edb1c3fb0c3e2f381",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "cryptography-50.0.2-cp311-abi3-macosx_11_0_arm64.whl",
+    "native_artifacts": [
+      "cryptography/hazmat/bindings/_rust.abi3.so"
+    ],
+    "scripts": [],
+    "sha256": "fa8f5efb344d6908a1ce62f4a24e2e5780f825d6f53f5f50ec5ffacac72936cb",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "cycler-0.12.1-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "85cef7cff222d8644161529808465972e51340599459b8ac3ccbac5a854e0d30",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "decorator-5.3.1-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "f47fe6fdbd2edd623ecfe36875d37aba411624e2670dd395dddae1358689bb3c",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "dill-0.4.1-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [
+      "dill-0.4.1.data/scripts/get_gprof",
+      "dill-0.4.1.data/scripts/get_objgraph",
+      "dill-0.4.1.data/scripts/undill"
+    ],
+    "sha256": "1e1ce33e978ae97fcfcff5638477032b801c46c7c65cf717f95fbc2248f79a9d",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "distro-1.9.0.dist-info/entry_points.txt": "[console_scripts]\ndistro = distro.distro:main\n"
+    },
+    "filename": "distro-1.9.0-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "7bffd925d65168f85027d8da9af6bddab658135b840670a223589bc0c8ef02b2",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "docstring_parser-0.18.0-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "b3fcbed555c47d8479be0796ef7e19c2670d428d72e96da63f3a40122860374b",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "fonttools-4.68.0.dist-info/entry_points.txt": "[console_scripts]\nfonttools = fontTools.__main__:main\npyftmerge = fontTools.merge:main\npyftsubset = fontTools.subset:main\nttx = fontTools.ttx:main\n"
+    },
+    "filename": "fonttools-4.68.0-cp311-cp311-macosx_10_9_universal2.whl",
+    "native_artifacts": [
+      "fontTools/qu2cu/qu2cu.cpython-311-darwin.so",
+      "fontTools/misc/bezierTools.cpython-311-darwin.so",
+      "fontTools/cu2qu/cu2qu.cpython-311-darwin.so",
+      "fontTools/varLib/iup.cpython-311-darwin.so",
+      "fontTools/pens/momentsPen.cpython-311-darwin.so",
+      "fontTools/feaLib/lexer.cpython-311-darwin.so"
+    ],
+    "scripts": [],
+    "sha256": "362443ab355701d6fd26b10d022cd6c8456e1e248f80103c44cbe5ef0228f87f",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "frozenlist-1.8.0-cp311-cp311-macosx_11_0_arm64.whl",
+    "native_artifacts": [
+      "frozenlist/_frozenlist.cpython-311-darwin.so"
+    ],
+    "scripts": [],
+    "sha256": "fa47e444b8ba08fffd1c18e8cdb9a75db1b6a27f17507522834ad13ed5922b93",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "google_auth-2.62.2-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "e9bcdb0679b6a4369ac327c5c59f06d92f7b4cd2624e7100294c14632f55a36b",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "google_genai-2.34.0-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "a4cb02aebc4c357f863d2938132f0e3f7967fc5e00b8a4078673f68aad340665",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "h11-0.16.0-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "httpcore-1.0.9-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "httpcore2-2.16.0-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "5c4358319f2602d984ad93182c9fee5160f22e9da7babdda870a5e7c4e2dc34f",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "httpx-0.28.1.dist-info/entry_points.txt": "[console_scripts]\nhttpx = httpx:main\n"
+    },
+    "filename": "httpx-0.28.1-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "httpx2-2.16.0.dist-info/entry_points.txt": "[console_scripts]\nhttpx2 = httpx2._main:main\n"
+    },
+    "filename": "httpx2-2.16.0-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "fd2c5d7909e8d86fe92d53020c310ca0e4e431b838c207c5754b9bbf0308d49a",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "hydra_core-1.3.2.dist-info/entry_points.txt": "[pytest11]\nhydra_pytest = hydra.extra.pytest_plugin\n"
+    },
+    "filename": "hydra_core-1.3.2-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "fa0238a9e31df3373b35b0bfb672c34cc92718d21f81311d8996a16de1141d8b",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "idna-3.20.dist-info/entry_points.txt": "[console_scripts]\nidna=idna.cli:main\n\n"
+    },
+    "filename": "idna-3.20-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "imageio-2.38.1.dist-info/entry_points.txt": "[console_scripts]\nimageio_download_bin = imageio.__main__:download_bin_main\nimageio_remove_bin = imageio.__main__:remove_bin_main\n"
+    },
+    "filename": "imageio-2.38.1-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "36d23eb7423d2fb63f637098758edb3d2df3687f7125e0a5ce8596572022dcf9",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "imageio_ffmpeg-0.8.1-py3-none-macosx_12_0_arm64.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "5636d691e36e5274b13fe38182b1f627b2e35dcecc63944012c2470f9484fc45",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "instructor-1.17.0.dist-info/entry_points.txt": "[console_scripts]\ninstructor = instructor.cli.cli:app\n"
+    },
+    "filename": "instructor-1.17.0-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "f6b1832d178e899ee0a6a3f247e221f19580fa525c815211c02447691d761217",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "jinja2-3.1.6.dist-info/entry_points.txt": "[babel.extractors]\njinja2=jinja2.ext:babel_extract[i18n]\n\n"
+    },
+    "filename": "jinja2-3.1.6-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "jiter-0.14.0-cp311-cp311-macosx_11_0_arm64.whl",
+    "native_artifacts": [
+      "jiter/jiter.cpython-311-darwin.so"
+    ],
+    "scripts": [],
+    "sha256": "71527ce13fd5a0c4e40ad37331f8c547177dbb2dd0a93e5278b6a5eecf748804",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "jmespath-1.1.0-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [
+      "jmespath-1.1.0.data/scripts/jp.py"
+    ],
+    "sha256": "a5663118de4908c91729bea0acadca56526eb2698e83de10cd116ae0f4e97c64",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "joblib-1.6.0-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "3dbbf9f6e4b592a2357b854608e980fe6390d131d7a82f011a377ef2ebef7aba",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "kiwisolver-1.5.1-cp311-cp311-macosx_11_0_arm64.whl",
+    "native_artifacts": [
+      "kiwisolver/_cext.cpython-311-darwin.so"
+    ],
+    "scripts": [],
+    "sha256": "dc1a26b8e53395a01c2c611e58602fa47461f136fba7cd5542e6db6d64be1839",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "levenshtein-0.27.5-cp311-cp311-macosx_11_0_arm64.whl",
+    "native_artifacts": [
+      "Levenshtein/levenshtein_cpp.cpython-311-darwin.so"
+    ],
+    "scripts": [],
+    "sha256": "cd213e2a6314ddf12a3d9f951b5b4b22f99144d5549d5dba1b0a1fb2f5debb0c",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "mando-0.7.1-py2.py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "26ef1d70928b6057ee3ca12583d73c63e05c49de8972d620c278a7b206581a8a",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "markdown-3.11.3.dist-info/entry_points.txt": "[console_scripts]\nmarkdown_py = markdown.__main__:run\n\n[markdown.extensions]\nabbr = markdown.extensions.abbr:AbbrExtension\nadmonition = markdown.extensions.admonition:AdmonitionExtension\nattr_list = markdown.extensions.attr_list:AttrListExtension\ncodehilite = markdown.extensions.codehilite:CodeHiliteExtension\ndef_list = markdown.extensions.def_list:DefListExtension\nextra = markdown.extensions.extra:ExtraExtension\nfenced_code = markdown.extensions.fenced_code:FencedCodeExtension\nfootnotes = markdown.extensions.footnotes:FootnoteExtension\nlegacy_attrs = markdown.extensions.legacy_attrs:LegacyAttrExtension\nlegacy_em = markdown.extensions.legacy_em:LegacyEmExtension\nmd_in_html = markdown.extensions.md_in_html:MarkdownInHtmlExtension\nmeta = markdown.extensions.meta:MetaExtension\nnl2br = markdown.extensions.nl2br:Nl2BrExtension\nsane_lists = markdown.extensions.sane_lists:SaneListExtension\nsmarty = markdown.extensions.smarty:SmartyExtension\ntables = markdown.extensions.tables:TableExtension\ntoc = markdown.extensions.toc:TocExtension\nwikilinks = markdown.extensions.wikilinks:WikiLinkExtension\n"
+    },
+    "filename": "markdown-3.11.3-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "e1a31a112232504d753e5c01bb8c2de90d3f0ba986b063e10770cf7695b09e73",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "markdown_it_py-4.3.0.dist-info/entry_points.txt": "[console_scripts]\nmarkdown-it=markdown_it.cli.parse:main\n\n"
+    },
+    "filename": "markdown_it_py-4.3.0-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "7aa1511a46c39138de78d9eba92ce47e63124d8003fc98b3a351909e04239efa",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "markupsafe-3.0.4-cp311-cp311-macosx_11_0_arm64.whl",
+    "native_artifacts": [
+      "markupsafe/_speedups.cpython-311-darwin.so"
+    ],
+    "scripts": [],
+    "sha256": "7d3391b2188d18737cb2fa147028b1096236eaa7e156446c650a489fa2cadc91",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "matplotlib-3.11.2-cp311-cp311-macosx_11_0_arm64.whl",
+    "native_artifacts": [
+      "matplotlib/_tri.cpython-311-darwin.so",
+      "matplotlib/_qhull.cpython-311-darwin.so",
+      "matplotlib/_path.cpython-311-darwin.so",
+      "matplotlib/_c_internal_utils.cpython-311-darwin.so",
+      "matplotlib/ft2font.cpython-311-darwin.so",
+      "matplotlib/_image.cpython-311-darwin.so",
+      "matplotlib/backends/_backend_agg.cpython-311-darwin.so",
+      "matplotlib/backends/_macosx.cpython-311-darwin.so",
+      "matplotlib/backends/_tkagg.cpython-311-darwin.so"
+    ],
+    "scripts": [],
+    "sha256": "c27e577ece613ea12a0790e00b4eb80d901c59a3e16cad474f31d8b1529690b9",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "mdurl-0.1.2-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "moviepy-2.2.1-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "6b56803fec2ac54b557404126ac1160e65448e03798fa282bd23e8fab3795060",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "multidict-7.2.1-cp311-cp311-macosx_11_0_arm64.whl",
+    "native_artifacts": [
+      "multidict/_multidict.cpython-311-darwin.so",
+      "multidict/_testcapi.cpython-311-darwin.so"
+    ],
+    "scripts": [],
+    "sha256": "0d852d3d9638f852158d7de7200dd77f7ff8d77fc8f3d396032f3d847883f631",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "narwhals-2.28.0-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "1f69d6385ec30e2fa6e1fdeb37c562ecabd0f713f6f3e3b58a668c5c9df9567f",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "networkx-3.6.1.dist-info/entry_points.txt": "[networkx.backends]\nnx_loopback = networkx.classes.tests.dispatch_interface:backend_interface\n"
+    },
+    "filename": "networkx-3.6.1-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "d47fbf302e7d9cbbb9e2555a0d267983d2aa476bac30e90dfbe5669bd57f3762",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "numpy-2.4.6.dist-info/entry_points.txt": "[pkg_config]\nnumpy = numpy._core.lib.pkgconfig\n\n[array_api]\nnumpy = numpy\n\n[pyinstaller40]\nhook-dirs = numpy:_pyinstaller_hooks_dir\n\n[console_scripts]\nf2py = numpy.f2py.f2py2e:main\nnumpy-config = numpy._configtool:main\n\n"
+    },
+    "filename": "numpy-2.4.6-cp311-cp311-macosx_14_0_arm64.whl",
+    "native_artifacts": [
+      "numpy/linalg/lapack_lite.cpython-311-darwin.so",
+      "numpy/linalg/_umath_linalg.cpython-311-darwin.so",
+      "numpy/_core/_multiarray_umath.cpython-311-darwin.so",
+      "numpy/_core/_simd.cpython-311-darwin.so",
+      "numpy/_core/_umath_tests.cpython-311-darwin.so",
+      "numpy/_core/_multiarray_tests.cpython-311-darwin.so",
+      "numpy/_core/_operand_flag_tests.cpython-311-darwin.so",
+      "numpy/_core/_rational_tests.cpython-311-darwin.so",
+      "numpy/_core/_struct_ufunc_tests.cpython-311-darwin.so",
+      "numpy/fft/_pocketfft_umath.cpython-311-darwin.so",
+      "numpy/random/_generator.cpython-311-darwin.so",
+      "numpy/random/_common.cpython-311-darwin.so",
+      "numpy/random/mtrand.cpython-311-darwin.so",
+      "numpy/random/_sfc64.cpython-311-darwin.so",
+      "numpy/random/_pcg64.cpython-311-darwin.so",
+      "numpy/random/_philox.cpython-311-darwin.so",
+      "numpy/random/_mt19937.cpython-311-darwin.so",
+      "numpy/random/_bounded_integers.cpython-311-darwin.so",
+      "numpy/random/bit_generator.cpython-311-darwin.so"
+    ],
+    "scripts": [],
+    "sha256": "4cfe66903cc32a9921a6733d96b19bb6abf310397581bbad89c228f5abaf0ee8",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "omegaconf-2.3.1-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "3d701d14e9a8828f1edd28bb70b725908b34277cdd72cf7d6a83f94dadc6b6a0",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "openai-3.3.0-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "ded6b2112e6d299c7a2573ff6f165dc92fb64ceaa4d7daa42345f091157bd373",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "opentelemetry_api-1.45.2.dist-info/entry_points.txt": "[opentelemetry_context]\ncontextvars_context = opentelemetry.context.contextvars_context:ContextVarsRuntimeContext\n\n[opentelemetry_environment_variables]\napi = opentelemetry.environment_variables\n\n[opentelemetry_meter_provider]\ndefault_meter_provider = opentelemetry.metrics:NoOpMeterProvider\n\n[opentelemetry_propagator]\nbaggage = opentelemetry.baggage.propagation:W3CBaggagePropagator\ntracecontext = opentelemetry.trace.propagation.tracecontext:TraceContextTextMapPropagator\n\n[opentelemetry_tracer_provider]\ndefault_tracer_provider = opentelemetry.trace:NoOpTracerProvider\n"
+    },
+    "filename": "opentelemetry_api-1.45.2-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "2cbd737377e710ee740d261c94e93fa0f08e6d037c18f17513cc0a2d94479a34",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "packaging-26.3-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "pandas-3.1.1.dist-info/entry_points.txt": "[pandas_plotting_backends]\nmatplotlib = pandas:plotting._matplotlib\n\n"
+    },
+    "filename": "pandas-3.1.1-cp311-cp311-macosx_11_0_arm64.whl",
+    "native_artifacts": [
+      "pandas/_libs/index.cpython-311-darwin.so",
+      "pandas/_libs/algos.cpython-311-darwin.so",
+      "pandas/_libs/_cyutility.cpython-311-darwin.so",
+      "pandas/_libs/tslib.cpython-311-darwin.so",
+      "pandas/_libs/hashtable.cpython-311-darwin.so",
+      "pandas/_libs/groupby.cpython-311-darwin.so",
+      "pandas/_libs/ops.cpython-311-darwin.so",
+      "pandas/_libs/parsers.cpython-311-darwin.so",
+      "pandas/_libs/indexing.cpython-311-darwin.so",
+      "pandas/_libs/missing.cpython-311-darwin.so",
+      "pandas/_libs/hashing.cpython-311-darwin.so",
+      "pandas/_libs/sparse.cpython-311-darwin.so",
+      "pandas/_libs/arrays.cpython-311-darwin.so",
+      "pandas/_libs/sas.cpython-311-darwin.so",
+      "pandas/_libs/reshape.cpython-311-darwin.so",
+      "pandas/_libs/join.cpython-311-darwin.so",
+      "pandas/_libs/testing.cpython-311-darwin.so",
+      "pandas/_libs/lib.cpython-311-darwin.so",
+      "pandas/_libs/internals.cpython-311-darwin.so",
+      "pandas/_libs/pandas_parser.cpython-311-darwin.so",
+      "pandas/_libs/_ujson.cpython-311-darwin.so",
+      "pandas/_libs/byteswap.cpython-311-darwin.so",
+      "pandas/_libs/properties.cpython-311-darwin.so",
+      "pandas/_libs/ops_dispatch.cpython-311-darwin.so",
+      "pandas/_libs/pandas_datetime.cpython-311-darwin.so",
+      "pandas/_libs/writers.cpython-311-darwin.so",
+      "pandas/_libs/interval.cpython-311-darwin.so",
+      "pandas/_libs/window/indexers.cpython-311-darwin.so",
+      "pandas/_libs/window/aggregations.cpython-311-darwin.so",
+      "pandas/_libs/tslibs/strptime.cpython-311-darwin.so",
+      "pandas/_libs/tslibs/dtypes.cpython-311-darwin.so",
+      "pandas/_libs/tslibs/vectorized.cpython-311-darwin.so",
+      "pandas/_libs/tslibs/base.cpython-311-darwin.so",
+      "pandas/_libs/tslibs/parsing.cpython-311-darwin.so",
+      "pandas/_libs/tslibs/timestamps.cpython-311-darwin.so",
+      "pandas/_libs/tslibs/np_datetime.cpython-311-darwin.so",
+      "pandas/_libs/tslibs/timezones.cpython-311-darwin.so",
+      "pandas/_libs/tslibs/period.cpython-311-darwin.so",
+      "pandas/_libs/tslibs/conversion.cpython-311-darwin.so",
+      "pandas/_libs/tslibs/nattype.cpython-311-darwin.so",
+      "pandas/_libs/tslibs/fields.cpython-311-darwin.so",
+      "pandas/_libs/tslibs/tzconversion.cpython-311-darwin.so",
+      "pandas/_libs/tslibs/offsets.cpython-311-darwin.so",
+      "pandas/_libs/tslibs/timedeltas.cpython-311-darwin.so",
+      "pandas/_libs/tslibs/ccalendar.cpython-311-darwin.so"
+    ],
+    "scripts": [],
+    "sha256": "78837bfc15a272896def947e9b47a671363f5291c5266105c68c06d6a1b0045e",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "pillow-11.3.0-cp311-cp311-macosx_11_0_arm64.whl",
+    "native_artifacts": [
+      "PIL/_imagingmorph.cpython-311-darwin.so",
+      "PIL/_imagingtk.cpython-311-darwin.so",
+      "PIL/_avif.cpython-311-darwin.so",
+      "PIL/_imagingmath.cpython-311-darwin.so",
+      "PIL/_imaging.cpython-311-darwin.so",
+      "PIL/_webp.cpython-311-darwin.so",
+      "PIL/_imagingft.cpython-311-darwin.so",
+      "PIL/_imagingcms.cpython-311-darwin.so",
+      "PIL/.dylibs/libavif.16.3.0.dylib",
+      "PIL/.dylibs/liblcms2.2.dylib",
+      "PIL/.dylibs/libpng16.16.dylib",
+      "PIL/.dylibs/libxcb.1.1.0.dylib",
+      "PIL/.dylibs/libjpeg.62.4.0.dylib",
+      "PIL/.dylibs/libbrotlidec.1.1.0.dylib",
+      "PIL/.dylibs/libfreetype.6.dylib",
+      "PIL/.dylibs/libbrotlicommon.1.1.0.dylib",
+      "PIL/.dylibs/libharfbuzz.0.dylib",
+      "PIL/.dylibs/libsharpyuv.0.dylib",
+      "PIL/.dylibs/libz.1.3.1.zlib-ng.dylib",
+      "PIL/.dylibs/libwebp.7.dylib",
+      "PIL/.dylibs/libXau.6.dylib",
+      "PIL/.dylibs/libwebpmux.3.dylib",
+      "PIL/.dylibs/libwebpdemux.2.dylib",
+      "PIL/.dylibs/liblzma.5.dylib",
+      "PIL/.dylibs/libopenjp2.2.5.3.dylib",
+      "PIL/.dylibs/libtiff.6.dylib"
+    ],
+    "scripts": [],
+    "sha256": "9c412fddd1b77a75aa904615ebaa6001f169b26fd467b4be93aded278266b288",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "proglog-0.1.12-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "ccaafce51e80a81c65dc907a460c07ccb8ec1f78dc660cfd8f9ec3a22f01b84c",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "propcache-0.5.4-cp311-cp311-macosx_11_0_arm64.whl",
+    "native_artifacts": [
+      "propcache/_helpers_c.cpython-311-darwin.so"
+    ],
+    "scripts": [],
+    "sha256": "3fc24f209c1b7f7f688b66b98293954f5504279760999b58920ee12dd8471c1d",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "psutil-7.2.2-cp36-abi3-macosx_11_0_arm64.whl",
+    "native_artifacts": [
+      "psutil/_psutil_osx.abi3.so"
+    ],
+    "scripts": [],
+    "sha256": "1a7b04c10f32cc88ab39cbf606e117fd74721c831c98a27dc04578deb0c16979",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "pyasn1-0.6.5-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "4017b0fce125096b8573b39c989fdb1a4b19cf761e683398184550fea0e66587",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "pyasn1_modules-0.4.2-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "29253a9207ce32b64c3ac6600edc75368f98473906e8fd1043bd6b5b1de2c14a",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "pycparser-3.12-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "a076f3f489b39b43ed13563a1dafe42447445bec2e294154ec5c57fcdda4c85e",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "pydantic-2.14.3-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "3f7b347782ab7e4cf4c798496ae3a82787d9f21ec12676a9c564355eeef8daa8",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "pydantic_core-2.50.4-cp311-cp311-macosx_11_0_arm64.whl",
+    "native_artifacts": [
+      "pydantic_core/_pydantic_core.cpython-311-darwin.so"
+    ],
+    "scripts": [],
+    "sha256": "c813ada7a651193acda85b6bc1cf12abd4b37cd25c7c6a75d7183512cc374969",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "pygments-2.21.0.dist-info/entry_points.txt": "[console_scripts]\npygmentize = pygments.cmdline:main\n"
+    },
+    "filename": "pygments-2.21.0-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "pyparsing-3.3.3-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "ece8c00a69cf01b45d0b1dedabb469c90d8caf996d4fda40f147627a122849a4",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "python_dateutil-2.9.0.post0-py2.py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "python_dotenv-1.2.4.dist-info/entry_points.txt": "[console_scripts]\ndotenv = dotenv.__main__:cli\n"
+    },
+    "filename": "python_dotenv-1.2.4-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "42269a8a5b3fd54ffa6f3d84b18abed50064717576b4ecf03dc4a55d8aa04fdc",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "python_levenshtein-0.27.5-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "da716ff072204e2a6432c68bd9ff92c3e7f1202e4a908640717f191dbb482693",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "pyyaml-6.0.3-cp311-cp311-macosx_11_0_arm64.whl",
+    "native_artifacts": [
+      "yaml/_yaml.cpython-311-darwin.so"
+    ],
+    "scripts": [],
+    "sha256": "652cb6edd41e718550aad172851962662ff2681490a8a711af6a4d288dd96824",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "radon-6.0.1.dist-info/entry_points.txt": "[console_scripts]\nradon = radon:main\n\n[flake8.extension]\nR70 = radon.contrib.flake8:Flake8Checker\n\n[setuptools.installation]\neggsecutable = radon:main\n"
+    },
+    "filename": "radon-6.0.1-py2.py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "632cc032364a6f8bb1010a2f6a12d0f14bc7e5ede76585ef29dc0cecf4cd8859",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "rapidfuzz-3.14.6.dist-info/entry_points.txt": "[pyinstaller40]\ntests = rapidfuzz.__pyinstaller:get_PyInstaller_tests\n\n"
+    },
+    "filename": "rapidfuzz-3.14.6-cp311-cp311-macosx_11_0_arm64.whl",
+    "native_artifacts": [
+      "rapidfuzz/utils_cpp.cpython-311-darwin.so",
+      "rapidfuzz/fuzz_cpp.cpython-311-darwin.so",
+      "rapidfuzz/process_cpp_impl.cpython-311-darwin.so",
+      "rapidfuzz/distance/metrics_cpp.cpython-311-darwin.so",
+      "rapidfuzz/distance/_initialize_cpp.cpython-311-darwin.so"
+    ],
+    "scripts": [],
+    "sha256": "0c61cade182f130c9903231946bd1074539121721693a918e7b70382ae802bd8",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "regex-2026.11.9-cp311-cp311-macosx_11_0_arm64.whl",
+    "native_artifacts": [
+      "regex/_regex.cpython-311-darwin.so"
+    ],
+    "scripts": [],
+    "sha256": "cf8ba77a8d23fac7912cd9890a49d8f006106147bb80312c9954558b24ec7f95",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "requests-2.34.2-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "rich-14.3.4-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "07e7adb4690f68864777b1450859253bed81a99a31ac321ac1817b2313558952",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "s3transfer-0.19.3-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "24eb7535804306355e31c952a90022bf5b2f9d760f9a11062c7493a217c08553",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "scikit_learn-1.9.1-cp311-cp311-macosx_12_0_arm64.whl",
+    "native_artifacts": [
+      "sklearn/_cyutility.cpython-311-darwin.so",
+      "sklearn/_isotonic.cpython-311-darwin.so",
+      "sklearn/tree/_utils.cpython-311-darwin.so",
+      "sklearn/tree/_splitter.cpython-311-darwin.so",
+      "sklearn/tree/_tree.cpython-311-darwin.so",
+      "sklearn/tree/_criterion.cpython-311-darwin.so",
+      "sklearn/tree/_partitioner.cpython-311-darwin.so",
+      "sklearn/metrics/_dist_metrics.cpython-311-darwin.so",
+      "sklearn/metrics/_pairwise_fast.cpython-311-darwin.so",
+      "sklearn/metrics/cluster/_expected_mutual_info_fast.cpython-311-darwin.so",
+      "sklearn/metrics/_pairwise_distances_reduction/_argkmin_classmode.cpython-311-darwin.so",
+      "sklearn/metrics/_pairwise_distances_reduction/_base.cpython-311-darwin.so",
+      "sklearn/metrics/_pairwise_distances_reduction/_datasets_pair.cpython-311-darwin.so",
+      "sklearn/metrics/_pairwise_distances_reduction/_middle_term_computer.cpython-311-darwin.so",
+      "sklearn/metrics/_pairwise_distances_reduction/_radius_neighbors_classmode.cpython-311-darwin.so",
+      "sklearn/metrics/_pairwise_distances_reduction/_radius_neighbors.cpython-311-darwin.so",
+      "sklearn/metrics/_pairwise_distances_reduction/_argkmin.cpython-311-darwin.so",
+      "sklearn/ensemble/_gradient_boosting.cpython-311-darwin.so",
+      "sklearn/ensemble/_hist_gradient_boosting/histogram.cpython-311-darwin.so",
+      "sklearn/ensemble/_hist_gradient_boosting/_binning.cpython-311-darwin.so",
+      "sklearn/ensemble/_hist_gradient_boosting/common.cpython-311-darwin.so",
+      "sklearn/ensemble/_hist_gradient_boosting/_predictor.cpython-311-darwin.so",
+      "sklearn/ensemble/_hist_gradient_boosting/_gradient_boosting.cpython-311-darwin.so",
+      "sklearn/ensemble/_hist_gradient_boosting/splitting.cpython-311-darwin.so",
+      "sklearn/cluster/_k_means_elkan.cpython-311-darwin.so",
+      "sklearn/cluster/_k_means_common.cpython-311-darwin.so",
+      "sklearn/cluster/_k_means_minibatch.cpython-311-darwin.so",
+      "sklearn/cluster/_k_means_lloyd.cpython-311-darwin.so",
+      "sklearn/cluster/_dbscan_inner.cpython-311-darwin.so",
+      "sklearn/cluster/_hierarchical_fast.cpython-311-darwin.so",
+      "sklearn/cluster/_hdbscan/_reachability.cpython-311-darwin.so",
+      "sklearn/cluster/_hdbscan/_linkage.cpython-311-darwin.so",
+      "sklearn/cluster/_hdbscan/_tree.cpython-311-darwin.so",
+      "sklearn/feature_extraction/_hashing_fast.cpython-311-darwin.so",
+      "sklearn/__check_build/_check_build.cpython-311-darwin.so",
+      "sklearn/_loss/_loss.cpython-311-darwin.so",
+      "sklearn/datasets/_svmlight_format_fast.cpython-311-darwin.so",
+      "sklearn/linear_model/_sag_fast.cpython-311-darwin.so",
+      "sklearn/linear_model/_sgd_fast.cpython-311-darwin.so",
+      "sklearn/linear_model/_cd_fast.cpython-311-darwin.so",
+      "sklearn/utils/_bitset.cpython-311-darwin.so",
+      "sklearn/utils/_openmp_helpers.cpython-311-darwin.so",
+      "sklearn/utils/_random.cpython-311-darwin.so",
+      "sklearn/utils/_vector_sentinel.cpython-311-darwin.so",
+      "sklearn/utils/_isfinite.cpython-311-darwin.so",
+      "sklearn/utils/_heap.cpython-311-darwin.so",
+      "sklearn/utils/_sorting.cpython-311-darwin.so",
+      "sklearn/utils/_weight_vector.cpython-311-darwin.so",
+      "sklearn/utils/_cython_blas.cpython-311-darwin.so",
+      "sklearn/utils/sparsefuncs_fast.cpython-311-darwin.so",
+      "sklearn/utils/_fast_dict.cpython-311-darwin.so",
+      "sklearn/utils/arrayfuncs.cpython-311-darwin.so",
+      "sklearn/utils/murmurhash.cpython-311-darwin.so",
+      "sklearn/utils/_seq_dataset.cpython-311-darwin.so",
+      "sklearn/utils/_typedefs.cpython-311-darwin.so",
+      "sklearn/.dylibs/libomp.dylib",
+      "sklearn/svm/_newrand.cpython-311-darwin.so",
+      "sklearn/svm/_libsvm.cpython-311-darwin.so",
+      "sklearn/svm/_liblinear.cpython-311-darwin.so",
+      "sklearn/svm/_libsvm_sparse.cpython-311-darwin.so",
+      "sklearn/manifold/_utils.cpython-311-darwin.so",
+      "sklearn/manifold/_barnes_hut_tsne.cpython-311-darwin.so",
+      "sklearn/preprocessing/_target_encoder_fast.cpython-311-darwin.so",
+      "sklearn/preprocessing/_csr_polynomial_expansion.cpython-311-darwin.so",
+      "sklearn/decomposition/_cdnmf_fast.cpython-311-darwin.so",
+      "sklearn/decomposition/_online_lda_fast.cpython-311-darwin.so",
+      "sklearn/neighbors/_ball_tree.cpython-311-darwin.so",
+      "sklearn/neighbors/_kd_tree.cpython-311-darwin.so",
+      "sklearn/neighbors/_partition_nodes.cpython-311-darwin.so",
+      "sklearn/neighbors/_quad_tree.cpython-311-darwin.so"
+    ],
+    "scripts": [],
+    "sha256": "b48b2b5b41d9c5fbafef5f37b042f61110df3318ad2a45baf57287ea5b9ba5a2",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "scipy-1.17.1-cp311-cp311-macosx_14_0_arm64.whl",
+    "native_artifacts": [
+      "scipy/_cyutility.cpython-311-darwin.so",
+      "scipy/odr/__odrpack.cpython-311-darwin.so",
+      "scipy/cluster/_vq.cpython-311-darwin.so",
+      "scipy/cluster/_hierarchy.cpython-311-darwin.so",
+      "scipy/cluster/_optimal_leaf_ordering.cpython-311-darwin.so",
+      "scipy/ndimage/_ctest.cpython-311-darwin.so",
+      "scipy/ndimage/_rank_filter_1d.cpython-311-darwin.so",
+      "scipy/ndimage/_cytest.cpython-311-darwin.so",
+      "scipy/ndimage/_nd_image.cpython-311-darwin.so",
+      "scipy/ndimage/_ni_label.cpython-311-darwin.so",
+      "scipy/linalg/cython_lapack.cpython-311-darwin.so",
+      "scipy/linalg/_decomp_lu_cython.cpython-311-darwin.so",
+      "scipy/linalg/_cythonized_array_utils.cpython-311-darwin.so",
+      "scipy/linalg/_matfuncs_expm.cpython-311-darwin.so",
+      "scipy/linalg/cython_blas.cpython-311-darwin.so",
+      "scipy/linalg/_matfuncs_schur_sqrtm.cpython-311-darwin.so",
+      "scipy/linalg/_fblas.cpython-311-darwin.so",
+      "scipy/linalg/_flapack.cpython-311-darwin.so",
+      "scipy/linalg/_decomp_update.cpython-311-darwin.so",
+      "scipy/linalg/_decomp_interpolative.cpython-311-darwin.so",
+      "scipy/linalg/_matfuncs_sqrtm_triu.cpython-311-darwin.so",
+      "scipy/linalg/_solve_toeplitz.cpython-311-darwin.so",
+      "scipy/linalg/_batched_linalg.cpython-311-darwin.so",
+      "scipy/linalg/_linalg_pythran.cpython-311-darwin.so",
+      "scipy/optimize/_lbfgsb.cpython-311-darwin.so",
+      "scipy/optimize/_pava_pybind.cpython-311-darwin.so",
+      "scipy/optimize/_lsap.cpython-311-darwin.so",
+      "scipy/optimize/_moduleTNC.cpython-311-darwin.so",
+      "scipy/optimize/_bglu_dense.cpython-311-darwin.so",
+      "scipy/optimize/_group_columns.cpython-311-darwin.so",
+      "scipy/optimize/_direct.cpython-311-darwin.so",
+      "scipy/optimize/_minpack.cpython-311-darwin.so",
+      "scipy/optimize/_slsqplib.cpython-311-darwin.so",
+      "scipy/optimize/_zeros.cpython-311-darwin.so",
+      "scipy/optimize/_trlib/_trlib.cpython-311-darwin.so",
+      "scipy/optimize/_highspy/_highs_options.cpython-311-darwin.so",
+      "scipy/optimize/_highspy/_core.cpython-311-darwin.so",
+      "scipy/optimize/_lsq/givens_elimination.cpython-311-darwin.so",
+      "scipy/optimize/cython_optimize/_zeros.cpython-311-darwin.so",
+      "scipy/integrate/_quadpack.cpython-311-darwin.so",
+      "scipy/integrate/_vode.cpython-311-darwin.so",
+      "scipy/integrate/_dop.cpython-311-darwin.so",
+      "scipy/integrate/_test_multivariate.cpython-311-darwin.so",
+      "scipy/integrate/_odepack.cpython-311-darwin.so",
+      "scipy/io/_fast_matrix_market/_fmm_core.cpython-311-darwin.so",
+      "scipy/io/matlab/_mio_utils.cpython-311-darwin.so",
+      "scipy/io/matlab/_mio5_utils.cpython-311-darwin.so",
+      "scipy/io/matlab/_streams.cpython-311-darwin.so",
+      "scipy/_lib/_test_deprecation_def.cpython-311-darwin.so",
+      "scipy/_lib/_test_ccallback.cpython-311-darwin.so",
+      "scipy/_lib/messagestream.cpython-311-darwin.so",
+      "scipy/_lib/_test_deprecation_call.cpython-311-darwin.so",
+      "scipy/_lib/_ccallback_c.cpython-311-darwin.so",
+      "scipy/_lib/_fpumode.cpython-311-darwin.so",
+      "scipy/_lib/_uarray/_uarray.cpython-311-darwin.so",
+      "scipy/special/_ufuncs_cxx.cpython-311-darwin.so",
+      "scipy/special/_special_ufuncs.cpython-311-darwin.so",
+      "scipy/special/_gufuncs.cpython-311-darwin.so",
+      "scipy/special/_ellip_harm_2.cpython-311-darwin.so",
+      "scipy/special/_specfun.cpython-311-darwin.so",
+      "scipy/special/_test_internal.cpython-311-darwin.so",
+      "scipy/special/_comb.cpython-311-darwin.so",
+      "scipy/special/_ufuncs.cpython-311-darwin.so",
+      "scipy/special/cython_special.cpython-311-darwin.so",
+      "scipy/.dylibs/libgfortran.5.dylib",
+      "scipy/.dylibs/libquadmath.0.dylib",
+      "scipy/.dylibs/libgcc_s.1.1.dylib",
+      "scipy/fftpack/convolve.cpython-311-darwin.so",
+      "scipy/interpolate/_rbfinterp_pythran.cpython-311-darwin.so",
+      "scipy/interpolate/_rgi_cython.cpython-311-darwin.so",
+      "scipy/interpolate/_fitpack.cpython-311-darwin.so",
+      "scipy/interpolate/_interpnd.cpython-311-darwin.so",
+      "scipy/interpolate/_ppoly.cpython-311-darwin.so",
+      "scipy/interpolate/_dierckx.cpython-311-darwin.so",
+      "scipy/interpolate/_dfitpack.cpython-311-darwin.so",
+      "scipy/fft/_pocketfft/pypocketfft.cpython-311-darwin.so",
+      "scipy/sparse/_csparsetools.cpython-311-darwin.so",
+      "scipy/sparse/_sparsetools.cpython-311-darwin.so",
+      "scipy/sparse/linalg/_propack.cpython-311-darwin.so",
+      "scipy/sparse/linalg/_eigen/arpack/_arpacklib.cpython-311-darwin.so",
+      "scipy/sparse/linalg/_dsolve/_superlu.cpython-311-darwin.so",
+      "scipy/sparse/csgraph/_matching.cpython-311-darwin.so",
+      "scipy/sparse/csgraph/_traversal.cpython-311-darwin.so",
+      "scipy/sparse/csgraph/_shortest_path.cpython-311-darwin.so",
+      "scipy/sparse/csgraph/_tools.cpython-311-darwin.so",
+      "scipy/sparse/csgraph/_flow.cpython-311-darwin.so",
+      "scipy/sparse/csgraph/_reordering.cpython-311-darwin.so",
+      "scipy/sparse/csgraph/_min_spanning_tree.cpython-311-darwin.so",
+      "scipy/spatial/_qhull.cpython-311-darwin.so",
+      "scipy/spatial/_distance_wrap.cpython-311-darwin.so",
+      "scipy/spatial/_hausdorff.cpython-311-darwin.so",
+      "scipy/spatial/_voronoi.cpython-311-darwin.so",
+      "scipy/spatial/_distance_pybind.cpython-311-darwin.so",
+      "scipy/spatial/_ckdtree.cpython-311-darwin.so",
+      "scipy/spatial/transform/_rigid_transform_cy.cpython-311-darwin.so",
+      "scipy/spatial/transform/_rotation_cy.cpython-311-darwin.so",
+      "scipy/signal/_max_len_seq_inner.cpython-311-darwin.so",
+      "scipy/signal/_sosfilt.cpython-311-darwin.so",
+      "scipy/signal/_spline.cpython-311-darwin.so",
+      "scipy/signal/_peak_finding_utils.cpython-311-darwin.so",
+      "scipy/signal/_sigtools.cpython-311-darwin.so",
+      "scipy/signal/_upfirdn_apply.cpython-311-darwin.so",
+      "scipy/stats/_biasedurn.cpython-311-darwin.so",
+      "scipy/stats/_stats_pythran.cpython-311-darwin.so",
+      "scipy/stats/_sobol.cpython-311-darwin.so",
+      "scipy/stats/_qmvnt_cy.cpython-311-darwin.so",
+      "scipy/stats/_ansari_swilk_statistics.cpython-311-darwin.so",
+      "scipy/stats/_stats.cpython-311-darwin.so",
+      "scipy/stats/_qmc_cy.cpython-311-darwin.so",
+      "scipy/stats/_levy_stable/levyst.cpython-311-darwin.so",
+      "scipy/stats/_rcont/rcont.cpython-311-darwin.so",
+      "scipy/stats/_unuran/unuran_wrapper.cpython-311-darwin.so"
+    ],
+    "scripts": [],
+    "sha256": "a3472cfbca0a54177d0faa68f697d8ba4c80bbdc19908c3465556d9f7efce9ee",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "seaborn-0.13.2-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "636f8336facf092165e27924f223d3c62ca560b1f2bb5dff7ab7fad265361987",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "shellingham-1.5.4-py2.py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "7ecfff8f2fd72616f7481040475a65b2bf8af90a56c89140852d1120324e8686",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "six-1.17.0-py2.py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "sniffio-1.3.1-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "tenacity-9.1.4-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "6095a360c919085f28c6527de529e76a06ad89b23659fa881ae0649b867a9d55",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "threadpoolctl-3.8.0-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "f1b49c82704d50f13ffae019c727b0fa4f6791a58f48f06a09c45face1be66da",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "tqdm-4.70.1.dist-info/entry_points.txt": "[console_scripts]\ntqdm = tqdm.cli:main\n"
+    },
+    "filename": "tqdm-4.70.1-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "c293e525e6fef9c20e8728fd4612df02a0aa31bb5fe91ecd93e123b1b7bffa73",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "truststore-0.10.5-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "9aaaedaefaf06d8b206278cf8b5012bc897f485a874503501e12d776df78951c",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "typer-0.29.1.dist-info/entry_points.txt": "[console_scripts]\ntyper = typer.cli:main\n\n[gui_scripts]\n\n"
+    },
+    "filename": "typer-0.29.1-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "00dbc549c13428bec1be55fe1f4d0fb8c6637a310e4f178ef14abe9534ee7b58",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "typing_extensions-4.16.0-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "typing_inspection-0.4.5-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "bc210535442b39e1bf2805e0c7a17dfd6a4ace760c84c7f7d16245d23a6b1c39",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "unidiff-1.0.1.dist-info/entry_points.txt": "[console_scripts]\nunidiff = unidiff.__main__:main\n"
+    },
+    "filename": "unidiff-1.0.1-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "5e2ca461eda8a4c761ad0922e3e8a65742f359dc60301a3a055b70fd7c158680",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "urllib3-2.8.0-py3-none-any.whl",
+    "native_artifacts": [],
+    "scripts": [],
+    "sha256": "0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {
+      "websockets-17.4.dist-info/entry_points.txt": "[console_scripts]\nwebsockets = websockets.cli:main\n"
+    },
+    "filename": "websockets-17.4-cp311-cp311-macosx_11_0_arm64.whl",
+    "native_artifacts": [
+      "websockets/speedups.cpython-311-darwin.so"
+    ],
+    "scripts": [],
+    "sha256": "b8451f31ae24620cc9372acd2728d87922f2bb0cae3fa57aed68b152844cdf08",
+    "startup_hooks": {}
+  },
+  {
+    "entry_points": {},
+    "filename": "yarl-1.25.1-cp311-cp311-macosx_11_0_arm64.whl",
+    "native_artifacts": [
+      "yarl/_quoting_c.cpython-311-darwin.so"
+    ],
+    "scripts": [],
+    "sha256": "564fdc7085d2245ab84f88882fdb1d6ac0723124bff6ded35bfb1c00f812630d",
+    "startup_hooks": {}
+  }
+]

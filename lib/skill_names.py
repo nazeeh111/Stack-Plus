@@ -25,7 +25,7 @@ RENAMES = {
     "finance-audit-xls": "spreadsheet-formula-audit",
     "tdd": "test-driven-development",
     "codebase-design": "module-interface-design",
-    "gstack-office-hours": "gstack-product-consultation",
+    "gstack-office-hours": "product-discovery-consultation",
     "react-best-practices": "react-nextjs-performance",
     "migration-architect": "migration-planning",
     "pstack-architect": "code-architecture-planning",
@@ -89,8 +89,9 @@ RENAMES = {
     "scenario-blender-export": "blender-asset-export",
     "scenario-unreal-expert": "unreal-project-development",
     "scenario-unreal-cinematics": "unreal-cinematic-production",
-    "colorfigures": "colorfigures-interactive-explainers",
-    "archify": "archify-diagrams-and-explainers",
+    "colorfigures": "interactive-mechanism-explainers",
+    "archify": "validated-html-diagrams-and-explainers",
+    "diagram-design": "editorial-svg-diagrams",
     "prospecting": "sales-account-prospecting",
     "cold-email": "cold-email-drafts",
     "last30days": "recent-practitioner-research",
@@ -105,9 +106,9 @@ RENAMES = {
     "euclidean-geometry-ddar": "euclidean-geometry-ddar-solving",
     "instrument-control": "lab-instrument-control",
     "pstack-statechart": "tla-state-machine-checking",
-    "gstack-qa": "gstack-test-fix-verify",
-    "gstack-review": "gstack-diff-review",
-    "gstack-plan-eng-review": "gstack-engineering-plan-review",
+    "gstack-qa": "application-test-fix-verify",
+    "gstack-review": "code-diff-review",
+    "gstack-plan-eng-review": "engineering-plan-review",
     "remotion-interactivity": "remotion-editable-video-markup",
     "remotion-studio": "remotion-video-preview",
     "remotion-multimedia": "remotion-media-processing",
@@ -128,9 +129,26 @@ RENAMES = {
     "playwright-mcp": "playwright-mcp-browser-automation",
     "raea": "raea-gpu-video-and-games",
     "rea": "rea-software-analysis",
+    "dream-loop": "visual-target-development",
+    "shinka-evolve": "shinka-program-evolution",
+    "ai-scientist": "ai-scientist-study-pipeline",
+    "fpga-development": "rtl-fpga-engineering",
+    "cirq": "cirq-quantum-simulation",
+    "pstack-create-formal-verification": "formal-verification-workflow-authoring",
+    "pstack-maintain-formal-verification": "formal-verification-workflow-maintenance",
     "roast-room": "business-council-roast-room",
     "skillspector": "skill-source-audit",
     "sr-screener": "study-eligibility-screening"
+}
+
+# Prior exposure IDs remain lookup/installer metadata, never duplicate skills.
+LEGACY_EXPOSURES = {
+    'gstack-product-consultation': 'gstack-office-hours',
+    'gstack-test-fix-verify': 'gstack-qa',
+    'gstack-diff-review': 'gstack-review',
+    'gstack-engineering-plan-review': 'gstack-plan-eng-review',
+    'archify-diagrams-and-explainers': 'archify',
+    'colorfigures-interactive-explainers': 'colorfigures',
 }
 
 # Reviewed host invocations only: source leaf -> exact operative path -> literal
@@ -173,6 +191,22 @@ HOST_NOTES = {'unslop': {'README.md': (
     'rather than this nstack exposure.\n\n'
 )}}
 DESCRIPTIONS = {
+    'remotion-multimedia': {
+        'source': 'Interacting with Mediabunny',
+        'exposed': 'Read audio/video duration and video dimensions with Mediabunny in a version-matched Remotion project. Use for media metadata needed by a composition or export.',
+    },
+    'manim-production': {
+        'source': 'Exact mathematical animation',
+        'exposed': 'Create mathematically checked explanatory animations with Manim: semantic equation transforms, plots and independently verified numerical trajectories. Requires a compatible project runtime and rendering dependencies.',
+    },
+    'n8n-validation-expert': {
+        'source': 'Interpret validation errors and guide fixing them. Use when encountering validation errors, validation warnings, false positives, operator structure issues, or need help understanding validation results. Also use when asking about validation profiles, error types, the validation loop process, or auto-fix capabilities. Consult this skill whenever a validate_node or validate_workflow call returns errors or warnings — it knows which warnings are false positives and which errors need real fixes.',
+        'exposed': 'Interpret and repair n8n node/workflow validation errors, warning profiles, operator structures and known false positives. Use after validate_node or validate_workflow; verify actual output separately from schema validity.',
+    },
+    'scientific-critical-thinking': {
+        'source': 'Evaluates scientific claims and evidence quality. Applies to experimental design validity, biases and confounders, statistical interpretation, evidence grading frameworks (GRADE, Cochrane Risk of Bias), and teaching critical analysis. Supports evidence appraisal and identifying flaws; formal peer review writing belongs to peer-review.',
+        'exposed': 'Evaluate scientific claims, study design, confounding, statistical interpretation and evidence certainty using the appropriate appraisal framework. Use scientific-peer-review for a formal manuscript review report.',
+    },
     'gstack-review': {'source': "Use when you review this PR's diff. (gstack)", 'exposed': 'Review a branch or working-tree diff for structural defects, weakened verification gates and effects on related callers, with exploratory QA and evidence-backed findings. Use for substantial pre-landing review when those checks justify its cost.'},
     'gstack-qa': {'source': 'Use when you test the site, API or CLI and fix bugs. (gstack)', 'exposed': 'Reproduce browser, API or CLI failures, explore affected contracts, make bounded repairs and verify them with regression and before/after evidence. Use for hands-on QA and bug fixing within the requested scope.'},
     'diagram-design': {'source': 'Create branded architecture, architecture delta, IT current-state, flowchart, sequence, state machine, ER/data model, timeline, swimlane, quadrant, radar/spider, polar chart (polar/radial lollipop), loop/flywheel, nested, tree, org chart, layer stack, exploded axonometric, axonometric plan, Venn, pyramid/funnel, treemap and marimekko, heatmap, bar and dumbbell, waterfall, line (slopegraph, ridgeline, streamgraph, bump), Gantt and scatter charts (bubble, beeswarm, box plot), high-level, process, medallion, data flow, DP integration, DP security matrix, Sankey, fishbone, Wardley map, kanban, user journey, service blueprint, deployment, dependency graph, UML class, story map, or database schema diagrams as HTML/SVG/PNG, with .drawio, Mermaid, and .excalidraw import, plus lifecycle phase maps, block decomposition trees, and onboarding guidance.', 'exposed': 'Create static-by-default editorial diagrams and charts as self-contained HTML with inline SVG, project branding and accessible output. Redraw draw.io, Mermaid or Excalidraw sources with explicit retained or omitted content; export SVG/PNG when requested.'},
@@ -198,26 +232,81 @@ DESCRIPTIONS.update({source: {'source': _UNREAL_SOURCE_DESCRIPTION, 'exposed': t
     'scenario-unreal-cinematics': 'Produce Unreal cinematics with Sequencer shots and Movie Render Graph: cut timing, cameras, pre-roll, lighting, render manifests and EXR delivery. Use the actual installed engine and selected local technique helpers.',
     'scenario-unreal-pipeline-automation': 'Automate Unreal asset import and reimport, validation, LOD and collision processing, batch jobs, cooking, packaging and boot checks. Use explicit job policies and version-checked native APIs and local helpers.',
 }.items()})
+# Reviewed capability descriptions: actual scope and operations, with stable IDs.
+DESCRIPTIONS.update({
+    "ab-testing": {
+        "source": "When the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program. Also use when the user mentions \"A/B test,\" \"split test,\" \"experiment,\" \"test this change,\" \"variant copy,\" \"multivariate test,\" \"hypothesis,\" \"should I test this,\" \"which version is better,\" \"test two versions,\" \"statistical significance,\" \"how long should I run this test,\" \"growth experiments,\" \"experiment velocity,\" \"experiment backlog,\" \"ICE score,\" \"experimentation program,\" or \"experiment playbook.\" Use this whenever someone is comparing two approaches and wants to measure which performs better, or when they want to build a systematic experimentation practice. For tracking implementation, see analytics. For page-level conversion optimization, see cro.",
+        "exposed": "Design and analyze product or marketing A/B tests, split tests and multivariate tests. Choose variants, allocate traffic, size tests for conversion lift, interpret results, and prioritize a growth experimentation backlog."
+    },
+    "training-tuning-playbook": {
+        "source": "Deep-learning experiment and training-diagnostics methodology",
+        "exposed": "Diagnose training instability and tune neural networks. Compare batch size, learning rate, throughput and held-out performance, and design hyperparameter experiments against a measured baseline."
+    },
+    "mlx-lm-development": {
+        "source": "Apple-silicon local LLM development",
+        "exposed": "Use Apple MLX LM on Apple silicon for local LLM inference, model conversion, quantization and LoRA fine-tuning. Check peak memory, held-out loss and adapter reload when they matter to the task."
+    },
+    "motion-canvas-production": {
+        "source": "Synchronized editable vector animation",
+        "exposed": "Author editable vector animation in Motion Canvas with TypeScript generators. Synchronize scenes to named audio cues, adjust timing in the editor and export an image sequence or video."
+    },
+    "remotion-markup": {
+        "source": "Content, animation and effects best practices",
+        "exposed": "Author Remotion React compositions with frame-based animation, timing and effects. Sequence, trim or crop clips, interpolate motion and style transitions in JSX."
+    },
+    "remotion-interactivity": {
+        "source": "Structure Remotion markup for interactivity",
+        "exposed": "Structure Remotion JSX so Studio can select, move and trim timeline items, expose editable props and keyframes, and save changes back to source."
+    },
+    "remotion-render": {
+        "source": "Export a Remotion video",
+        "exposed": "Render Remotion compositions as video, a still image or selected frames. Use the project CLI for frame exports and transparent video."
+    },
+    "seo-audit": {
+        "source": "Run a full-site SEO audit and return a scored, prioritized report. Use only for site-wide checks; use seo-page for one URL or seo-technical for a technical-only review.",
+        "exposed": "Crawl a whole website and produce a scored SEO audit with prioritized findings on content, site structure and technical issues. For a technical-only review use technical-seo-audit."
+    },
+    "lean-formalize": {
+        "source": "Develop and verify a mathematical proof in Lean, continue an incomplete Lean project, or audit whether it proves the original statement. Connect actual inputs to intermediate lemmas, assemble the target theorem, check its transitive axioms, and provide a reproducible handoff. Use when Lean is requested or a specific proof obligation benefits from formal verification; use proof-writer for ordinary mathematical drafting.",
+        "exposed": "Develop and verify a mathematical proof in Lean, continue an incomplete Lean project, or audit whether it proves the original statement. Connect actual inputs to intermediate lemmas, assemble the target theorem, check its transitive axioms, and provide a reproducible handoff. Use when Lean is requested or a specific proof obligation benefits from formal verification."
+    }
+})
 # Only offsets, small source-ID tokens and hashes; no private source prose.
 HOST_LINES = json.loads(Path(__file__).with_name('skill_host_bindings.json').read_text())
 
 
+# Reviewed scope corrections; upstream handoffs remain discoverable evidence.
+DESCRIPTIONS.update({
+    "n8n-workflow-patterns": {
+        "source": "Proven workflow architectural patterns from real n8n workflows. Use when building new workflows, designing workflow structure, choosing workflow patterns, planning workflow architecture, or asking about webhook processing, HTTP API integration, database operations, AI agent workflows, batch processing, or scheduled tasks. Always consult this skill when the user asks to create, build, or design an n8n workflow, automate a process, or connect services — even if they don't explicitly mention 'patterns'. Covers webhook, API, database, AI, batch processing, and scheduled automation architectures. Also use when optimizing a slow workflow or speeding up large-item-count processing (node count, batchSize, all-items vs per-item).",
+        "exposed": "Design and optimize n8n workflow architecture using webhook, HTTP API, database, AI agent, batch and scheduled patterns. Use when building or improving an n8n workflow, including large-item processing and execution performance."
+    },
+    "statistical-analysis": {
+        "source": "Guided statistical analysis for research data - test selection, assumption checking, effect sizes, power analysis, Bayesian alternatives, and APA-formatted reporting. Use whenever a user wants to compare groups, test a hypothesis, analyze experimental or survey data, check statistical assumptions, compute required sample sizes, or write up results - even if they never name a specific test. Covers t-tests, ANOVA, chi-square, correlation, regression, non-parametric and Bayesian methods. For low-level model APIs, see the statsmodels and pymc skills.",
+        "exposed": "Analyze research data with justified test selection, assumption checks, effect estimates, uncertainty and reproducible reporting. Use for group comparisons, regression, correlation, Bayesian analyses or statistical power questions; follow current package documentation for model APIs."
+    }
+})
+
+
 def canonical(name):
-    return RENAMES.get(name, name)
+    source = LEGACY_EXPOSURES.get(name, name)
+    return RENAMES.get(source, source)
 
 
 def source_name(name):
-    return next((source for source, exposed in RENAMES.items() if exposed == name), name)
+    previous = LEGACY_EXPOSURES.get(name, name)
+    return next((source for source, exposed in RENAMES.items() if exposed == previous), previous)
 
 
 def metadata(name):
     source = source_name(name)
-    return {'source_name': source, 'aliases': [source] if source != name else []}
+    aliases = [source] + [old for old, owner in LEGACY_EXPOSURES.items() if owner == source]
+    return {'source_name': source, 'aliases': [old for old in dict.fromkeys(aliases) if old != canonical(name)]}
 
 
 def policy():
     """Seal the full naming policy so changed exposure rules invalidate releases."""
-    return {'version': 3, 'renames': dict(RENAMES), 'host_invocations': HOST_INVOCATIONS,
+    return {'version': 4, 'renames': dict(RENAMES), 'legacy_exposures': dict(LEGACY_EXPOSURES), 'host_invocations': HOST_INVOCATIONS,
             'host_notes': HOST_NOTES, 'descriptions': DESCRIPTIONS, 'host_lines': HOST_LINES}
 
 

@@ -3,14 +3,68 @@
   "revision": null,
   "source_path": "addons/agent-orchestration",
   "license": "MIT",
-  "installation_adaptation": "Authored, normally discoverable model-agnostic lead/worker method with pinned host/application references. Installs no runtime, model, provider, configuration, service or credentials; ordinary delegation remains native.",
-  "reviewed_at": "2026-11-14",
+  "installation_adaptation": "Authored native lead/specialist coordination using user-supplied tier mappings, checked bounded handoffs and fresh-context review. Unset tiers preserve intended current-model inheritance subject to host resolution. Installs no runtime, model, provider, configuration, service or credentials.",
+  "reviewed_at": "2026-11-16",
   "upstream_references": [
-    {"repository": "anomalyco/opencode", "revision": "a6b15d33daf6ab7d35569f6d711fdb630b9f04e7", "ref": "v2.3.0", "license": "MIT"},
-    {"repository": "openai/openai-agents-python", "revision": "64fbde5d02b42ae5f9db668eb0184cdb3fc9d775", "license": "MIT"},
-    {"repository": "langchain-ai/langgraph", "revision": "08a2016953789a4f579b4d36bd1967941ec62012", "license": "MIT"},
-    {"repository": "langchain-ai/langgraph-supervisor-py", "revision": "88859b34017ac3569bbd4a3092c7e77593a0a960", "license": "MIT"},
-    {"repository": "pydantic/pydantic-ai", "revision": "7689e1b2d1541c8d77f50039bf8273fb092e905d", "license": "MIT"}
+    {
+      "repository": "anomalyco/opencode",
+      "revision": "a6b15d33daf6ab7d35569f6d711fdb630b9f04e7",
+      "ref": "v2.3.0",
+      "license": "MIT"
+    },
+    {
+      "repository": "openai/openai-agents-python",
+      "revision": "64fbde5d02b42ae5f9db668eb0184cdb3fc9d775",
+      "license": "MIT"
+    },
+    {
+      "repository": "langchain-ai/langgraph",
+      "revision": "08a2016953789a4f579b4d36bd1967941ec62012",
+      "license": "MIT"
+    },
+    {
+      "repository": "langchain-ai/langgraph-supervisor-py",
+      "revision": "88859b34017ac3569bbd4a3092c7e77593a0a960",
+      "license": "MIT"
+    },
+    {
+      "repository": "pydantic/pydantic-ai",
+      "revision": "7689e1b2d1541c8d77f50039bf8273fb092e905d",
+      "license": "MIT"
+    },
+    {
+      "repository": "google/elephant-goldfish-model",
+      "revision": "72d06f52a2482885d9a64bd24b291c6e8628942c",
+      "license": "Apache-2.0"
+    },
+    {
+      "repository": "milind-soni/OpenMausBot",
+      "revision": "779d05dfa43ce73be0c410d457b1ec3fd4e5f95e",
+      "license": "Apache-2.0",
+      "use": "Evaluated reference only; no source or runtime installed"
+    },
+    {
+      "repository": "stanford-futuredata/FrugalGPT",
+      "revision": "2b23e6acbd4b39f71912816640dcc59e45aa4b5e",
+      "license": "Apache-2.0",
+      "use": "Reference-only paper/implementation; no router or source copied"
+    },
+    {
+      "repository": "lm-sys/RouteLLM",
+      "revision": "0b64fdafe049e596a3f5657c219329f24af24198",
+      "license": "Apache-2.0",
+      "use": "Reference-only calibration/quality-cost research; no server, embeddings or source copied"
+    }
   ],
-  "reference_use": "Primary documentation and pinned source mechanisms informed this authored method; no upstream implementation or skill bundle is copied. References do not prove configured endpoints, provider access, billing entitlement or mixed-model execution."
+  "reference_use": "Primary documentation and pinned source mechanisms informed this authored method; no upstream implementation, persona, rubric or skill bundle is copied. EGM supplies the fresh-context design/review distinction; its separate design-specification-workflow skill, when installed, owns the original document methods/personas and complements this coordination method; OpenMausBot is an evaluated alternative, not adopted. References do not prove endpoint access, billing entitlement, mixed-model execution or performance advantage. FrugalGPT and RouteLLM motivate selective allocation and task-specific calibration limits; this authored method does not implement either learned policy or reproduce their benchmark savings. The portable profile is inert task data and supplies no default model roster.",
+  "paper_references": [
+    {
+      "title": "FrugalGPT: How to Use Large Language Models While Reducing Cost and Improving Performance",
+      "url": "https://arxiv.org/abs/2305.05176v1"
+    },
+    {
+      "title": "RouteLLM: Learning to Route LLMs with Preference Data",
+      "url": "https://arxiv.org/abs/2406.18665v1"
+    }
+  ]
 }

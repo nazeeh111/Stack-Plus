@@ -9,8 +9,8 @@ opencode api skill.list
 opencode mcp list
 ```
 
-The adapter baseline was checked against OpenCode 2.2.6. Shared skill discovery,
-including Playwright MCP and 01's explicit-selection policy, was also checked in 2.3.0. It uses the installed desktop
+The adapter and shared skill discovery were checked against OpenCode 2.2.6 and
+2.3.0, including Playwright MCP and 01's explicit-selection policy. It uses the installed desktop
 CLI, not another package installation. Pass `--cli /absolute/executable` for a
 different existing V2 installation. The selected model, provider, effort,
 credentials, conversations and native permissions are untouched.
@@ -23,6 +23,36 @@ automation without activating another global MCP connection. Its global
 Review that shared file for host-specific assumptions first. The optional
 `templates/AGENTS.md` is a concise starting point, not an automatic replacement
 for user preferences. The native installer continues to manage its nstack block.
+
+After replacing the shared collection, an existing server can retain cached
+skills. First allow the native watcher to update, then inspect the intended project:
+
+```sh
+opencode api skill.list --param "location[directory]=/absolute/project"
+```
+
+Registration is asynchronous. Poll within a bounded window and check resolved
+paths and bodies against the current installed files. An initial partial list
+does not establish readiness.
+
+If still stale, check `session.active` and `experimental.job.list` metadata,
+joining owners to `session.get` location metadata without reading chat history.
+Require no target running work, unknown owners, pending permissions/forms or PTY
+entries. Preserve work in other projects. MCP server counts do not distinguish
+retained external clients; record that uncertainty before an authorized repair.
+Once the target is idle, use only its scoped eviction, then repeat the skill check:
+
+```sh
+opencode api debug.location.evict --param "location[directory]=/absolute/project"
+opencode api location.get --param "location[directory]=/absolute/project"
+```
+
+Scoped eviction has no automatic busy-work guard. `opencode reload` rebuilds
+every loaded location and cancels pending permissions/forms; use it only when a
+global refresh is intended and safe. Wait for actual MCP statuses when the task
+needs them. Paths and bodies prove registration, not model use or runtime health.
+[Scoped eviction](https://github.com/anomalyco/opencode/blob/a6b15d33daf6ab7d35569f6d711fdb630b9f04e7/packages/protocol/src/groups/debug.ts#L55-L65),
+[global reload](https://opencode.ai/v2/docs/api#location).
 
 Select **@01** through OpenCode's skill picker once for the chat. This attaches its instructions; Codex's `$01` syntax is not an OpenCode skill attachment. In a scripted `opencode run`, explicitly ask the model to load skill ID `01` with its `skill` tool, or use a native session prompt with `skills: [{"id":"01"}]`. [Skill loading](https://opencode.ai/docs/skills/#loading).
 
@@ -89,8 +119,9 @@ the OpenCode chat. It does not replace OpenCode's own agent engine.
 python3 opencode_setup.py install --codex-harness "$(command -v codex)"
 ```
 
-The launcher targets OpenCode Desktop 2.2.6's experimental GUI and persistent
-terminal APIs. Recheck it before upgrading OpenCode. It runs only from a saved
+The launcher was checked against OpenCode Desktop 2.2.6 and 2.3.0's experimental
+GUI and persistent terminal APIs, with the signed official Codex0.169.0 pair.
+Recheck it before upgrading either host. It runs only from a saved
 session on the app's own server, in that session's current project directory.
 Repeating the command selects its running Codex terminal. A normal OpenCode TUI
 terminal can run `codex` directly; the desktop command is not a TUI extension.

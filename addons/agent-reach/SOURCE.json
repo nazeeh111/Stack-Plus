@@ -5,6 +5,19 @@
   "license": "MIT",
   "adaptation": "Original announce/session scope and content method retained; template version/channel table instantiated. Known automatic cookie/session import and credential/setup/update routes remain restricted separately for privacy; no automatic setup.",
   "upstream_skill_sha256": "f22bae507f150547f5ddef367ff65d503842c6315033309a1b1cc57c820216c2",
-  "native_skill_sha256": "07ba4ae4a1b3344270bf923bbfabcd1ebcf64743831649f0980e2ac3467d8e26",
-  "english_support_adaptation": "Three support references translated into English; pre-English native bytes and hashes retained in ENGLISH-PORT/SOURCE-FIDELITY.json. Underlying upstream method remains MIT, with existing account/credential restrictions controlling."
+  "native_skill_sha256": "0d83bd1e03315e19150c13626741a05e9d22db678cd35f94cd13177e1c2a3790",
+  "english_support_adaptation": "Three support references translated into English; pre-English native bytes and hashes retained in ENGLISH-PORT/SOURCE-FIDELITY.json. Underlying upstream method remains MIT, with existing account/credential restrictions controlling.",
+  "native_video_supplement": {
+    "path": "references/youtube-evidence.md",
+    "sha256": "adc37aefb58971573934b8044edd09f4aeb3dd76b7988c6faf11ca0766a5db39",
+    "scope": "Authored native handoff for timed-caption preservation and bounded visual/audio evidence using existing yt-dlp, full FFmpeg and local Whisper. Upstream platform method and source pin unchanged; no provider or credential acquisition."
+  },
+  "native_x_video_supplement": {
+    "path": "references/x-video-evidence.md",
+    "sha256": "f2c6444652af52d9754a6c783387ad9ee8c05f2056880cf679ae74bc34e264a4",
+    "scope": "Authored native composition for obtainable anonymous X post media; actual post/media identity, limited primary API selection, card/index distinctions, bounded local media and access/coverage limits. No upstream program copied or new runtime/provider/account admitted.",
+    "reviewed_yt_dlp": "2026.8.19",
+    "twitter_extractor_sha256": "1a11f1b902faa077ad673a853b4c29a76d43df91513380b967d605be1b18ddc3",
+    "source_reference": "https://github.com/yt-dlp/yt-dlp/blob/2026.08.19/yt_dlp/extractor/twitter.py"
+  }
 }

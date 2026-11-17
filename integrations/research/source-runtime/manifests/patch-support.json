@@ -1,0 +1,22 @@
+{
+  "bash": {
+    "scope": "Explicit existing reviewed absolute GNU Bash binary for syntax-only validation; acquisition/install not automatic.",
+    "sha256": "5acb37413d47804f8a27b5e38bdc890ed125d83a0d52e69a2f615989a565da72",
+    "version": "5.3.20"
+  },
+  "files": {
+    "codex-transport/apply_engine_patches.py": "ba6f6339009d352c09fd4158cded6f1b212f3b4049fc123aca654d79382c2584",
+    "codex-transport/patches/manifest.json": "2fa6ba8cbcde329e94528fa9f0b6201194ebb0da2f46f34a03195a1433f9df82",
+    "codex-transport/patches/src__final_evaluation__runner.py.patch": "a67c0dd47289d14c5c9c314b3c85fbbf36608faecb024040b7a51021759de55e",
+    "codex-transport/patches/src__investigation__script_runners.py.patch": "6c75d452bbd901cdc4a57162d797aa0e725b125b0dc2b9dc41b9b1ccd4d02713",
+    "codex-transport/patches/src__investigation__skill_scope.py.patch": "1dcee2665fbfad42b1fb49e94ec147e944c2b753267d4c7fa953bcb90ba2e2f0",
+    "codex-transport/patches/src__investigation__task_setup.py.patch": "6079164ed23483ee09ff35e462d33f655e6a6092b1e600f42624712e58090208",
+    "codex-transport/patches/src__orchestrator__paper_step.py.patch": "9e5786bff31fbb6989b0a1a7c72eca0fa86d32784f912afec8ab5312733c6210",
+    "codex-transport/patches/src__orchestrator__paper_watermark.py.patch": "6e6e31493d5145230077a1a3bceee096d4f274c301179b7776036398fd154a38",
+    "codex-transport/patches/src__scripts__lib__container_agent.sh.patch": "4973ea46e0aefa427223bf553c26c431bed7348728f74386bf217febbf677b96",
+    "codex-transport/patches/src__scripts__paper.sh.patch": "e53f810fc24810bec5df64f6f1249d011f0d9d4e173614cf18ea9c04bfa338ad",
+    "codex-transport/patches/src__scripts__paper_edit.sh.patch": "cc577641aefa6dc0876542c5074428a867d535eee6e2d7404c1b0f11b77d02c6",
+    "codex-transport/patches/src__scripts__posthoc_agent.sh.patch": "52bb3e78bf611ce4e2964382211d9d99328157e860fca6004e9dfdc1dff5cddd",
+    "codex-transport/patches/src__scripts__variant_agent.sh.patch": "47bd0e0165e97a26acf21a7d3cb0977ac09f11824fb3455d86f4e07e716344a6"
+  }
+}

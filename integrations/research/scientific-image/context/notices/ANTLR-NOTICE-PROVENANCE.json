@@ -1,0 +1,9 @@
+{
+  "repository": "antlr/antlr4",
+  "source_tag": "4.9.3",
+  "revision": "e4c1a74c66bd5290364ea2b36c97cd724b247357",
+  "url": "https://raw.githubusercontent.com/antlr/antlr4/e4c1a74c66bd5290364ea2b36c97cd724b247357/LICENSE.txt",
+  "sha256": "b1b379fcaf3219593a4c433feb1b35c780bed23fafaae440b1ae2771a9521e3a",
+  "reason": "Exact runtime sdist/wheel omit referenced LICENSE.txt; retained owning project root license at matching immutable version commit",
+  "license": "BSD3 Python runtime; complete root includes notices for other-language files as retained source"
+}

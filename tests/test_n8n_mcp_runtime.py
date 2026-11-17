@@ -50,6 +50,23 @@ class N8nMcpRuntime(unittest.TestCase):
                 self.assertEqual(runner.call_count, 1)
                 self.assertEqual(runner.call_args.args[1][0], 'inspect')
 
+    def test_cleanup_distinguishes_absent_container_from_unverified_state(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = m.prepare(Path(tmp).resolve())
+            for error in ('Cannot connect to the Docker daemon', 'permission denied',
+                          'Error: No such object: a-different-container'):
+                with self.subTest(error=error), patch.object(m, 'docker',
+                        return_value=subprocess.CompletedProcess([], 1, '', error)) as runner:
+                    with self.assertRaisesRegex(ValueError, 'cleanup incomplete'):
+                        m.cleanup(root, 'owned-fixture')
+                    self.assertEqual(runner.call_count, 1)
+            for error in ('Error: No such object: owned-fixture',
+                          'error: no such object: owned-fixture'):
+                with patch.object(m, 'docker', return_value=subprocess.CompletedProcess(
+                        [], 1, '\n', error)) as runner:
+                    m.cleanup(root, 'owned-fixture')
+                    self.assertEqual(runner.call_count, 1)
+
     def test_changed_bytes_and_linked_assets_are_preserved_and_rejected(self):
         with tempfile.TemporaryDirectory() as tmp:
             state = Path(tmp).resolve()

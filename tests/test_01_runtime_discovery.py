@@ -24,7 +24,7 @@ class RuntimeDiscovery(unittest.TestCase):
    updated=mod.search(state,['inspector'])
    self.assertEqual(updated['matches'][0]['readiness'],row['readiness'])
    self.assertNotEqual(found['sources'][0]['sha256'],updated['sources'][0]['sha256'])
-   row.update(aliases=[{'secret':'must-not-emit'}],readiness={'secret':'must-not-emit'},limits=['must-not-emit'])
+   row.update(aliases=[{'secret':'must-not-emit'}],readiness={'secret':'must-not-emit'},limits=['valid prose', {'secret':'must-not-emit'}])
    index.write_text(json.dumps([row]));malformed=mod.search(state,['symbols'])
    for key in ('aliases','readiness','limits'):self.assertNotIn(key,malformed['matches'][0])
    self.assertNotIn('must-not-emit',json.dumps(malformed))

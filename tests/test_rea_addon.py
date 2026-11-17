@@ -41,7 +41,10 @@ class ReaAddon(unittest.TestCase):
         self.assertEqual(list(entry.rglob('SKILL.md')), [entry / 'SKILL.md'])
         provenance = json.loads((entry / 'SOURCE.json').read_text())
         self.assertEqual(provenance['repository'], 'morluto/rea')
-        self.assertEqual(provenance['revision'], 'd74549e495c58eb4a560279fd9f05508401ea0a0')
+        self.assertEqual(provenance['revision'], 'ab16163061094a6c28e9133c9c618e0850c9cb2f')
+        self.assertEqual(provenance['method_revision'], provenance['revision'])
+        self.assertEqual(provenance['runtime_dependency']['source_revision'],
+                         'd74549e495c58eb4a560279fd9f05508401ea0a0')
         for rel, item in provenance['upstream_files'].items():
             self.assertEqual(hashlib.sha256((entry / rel).read_bytes()).hexdigest(), item['sha256'])
         recipe = Path(provenance['runtime_recipe'])

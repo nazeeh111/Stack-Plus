@@ -1,0 +1,129 @@
+{
+  "repository": "vercel-labs/agent-desktop",
+  "revision": "b0b7277bea09b770ef9d1fb45aad667bc432cd57",
+  "release": "v1.3.1",
+  "source_url": "https://github.com/vercel-labs/agent-desktop/tree/b0b7277bea09b770ef9d1fb45aad667bc432cd57/skills/agent-desktop",
+  "license": "Apache-2.0",
+  "upstream_files": {
+    "upstream/ORIGINAL-SKILL.md": {
+      "source_path": "skills/agent-desktop/SKILL.md",
+      "sha256": "abd913be10552c028e461e0a45c20e3734a7a1e5251fc2f9ef6fd63fdd606a6e"
+    },
+    "references/workflows.md": {
+      "source_path": "skills/agent-desktop/references/workflows.md",
+      "sha256": "9c5a93361f992d73eff50e9ec99bb895424ababd57d3f6742ff71e73734c1af1"
+    },
+    "references/commands-observation.md": {
+      "source_path": "skills/agent-desktop/references/commands-observation.md",
+      "sha256": "9c31aec6f51dacfc14ff68dc04533a8dcf3ed5edb3f935d90e453f471894b936"
+    },
+    "references/commands-interaction.md": {
+      "source_path": "skills/agent-desktop/references/commands-interaction.md",
+      "sha256": "5ef8a87be8aed9b0102adb3c332dcd50586c7fb28dc0f1490207ab9321673bf5"
+    },
+    "references/commands-system.md": {
+      "source_path": "skills/agent-desktop/references/commands-system.md",
+      "sha256": "673c931a285b360c1deb669983e87ca8571ee8520f48c81f00d49f711e0e95ac"
+    },
+    "platforms/macos/GUIDE.md": {
+      "source_path": "skills/agent-desktop-macos/SKILL.md",
+      "sha256": "a208c50fe894da9bc15ad75ee6f585df319c40e828ffc87e6d067397d2c351af"
+    },
+    "platforms/macos/references/troubleshooting.md": {
+      "source_path": "skills/agent-desktop-macos/references/troubleshooting.md",
+      "sha256": "600456fbccbf0fdcc0a1facbab95f92c3ab28f990e41964036aa3efd4d541495"
+    },
+    "platforms/linux/GUIDE.md": {
+      "source_path": "skills/agent-desktop-linux/SKILL.md",
+      "sha256": "3347961bc3846cd5de5b74fb86ae1750673d46c18c87eb45307761b04fe77b76"
+    },
+    "platforms/linux/references/troubleshooting.md": {
+      "source_path": "skills/agent-desktop-linux/references/troubleshooting.md",
+      "sha256": "809230d582fec5aaefda5b9946bb45a2fd8e7710ac290f00aa73b795ece0417a"
+    },
+    "platforms/linux/references/shell-tray-and-notifications.md": {
+      "source_path": "skills/agent-desktop-linux/references/shell-tray-and-notifications.md",
+      "sha256": "0b91b2214a0eb9a54fed338c741bea375fe14d668b0447c0f9f2b3aff5f9cd60"
+    },
+    "platforms/linux/references/bus-and-permissions.md": {
+      "source_path": "skills/agent-desktop-linux/references/bus-and-permissions.md",
+      "sha256": "a669f09961b1da95e23dfda93f2c9615cd1018d4303c175935e0e2418005a781"
+    },
+    "platforms/linux/references/display-servers-and-input.md": {
+      "source_path": "skills/agent-desktop-linux/references/display-servers-and-input.md",
+      "sha256": "cdd42c1932d4e2778c581ce5ff9bbbc9fb013087dbe83be5e64abad9bfb26b58"
+    },
+    "platforms/linux/references/capture-and-clipboard.md": {
+      "source_path": "skills/agent-desktop-linux/references/capture-and-clipboard.md",
+      "sha256": "1ef96c106b44697c0d7ba02fb78224f3784c41c5c5f45ee9276e22e35eb9415c"
+    },
+    "platforms/linux/references/windows-and-lifecycle.md": {
+      "source_path": "skills/agent-desktop-linux/references/windows-and-lifecycle.md",
+      "sha256": "e4c4f2cf5c119cb15c1ad281604c46b5106e069639c50966ced760ed5384b7c8"
+    },
+    "platforms/windows/GUIDE.md": {
+      "source_path": "skills/agent-desktop-windows/SKILL.md",
+      "sha256": "babc8d3f0583afc3f41b3b84cc775d3be24010043b57966755fcf9bda8880073"
+    },
+    "platforms/windows/references/troubleshooting.md": {
+      "source_path": "skills/agent-desktop-windows/references/troubleshooting.md",
+      "sha256": "8f6115c920495f84f7ef866750d50e789c3a9efac84ed7b4c337f1e116ecc923"
+    },
+    "platforms/windows/references/permissions-and-elevation.md": {
+      "source_path": "skills/agent-desktop-windows/references/permissions-and-elevation.md",
+      "sha256": "1ae422d682a4ed48025b5f17c2ce8a37e830b8d86b0a18f3f4d725fc74ada733"
+    },
+    "platforms/windows/references/chromium-and-electron.md": {
+      "source_path": "skills/agent-desktop-windows/references/chromium-and-electron.md",
+      "sha256": "db7a62782aa5717f0c70269faf26c1193a4fdfa2eee6c46f915bb3b86f1e3ea4"
+    },
+    "platforms/windows/references/shell-and-overlay.md": {
+      "source_path": "skills/agent-desktop-windows/references/shell-and-overlay.md",
+      "sha256": "5ed688610f3ed9e9c20a878b20507a11f59bd695df56be0b17534ff9b539c778"
+    },
+    "upstream/LICENSE": {
+      "source_path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    }
+  },
+  "adapted_files": [
+    {
+      "source_path": "skills/agent-desktop/SKILL.md",
+      "active_path": "SKILL.md",
+      "source_sha256": "abd913be10552c028e461e0a45c20e3734a7a1e5251fc2f9ef6fd63fdd606a6e",
+      "active_sha256": "71e4e868dab916f071095c44e6b7093272e9677c455ba924d3e61b1fb456abae",
+      "diff": "adaptations/SKILL.md.diff"
+    }
+  ],
+  "unchanged_active_files": [
+    "references/workflows.md",
+    "references/commands-observation.md",
+    "references/commands-interaction.md",
+    "references/commands-system.md",
+    "platforms/macos/GUIDE.md",
+    "platforms/macos/references/troubleshooting.md",
+    "platforms/linux/GUIDE.md",
+    "platforms/linux/references/troubleshooting.md",
+    "platforms/linux/references/shell-tray-and-notifications.md",
+    "platforms/linux/references/bus-and-permissions.md",
+    "platforms/linux/references/display-servers-and-input.md",
+    "platforms/linux/references/capture-and-clipboard.md",
+    "platforms/linux/references/windows-and-lifecycle.md",
+    "platforms/windows/GUIDE.md",
+    "platforms/windows/references/troubleshooting.md",
+    "platforms/windows/references/permissions-and-elevation.md",
+    "platforms/windows/references/chromium-and-electron.md",
+    "platforms/windows/references/shell-and-overlay.md"
+  ],
+  "authored_native_files": [
+    "NATIVE-BINDINGS.md"
+  ],
+  "adaptation": "Preserve complete upstream core and every macOS/Linux/Windows platform guide and reference. Scope discovery to explicit CLI selection or actual capability gap and prepend native binding. Platform SKILL.md originals renamed GUIDE.md with identical bytes, preventing extra host discovery. No runtime, grant or profile activation.",
+  "license_copies": {
+    "LICENSE": {
+      "original": "upstream/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "reason": "Native installer requires the complete upstream license at bundle root; original notice retained unchanged."
+    }
+  }
+}

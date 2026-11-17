@@ -1,0 +1,122 @@
+{
+  "repository": "achimala/dream-loop",
+  "revision": "9bddb901f7d071cfefdd21e264267c757177a9df",
+  "source_url": "https://github.com/achimala/dream-loop/tree/9bddb901f7d071cfefdd21e264267c757177a9df",
+  "license": "MIT",
+  "source_file_count": 13,
+  "installation_adaptation": "Complete exact upstream source closure retained. Active method has narrow native model/effort inheritance, unknown-tier default, paid-provider authority, native-boundary and relative-link bindings. No new runtime.",
+  "upstream_files": {
+    "upstream/ORIGINAL-GITIGNORE": {
+      "source_path": ".gitignore",
+      "sha256": "7150ac9987659039892027707e578e0ac0695c60aae8a17bb8aa13c52b9fdf99",
+      "modification": "Unchanged bytes; archived under a nonhidden name so portable installers retain the source"
+    },
+    "upstream/LICENSE": {
+      "source_path": "LICENSE",
+      "sha256": "1607e9149a254c619d0ceb4119ed9346e13048c28c1d437d80ff2837e40159da",
+      "modification": "Unchanged bytes"
+    },
+    "upstream/README.md": {
+      "source_path": "README.md",
+      "sha256": "3db72b0ce7bff56e78785f4d93c9c6f48b3cf89f91615208c76bd000e71a9bdd",
+      "modification": "Unchanged bytes"
+    },
+    "upstream/ORIGINAL-SKILL.md": {
+      "source_path": "SKILL.md",
+      "sha256": "6f736c4d663e5b394fb322035a2d28f197f02372e4479762b127d2c954738054",
+      "modification": "Unchanged bytes; SKILL.md renamed only to prevent duplicate discovery"
+    },
+    "upstream/assets/vesper-preview.gif": {
+      "source_path": "assets/vesper-preview.gif",
+      "sha256": "7edf3bab79603683ec0167a5d0997e48cf8677b07207159d0dac05ef64fd7597",
+      "modification": "Unchanged bytes"
+    },
+    "upstream/references/fal.md": {
+      "source_path": "references/fal.md",
+      "sha256": "db2a4d1af4a6a0bcc88bd325d56e7ea23ffa5bd56ef5f968e7507c527a75213c",
+      "modification": "Unchanged bytes"
+    },
+    "upstream/references/plus-mode/assets-3d.md": {
+      "source_path": "references/plus-mode/assets-3d.md",
+      "sha256": "f7ad8d7b63c305371192fa9671ce98cc049fd5fa6bd4d2c794db16897191fa80",
+      "modification": "Unchanged bytes"
+    },
+    "upstream/references/plus-mode/workflow.md": {
+      "source_path": "references/plus-mode/workflow.md",
+      "sha256": "6736c2207142bfaa8b6219b55b95e08f242632c6b1d962f0bf6cf444c91ab9ee",
+      "modification": "Unchanged bytes"
+    },
+    "upstream/references/pro-mode/assets-3d.md": {
+      "source_path": "references/pro-mode/assets-3d.md",
+      "sha256": "8a402cd3aebf97d058252a92325b9299f7f4a191c19e256f0bcdbac12bdc9231",
+      "modification": "Unchanged bytes"
+    },
+    "upstream/references/pro-mode/workflow.md": {
+      "source_path": "references/pro-mode/workflow.md",
+      "sha256": "6b3636a2a33bacb507098ca1f766485521469191418a9d56ce956fad4fba566e",
+      "modification": "Unchanged bytes"
+    },
+    "upstream/scripts/fal-batch.mjs": {
+      "source_path": "scripts/fal-batch.mjs",
+      "sha256": "4c8eb9029dd055cd54a7400110388c9840bfa14867d9e11491430ba1a389209d",
+      "modification": "Unchanged bytes"
+    },
+    "upstream/scripts/fal-batch.test.mjs": {
+      "source_path": "scripts/fal-batch.test.mjs",
+      "sha256": "08e6dbf118e5270af7db4901164145ca4a084909c8b31a3ced80cc7ef6582781",
+      "modification": "Unchanged bytes"
+    },
+    "upstream/scripts/preview-server.py": {
+      "source_path": "scripts/preview-server.py",
+      "sha256": "5652e4179fb2571739eab759f24cace434d3ec2c61aa715101c4c1b5b5ee9ebb",
+      "modification": "Unchanged bytes"
+    }
+  },
+  "adapted_files": [
+    {
+      "source_path": "SKILL.md",
+      "active_path": "SKILL.md",
+      "source_sha256": "6f736c4d663e5b394fb322035a2d28f197f02372e4479762b127d2c954738054",
+      "active_sha256": "3d09ea5642a25d2b13d0a011327080b2bce4d192f51ce44b4738f3d24e32ba14",
+      "diff": "adaptations/SKILL.md.diff"
+    },
+    {
+      "source_path": "references/plus-mode/workflow.md",
+      "active_path": "references/plus-mode/workflow.md",
+      "source_sha256": "6736c2207142bfaa8b6219b55b95e08f242632c6b1d962f0bf6cf444c91ab9ee",
+      "active_sha256": "42c9f1803e1eb30e7b5ef92cd23da8e97bf48d75246f8feb6ffeda23c6696490",
+      "diff": "adaptations/references__plus-mode__workflow.md.diff"
+    },
+    {
+      "source_path": "references/plus-mode/assets-3d.md",
+      "active_path": "references/plus-mode/assets-3d.md",
+      "source_sha256": "f7ad8d7b63c305371192fa9671ce98cc049fd5fa6bd4d2c794db16897191fa80",
+      "active_sha256": "c6dc30a0565db30d1c1419f83fff20417a15c1a7b11c572ded89f4ef09c92676",
+      "diff": "adaptations/references__plus-mode__assets-3d.md.diff"
+    },
+    {
+      "source_path": "references/pro-mode/assets-3d.md",
+      "active_path": "references/pro-mode/assets-3d.md",
+      "source_sha256": "8a402cd3aebf97d058252a92325b9299f7f4a191c19e256f0bcdbac12bdc9231",
+      "active_sha256": "eebc3f59511cd9cfb81dc200b42116646c2d6fbb9c9d3bfbb1c31a5e3d550632",
+      "diff": "adaptations/references__pro-mode__assets-3d.md.diff"
+    },
+    {
+      "source_path": "references/fal.md",
+      "active_path": "references/fal.md",
+      "source_sha256": "db2a4d1af4a6a0bcc88bd325d56e7ea23ffa5bd56ef5f968e7507c527a75213c",
+      "active_sha256": "67670e0e5f0fac72e82b8945f3622d97eb8cd7a752c861faf56dfec398ae5713",
+      "diff": "adaptations/references__fal.md.diff"
+    }
+  ],
+  "unchanged_active_files": [
+    "LICENSE",
+    "references/pro-mode/workflow.md",
+    "scripts/fal-batch.mjs",
+    "scripts/fal-batch.test.mjs",
+    "scripts/preview-server.py"
+  ],
+  "authored_native_files": [
+    "references/native-operation.md"
+  ]
+}

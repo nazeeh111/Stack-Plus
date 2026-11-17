@@ -1,0 +1,6 @@
+interface:
+  display_name: "iPhone Mirroring automation (Mirroir)"
+  short_description: "Authorized iPhone actions, OCR checks and reusable replay."
+  default_prompt: "Use $iphone-mirroring-automation for this authorized iPhone task, checking the target state before and after each action."
+policy:
+  allow_implicit_invocation: true

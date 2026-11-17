@@ -1,0 +1,36 @@
+--- a/src/orchestrator/paper_step.py
++++ b/src/orchestrator/paper_step.py
+@@ -4290,6 +4290,13 @@
+     container_network: str = "bridge",
+ ) -> list[dict[str, Any]]:
+     """Handle compile latex logic for this module."""
++    # Trusted orchestration may isolate TeX while agent inference stays native.
++    trusted_tex_image = os.environ.get("AGSCI_TRUSTED_TEX_IMAGE", "")
++    if trusted_tex_image and container_image is None:
++        if not re.fullmatch(r"(?:sha256:[0-9a-f]{64}|[^\s@]+@sha256:[0-9a-f]{64})", trusted_tex_image):
++            raise PaperValidationInfrastructureError("Trusted TeX image must be immutable")
++        container_image = trusted_tex_image
++        container_network = "none"
+     tex_commands = [
+         [
+             "pdflatex",
+@@ -4581,12 +4588,17 @@
+             raise RuntimeError(f"paper watermark failed: {exc}") from exc
+ 
+         tex_text = read_tex_file_bounded(tex_path)
+-        if not has_managed_watermark(tex_text):
++        suppress_branding = os.environ.get("NSTACK_NATIVE_SUPPRESS_BRANDING") == "1"
++        if suppress_branding:
++            watermark_report.update(checked=False, text=None, applied=False,
++                                    state="suppressed_by_explicit_user_output_direction")
++        if not suppress_branding and not has_managed_watermark(tex_text):
+             watermark_report["hard_errors"].append(
+                 "managed watermark block missing from paper.tex after insertion"
+             )
+             raise RuntimeError("paper watermark failed: managed block missing after insertion")
+-        watermark_report["applied"] = True
++        if not suppress_branding:
++            watermark_report["applied"] = True
+         bib_text = bib_path.read_text(encoding="utf-8")
+         venue_brief_path = paper_dir / "VENUE.md"
+         venue_brief_text = (

@@ -1,0 +1,14 @@
+{
+  "name": "libatomic1",
+  "data_archive_doc_links": [
+    {
+      "path": "./usr/share/doc/libatomic1",
+      "target": "gcc-14-base"
+    }
+  ],
+  "base_image": "sha256:d738fbfaba272c390ff8ac1b641e45677a76eea6855cecc2ab878c901e6d0a1a",
+  "source": "/usr/share/doc/gcc-14-base/copyright",
+  "copied_notice": "debian-notices/libatomic1/BASE-COPYRIGHT",
+  "sha256": "20390f8a6f3b1e4d7cb45dd8652dabb259bbef688cbad839bcdb0b9ba7252f79",
+  "scope": "Existing accepted base package notice; no package installation or target code execution"
+}

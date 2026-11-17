@@ -1,0 +1,85 @@
+{
+  "repository": "https://github.com/jfarcand/mirroir-mcp",
+  "revision": "6b51c9f388b4d1956107cb0e664e75151e70d62d",
+  "tree": "7fca47fa2b1ff5d41f7499711bffa4b20b85f8b5",
+  "version": "0.49.0",
+  "license": "Apache-2.0",
+  "source_skill": "plugins/hermes/skills/mirroir/SKILL.md",
+  "source_identity": "Portable official operating manual; shared body is generated from OperatingManual.swift.",
+  "native_name": "iphone-mirroring-automation",
+  "original_files": [
+    {
+      "source_path": "plugins/hermes/skills/mirroir/SKILL.md",
+      "installed_path": "upstream/ORIGINAL-SKILL.txt",
+      "sha256": "4bb71274095414c0ffc83874c274dba74183d2319b2979ce5d948bfde389cf8b"
+    },
+    {
+      "source_path": "Sources/mirroir-mcp/OperatingManual.swift",
+      "installed_path": "upstream/OperatingManual.swift",
+      "sha256": "b25869bb5b973a23f5200bb17d721cf35626ae903e4927ea2d218a35624815f7"
+    },
+    {
+      "source_path": "LICENSE",
+      "installed_path": "LICENSE",
+      "sha256": "fef57f13aab157e6b7220624e32537fbfd538137fff5161990a9b258a4e15e8e"
+    },
+    {
+      "source_path": "docs/permissions.md",
+      "installed_path": "upstream/references/permissions.md",
+      "sha256": "d3642a36007ebfb139bbb204df83b70d2800f11d18361f4c1b2eb2a29e913b5b"
+    },
+    {
+      "source_path": "docs/security.md",
+      "installed_path": "upstream/references/security.md",
+      "sha256": "d0c3846aab3b6b9538e1642b319ab7a1e68da6841324d987e46db4530f8e5ea1"
+    },
+    {
+      "source_path": "docs/onboarding.md",
+      "installed_path": "upstream/references/onboarding.md",
+      "sha256": "604d69ea8e186b7e31991b23742271c242fa5fb6ccd0cc4f9ac329c95fb80c3f"
+    }
+  ],
+  "adaptations": [
+    "Function-based name, explicit target/authority discovery description and UI metadata.",
+    "Native operation pointer; original full method body retained without omissions.",
+    "Original consent/setup commands remain provenance; native binding preserves current authority, retired-host boundary and no phone pairing/TCC on general setup.",
+    "Compatibility moved into supported native metadata; exact original frontmatter retained in upstream copy.",
+    "Rewrote exactly four broken relative support links across references/onboarding.md, references/security.md and references/permissions.md to pinned upstream docs URLs. Full original support documents retained under upstream/references; all other document bytes and the core method remain unchanged.",
+    "Portable package replaces author-local binary/settings paths and operation receipts with a pinned source-build route; no runtime, global MCP registration, service, phone pairing or permission change."
+  ],
+  "runtime": {
+    "repository": "https://github.com/jfarcand/mirroir-mcp",
+    "revision": "6b51c9f388b4d1956107cb0e664e75151e70d62d",
+    "version": "0.49.0",
+    "build_instructions": "RUNTIME.md",
+    "readiness": "Skill source included; native binary, supported host connection, target pairing and task-specific permissions must be verified separately.",
+    "registration": "none",
+    "binary_bundled": false
+  },
+  "upstream_files": {
+    "upstream/ORIGINAL-SKILL.txt": {
+      "source_path": "plugins/hermes/skills/mirroir/SKILL.md",
+      "sha256": "4bb71274095414c0ffc83874c274dba74183d2319b2979ce5d948bfde389cf8b"
+    },
+    "upstream/OperatingManual.swift": {
+      "source_path": "Sources/mirroir-mcp/OperatingManual.swift",
+      "sha256": "b25869bb5b973a23f5200bb17d721cf35626ae903e4927ea2d218a35624815f7"
+    },
+    "LICENSE": {
+      "source_path": "LICENSE",
+      "sha256": "fef57f13aab157e6b7220624e32537fbfd538137fff5161990a9b258a4e15e8e"
+    },
+    "upstream/references/permissions.md": {
+      "source_path": "docs/permissions.md",
+      "sha256": "d3642a36007ebfb139bbb204df83b70d2800f11d18361f4c1b2eb2a29e913b5b"
+    },
+    "upstream/references/security.md": {
+      "source_path": "docs/security.md",
+      "sha256": "d0c3846aab3b6b9538e1642b319ab7a1e68da6841324d987e46db4530f8e5ea1"
+    },
+    "upstream/references/onboarding.md": {
+      "source_path": "docs/onboarding.md",
+      "sha256": "604d69ea8e186b7e31991b23742271c242fa5fb6ccd0cc4f9ac329c95fb80c3f"
+    }
+  }
+}

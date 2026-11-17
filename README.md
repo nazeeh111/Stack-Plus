@@ -42,6 +42,10 @@ and consultation-only entries; those results are not permission to install
 them. Omit `--brief` for the complete JSON record. Trial and substitute
 entries remain locked until their specific acceptance gates are implemented.
 
+For portable backup coverage and the complete209-method selection, see
+[restore guidance](docs/RESTORE.md). Private data and local recovery records
+need a separate backup.
+
 ## Install on a Mac
 
 For a new Codex installation, use the
@@ -110,7 +114,9 @@ running successive replacements: `--academic-research`, `--ecc`, `--unslop`,
 `--maps-scraper`, `--untangle-codebase`, `--raea`, `--adaptive-routing`,
 `--llm-council`, `--roast-room`, `--council-of-high-intelligence`,
 `--cloudflare-security-audit`, `--strix`, `--skillspector`, `--rea`, `--craft-anything`,
-`--creative-reframing`, `--playwright-mcp` and `--agent-orchestration`.
+`--creative-reframing`, `--playwright-mcp`, `--agent-orchestration`,
+`--dream-loop`, `--fpga`, `--cirq`, `--formal-verification`, `--research-engines`,
+`--agent-desktop` and `--game-systems-review`.
 Academic sources are fetched privately under their noncommercial license.
 [Source fidelity](docs/SOURCE_FIDELITY.md) explains upstream methods, native ports and private source packs.
 When replacing a collection, include all additions you intend to retain.
@@ -175,6 +181,23 @@ For one explicit entry to adaptive selection across the session, add
 `--adaptive-routing` to the native install command and invoke `$01` once.
 It keeps ordinary work direct and applies relevant specialists as the task
 changes. [Behavior, testing and limits](docs/ADAPTIVE_ROUTING.md).
+
+`--agent-orchestration` adds the reusable native lead/specialist method for
+dynamic delegation, user-defined worker tiers or verified inheritance, checked
+handoffs, integration and fresh-context review. The chosen lead and effort stay
+selected; unset Y/Z tiers supply no model defaults. It complements 01's capability selection and installs no
+second agent framework. The [host comparison](addons/agent-orchestration/references/hosts.md)
+distinguishes native coordination from applications that need Agents SDK or
+LangGraph. [Context and cost efficiency](integrations/context-efficiency/README.md)
+records TokenEconomizer's source-tested limits and the bounded ideas worth using
+without activating unverified hooks or tool pruning.
+
+`--game-systems-review` adds document-based game balance and GDD interaction
+review adapted from Donchitos' Game Studios methods. It does not install the
+whole studio or claim engine/playtest validation. `--agent-desktop` retains
+Vercel Labs' desktop method and platform guides. Installation of that method
+does not install or admit its CLI; verify native admission and startup effects
+before any command, including help/status. Read the respective native bindings.
 
 Optional [LLM Council](docs/COUNCIL.md) adds independent alternatives, blinded
 critique and reversed-order checks. It uses available native workflows; its

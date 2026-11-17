@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "name": "Whisper.cpp CPU local speech route",
+  "scope": "Pinned source build and strict output admission; no installer, model discovery or implicit acquisition.",
+  "source": {
+    "repository": "ggml-org/whisper.cpp",
+    "tag": "b4938",
+    "revision": "371b5a7561823ab2bb32142d2751e35e7534727b",
+    "archive_url": "https://codeload.github.com/ggml-org/whisper.cpp/tar.gz/371b5a7561823ab2bb32142d2751e35e7534727b",
+    "archive_sha256": "89051d8fca516a3ad1f5c2f8f9d2fccb089afbaec338fca3f8731999babc6f81",
+    "license": "MIT; preserve complete original source, bundled miniaudio licensing and model notices."
+  },
+  "build": {
+    "prerequisites": [
+      "Existing native C/C++ compiler and make",
+      "Admitted CMake3.31.10 toolchain on the observed Mac; other hosts require their own native admission",
+      "Already present hash-verified local model"
+    ],
+    "configure_flags": {
+      "BUILD_SHARED_LIBS": "OFF",
+      "CMAKE_BUILD_TYPE": "Release",
+      "CMAKE_C_COMPILER": "/usr/bin/clang",
+      "CMAKE_CXX_COMPILER": "/usr/bin/clang++",
+      "CMAKE_MAKE_PROGRAM": "/usr/bin/make",
+      "CMAKE_FIND_USE_PACKAGE_REGISTRY": "OFF",
+      "CMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY": "OFF",
+      "WHISPER_BUILD_TESTS": "OFF",
+      "WHISPER_BUILD_EXAMPLES": "ON",
+      "WHISPER_BUILD_SERVER": "OFF",
+      "WHISPER_COREML": "OFF",
+      "WHISPER_OPENVINO": "OFF",
+      "WHISPER_CURL": "OFF",
+      "WHISPER_SDL2": "OFF",
+      "WHISPER_COMMON_FFMPEG": "OFF",
+      "GGML_METAL": "OFF",
+      "GGML_METAL_EMBED_LIBRARY": "OFF",
+      "GGML_BLAS": "OFF",
+      "GGML_ACCELERATE": "OFF",
+      "GGML_CUDA": "OFF",
+      "GGML_VULKAN": "OFF",
+      "GGML_OPENCL": "OFF",
+      "GGML_HIP": "OFF",
+      "GGML_RPC": "OFF",
+      "GGML_SYCL": "OFF",
+      "GGML_OPENMP": "OFF",
+      "GGML_CPU_KLEIDIAI": "OFF",
+      "GGML_NATIVE": "OFF",
+      "GGML_CCACHE": "OFF",
+      "GGML_BACKEND_DL": "OFF",
+      "FETCHCONTENT_FULLY_DISCONNECTED": "ON"
+    },
+    "target": "whisper-cli",
+    "parallel_jobs": 4,
+    "network_acquisition": "None during configure/build; optional fetch/backend switches disabled.",
+    "observed_platform": "macOS arm64, Apple Clang21",
+    "observed_binary_sha256": "91b362525324775cdd1a9eda46e509c74f2043236b71736125d3a7b02af8f333",
+    "identity_limit": "A new source build on another host must retain its own flags/output hashes; byte-reproducibility is not claimed."
+  },
+  "model": {
+    "name": "ggml-base.en.bin",
+    "repository": "ggerganov/whisper.cpp",
+    "revision": "5359861c739e955e79d9a303bcbc70fb988958b1",
+    "sha256": "a03779c86df3323075f5e796cb2ce5029f00ec8869eee3fdfb897afe36c6d002",
+    "license": "MIT OpenAI2022",
+    "acquisition": "Existing verified model reused; this recipe never downloads a model."
+  },
+  "invocation": {
+    "adapter": "whisper_cpu.py",
+    "required_explicit_arguments": [
+      "--cli",
+      "--cli-sha256",
+      "--model",
+      "--model-sha256",
+      "--source",
+      "--output"
+    ],
+    "bounded_options": {
+      "threads_default": 4,
+      "threads_max": 16,
+      "timeout_seconds_default": 300,
+      "max_source_seconds_default": 1800
+    },
+    "input_contract": "Explicit stable regular CLI/model/source files under one owner. Mono16-bitPCM WAV at16kHz; stream and validate the complete bounded declared PCM payload, reject truncation/partialframes before execution. No concurrent-writer isolation claim.",
+    "output_contract": "New absent run directory only; no overwrites/retries. Require producerexit0 plus matching fresh JSON/SRT/TXT with ordered source-bounded millisecond timings. Blank JSON/SRT cues must also match, in order; unmatched/backward empty SRT cues fail. Retain failed stdout/stderr/partials/RUN.json.",
+    "empty_transcript": "Explicit empty_transcript status; use --expect-speech when an empty result must fail. It is not proof that the source contained no speech.",
+    "effects": "CPU transcription only, no microphone/camera capture, account/config discovery, provider calls or implicit model acquisition.",
+    "concurrency_limit": "Regular stable-input precondition; pre/post hashes are not isolation against concurrent mutation/restoration."
+  },
+  "acceptance": {
+    "fixture": "Upstream samples/jfk.wav",
+    "fixture_sha256": "59dfb9a4acb36fe2a2affc14bacbee2920ff435cb13cc314a08c13f66ba7860e",
+    "fixture_duration_seconds": 11,
+    "direct_source_checks": 55,
+    "reference_word_count": 22,
+    "word_error_rate": 0.0,
+    "adapter_unit_checks": 21,
+    "actual_adapter_status": "transcribed,22nonemptysegments; JSON/SRT/TXT agree",
+    "negative_controls": [
+      "Producerexit0withoutrequiredoutput rejected",
+      "Nonzeroproducerrejecteddespitevalidpartialoutput",
+      "Offsetunitsmismatch/outofbounds/inconsistentformats/symlinkoutputs rejected",
+      "Expected-speech emptyresult rejected; optionalemptyresult explicit",
+      "Wronghash/durationbound blockexecution",
+      "Timeout and existingrun preserveevidence",
+      "TruncateddeclaredPCM and partialframeWAV rejectedbeforeexecution",
+      "FIFO CLI/model/source rejectedwithoutblocking",
+      "Extra forward/backward blankSRT cues rejected; matchingJSON/SRTblankcue accepted",
+      "TruncateddeclaredWAV/partialPCMframesrejectbeforeproducer",
+      "NonregularCLI/model/sourceFIFOpathsrejectbeforehash/read/producer",
+      "ExtraemptySRTcuesforwardorbackwardreject; matchingupstreamblankcuepreserved"
+    ]
+  },
+  "limits": "One public English fixture, approximate word timing; not forced alignment, diarization, arbitrary language/noise quality or general semantic highlight acceptance."
+}

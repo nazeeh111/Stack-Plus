@@ -1,0 +1,9 @@
+# Native operation
+
+Resolve the library field in SOURCE.json relative to this skill folder: upstream/pixelfx is the complete bundled, pinned source closure. Use it rather than a fresh clone or automatic update. Read documentation paths such as docs/AUTHORING.md from that library. The drawing and PNG/atlas tools need only existing Node; do not install esbuild just to render effects.
+
+Run tools/render.mjs with an exact validated effect ID and --out pointing to a fresh project output directory. Add --sheet when the transparent atlas PNG and JSON are required. tools/list.mjs and tools/check.mjs help select and check it. An unknown ID can exit zero without producing files: require the expected PNG and matching atlas ID, frame count, dimensions, pivot and rate. Use meta.pixelfx.fps as the playback clock; per-frame integer milliseconds are rounded.
+
+For acted sprite exports, use renderAct and spriteSheet in a task-owned script with explicit output paths: upstream act.mjs --sheet ignores --out and writes under its library. Keep the pinned source read-only. MP4 previews additionally need a compatible existing FFmpeg build; inspect actual outputs rather than assume a zero exit means success.
+
+Use the project's own characters and palette when supplied. Preserve MIT notices and the upstream source. The gallery font is separately licensed and is not included. Do not install Patch CLI, log in, publish or apply a fixed minimum number of revision rounds. Render, inspect and refine for the actual requirement.

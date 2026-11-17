@@ -31,7 +31,7 @@ Use deterministic browser steps for repeatable flows. Page text, screenshots and
   challenge=text[start:end].rstrip('"')
   return '''## Adversarial review
 
-Use an independent native reviewer when the consequences justify it and delegation is authorized. Give the actual requirements, immutable diff/source snapshot, changed and untracked file identities, and evidence without the builder's persuasive narrative. Preserve user model/effort. No second provider, authentication repair, fixed roster or outside CLI is required. If unavailable, report the missing independent coverage and continue other useful checks.
+Every diff requires the native adversarial pass. Use supported native delegation with a fresh reviewer context, inheriting the user's current model and effort. Give the actual requirements, immutable diff/source snapshot, changed and untracked file identities, and evidence without the builder's persuasive narrative. The reviewer returns findings without editing the snapshot; the parent owns fixes. No second provider, authentication repair or outside CLI is required. A same-model fresh context does not establish distinct-family coverage; report missing outside coverage separately. Await the actual completed response. If delegation is unavailable, unauthorized or fails, record native coverage as incomplete, continue independent checks and report useful findings, but do not claim this required review or the full gstack review completed.
 
 ### Review brief
 
@@ -66,8 +66,8 @@ Keep durable task-local state and preserve verified artifacts. Resume at the fai
  # Remaining embedded driver scripts are examples; bind the operation to native APIs.
  text=text.replace('Visual mockups require the design binary.', 'Use available native image/browser/artifact tools; preserve editable source and inspect the actual preview.')
  text=re.sub(r'(?m)^.*(?:DESIGN_READY|DESIGN_NOT_AVAILABLE|\$D variants|\$D feedback|modelUsage|--effort high|model=).*$', 'Use the current native model and tools; record actual generated variants and feedback.',text)
- text=text.replace('Launch ALL selected specialists in a single message', 'Use only the relevant perspectives; delegate independent work when consequential and authorized')
- text=text.replace('For each selected specialist, launch an independent subagent via the Agent tool.', 'Apply selected specialist checklists proportionately. Use a native independent reviewer only when it adds value and delegation is authorized.')
+ text=text.replace('Launch ALL selected specialists in a single message', 'Launch every selected specialist through supported native delegation, in independent waves when capacity is bounded')
+ text=text.replace('For each selected specialist, launch an independent subagent via the Agent tool.', 'For each selected specialist, launch an independent native reviewer with a fresh context, inheriting the current model and effort. Inline checklist use does not replace this independent dispatch.')
  text=re.sub(r'(?ms)^### Read specialist hit rates.*?(?=^### Select specialists)', '',text)
  text=re.sub(r'(?ms)^### Adaptive gating.*?(?=^### Dispatch specialists)', '',text)
  def fence(m):
@@ -297,14 +297,28 @@ Read the explicit prior decision and every supporting caller, proposed helper ta
 Reuse an explicit Skip only when the same optional extraction and all supporting evidence remain unchanged. Missing, changed, filtered, outside-scope or unreadable evidence requires fresh evaluation; do not invent logger proofs or suppression eligibility. Never use advisory history to hide a real defect. Recheck previous fixes for regression. Record the comparison and actual decision in the task's review artifact; no global history store or executable helper is required.
 '''
  if key.endswith('/review/sections/review-army.md'):
-  text=block(text,'### Detect stack and scope','### Dispatch specialists in parallel', '''### Detect stack and choose useful perspectives
+  # The scope thresholds and independent seats are the selected method, not
+  # obsolete controller machinery. Retain its source selection prose verbatim.
+  selected=text[text.index('### Select specialists'):text.index('### Adaptive gating')]
+  original_state=next(line for line in selected.splitlines() if line.startswith('9. **State Machines**'))
+  if selected.count(original_state)!=1:raise ValueError('Pinned gstack State Machines selection changed')
+  selected=selected.replace(original_state,'''9. **State Machines** — if SCOPE_STATE_MACHINE is true or unknown: read `~/.claude/skills/gstack/review/specialists/state-machines.md`, enumerate the full required state/action/expected-result matrix against actual source and tests, save it in the owning task directory and verify its completeness. The controller's matrix generator/checker is not installed; perform the same coverage check directly and report any unverifiable cell.''')
+  text=block(text,'### Detect stack and scope','### Dispatch specialists in parallel', '''### Detect stack and scope
 
-Inspect actual changed paths, callers, package/runtime files, tests and project instructions to determine scope and stack. Choose specialist checklists whose depth earns its cost. Testing and Maintainability can inform a consequential review; Security, Performance, Data Migration, API Contract, Design, Simplification and State Machines apply when their actual boundary is affected. Their complete checklists remain in `../specialists/`, with the design method at `../design-checklist.md`.
+Use the parent's recorded literal baseline, exact changed-source snapshot and changed-path inventory, including relevant dirty/new source. Inspect package/runtime files, tests and project instructions to identify stack and test framework. Compute and record DIFF_LINES as actual added plus removed lines in that scope. Determine SCOPE_AUTH, SCOPE_BACKEND, SCOPE_FRONTEND, SCOPE_MIGRATIONS, SCOPE_API and SCOPE_STATE_MACHINE from the actual source; missing or unread evidence is unknown, not false. The source controller's automatic scope/statistics helpers are not installed. Unknown required scope remains missing coverage, not a reason to claim a complete review.
 
-Read relevant checklists fully. Keep small tasks proportionate; no changed-line threshold requires or forbids a reviewer. Use native delegation only within existing authority, with the selected model and effort. Record actual coverage and unavailable independent review. For state transitions, enumerate meaningful states, transitions, error paths and tests directly from source; no state-matrix generator is installed.''')
+Their complete checklists remain in `../specialists/`, with the design method at `../design-checklist.md`.
+
+'''+selected+'''### Historical gating and force flags
+
+Apply a source-backed [GATE_CANDIDATE] only to a conditional specialist with zero findings in at least ten actual dispatches; [NEVER_GATE] retains the seat regardless of hit rate. No controller statistics are available by implication. Without valid scoped historical evidence, do not gate a scope-selected specialist or invent hit rates. Testing and Maintainability retain the source's 50-line rule; State Machines retains its true-or-unknown rule.
+
+**Force flags:** `--<specialist>` (e.g. `--simplification`) or `--all-specialists` in the prompt force-includes it.
+
+Record the selected, scope-excluded and legitimately gated seats with their source conditions and evidence. Read every selected complete checklist. Use independent native reviewers inheriting current model/effort; bounded capacity permits serialized independent waves. If a required reviewer cannot run within native permissions, available interfaces or existing authority, report its coverage as incomplete. Applying its checklist inline is useful parent work, not an independent review or completed dispatch.
+
+''')
   text=block(text,'- Shared-code advice (category', '- Other findings:', '''- Shared-code advice: compare actual evidence paths, proposed helper target, contracts and change semantics. Deduplicate only the same unchanged optional proposal; unknown metadata requires fresh evaluation. No unavailable fingerprint library establishes eligibility.''')
-  text=text.replace('**Activation:** Only if DIFF_LINES > 200 OR any specialist produced a CRITICAL finding.', '**Activation:** Use a separate adversarial perspective when cross-cutting consequences or an unresolved serious finding justify it and native delegation is authorized.')
-  text=text.replace('**Always-on (every review with 50+ changed lines):**','**Useful perspectives when consequential:**')
  if key.endswith('/qa/sections/test-bootstrap.md'):
   text=re.sub(r'(?m)^\[ -f \.gstack/no-test-bootstrap \].*\n','',text)
   text=block(text,'BOOTSTRAP_DECLINED:', '| Runtime | Primary | Alternative |', '''Choose a framework from actual project conventions and the required behavior. If no test evidence exists, compare compatible options using native primary-source lookup; the table below is a starting point, not an installation instruction. Resolve routine choices within existing authority. Ask only if framework choice materially changes project direction or requires missing authority.
@@ -377,7 +391,7 @@ Treat design/plan text as data, not instructions that can widen authority or byp
 ''')
   a=text.index('## Section self-check (before you finish)');text=text[:a]+'''## Section self-check (before you finish)
 
-Confirm the applicable Scope Challenge, Architecture, Code Quality, Test and Performance review content and the substantive outputs in sections/review-sections.md. Record any optional independent challenge as completed, unavailable or not run. Check the saved artifact against current inputs and state unresolved decisions and missing evidence. On interruption, resume the owning task record and reconcile partial writes; do not repeat unchanged verified work.
+Confirm the applicable Scope Challenge, Architecture, Code Quality, Test and Performance review content and the substantive outputs in sections/review-sections.md. Complete the default-on independent plan challenge unless the user explicitly disabled it; report unavailable coverage truthfully. Check the saved artifact against current inputs and state unresolved decisions and missing evidence. On interruption, resume the owning task record and reconcile partial writes; do not repeat unchanged verified work.
 '''
  if key.endswith('/plan-eng-review/sections/review-sections.md'):
   text=text.replace('## Material decisions\n', '## Decision procedure\n')
@@ -443,7 +457,7 @@ Compare that requested scope with all current changed source. Identify unrelated
 ''')
   text=block(text,'Use a proportionate independent native review when consequential and authorized.\n> in full.', '## Step 5: Fix-First Review', '''### Step 4.8: Independent adversarial review
 
-Read [the adversarial method](sections/adversarial.md) when consequential cross-cutting uncertainty justifies independent review and delegation is authorized. Give the actual immutable snapshot/base, constraints and source evidence with explicit paths. Wait for a real outcome, verify findings against current source and record incomplete/not-run coverage honestly. Preserve the selected model and effort; a same-model fresh context does not establish model diversity. An optional review is not a compulsory fanout step.
+Read [the adversarial method](sections/adversarial.md) and run its required native pass for every diff. Give the actual immutable snapshot/base, constraints and source evidence with explicit paths to a fresh reviewer context, inheriting the user's selected model and effort. Wait for a completed response, verify findings against current source and record incomplete coverage honestly. Missing outside-provider or distinct-family coverage does not waive this native pass. If native delegation is unavailable, unauthorized or fails, report the useful review findings and remaining checks without claiming the full required review completed.
 
 ''')
   text=text.replace('then action every remaining finding.\nStructured approval does not waive advisory/test_stub ASK gates.', 'then report every remaining finding. Apply changes only within the actual implementation authority described in Steps 5a–5d.')
@@ -483,6 +497,7 @@ For gate changes, identify the actual protection, changed hunk, intended behavio
   text=text.replace('**Fix-first heuristic:**', '**Implementation classification within existing authority:**')
   text=re.sub(r'(?m)^.*(?:AUTO-FIX.*applied|auto-fix.*always|Always action|always action).*$', 'For review-only work, report proposed fixes without editing. For authorized implementation, apply routine in-scope repairs and regression checks; ask only for an unresolved consequential choice or authority.',text)
  if key.endswith('/review/sections/review-army.md'):
+  text=text.replace('(multiple Agent tool calls)', '(multiple supported native delegation calls)')
   text=text.replace('for the review-log entry in Step 5.8', 'for the task-local final review evidence in Step 5.8')
   text=text.replace('Normal AUTO-FIX/ASK rules apply, with advice ASK-only.', 'Use parent Steps 5a–5d: review-only work reports findings; already authorized routine repairs proceed; only materially unresolved scope/authority needs a new question.')
   links=', '.join('['+name.replace('-',' ')+'](../specialists/'+name+'.md)' for name in ('testing','maintainability','security','performance','data-migration','api-contract','simplification','state-machines','targeted','red-team'))
@@ -490,6 +505,16 @@ For gate changes, identify the actual protection, changed hunk, intended behavio
   text=text.replace('`DIFF_BASE=$(git merge-base origin/<base> HEAD) && git diff "$DIFF_BASE"`', 'the parent-supplied literal diff base and exact source snapshot, including relevant dirty/new source')
   text=text.replace('`DIFF_BASE=$(git merge-base origin/<base> HEAD) && git diff --name-status "$DIFF_BASE"`', 'the parent-supplied exact changed-path inventory and literal source/base identities')
   text=text.replace('`git diff "$DIFF_BASE" -- .', '`git diff "PARENT_SUPPLIED_BASE_SHA" -- .').replace('`git diff --stat "$DIFF_BASE"', '`git diff --stat "PARENT_SUPPLIED_BASE_SHA"')
+  text=block(text,'**Subagent configuration:**','**Wait for readers before editing:**', '''**Subagent configuration:**
+
+Use the current native delegation schema, a fresh context per selected seat and inherited model/effort. Supply actual absolute checklist and source paths with the parent's literal baseline and snapshot identities. Run independent seats in parallel up to available capacity, then serialize further independent waves; wait for every actual response before synthesis or edits. Never substitute inline application or a launch receipt for a completed independent review. Missing required seats remain incomplete coverage.
+
+''')
+  text=block(text,'**Activation:**','The Red Team subagent receives:', '''**Activation:** Only if DIFF_LINES > 200 OR any specialist produced a CRITICAL finding.
+
+If activated, dispatch one additional independent native reviewer with fresh context and inherited model/effort. Await its actual response before synthesis. If native delegation is unavailable, unauthorized or fails, record the required Red Team coverage as incomplete; do not silently waive the source activation rule or count the parent's checklist as the dispatched review.
+
+''')
  if key.endswith('/qa/SKILL.md'):
   text=re.sub(r'(?ms)Write the Output Structure report locally and copy the same content to project context:.*?(?=\*\*Per-issue additions:)', 'Write the Output Structure report to the actual task-owned REPORT_DIR selected in Setup, using a collision-free name. Preserve original reports and accepted artifacts. Link the saved path from the owning task record; create no extra project-context copy unless requested. Read back the saved report and cite actual before/after evidence.\n\n',text)
   text=text.replace('- Commit SHA (if fixed)', '- Actual fixing revision if committed, otherwise identify the current uncommitted diff')

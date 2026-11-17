@@ -1,0 +1,7 @@
+interface:
+  display_name: "Software design and fresh review (EGM)"
+  short_description: "Software specifications, fresh review and code/document checks."
+  default_prompt: "$design-specification-workflow review this software design against its source and requirements"
+policy:
+  allow_implicit_invocation: true
+dependencies: []

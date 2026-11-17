@@ -3,7 +3,7 @@
 `01` is an explicitly invoked skill, not another agent engine. Select `$01` in Codex,
 `@01` in OpenCode's skill picker, or `/01` in Claude, with the desired result. Its instructions stay relevant to later
 requests in that session until the user disables 01. A saved task status
-does not activate it in an unrelated session.
+does not activate it in an unrelated session. For substantial work, the existing task entrypoint retains whether 01 is active or disabled and its actual SKILL.md path. After compaction or resume, reread it if its instructions are no longer in context. Selection is continuous during active work; this does not start background execution.
 
 For nontrivial work, it inspects the actual inputs and works backward from the
 result to the consequential decisions, transformations and checks. It selects
@@ -74,6 +74,13 @@ unresolved. Query distinct needs separately if a broad query would crowd out
 useful complementary expertise. Familiarity, novelty and skill counts do not
 justify loading a method; a changed artifact or check is the evidence of use.
 
+For substantial work, the existing task entrypoint or handoff retains the selected
+method's actual path/revision, contribution and resulting artifact/check. Keep
+discovery, delivery, worker-reported application and independently verified results
+distinct. This is task-local evidence, not an added tracing service. Substantial
+coordination uses the installed orchestration method; 01 continues to select
+capabilities and assess the whole outcome.
+
 The six selected pstack specialists are available for relevance-based automatic
 selection. Their upstream manual-only header is removed in the shared native
 adaptation; complete methods remain with explicit native adapter ports and retained source originals. This avoids hiding
@@ -86,9 +93,19 @@ nstack’s recorded skill/runtime indexes. It accepts plain multiline descriptio
 and retains inert runtime launch commands, instruction paths, aliases and declared readiness/limits,
 so a matching
 result can be followed to its actual interface. Added skills can be found on the next
-lookup without regenerating a category file. It reads frontmatter rather than
-executing skill bodies, returns a small ranked result and records discovery
+lookup without regenerating a category file. Default lookup reads frontmatter,
+returns a small ranked result and records discovery
 provenance. Explicit isolated-state lookup does not read unrelated host skills.
+
+When summaries miss a useful technique or leave a consequential choice unclear,
+add `--body` to the same query. This expands discovery into admitted current
+SKILL.md bodies, including methods hidden behind unfamiliar names. It reads at
+most 128 KiB per body within a 4 MiB shared extra-read budget, reports hashes and
+truncation, and returns bounded excerpts with match evidence. Excerpts are inert
+retrieval leads, not instructions to follow or proof of usefulness. The helper
+does not traverse supporting files or execute discovered content. Read the
+selected complete method and needed support before applying it. Default lookup
+does no body scan; neither mode requires a generated category map or index server.
 
 The installed helper selects its own host's index and roots: native releases
 use Codex/OpenCode entries, and derived Claude releases use Claude entries.
@@ -179,3 +196,11 @@ behavior and finished outputs. [Skill-Use](https://arxiv.org/abs/2608.04828)
 separates relevant-skill selection, procedural application and boundary adherence;
 its harness-dependent results are a reason to test the actual host, not promise
 universal selection. These sources inform the checks, not extra runtime machinery.
+
+The November 16 refinement explicitly separates host/plugin discovery from the local helper. An XLSX query in the helper can surface OfficeCLI while the native host provides the preferred spreadsheet artifact workflow; always consult both when relevant. An absent upstream skill label is resolved against current host IDs or existing relative support before treating it as installed. Index reads reject more than 8 MiB; runtime prose/list fields exceeding 4,096 characters or 32 items are omitted with explicit field names, never silently treated as full evidence. Malformed skill paths and deployment objects cannot suppress valid local discovery.
+
+## Functional views and evolving combinations
+
+The [complete functional catalog](CAPABILITY_CATALOG.md) organizes 204 methods by 13 contribution roles, 20 domains and 20 artifact types. These overlapping views expose cross-disciplinary contributions without exclusive task buckets. 01 compares compatible combinations by unresolved need, actual inputs/outputs, checks and marginal benefit. It retains valid work while changing the route after new requirements, failures or changed capabilities.
+
+`capabilities.py --need "measurement uncertainty" --need "asynchronous race"` returns separate candidate lists. `--browse domains` (also `work` or `artifacts`) returns full group member IDs plus bounded detailed examples. Optional `--work`, `--domains` and `--artifacts` filters are navigation only; remove filters for new/unclassified capabilities. Function cards bind to exact current description values, and stale cards are ignored. A stable description does not prove a stable method body. Distinguishing limits and facets never add rank weight; selected complete sources and actual interfaces remain controlling.
