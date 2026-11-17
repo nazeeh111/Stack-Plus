@@ -336,7 +336,9 @@ class SkillNames(unittest.TestCase):
             sources[(spec['candidate_id'], spec['source_path'])] = root
             receipts[root] = (receipt, {}, spec)
         state = self.base / 'state'
-        with patch.object(native.nstack, 'build', side_effect=lambda candidate, path: sources[(candidate, path)]), \
+        # Isolate metadata exposure; invocation rewriting has separate contracts.
+        with patch.object(names, 'HOST_INVOCATIONS', {}), \
+                patch.object(native.nstack, 'build', side_effect=lambda candidate, path: sources[(candidate, path)]), \
                 patch.object(native.nstack, 'registered_release', side_effect=lambda root: receipts[root]):
             release, index = native.prepare(state, [(names.canonical(name), selected[names.canonical(name)]) for name in names.DESCRIPTIONS], [])
         for row in index:

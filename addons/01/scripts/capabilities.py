@@ -73,6 +73,76 @@ def regular_file(path):
                 os.close(descriptor)
 
 
+def quoted_scalar(lines, index, value):
+    """Extract bounded YAML flow strings, without evaluating tags or objects."""
+    quote = value[0]
+    pattern = (r"^'((?:[^']|'')*)'(?:\s+#.*)?$" if quote == "'" else
+               r'^"((?:[^"\\]|\\.)*)"(?:\s+#.*)?$')
+    candidate = value
+    for following in [None, *lines[index + 1:]]:
+        if following is not None:
+            if following.strip() and not following[0].isspace():
+                raise ValueError('Unclosed quoted frontmatter scalar')
+            candidate += '\n' + following
+        match = re.fullmatch(pattern, candidate, flags=re.DOTALL)
+        if match:
+            break
+    else:
+        raise ValueError('Unclosed quoted frontmatter scalar')
+    parts = match.group(1).split('\n')
+    folded, blanks, escaped_break = '', 0, False
+    for position, part in enumerate(parts):
+        if position:
+            part = part.lstrip(' \t')
+        if position < len(parts) - 1:
+            trimmed = part.rstrip(' \t')
+            # A double-quoted escaped trailing space is content, not folding.
+            slashes = len(trimmed) - len(trimmed.rstrip('\\'))
+            part = trimmed + (part[len(trimmed):len(trimmed) + 1]
+                              if quote == '"' and slashes % 2 else '')
+        if position and not part and position < len(parts) - 1:
+            blanks += 1
+            continue
+        if position:
+            folded += '\n' * blanks if blanks else ('' if escaped_break else ' ')
+        folded += part
+        blanks = 0
+        slashes = len(part) - len(part.rstrip('\\'))
+        escaped_break = quote == '"' and position < len(parts) - 1 and slashes % 2 == 1
+        if escaped_break:
+            folded = folded[:-1]
+    if quote == "'":
+        return folded.replace("''", "'")
+    escapes = {'0': '\0', 'a': '\a', 'b': '\b', 't': '\t', 'n': '\n',
+               'v': '\v', 'f': '\f', 'r': '\r', 'e': '\x1b', ' ': ' ',
+               '"': '"', '/': '/', '\\': '\\', 'N': '\x85', '_': '\xa0',
+               'L': '\u2028', 'P': '\u2029'}
+    result, cursor = [], 0
+    while cursor < len(folded):
+        character = folded[cursor]
+        if character != '\\':
+            result.append(character); cursor += 1
+            continue
+        cursor += 1
+        if cursor == len(folded):
+            raise ValueError('Incomplete quoted frontmatter escape')
+        escape = folded[cursor]
+        if escape in escapes:
+            result.append(escapes[escape]); cursor += 1
+        elif escape in ('x', 'u', 'U'):
+            width = {'x': 2, 'u': 4, 'U': 8}[escape]
+            digits = folded[cursor + 1:cursor + 1 + width]
+            if len(digits) != width or not re.fullmatch(r'[a-fA-F0-9]+', digits):
+                raise ValueError('Invalid quoted frontmatter Unicode escape')
+            codepoint = int(digits, 16)
+            if codepoint > 0x10ffff:
+                raise ValueError('Invalid quoted frontmatter Unicode codepoint')
+            result.append(chr(codepoint)); cursor += width + 1
+        else:
+            raise ValueError('Unsupported quoted frontmatter escape')
+    return ''.join(result)
+
+
 def frontmatter(entry):
     """Read only the bounded YAML header. No YAML tags or code are evaluated."""
     with regular_file(entry) as stream:
@@ -122,14 +192,8 @@ def frontmatter(entry):
                         if value is not None and match.group(2).startswith('>'):
                             value = re.sub(r'(?<=\S)\n(?=\S)', ' ', value)
                         value = value.strip()
-                    elif value.startswith('"'):
-                        try:
-                            value, _ = json.JSONDecoder().raw_decode(value)
-                        except ValueError:
-                            value = value.strip('"')
-                    elif value.startswith("'"):
-                        quoted = re.match(r"^'((?:[^']|'')*)'(?:\s+#.*)?$", value)
-                        value = quoted.group(1).replace("''", "'") if quoted else value.strip("'")
+                    elif value.startswith(('"', "'")):
+                        value = quoted_scalar(lines, i, value)
                     else:
                         # YAML also permits a plain scalar to start on the next
                         # indented line, without a > or | block marker.
@@ -163,6 +227,23 @@ def skill_record(entry, name, deployment, metadata=None):
     return record
 
 
+def bound_skill_metadata(record):
+    """Omit oversized identity/prose fields intact, never truncate an identifier."""
+    omitted = []
+    for key in ('name', 'source_name', 'aliases', 'deployment', 'description'):
+        value = record.get(key)
+        oversized = (isinstance(value, str) and len(value) > MAX_RUNTIME_FIELD_CHARS
+                     or isinstance(value, list) and
+                     (len(value) > MAX_RUNTIME_LIST_ITEMS
+                      or sum(map(len, value)) > MAX_RUNTIME_FIELD_CHARS))
+        if oversized:
+            omitted.append(key)
+            del record[key]
+    if omitted:
+        record['oversized_fields_omitted'] = omitted
+    return record
+
+
 def active_host(host=None):
     if host is not None and host not in ('native', 'claude'):
         raise ValueError('Discovery host must be native or claude')
@@ -190,7 +271,8 @@ def inventory(state, skill_roots=None, host=None, body=False):
         rows = json.loads(raw)
         if not isinstance(rows, list):
             raise ValueError("Expected an array in " + filename)
-        sources.append({"file": str(source), "sha256": hashlib.sha256(raw).hexdigest()})
+        source_info = {"file": str(source), "sha256": hashlib.sha256(raw).hexdigest()}
+        sources.append(source_info)
         for row in rows:
             if not isinstance(row, dict) or not isinstance(row.get("name"), str):
                 continue
@@ -216,6 +298,10 @@ def inventory(state, skill_roots=None, host=None, body=False):
                     aliases = row.get('aliases')
                     if isinstance(aliases, list) and all(isinstance(alias, str) for alias in aliases):
                         record['aliases'] = aliases
+                    bound_skill_metadata(record)
+                    if 'name' not in record:
+                        source_info['oversized_skill_records_omitted'] = source_info.get('oversized_skill_records_omitted', 0) + 1
+                        continue
                     seen.add(resolved)
                 except (OSError, ValueError, RuntimeError):
                     continue
@@ -272,6 +358,7 @@ def inventory(state, skill_roots=None, host=None, body=False):
     remaining = MAX_PATHS
     for root in roots:
         pairs, visited, skipped = [], set(), 0
+        oversized_records = 0
         pending = [(root, 0)]
         while pending and remaining:
             path, depth = pending.pop()
@@ -299,6 +386,10 @@ def inventory(state, skill_roots=None, host=None, body=False):
                                               'current file; host enablement not established', (values, raw))
                         if body:
                             record['_body_path'] = str(target)
+                        bound_skill_metadata(record)
+                        if 'name' not in record:
+                            oversized_records += 1
+                            continue
                         records.append(record)
                         seen.add(target)
                     continue  # Support directories never become extra skills.
@@ -325,6 +416,8 @@ def inventory(state, skill_roots=None, host=None, body=False):
                         'hash_scope': 'resolved SKILL paths and frontmatter hashes', 'skills': len(pairs),
                         'skipped': skipped, 'path_budget_exhausted': remaining == 0,
                         'max_depth': MAX_DEPTH})
+        if oversized_records:
+            sources[-1]['oversized_skill_records_omitted'] = oversized_records
     return records, sources
 
 
@@ -501,14 +594,17 @@ def excerpt(text, term, field, first_line=None):
     return result
 
 
-def search(state, terms, limit=8, skill_roots=None, host=None, body=False, facet_filters=None):
+def prepare_snapshot(state, skill_roots=None, host=None, body=False, facet_filters=None):
+    """One fresh local observation shared only by the current search invocation."""
     records, sources = inventory(Path(state), skill_roots=skill_roots, host=host, body=body)
     cards, _, catalog_source = functional_catalog()
-    words = list(dict.fromkeys(word.strip().casefold() for word in terms if word.strip()))
-    ranked = []
+    prepared = []
     remaining, body_sources, body_counts = MAX_BODY_TOTAL_BYTES, [], {'read': 0, 'unavailable': 0, 'budget_exhausted': 0}
     for record in records:
         attach_function(record, cards)
+        # Excluded methods must not consume the eligible body's byte allowance.
+        if not facet_match(record, facet_filters):
+            continue
         body_text, body_info = '', None
         admitted = record.pop('_body_path', None)
         if body and admitted:
@@ -529,6 +625,25 @@ def search(state, terms, limit=8, skill_roots=None, host=None, body=False, facet
             body_counts[status if status in body_counts else 'unavailable'] += 1
             body_sources.append((admitted, body_info))
             record['body_source'] = body_info
+        if body:
+            record['_body_text'] = body_text
+        prepared.append(record)
+    return {'records': prepared, 'sources': sources, 'catalog_source': catalog_source,
+            'body': body, 'body_sources': body_sources, 'body_counts': body_counts,
+            'remaining': remaining, 'host': active_host(host)}
+
+
+def search_snapshot(snapshot, terms, limit=8):
+    """Rank one need without mutating or rereading its invocation's observation."""
+    sources, catalog_source = snapshot['sources'], snapshot['catalog_source']
+    body, host = snapshot['body'], snapshot['host']
+    body_sources, body_counts, remaining = snapshot['body_sources'], snapshot['body_counts'], snapshot['remaining']
+    words = list(dict.fromkeys(word.strip().casefold() for word in terms if word.strip()))
+    ranked = []
+    for original in snapshot['records']:
+        record = dict(original)
+        body_text = record.pop('_body_text', '')
+        body_info = record.get('body_source')
         identities = [record.get('name', ''), record.get('source_name', ''), *record.get('aliases', [])]
         exact = [word for word in words if len(words) == 1
                  and word in [value.casefold() for value in identities]]
@@ -561,7 +676,7 @@ def search(state, terms, limit=8, skill_roots=None, host=None, body=False, facet
                         evidence.append(snippet)
             expanded = {'body': body_terms, 'concept_coverage': coverage, 'fields': fields,
                         'evidence': evidence}
-        if any(score) and facet_match(record, facet_filters):
+        if any(score):
             ranked.append((score, {**record, 'match': {
                 'exact_identity': exact, 'function': function, 'identity': identity, 'context': context,
                 'rank': list(score),
@@ -599,6 +714,17 @@ def search(state, terms, limit=8, skill_roots=None, host=None, body=False, facet
                            'positive function claims. Equal ranks do not establish a better method. '
                            'Connected tools/plugins still require native discovery and verification.')
     return result
+
+
+def search(state, terms, limit=8, skill_roots=None, host=None, body=False, facet_filters=None):
+    snapshot = prepare_snapshot(state, skill_roots, host, body, facet_filters)
+    return search_snapshot(snapshot, terms, limit)
+
+
+def search_many(state, queries, limit=8, skill_roots=None, host=None, body=False, facet_filters=None):
+    """Independent ranked needs from one fresh, nonpersistent observation."""
+    snapshot = prepare_snapshot(state, skill_roots, host, body, facet_filters)
+    return [search_snapshot(snapshot, terms, limit) for terms in queries]
 
 
 def default_skill_roots(home=None, cwd=None, host=None):
@@ -644,10 +770,13 @@ def main():
             result = browse(state, args.browse, roots, args.host, filters, args.limit)
         elif args.need:
             queries = args.need + ([' '.join(args.terms)] if args.terms else [])
-            result = {'needs': [{'need': q, **search(state, q.split(), args.limit, roots,
-                        args.host, args.body, filters)} for q in queries],
+            results = search_many(state, [q.split() for q in queries], args.limit, roots,
+                                  args.host, args.body, filters)
+            result = {'needs': [{'need': q, **found} for q, found in zip(queries, results)],
                       'scope': 'Independent candidate lists preserve contribution coverage. '
-                               '01 decides and verifies the compatible combination; this helper does not choose it.'}
+                               '01 decides and verifies the compatible combination; this helper does not choose it. '
+                               'All needs share one fresh invocation snapshot; per-need provenance describes '
+                               'shared observations, not additional physical reads.'}
         else:
             result = search(state, args.terms, args.limit, roots, args.host, args.body, filters)
         print(json.dumps(result, indent=2))

@@ -83,8 +83,8 @@
       "distinguish": "Finds causes through reproduction and evidence; does not require a broad review or a new architecture."
     },
     "tdd": {
-      "description_sha256": "58ff584d9462495638cc6513449398700d3e3599946d39cb0643cd50b5e6ddb6",
-      "function": "Implement changes through failing tests, minimal fixes and refactoring",
+      "description_sha256": "92984447be944d7cede5a12010312e6a9b315f3dbacdb2aa1109f2fa325a9181",
+      "function": "Implement test-first changes through failing behavioral tests and minimal fixes",
       "work": [
         "implement",
         "validate"
@@ -95,7 +95,7 @@
       "artifacts": [
         "source-code"
       ],
-      "distinguish": ""
+      "distinguish": "Test-first implementation; integration-test-only coverage can use the existing project workflow."
     },
     "codebase-design": {
       "description_sha256": "63f3b1bed0c9fa4a69c9186b18f1bfecb01d1c636e8a0ff21de8ec096f5a82ea",
@@ -593,8 +593,8 @@
       "distinguish": "Fallback for an actual native-operation gap; cannot override permissions or denials."
     },
     "gws-shared": {
-      "description_sha256": "d7bdebe6346a6f1356f496a5826b92e62f65c29639bbc2116f53d14816ebfbea",
-      "function": "Use shared Google Workspace CLI authentication, flags and output conventions",
+      "description_sha256": "9229969b8354f32c88bf85cf78901a11b5091144c9520f25a5744b63fd7ae94a",
+      "function": "Use Google Workspace CLI for an explicit selection or a native operation gap",
       "work": [
         "operate"
       ],
@@ -606,7 +606,7 @@
         "documents",
         "environments"
       ],
-      "distinguish": ""
+      "distinguish": "Native connected service first; shared CLI guidance for the selected missing operation."
     },
     "n8n-workflow-patterns": {
       "description_sha256": "1ebde3335ac96f9e3648e6db91de66823bb86884116eb82e3598a9fc0962285f",
@@ -1733,7 +1733,7 @@
       "distinguish": "PPTX fallback; native presentation authoring remains the primary route where sufficient."
     },
     "product-marketing": {
-      "description_sha256": "5df66d7db32477b15ff2d8b1addb251fc206c6954df5defc14ff6e411b4e0575",
+      "description_sha256": "59f6376d04b91bf60886c1c5bdf03f1b605b6e9235d1fd20715901d02553090d",
       "function": "Record product audience, positioning and shared marketing context",
       "work": [
         "investigate",
@@ -1748,7 +1748,7 @@
         "documents",
         "notes"
       ],
-      "distinguish": ""
+      "distinguish": "Shared marketing positioning context, not setup for unrelated projects or generic lessons."
     },
     "ab-testing": {
       "description_sha256": "a826344042eef3694d6b6aecbfe2db9096a4914a909cfcb8ae9cc9e4f98b736d",
@@ -2100,7 +2100,7 @@
       "distinguish": ""
     },
     "bigquery-optimization": {
-      "description_sha256": "2fb86875d511affcc4086bf07cf01933cbcb11d828d50be3207ae012fac05a4c",
+      "description_sha256": "26fc38cdbfa9ad5e0f58615455861e5972d189a9e7be3d3cc6ea12f705e5c96f",
       "function": "Optimize BigQuery storage, capacity, cost and SQL design",
       "work": [
         "design",

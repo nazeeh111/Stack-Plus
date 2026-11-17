@@ -288,6 +288,10 @@ DESCRIPTIONS.update({
 })
 
 
+# Reviewed selector boundaries; exact source prose remains in exposure originals.
+DESCRIPTIONS.update({'gws-shared': {'source': 'gws CLI: Shared patterns for authentication, global flags, and output formatting.', 'exposed': 'Shared gws CLI patterns for a selected Google Workspace operation when native connected tools lack a required capability or the user explicitly selects gws. Covers versioned CLI syntax, scoped authentication, flags and checked output; use the connected service first.'}, 'product-marketing': {'source': "When the user wants to create or update their product marketing context document. Also use when the user mentions 'product context,' 'marketing context,' 'set up context,' 'positioning,' 'who is my target audience,' 'describe my product,' 'ICP,' 'ideal customer profile,' 'brand voice,' 'tone of voice,' 'brand guidelines,' 'what have we learned,' 'log this learning,' or wants to avoid repeating foundational information across marketing tasks. Use this at the start of any new project before using other marketing skills — it creates `.agents/product-marketing.md` that all other skills reference for product, audience, and positioning context.", 'exposed': 'Create or update the shared product marketing context document for positioning, audience, customer language, proof points and brand voice. Use when marketing work needs this reusable context; inspect existing context before drafting and update only the requested sections.'}, 'tdd': {'source': 'Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions "red-green-refactor", or wants integration tests.', 'exposed': 'Use a test-first red-green development loop for requested feature or bug work, with meaningful behavioral tests at public interfaces. Apply when the user requests TDD/red-green-refactor or a test-first implementation; an integration-test-only request does not require a TDD implementation cycle.'}})
+
+
 def canonical(name):
     source = LEGACY_EXPOSURES.get(name, name)
     return RENAMES.get(source, source)

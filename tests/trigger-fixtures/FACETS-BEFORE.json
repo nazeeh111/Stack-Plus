@@ -1,0 +1,3026 @@
+{
+  "diagnosing-bugs": {
+    "work": [
+      "investigate",
+      "diagnose",
+      "validate"
+    ],
+    "domains": [
+      "software"
+    ],
+    "artifacts": [
+      "source-code",
+      "reports"
+    ]
+  },
+  "tdd": {
+    "work": [
+      "implement",
+      "validate"
+    ],
+    "domains": [
+      "software"
+    ],
+    "artifacts": [
+      "source-code"
+    ]
+  },
+  "codebase-design": {
+    "work": [
+      "design",
+      "review"
+    ],
+    "domains": [
+      "software"
+    ],
+    "artifacts": [
+      "source-code",
+      "models"
+    ]
+  },
+  "mcp-dependency-review": {
+    "work": [
+      "review",
+      "validate"
+    ],
+    "domains": [
+      "agents",
+      "operations",
+      "security"
+    ],
+    "artifacts": [
+      "environments",
+      "reports"
+    ]
+  },
+  "gstack-office-hours": {
+    "work": [
+      "investigate",
+      "plan",
+      "design"
+    ],
+    "domains": [
+      "product",
+      "software"
+    ],
+    "artifacts": [
+      "reports",
+      "models"
+    ]
+  },
+  "performance-optimization": {
+    "work": [
+      "diagnose",
+      "measure",
+      "implement"
+    ],
+    "domains": [
+      "software",
+      "web",
+      "data"
+    ],
+    "artifacts": [
+      "source-code",
+      "measurements"
+    ]
+  },
+  "openspec-propose": {
+    "work": [
+      "plan",
+      "design"
+    ],
+    "domains": [
+      "software"
+    ],
+    "artifacts": [
+      "documents",
+      "workflows"
+    ]
+  },
+  "openspec-apply-change": {
+    "work": [
+      "implement"
+    ],
+    "domains": [
+      "software"
+    ],
+    "artifacts": [
+      "source-code"
+    ]
+  },
+  "openspec-verify-change": {
+    "work": [
+      "validate",
+      "review"
+    ],
+    "domains": [
+      "software"
+    ],
+    "artifacts": [
+      "source-code",
+      "reports"
+    ]
+  },
+  "obsidian-markdown": {
+    "work": [
+      "create",
+      "transform"
+    ],
+    "domains": [
+      "knowledge"
+    ],
+    "artifacts": [
+      "notes",
+      "documents"
+    ]
+  },
+  "obsidian-bases": {
+    "work": [
+      "create",
+      "transform"
+    ],
+    "domains": [
+      "knowledge",
+      "data"
+    ],
+    "artifacts": [
+      "notes",
+      "datasets"
+    ]
+  },
+  "json-canvas": {
+    "work": [
+      "create",
+      "transform",
+      "validate"
+    ],
+    "domains": [
+      "knowledge",
+      "graphics"
+    ],
+    "artifacts": [
+      "notes",
+      "diagrams"
+    ]
+  },
+  "obsidian-cli": {
+    "work": [
+      "operate",
+      "diagnose"
+    ],
+    "domains": [
+      "knowledge",
+      "software"
+    ],
+    "artifacts": [
+      "notes",
+      "environments"
+    ]
+  },
+  "pptx-quality-gates": {
+    "work": [
+      "validate",
+      "transform"
+    ],
+    "domains": [
+      "knowledge",
+      "graphics"
+    ],
+    "artifacts": [
+      "presentations",
+      "reports"
+    ]
+  },
+  "find-skills": {
+    "work": [
+      "discover",
+      "review"
+    ],
+    "domains": [
+      "agents"
+    ],
+    "artifacts": [
+      "environments"
+    ]
+  },
+  "react-best-practices": {
+    "work": [
+      "implement",
+      "review",
+      "measure"
+    ],
+    "domains": [
+      "software",
+      "web"
+    ],
+    "artifacts": [
+      "source-code",
+      "interfaces"
+    ]
+  },
+  "composition-patterns": {
+    "work": [
+      "design",
+      "transform"
+    ],
+    "domains": [
+      "software",
+      "web"
+    ],
+    "artifacts": [
+      "source-code",
+      "interfaces"
+    ]
+  },
+  "migration-architect": {
+    "work": [
+      "plan",
+      "design",
+      "validate"
+    ],
+    "domains": [
+      "software",
+      "data",
+      "operations"
+    ],
+    "artifacts": [
+      "workflows",
+      "source-code"
+    ]
+  },
+  "pstack-architect": {
+    "work": [
+      "design",
+      "implement",
+      "review"
+    ],
+    "domains": [
+      "software"
+    ],
+    "artifacts": [
+      "source-code",
+      "models"
+    ]
+  },
+  "pstack-blast-radius": {
+    "work": [
+      "investigate",
+      "review",
+      "validate"
+    ],
+    "domains": [
+      "software"
+    ],
+    "artifacts": [
+      "source-code",
+      "reports"
+    ]
+  },
+  "pstack-shared-state": {
+    "work": [
+      "design",
+      "review"
+    ],
+    "domains": [
+      "software",
+      "data"
+    ],
+    "artifacts": [
+      "source-code",
+      "models"
+    ]
+  },
+  "pstack-idempotency": {
+    "work": [
+      "design",
+      "implement",
+      "validate"
+    ],
+    "domains": [
+      "software",
+      "operations"
+    ],
+    "artifacts": [
+      "source-code",
+      "workflows"
+    ]
+  },
+  "pstack-benchmark": {
+    "work": [
+      "measure",
+      "review",
+      "validate"
+    ],
+    "domains": [
+      "software"
+    ],
+    "artifacts": [
+      "measurements",
+      "reports"
+    ]
+  },
+  "supabase-postgres-best-practices": {
+    "work": [
+      "design",
+      "implement",
+      "review"
+    ],
+    "domains": [
+      "data",
+      "software"
+    ],
+    "artifacts": [
+      "source-code",
+      "models"
+    ]
+  },
+  "scrapling-skill": {
+    "work": [
+      "transform",
+      "validate"
+    ],
+    "domains": [
+      "data",
+      "web"
+    ],
+    "artifacts": [
+      "datasets"
+    ]
+  },
+  "codex-skill": {
+    "work": [
+      "design",
+      "implement",
+      "validate"
+    ],
+    "domains": [
+      "agents",
+      "software",
+      "automation"
+    ],
+    "artifacts": [
+      "source-code",
+      "environments"
+    ]
+  },
+  "debug-optimize-lcp": {
+    "work": [
+      "diagnose",
+      "measure",
+      "implement"
+    ],
+    "domains": [
+      "web",
+      "software"
+    ],
+    "artifacts": [
+      "interfaces",
+      "measurements"
+    ]
+  },
+  "memory-leak-debugging": {
+    "work": [
+      "diagnose",
+      "measure"
+    ],
+    "domains": [
+      "software",
+      "web"
+    ],
+    "artifacts": [
+      "source-code",
+      "measurements"
+    ]
+  },
+  "agent-browser": {
+    "work": [
+      "operate"
+    ],
+    "domains": [
+      "web",
+      "agents"
+    ],
+    "artifacts": [
+      "interfaces",
+      "environments"
+    ]
+  },
+  "core": {
+    "work": [
+      "operate",
+      "validate"
+    ],
+    "domains": [
+      "web",
+      "agents"
+    ],
+    "artifacts": [
+      "interfaces",
+      "environments"
+    ]
+  },
+  "cua-driver": {
+    "work": [
+      "operate",
+      "validate"
+    ],
+    "domains": [
+      "agents",
+      "operations"
+    ],
+    "artifacts": [
+      "interfaces",
+      "environments"
+    ]
+  },
+  "gws-shared": {
+    "work": [
+      "operate"
+    ],
+    "domains": [
+      "knowledge",
+      "operations"
+    ],
+    "artifacts": [
+      "documents",
+      "environments"
+    ]
+  },
+  "n8n-workflow-patterns": {
+    "work": [
+      "design",
+      "implement",
+      "measure"
+    ],
+    "domains": [
+      "agents",
+      "data",
+      "operations",
+      "automation"
+    ],
+    "artifacts": [
+      "workflows",
+      "source-code"
+    ]
+  },
+  "n8n-validation-expert": {
+    "work": [
+      "diagnose",
+      "validate"
+    ],
+    "domains": [
+      "agents",
+      "operations",
+      "automation"
+    ],
+    "artifacts": [
+      "workflows",
+      "reports"
+    ]
+  },
+  "n8n-mcp-tools-expert": {
+    "work": [
+      "discover",
+      "operate",
+      "validate"
+    ],
+    "domains": [
+      "agents",
+      "operations",
+      "automation"
+    ],
+    "artifacts": [
+      "workflows",
+      "environments"
+    ]
+  },
+  "scientific-critical-thinking": {
+    "work": [
+      "review",
+      "investigate"
+    ],
+    "domains": [
+      "research"
+    ],
+    "artifacts": [
+      "reports",
+      "papers"
+    ]
+  },
+  "uncertainty-and-units": {
+    "work": [
+      "measure",
+      "validate"
+    ],
+    "domains": [
+      "research",
+      "mathematics",
+      "hardware"
+    ],
+    "artifacts": [
+      "measurements",
+      "source-code"
+    ]
+  },
+  "experimental-design": {
+    "work": [
+      "design",
+      "plan"
+    ],
+    "domains": [
+      "research"
+    ],
+    "artifacts": [
+      "models",
+      "workflows"
+    ]
+  },
+  "statistical-analysis": {
+    "work": [
+      "measure",
+      "validate",
+      "review"
+    ],
+    "domains": [
+      "research",
+      "data"
+    ],
+    "artifacts": [
+      "datasets",
+      "measurements",
+      "reports"
+    ]
+  },
+  "literature-review": {
+    "work": [
+      "discover",
+      "investigate",
+      "review"
+    ],
+    "domains": [
+      "research"
+    ],
+    "artifacts": [
+      "papers",
+      "reports"
+    ]
+  },
+  "citation-management": {
+    "work": [
+      "discover",
+      "validate",
+      "transform"
+    ],
+    "domains": [
+      "research",
+      "knowledge"
+    ],
+    "artifacts": [
+      "papers",
+      "datasets"
+    ]
+  },
+  "scientific-visualization": {
+    "work": [
+      "create",
+      "review",
+      "validate"
+    ],
+    "domains": [
+      "research",
+      "data",
+      "graphics"
+    ],
+    "artifacts": [
+      "images",
+      "source-code"
+    ]
+  },
+  "lab-hardware-cad": {
+    "work": [
+      "design",
+      "create"
+    ],
+    "domains": [
+      "research",
+      "hardware"
+    ],
+    "artifacts": [
+      "hardware-designs",
+      "3d-assets"
+    ]
+  },
+  "scientific-writing": {
+    "work": [
+      "create",
+      "transform",
+      "review"
+    ],
+    "domains": [
+      "research"
+    ],
+    "artifacts": [
+      "papers",
+      "reports"
+    ]
+  },
+  "paper-lookup": {
+    "work": [
+      "discover",
+      "investigate"
+    ],
+    "domains": [
+      "research"
+    ],
+    "artifacts": [
+      "papers",
+      "datasets"
+    ]
+  },
+  "hypothesis-generation": {
+    "work": [
+      "investigate",
+      "design",
+      "plan"
+    ],
+    "domains": [
+      "research"
+    ],
+    "artifacts": [
+      "models",
+      "documents"
+    ]
+  },
+  "statistical-power": {
+    "work": [
+      "plan",
+      "measure"
+    ],
+    "domains": [
+      "research",
+      "mathematics"
+    ],
+    "artifacts": [
+      "measurements",
+      "reports"
+    ]
+  },
+  "peer-review": {
+    "work": [
+      "review",
+      "create"
+    ],
+    "domains": [
+      "research"
+    ],
+    "artifacts": [
+      "papers",
+      "reports"
+    ]
+  },
+  "qiskit": {
+    "work": [
+      "create",
+      "implement",
+      "validate"
+    ],
+    "domains": [
+      "quantum"
+    ],
+    "artifacts": [
+      "source-code",
+      "models"
+    ]
+  },
+  "qutip": {
+    "work": [
+      "measure",
+      "validate"
+    ],
+    "domains": [
+      "quantum",
+      "research"
+    ],
+    "artifacts": [
+      "source-code",
+      "models",
+      "measurements"
+    ]
+  },
+  "pennylane": {
+    "work": [
+      "implement",
+      "measure",
+      "validate"
+    ],
+    "domains": [
+      "quantum",
+      "ml"
+    ],
+    "artifacts": [
+      "source-code",
+      "models"
+    ]
+  },
+  "experiment-audit": {
+    "work": [
+      "review",
+      "validate"
+    ],
+    "domains": [
+      "research",
+      "ml"
+    ],
+    "artifacts": [
+      "reports",
+      "measurements"
+    ]
+  },
+  "result-to-claim": {
+    "work": [
+      "review",
+      "plan"
+    ],
+    "domains": [
+      "research",
+      "ml"
+    ],
+    "artifacts": [
+      "reports",
+      "papers"
+    ]
+  },
+  "lean-formalize": {
+    "work": [
+      "create",
+      "validate"
+    ],
+    "domains": [
+      "mathematics"
+    ],
+    "artifacts": [
+      "proofs",
+      "source-code"
+    ]
+  },
+  "formula-derivation": {
+    "work": [
+      "design",
+      "create",
+      "review"
+    ],
+    "domains": [
+      "mathematics",
+      "research"
+    ],
+    "artifacts": [
+      "models",
+      "documents"
+    ]
+  },
+  "hf-cli": {
+    "work": [
+      "operate"
+    ],
+    "domains": [
+      "ml",
+      "operations"
+    ],
+    "artifacts": [
+      "datasets",
+      "models",
+      "environments"
+    ]
+  },
+  "hf-mem": {
+    "work": [
+      "measure",
+      "plan"
+    ],
+    "domains": [
+      "ml"
+    ],
+    "artifacts": [
+      "models",
+      "measurements"
+    ]
+  },
+  "huggingface-local-models": {
+    "work": [
+      "discover",
+      "operate",
+      "plan"
+    ],
+    "domains": [
+      "ml",
+      "operations"
+    ],
+    "artifacts": [
+      "models",
+      "environments"
+    ]
+  },
+  "trl-training": {
+    "work": [
+      "implement",
+      "diagnose",
+      "measure"
+    ],
+    "domains": [
+      "ml"
+    ],
+    "artifacts": [
+      "source-code",
+      "models"
+    ]
+  },
+  "huggingface-datasets": {
+    "work": [
+      "discover",
+      "operate",
+      "transform"
+    ],
+    "domains": [
+      "ml",
+      "data"
+    ],
+    "artifacts": [
+      "datasets"
+    ]
+  },
+  "huggingface-gradio": {
+    "work": [
+      "design",
+      "implement"
+    ],
+    "domains": [
+      "web",
+      "ml"
+    ],
+    "artifacts": [
+      "source-code",
+      "interfaces"
+    ]
+  },
+  "train-sentence-transformers": {
+    "work": [
+      "implement",
+      "measure",
+      "validate"
+    ],
+    "domains": [
+      "ml",
+      "data"
+    ],
+    "artifacts": [
+      "models",
+      "source-code"
+    ]
+  },
+  "huggingface-spaces": {
+    "work": [
+      "implement",
+      "operate",
+      "diagnose"
+    ],
+    "domains": [
+      "ml",
+      "web",
+      "operations"
+    ],
+    "artifacts": [
+      "source-code",
+      "environments"
+    ]
+  },
+  "cocoindex": {
+    "work": [
+      "design",
+      "implement",
+      "operate"
+    ],
+    "domains": [
+      "data",
+      "software",
+      "automation"
+    ],
+    "artifacts": [
+      "datasets",
+      "source-code"
+    ]
+  },
+  "property-based-testing": {
+    "work": [
+      "validate",
+      "diagnose"
+    ],
+    "domains": [
+      "software",
+      "mathematics"
+    ],
+    "artifacts": [
+      "source-code",
+      "proofs"
+    ]
+  },
+  "differential-review": {
+    "work": [
+      "review",
+      "investigate"
+    ],
+    "domains": [
+      "software",
+      "security"
+    ],
+    "artifacts": [
+      "source-code",
+      "reports"
+    ]
+  },
+  "dimensional-analysis": {
+    "work": [
+      "review",
+      "validate"
+    ],
+    "domains": [
+      "software",
+      "mathematics",
+      "finance"
+    ],
+    "artifacts": [
+      "source-code",
+      "reports"
+    ]
+  },
+  "fp-check": {
+    "work": [
+      "investigate",
+      "validate"
+    ],
+    "domains": [
+      "software",
+      "security"
+    ],
+    "artifacts": [
+      "source-code",
+      "reports"
+    ]
+  },
+  "semgrep": {
+    "work": [
+      "operate",
+      "review",
+      "validate"
+    ],
+    "domains": [
+      "software",
+      "security"
+    ],
+    "artifacts": [
+      "source-code",
+      "reports"
+    ]
+  },
+  "codeql": {
+    "work": [
+      "operate",
+      "investigate",
+      "review"
+    ],
+    "domains": [
+      "software",
+      "security"
+    ],
+    "artifacts": [
+      "source-code",
+      "reports"
+    ]
+  },
+  "taste-skill": {
+    "work": [
+      "design",
+      "review"
+    ],
+    "domains": [
+      "web",
+      "graphics",
+      "product"
+    ],
+    "artifacts": [
+      "interfaces",
+      "images"
+    ]
+  },
+  "impeccable-audit": {
+    "work": [
+      "review",
+      "validate"
+    ],
+    "domains": [
+      "web",
+      "graphics"
+    ],
+    "artifacts": [
+      "interfaces",
+      "reports"
+    ]
+  },
+  "impeccable-harden": {
+    "work": [
+      "implement",
+      "diagnose",
+      "validate"
+    ],
+    "domains": [
+      "web",
+      "software"
+    ],
+    "artifacts": [
+      "interfaces",
+      "source-code"
+    ]
+  },
+  "hyperframes": {
+    "work": [
+      "coordinate",
+      "create",
+      "transform"
+    ],
+    "domains": [
+      "media",
+      "graphics",
+      "workflows"
+    ],
+    "artifacts": [
+      "video",
+      "source-code"
+    ]
+  },
+  "hyperframes-cli": {
+    "work": [
+      "operate",
+      "diagnose"
+    ],
+    "domains": [
+      "media",
+      "operations"
+    ],
+    "artifacts": [
+      "video",
+      "environments"
+    ]
+  },
+  "hyperframes-registry": {
+    "work": [
+      "discover",
+      "create"
+    ],
+    "domains": [
+      "media",
+      "graphics"
+    ],
+    "artifacts": [
+      "source-code",
+      "video"
+    ]
+  },
+  "media-use": {
+    "work": [
+      "discover",
+      "create",
+      "transform"
+    ],
+    "domains": [
+      "media",
+      "graphics"
+    ],
+    "artifacts": [
+      "audio",
+      "images",
+      "video"
+    ]
+  },
+  "video-shotcraft": {
+    "work": [
+      "design",
+      "create",
+      "transform"
+    ],
+    "domains": [
+      "media",
+      "marketing"
+    ],
+    "artifacts": [
+      "video",
+      "audio"
+    ]
+  },
+  "remotion-best-practices": {
+    "work": [
+      "coordinate",
+      "discover"
+    ],
+    "domains": [
+      "media",
+      "software",
+      "workflows"
+    ],
+    "artifacts": [
+      "video",
+      "source-code"
+    ]
+  },
+  "remotion-create": {
+    "work": [
+      "create",
+      "implement"
+    ],
+    "domains": [
+      "media",
+      "software"
+    ],
+    "artifacts": [
+      "video",
+      "source-code"
+    ]
+  },
+  "remotion-markup": {
+    "work": [
+      "create",
+      "implement",
+      "transform"
+    ],
+    "domains": [
+      "media",
+      "graphics"
+    ],
+    "artifacts": [
+      "source-code",
+      "video"
+    ]
+  },
+  "remotion-render": {
+    "work": [
+      "transform",
+      "operate"
+    ],
+    "domains": [
+      "media"
+    ],
+    "artifacts": [
+      "video",
+      "images"
+    ]
+  },
+  "auto-editor": {
+    "work": [
+      "transform",
+      "create"
+    ],
+    "domains": [
+      "media"
+    ],
+    "artifacts": [
+      "audio",
+      "video",
+      "workflows"
+    ]
+  },
+  "auto-editor-export": {
+    "work": [
+      "transform",
+      "operate"
+    ],
+    "domains": [
+      "media"
+    ],
+    "artifacts": [
+      "video",
+      "workflows"
+    ]
+  },
+  "game-art-bible": {
+    "work": [
+      "design",
+      "plan"
+    ],
+    "domains": [
+      "games",
+      "graphics"
+    ],
+    "artifacts": [
+      "documents",
+      "images"
+    ]
+  },
+  "game-asset-spec": {
+    "work": [
+      "design",
+      "plan"
+    ],
+    "domains": [
+      "games",
+      "graphics"
+    ],
+    "artifacts": [
+      "documents",
+      "images"
+    ]
+  },
+  "game-playtest-report": {
+    "work": [
+      "review",
+      "transform"
+    ],
+    "domains": [
+      "games",
+      "product"
+    ],
+    "artifacts": [
+      "reports"
+    ]
+  },
+  "godot-production-checks": {
+    "work": [
+      "validate",
+      "operate"
+    ],
+    "domains": [
+      "games",
+      "software"
+    ],
+    "artifacts": [
+      "source-code",
+      "video"
+    ]
+  },
+  "kicad": {
+    "work": [
+      "investigate",
+      "review",
+      "validate"
+    ],
+    "domains": [
+      "hardware"
+    ],
+    "artifacts": [
+      "hardware-designs",
+      "reports"
+    ]
+  },
+  "datasheets": {
+    "work": [
+      "transform",
+      "validate"
+    ],
+    "domains": [
+      "hardware",
+      "data"
+    ],
+    "artifacts": [
+      "datasets",
+      "hardware-designs"
+    ]
+  },
+  "spice": {
+    "work": [
+      "measure",
+      "validate"
+    ],
+    "domains": [
+      "hardware"
+    ],
+    "artifacts": [
+      "hardware-designs",
+      "measurements"
+    ]
+  },
+  "emc": {
+    "work": [
+      "review",
+      "plan"
+    ],
+    "domains": [
+      "hardware"
+    ],
+    "artifacts": [
+      "hardware-designs",
+      "reports"
+    ]
+  },
+  "diagram-design": {
+    "work": [
+      "create",
+      "transform",
+      "validate"
+    ],
+    "domains": [
+      "graphics",
+      "knowledge"
+    ],
+    "artifacts": [
+      "diagrams",
+      "images"
+    ]
+  },
+  "officecli": {
+    "work": [
+      "operate",
+      "transform"
+    ],
+    "domains": [
+      "knowledge"
+    ],
+    "artifacts": [
+      "documents",
+      "spreadsheets",
+      "presentations"
+    ]
+  },
+  "officecli-docx": {
+    "work": [
+      "operate",
+      "transform"
+    ],
+    "domains": [
+      "knowledge"
+    ],
+    "artifacts": [
+      "documents"
+    ]
+  },
+  "officecli-xlsx": {
+    "work": [
+      "operate",
+      "transform"
+    ],
+    "domains": [
+      "knowledge",
+      "data"
+    ],
+    "artifacts": [
+      "spreadsheets"
+    ]
+  },
+  "officecli-pptx": {
+    "work": [
+      "operate",
+      "transform"
+    ],
+    "domains": [
+      "knowledge",
+      "graphics"
+    ],
+    "artifacts": [
+      "presentations"
+    ]
+  },
+  "product-marketing": {
+    "work": [
+      "investigate",
+      "plan",
+      "create"
+    ],
+    "domains": [
+      "product",
+      "marketing"
+    ],
+    "artifacts": [
+      "documents",
+      "notes"
+    ]
+  },
+  "ab-testing": {
+    "work": [
+      "design",
+      "measure",
+      "review"
+    ],
+    "domains": [
+      "product",
+      "marketing",
+      "data"
+    ],
+    "artifacts": [
+      "models",
+      "measurements",
+      "reports"
+    ]
+  },
+  "copywriting": {
+    "work": [
+      "create",
+      "transform"
+    ],
+    "domains": [
+      "marketing",
+      "product"
+    ],
+    "artifacts": [
+      "documents",
+      "interfaces"
+    ]
+  },
+  "launch": {
+    "work": [
+      "plan",
+      "design"
+    ],
+    "domains": [
+      "product",
+      "marketing"
+    ],
+    "artifacts": [
+      "workflows",
+      "documents"
+    ]
+  },
+  "emails": {
+    "work": [
+      "design",
+      "create",
+      "transform"
+    ],
+    "domains": [
+      "marketing"
+    ],
+    "artifacts": [
+      "documents",
+      "workflows"
+    ]
+  },
+  "pricing": {
+    "work": [
+      "investigate",
+      "design",
+      "review"
+    ],
+    "domains": [
+      "product",
+      "finance",
+      "marketing"
+    ],
+    "artifacts": [
+      "models",
+      "reports"
+    ]
+  },
+  "identify-assumptions-new": {
+    "work": [
+      "investigate",
+      "review",
+      "plan"
+    ],
+    "domains": [
+      "product"
+    ],
+    "artifacts": [
+      "models",
+      "reports"
+    ]
+  },
+  "interview-script": {
+    "work": [
+      "design",
+      "create"
+    ],
+    "domains": [
+      "product",
+      "research"
+    ],
+    "artifacts": [
+      "documents"
+    ]
+  },
+  "seo-technical": {
+    "work": [
+      "review",
+      "diagnose"
+    ],
+    "domains": [
+      "web",
+      "marketing"
+    ],
+    "artifacts": [
+      "reports",
+      "interfaces"
+    ]
+  },
+  "seo-audit": {
+    "work": [
+      "review",
+      "investigate"
+    ],
+    "domains": [
+      "web",
+      "marketing"
+    ],
+    "artifacts": [
+      "reports",
+      "datasets"
+    ]
+  },
+  "ads-audit": {
+    "work": [
+      "review",
+      "investigate"
+    ],
+    "domains": [
+      "marketing"
+    ],
+    "artifacts": [
+      "reports",
+      "measurements"
+    ]
+  },
+  "ads-math": {
+    "work": [
+      "measure",
+      "design"
+    ],
+    "domains": [
+      "marketing",
+      "finance"
+    ],
+    "artifacts": [
+      "models",
+      "spreadsheets"
+    ]
+  },
+  "career-ops": {
+    "work": [
+      "investigate",
+      "create",
+      "operate"
+    ],
+    "domains": [
+      "career"
+    ],
+    "artifacts": [
+      "documents",
+      "datasets"
+    ]
+  },
+  "infographic-creator": {
+    "work": [
+      "design",
+      "create"
+    ],
+    "domains": [
+      "graphics",
+      "knowledge"
+    ],
+    "artifacts": [
+      "images",
+      "diagrams"
+    ]
+  },
+  "gh-fix-ci": {
+    "work": [
+      "diagnose",
+      "implement",
+      "validate"
+    ],
+    "domains": [
+      "software",
+      "operations",
+      "automation"
+    ],
+    "artifacts": [
+      "source-code",
+      "reports"
+    ]
+  },
+  "gh-address-comments": {
+    "work": [
+      "investigate",
+      "implement",
+      "review"
+    ],
+    "domains": [
+      "software"
+    ],
+    "artifacts": [
+      "source-code",
+      "reports"
+    ]
+  },
+  "jupyter-notebook": {
+    "work": [
+      "create",
+      "implement"
+    ],
+    "domains": [
+      "data",
+      "research",
+      "ml"
+    ],
+    "artifacts": [
+      "source-code",
+      "documents"
+    ]
+  },
+  "frontend-design": {
+    "work": [
+      "design",
+      "create"
+    ],
+    "domains": [
+      "web",
+      "graphics"
+    ],
+    "artifacts": [
+      "interfaces",
+      "source-code"
+    ]
+  },
+  "mcp-builder": {
+    "work": [
+      "design",
+      "implement",
+      "validate"
+    ],
+    "domains": [
+      "agents",
+      "software"
+    ],
+    "artifacts": [
+      "source-code",
+      "environments"
+    ]
+  },
+  "synthesize-research": {
+    "work": [
+      "investigate",
+      "review",
+      "transform"
+    ],
+    "domains": [
+      "product",
+      "research",
+      "data"
+    ],
+    "artifacts": [
+      "reports",
+      "datasets"
+    ]
+  },
+  "gcloud": {
+    "work": [
+      "operate",
+      "validate",
+      "plan"
+    ],
+    "domains": [
+      "operations"
+    ],
+    "artifacts": [
+      "environments",
+      "source-code"
+    ]
+  },
+  "bigquery-optimization": {
+    "work": [
+      "design",
+      "measure",
+      "implement"
+    ],
+    "domains": [
+      "data",
+      "operations"
+    ],
+    "artifacts": [
+      "source-code",
+      "models"
+    ]
+  },
+  "compute-sanitizer-diagnose-cuda-bugs": {
+    "work": [
+      "diagnose",
+      "validate"
+    ],
+    "domains": [
+      "software",
+      "ml"
+    ],
+    "artifacts": [
+      "source-code",
+      "reports"
+    ]
+  },
+  "physical-ai-physics-selection": {
+    "work": [
+      "discover",
+      "design",
+      "validate"
+    ],
+    "domains": [
+      "robotics",
+      "research"
+    ],
+    "artifacts": [
+      "models",
+      "environments"
+    ]
+  },
+  "eve": {
+    "work": [
+      "design",
+      "implement"
+    ],
+    "domains": [
+      "agents",
+      "software"
+    ],
+    "artifacts": [
+      "source-code",
+      "workflows"
+    ]
+  },
+  "scenario-blender-expert": {
+    "work": [
+      "coordinate",
+      "create",
+      "validate"
+    ],
+    "domains": [
+      "graphics",
+      "games",
+      "workflows"
+    ],
+    "artifacts": [
+      "3d-assets",
+      "images",
+      "video"
+    ]
+  },
+  "scenario-blender-hard-surface": {
+    "work": [
+      "design",
+      "create",
+      "diagnose"
+    ],
+    "domains": [
+      "graphics",
+      "games"
+    ],
+    "artifacts": [
+      "3d-assets"
+    ]
+  },
+  "scenario-blender-rigging": {
+    "work": [
+      "design",
+      "implement",
+      "validate"
+    ],
+    "domains": [
+      "graphics",
+      "games"
+    ],
+    "artifacts": [
+      "3d-assets"
+    ]
+  },
+  "scenario-blender-previs-storyboard": {
+    "work": [
+      "design",
+      "create"
+    ],
+    "domains": [
+      "media",
+      "graphics"
+    ],
+    "artifacts": [
+      "3d-assets",
+      "video"
+    ]
+  },
+  "scenario-blender-animation": {
+    "work": [
+      "create",
+      "transform",
+      "review"
+    ],
+    "domains": [
+      "graphics",
+      "media",
+      "games"
+    ],
+    "artifacts": [
+      "3d-assets",
+      "video"
+    ]
+  },
+  "scenario-blender-texturing-shading": {
+    "work": [
+      "create",
+      "transform",
+      "diagnose"
+    ],
+    "domains": [
+      "graphics",
+      "games"
+    ],
+    "artifacts": [
+      "3d-assets",
+      "images"
+    ]
+  },
+  "scenario-blender-lighting-rendering": {
+    "work": [
+      "create",
+      "transform",
+      "review"
+    ],
+    "domains": [
+      "graphics",
+      "media"
+    ],
+    "artifacts": [
+      "3d-assets",
+      "images",
+      "video"
+    ]
+  },
+  "scenario-blender-export": {
+    "work": [
+      "transform",
+      "validate"
+    ],
+    "domains": [
+      "graphics",
+      "games"
+    ],
+    "artifacts": [
+      "3d-assets"
+    ]
+  },
+  "scenario-unreal-expert": {
+    "work": [
+      "coordinate",
+      "operate",
+      "validate"
+    ],
+    "domains": [
+      "games",
+      "software",
+      "workflows"
+    ],
+    "artifacts": [
+      "source-code",
+      "environments"
+    ]
+  },
+  "scenario-unreal-cinematics": {
+    "work": [
+      "design",
+      "create",
+      "transform"
+    ],
+    "domains": [
+      "media",
+      "games",
+      "graphics"
+    ],
+    "artifacts": [
+      "video",
+      "3d-assets"
+    ]
+  },
+  "colorfigures": {
+    "work": [
+      "design",
+      "create",
+      "implement"
+    ],
+    "domains": [
+      "graphics",
+      "knowledge",
+      "hardware"
+    ],
+    "artifacts": [
+      "diagrams",
+      "interfaces"
+    ]
+  },
+  "archify": {
+    "work": [
+      "design",
+      "create",
+      "validate"
+    ],
+    "domains": [
+      "graphics",
+      "knowledge",
+      "software"
+    ],
+    "artifacts": [
+      "diagrams",
+      "documents"
+    ]
+  },
+  "prospecting": {
+    "work": [
+      "discover",
+      "investigate"
+    ],
+    "domains": [
+      "marketing",
+      "product"
+    ],
+    "artifacts": [
+      "datasets",
+      "reports"
+    ]
+  },
+  "cold-email": {
+    "work": [
+      "create",
+      "review"
+    ],
+    "domains": [
+      "marketing"
+    ],
+    "artifacts": [
+      "documents"
+    ]
+  },
+  "skill-seekers-import": {
+    "work": [
+      "transform",
+      "create"
+    ],
+    "domains": [
+      "agents",
+      "knowledge"
+    ],
+    "artifacts": [
+      "documents",
+      "environments"
+    ]
+  },
+  "embedded-systems": {
+    "work": [
+      "design",
+      "implement",
+      "diagnose"
+    ],
+    "domains": [
+      "hardware",
+      "software"
+    ],
+    "artifacts": [
+      "source-code",
+      "hardware-designs"
+    ]
+  },
+  "repomix-handoff": {
+    "work": [
+      "transform",
+      "coordinate"
+    ],
+    "domains": [
+      "software",
+      "agents",
+      "workflows"
+    ],
+    "artifacts": [
+      "documents",
+      "source-code"
+    ]
+  },
+  "trigger-authoring-tasks": {
+    "work": [
+      "design",
+      "implement"
+    ],
+    "domains": [
+      "software",
+      "operations",
+      "agents",
+      "automation"
+    ],
+    "artifacts": [
+      "source-code",
+      "workflows"
+    ]
+  },
+  "trigger-cost-savings": {
+    "work": [
+      "review",
+      "measure"
+    ],
+    "domains": [
+      "operations",
+      "finance",
+      "automation"
+    ],
+    "artifacts": [
+      "reports",
+      "measurements"
+    ]
+  },
+  "last30days": {
+    "work": [
+      "discover",
+      "investigate"
+    ],
+    "domains": [
+      "research",
+      "product"
+    ],
+    "artifacts": [
+      "reports",
+      "datasets"
+    ]
+  },
+  "ml-paper-writing": {
+    "work": [
+      "create",
+      "transform",
+      "review"
+    ],
+    "domains": [
+      "ml",
+      "research"
+    ],
+    "artifacts": [
+      "papers"
+    ]
+  },
+  "mlx-lm-development": {
+    "work": [
+      "implement",
+      "operate",
+      "measure"
+    ],
+    "domains": [
+      "ml"
+    ],
+    "artifacts": [
+      "source-code",
+      "models"
+    ]
+  },
+  "trufflehog-scan": {
+    "work": [
+      "investigate",
+      "operate",
+      "review"
+    ],
+    "domains": [
+      "software",
+      "operations",
+      "security"
+    ],
+    "artifacts": [
+      "reports"
+    ]
+  },
+  "motion-canvas-production": {
+    "work": [
+      "create",
+      "implement",
+      "transform"
+    ],
+    "domains": [
+      "media",
+      "graphics"
+    ],
+    "artifacts": [
+      "source-code",
+      "video"
+    ]
+  },
+  "baoyu-comic": {
+    "work": [
+      "design",
+      "create"
+    ],
+    "domains": [
+      "graphics",
+      "knowledge"
+    ],
+    "artifacts": [
+      "images",
+      "documents"
+    ]
+  },
+  "slidev-production": {
+    "work": [
+      "create",
+      "implement"
+    ],
+    "domains": [
+      "knowledge",
+      "software"
+    ],
+    "artifacts": [
+      "presentations",
+      "source-code"
+    ]
+  },
+  "finance-3-statement-model": {
+    "work": [
+      "transform",
+      "validate"
+    ],
+    "domains": [
+      "finance"
+    ],
+    "artifacts": [
+      "spreadsheets",
+      "models"
+    ]
+  },
+  "finance-dcf-model": {
+    "work": [
+      "investigate",
+      "design",
+      "measure"
+    ],
+    "domains": [
+      "finance"
+    ],
+    "artifacts": [
+      "spreadsheets",
+      "models"
+    ]
+  },
+  "finance-comps-analysis": {
+    "work": [
+      "investigate",
+      "design",
+      "measure"
+    ],
+    "domains": [
+      "finance"
+    ],
+    "artifacts": [
+      "spreadsheets",
+      "models"
+    ]
+  },
+  "finance-audit-xls": {
+    "work": [
+      "review",
+      "validate",
+      "diagnose"
+    ],
+    "domains": [
+      "finance",
+      "data"
+    ],
+    "artifacts": [
+      "spreadsheets",
+      "reports"
+    ]
+  },
+  "training-tuning-playbook": {
+    "work": [
+      "diagnose",
+      "measure",
+      "plan"
+    ],
+    "domains": [
+      "ml",
+      "research"
+    ],
+    "artifacts": [
+      "models",
+      "measurements"
+    ]
+  },
+  "worktrunk": {
+    "work": [
+      "operate",
+      "diagnose"
+    ],
+    "domains": [
+      "software",
+      "operations"
+    ],
+    "artifacts": [
+      "environments",
+      "source-code"
+    ]
+  },
+  "euclidean-geometry-ddar": {
+    "work": [
+      "investigate",
+      "validate"
+    ],
+    "domains": [
+      "mathematics"
+    ],
+    "artifacts": [
+      "proofs",
+      "models"
+    ]
+  },
+  "instrument-control": {
+    "work": [
+      "operate",
+      "measure",
+      "validate"
+    ],
+    "domains": [
+      "hardware",
+      "research"
+    ],
+    "artifacts": [
+      "measurements",
+      "source-code"
+    ]
+  },
+  "pstack-statechart": {
+    "work": [
+      "design",
+      "validate"
+    ],
+    "domains": [
+      "software",
+      "mathematics"
+    ],
+    "artifacts": [
+      "models",
+      "proofs",
+      "diagrams"
+    ]
+  },
+  "gstack-qa": {
+    "work": [
+      "diagnose",
+      "implement",
+      "validate"
+    ],
+    "domains": [
+      "software",
+      "web"
+    ],
+    "artifacts": [
+      "source-code",
+      "interfaces",
+      "reports"
+    ]
+  },
+  "gstack-review": {
+    "work": [
+      "review",
+      "investigate",
+      "validate"
+    ],
+    "domains": [
+      "software"
+    ],
+    "artifacts": [
+      "source-code",
+      "reports"
+    ]
+  },
+  "gstack-plan-eng-review": {
+    "work": [
+      "review",
+      "plan"
+    ],
+    "domains": [
+      "software"
+    ],
+    "artifacts": [
+      "documents",
+      "reports"
+    ]
+  },
+  "remotion-interactivity": {
+    "work": [
+      "implement",
+      "transform"
+    ],
+    "domains": [
+      "media",
+      "software"
+    ],
+    "artifacts": [
+      "source-code",
+      "video"
+    ]
+  },
+  "remotion-captions": {
+    "work": [
+      "create",
+      "transform"
+    ],
+    "domains": [
+      "media"
+    ],
+    "artifacts": [
+      "audio",
+      "video",
+      "source-code"
+    ]
+  },
+  "remotion-studio": {
+    "work": [
+      "operate",
+      "review"
+    ],
+    "domains": [
+      "media"
+    ],
+    "artifacts": [
+      "video",
+      "environments"
+    ]
+  },
+  "remotion-multimedia": {
+    "work": [
+      "measure",
+      "operate"
+    ],
+    "domains": [
+      "media"
+    ],
+    "artifacts": [
+      "measurements",
+      "video",
+      "audio"
+    ]
+  },
+  "remotion-docs": {
+    "work": [
+      "discover"
+    ],
+    "domains": [
+      "media",
+      "software"
+    ],
+    "artifacts": [
+      "documents"
+    ]
+  },
+  "remotion-license": {
+    "work": [
+      "discover",
+      "investigate"
+    ],
+    "domains": [
+      "media",
+      "operations"
+    ],
+    "artifacts": [
+      "documents"
+    ]
+  },
+  "manim-production": {
+    "work": [
+      "create",
+      "validate"
+    ],
+    "domains": [
+      "mathematics",
+      "media",
+      "research"
+    ],
+    "artifacts": [
+      "video",
+      "source-code"
+    ]
+  },
+  "scenario-unreal-animation": {
+    "work": [
+      "implement",
+      "transform",
+      "validate"
+    ],
+    "domains": [
+      "games",
+      "graphics"
+    ],
+    "artifacts": [
+      "3d-assets",
+      "source-code"
+    ]
+  },
+  "scenario-unreal-pipeline-automation": {
+    "work": [
+      "implement",
+      "operate",
+      "validate"
+    ],
+    "domains": [
+      "games",
+      "software",
+      "operations",
+      "automation"
+    ],
+    "artifacts": [
+      "3d-assets",
+      "source-code",
+      "workflows"
+    ]
+  },
+  "scenario-blender-grease-pencil": {
+    "work": [
+      "create",
+      "implement",
+      "diagnose"
+    ],
+    "domains": [
+      "graphics",
+      "media"
+    ],
+    "artifacts": [
+      "3d-assets",
+      "images",
+      "video"
+    ]
+  },
+  "01": {
+    "work": [
+      "coordinate",
+      "discover",
+      "validate"
+    ],
+    "domains": [
+      "agents",
+      "workflows"
+    ],
+    "artifacts": [
+      "workflows"
+    ]
+  },
+  "deep-research": {
+    "work": [
+      "coordinate",
+      "investigate",
+      "review"
+    ],
+    "domains": [
+      "research",
+      "workflows"
+    ],
+    "artifacts": [
+      "papers",
+      "reports"
+    ]
+  },
+  "academic-paper": {
+    "work": [
+      "coordinate",
+      "create",
+      "review"
+    ],
+    "domains": [
+      "research",
+      "workflows"
+    ],
+    "artifacts": [
+      "papers"
+    ]
+  },
+  "academic-paper-reviewer": {
+    "work": [
+      "coordinate",
+      "review",
+      "validate"
+    ],
+    "domains": [
+      "research",
+      "workflows"
+    ],
+    "artifacts": [
+      "papers",
+      "reports"
+    ]
+  },
+  "academic-pipeline": {
+    "work": [
+      "coordinate",
+      "plan",
+      "review"
+    ],
+    "domains": [
+      "research",
+      "workflows"
+    ],
+    "artifacts": [
+      "papers",
+      "workflows"
+    ]
+  },
+  "agent-desktop": {
+    "work": [
+      "operate",
+      "validate"
+    ],
+    "domains": [
+      "agents",
+      "operations"
+    ],
+    "artifacts": [
+      "interfaces",
+      "environments"
+    ]
+  },
+  "eval-harness": {
+    "work": [
+      "design",
+      "measure",
+      "validate"
+    ],
+    "domains": [
+      "agents",
+      "software"
+    ],
+    "artifacts": [
+      "source-code",
+      "reports",
+      "measurements"
+    ]
+  },
+  "agent-reach": {
+    "work": [
+      "discover",
+      "investigate"
+    ],
+    "domains": [
+      "research",
+      "knowledge",
+      "media"
+    ],
+    "artifacts": [
+      "datasets",
+      "documents",
+      "video"
+    ]
+  },
+  "ai-scientist": {
+    "work": [
+      "coordinate",
+      "implement",
+      "measure",
+      "validate"
+    ],
+    "domains": [
+      "research",
+      "ml",
+      "workflows"
+    ],
+    "artifacts": [
+      "source-code",
+      "measurements",
+      "papers"
+    ]
+  },
+  "roast-room": {
+    "work": [
+      "review",
+      "investigate"
+    ],
+    "domains": [
+      "product",
+      "marketing"
+    ],
+    "artifacts": [
+      "reports"
+    ]
+  },
+  "cirq": {
+    "work": [
+      "design",
+      "implement",
+      "measure"
+    ],
+    "domains": [
+      "quantum",
+      "research"
+    ],
+    "artifacts": [
+      "source-code",
+      "models"
+    ]
+  },
+  "cloudflare-security-audit": {
+    "work": [
+      "review",
+      "investigate",
+      "validate"
+    ],
+    "domains": [
+      "software",
+      "security"
+    ],
+    "artifacts": [
+      "source-code",
+      "reports"
+    ]
+  },
+  "codebase-onboarding": {
+    "work": [
+      "investigate",
+      "create"
+    ],
+    "domains": [
+      "software",
+      "agents"
+    ],
+    "artifacts": [
+      "documents",
+      "diagrams"
+    ]
+  },
+  "craft-anything": {
+    "work": [
+      "investigate",
+      "transform"
+    ],
+    "domains": [
+      "software",
+      "agents",
+      "reverse-engineering"
+    ],
+    "artifacts": [
+      "source-code",
+      "reports"
+    ]
+  },
+  "creative-reframing": {
+    "work": [
+      "investigate",
+      "design"
+    ],
+    "domains": [
+      "product",
+      "research",
+      "software"
+    ],
+    "artifacts": [
+      "models",
+      "reports"
+    ]
+  },
+  "pstack-create-formal-verification": {
+    "work": [
+      "design",
+      "implement",
+      "validate"
+    ],
+    "domains": [
+      "software",
+      "mathematics"
+    ],
+    "artifacts": [
+      "source-code",
+      "proofs"
+    ]
+  },
+  "pstack-maintain-formal-verification": {
+    "work": [
+      "transform",
+      "validate",
+      "diagnose"
+    ],
+    "domains": [
+      "software",
+      "mathematics"
+    ],
+    "artifacts": [
+      "source-code",
+      "proofs"
+    ]
+  },
+  "game-systems-review": {
+    "work": [
+      "review",
+      "validate"
+    ],
+    "domains": [
+      "games",
+      "product"
+    ],
+    "artifacts": [
+      "models",
+      "reports"
+    ]
+  },
+  "google-maps-scraper": {
+    "work": [
+      "discover",
+      "transform"
+    ],
+    "domains": [
+      "marketing",
+      "data"
+    ],
+    "artifacts": [
+      "datasets"
+    ]
+  },
+  "llm-council": {
+    "work": [
+      "coordinate",
+      "review"
+    ],
+    "domains": [
+      "agents",
+      "knowledge",
+      "workflows"
+    ],
+    "artifacts": [
+      "documents",
+      "reports"
+    ]
+  },
+  "agent-orchestration": {
+    "work": [
+      "coordinate",
+      "plan",
+      "validate"
+    ],
+    "domains": [
+      "agents",
+      "software",
+      "workflows"
+    ],
+    "artifacts": [
+      "workflows"
+    ]
+  },
+  "council-of-high-intelligence": {
+    "work": [
+      "coordinate",
+      "investigate",
+      "review"
+    ],
+    "domains": [
+      "product",
+      "knowledge",
+      "workflows"
+    ],
+    "artifacts": [
+      "reports"
+    ]
+  },
+  "playwright-mcp": {
+    "work": [
+      "operate",
+      "validate"
+    ],
+    "domains": [
+      "web",
+      "agents",
+      "automation"
+    ],
+    "artifacts": [
+      "interfaces",
+      "environments"
+    ]
+  },
+  "raea": {
+    "work": [
+      "create",
+      "implement",
+      "transform"
+    ],
+    "domains": [
+      "media",
+      "graphics",
+      "games"
+    ],
+    "artifacts": [
+      "source-code",
+      "video",
+      "3d-assets"
+    ]
+  },
+  "rea": {
+    "work": [
+      "investigate",
+      "transform"
+    ],
+    "domains": [
+      "software",
+      "agents",
+      "reverse-engineering"
+    ],
+    "artifacts": [
+      "source-code",
+      "reports",
+      "environments"
+    ]
+  },
+  "repository-docs": {
+    "work": [
+      "discover",
+      "investigate"
+    ],
+    "domains": [
+      "software"
+    ],
+    "artifacts": [
+      "documents"
+    ]
+  },
+  "fpga-development": {
+    "work": [
+      "design",
+      "implement",
+      "validate"
+    ],
+    "domains": [
+      "hardware",
+      "software"
+    ],
+    "artifacts": [
+      "source-code",
+      "hardware-designs"
+    ]
+  },
+  "shinka-evolve": {
+    "work": [
+      "design",
+      "implement",
+      "measure"
+    ],
+    "domains": [
+      "software",
+      "research"
+    ],
+    "artifacts": [
+      "source-code",
+      "measurements"
+    ]
+  },
+  "skillspector": {
+    "work": [
+      "review",
+      "validate"
+    ],
+    "domains": [
+      "agents",
+      "software",
+      "security"
+    ],
+    "artifacts": [
+      "source-code",
+      "reports"
+    ]
+  },
+  "strix-security-testing": {
+    "work": [
+      "investigate",
+      "review",
+      "validate"
+    ],
+    "domains": [
+      "software",
+      "web",
+      "security"
+    ],
+    "artifacts": [
+      "source-code",
+      "reports"
+    ]
+  },
+  "sr-screener": {
+    "work": [
+      "investigate",
+      "review",
+      "validate"
+    ],
+    "domains": [
+      "research"
+    ],
+    "artifacts": [
+      "datasets",
+      "reports"
+    ]
+  },
+  "unslop": {
+    "work": [
+      "design",
+      "transform",
+      "review"
+    ],
+    "domains": [
+      "web",
+      "graphics"
+    ],
+    "artifacts": [
+      "interfaces",
+      "source-code"
+    ]
+  },
+  "untangle-codebase": {
+    "work": [
+      "design",
+      "transform",
+      "validate"
+    ],
+    "domains": [
+      "software",
+      "agents"
+    ],
+    "artifacts": [
+      "source-code"
+    ]
+  },
+  "dream-loop": {
+    "work": [
+      "design",
+      "implement",
+      "review"
+    ],
+    "domains": [
+      "web",
+      "games",
+      "graphics"
+    ],
+    "artifacts": [
+      "interfaces",
+      "images",
+      "source-code"
+    ]
+  },
+  "ui-design-hallmark": {
+    "work": [
+      "design",
+      "create",
+      "validate"
+    ],
+    "domains": [
+      "web",
+      "graphics"
+    ],
+    "artifacts": [
+      "interfaces",
+      "source-code"
+    ]
+  },
+  "pixel-art-effects": {
+    "work": [
+      "create",
+      "transform",
+      "validate"
+    ],
+    "domains": [
+      "games",
+      "graphics",
+      "media"
+    ],
+    "artifacts": [
+      "images",
+      "source-code",
+      "video"
+    ]
+  },
+  "design-specification-workflow": {
+    "work": [
+      "plan",
+      "design",
+      "review",
+      "validate"
+    ],
+    "domains": [
+      "software",
+      "agents",
+      "workflows"
+    ],
+    "artifacts": [
+      "documents",
+      "reports",
+      "workflows"
+    ]
+  },
+  "presentation-visual-design": {
+    "work": [
+      "design",
+      "create",
+      "review"
+    ],
+    "domains": [
+      "graphics",
+      "knowledge"
+    ],
+    "artifacts": [
+      "presentations"
+    ]
+  },
+  "iphone-mirroring-automation": {
+    "work": [
+      "operate",
+      "validate"
+    ],
+    "domains": [
+      "automation",
+      "software",
+      "workflows"
+    ],
+    "artifacts": [
+      "environments",
+      "interfaces",
+      "workflows"
+    ]
+  }
+}

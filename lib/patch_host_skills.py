@@ -1,12 +1,12 @@
 """Host-native ports for the selected Codex, research synthesis and cloud leaves."""
-import pathlib,re,shutil,ast
+import pathlib,re,shutil,ast,json
 P=pathlib.Path
 
 def change(s,old,new):
  if old not in s:raise ValueError('Missing host port anchor: '+old[:90])
  return s.replace(old,new)
 def patch(id,name,out):
- p=out/'SKILL.md';s=p.read_text()
+ p=out/'SKILL.md';s=p.read_text();source_original=s
  if id=='L006':
   if name=='jupyter-notebook':
    start=s.index('## Skill path (set once)');end=s.index('## Workflow',start)
@@ -77,6 +77,12 @@ Verify each unfamiliar leaf command against `gcloud help <leaf_command>` in the 
   start=s.index(heading);end=s.index('\n## ',start+4)
   s=s[:start]+'## Native execution\n\nNo compulsory skill usage-attribution environment/header is added. Preserve native authentication, project/region diagnostics and existing user authority.\n'+s[end:]
   if name=='bigquery-optimization':
+   original_metadata_source=source_original
+   old_description='description: >-\n  Provides workflows to optimize BigQuery environments (capacity planning,\n  editions), storage assets (partitioning, clustering, storage lifecycles,\n  billing models), and SQL queries. Use when optimizing cost, modeling Edition\n  migrations, rightsizing reservations, evaluating logical vs. physical storage,\n  designing table partitioning/clustering, generating table DDL, migrating\n  unpartitioned tables, managing partition expiration, optimizing individual SQL\n  queries, or evaluating acceleration structures (search indexes, materialized\n  views, BI Engine).\n\n  Do not use for raw usage reporting (use bigquery-observability), query\n  execution plan analysis, error troubleshooting, or diagnosing why a specific\n  job was slow (use bigquery-troubleshooting).\n'
+   if s.count(old_description)!=1:raise ValueError('Reviewed BigQuery description preimage changed')
+   s=s.replace(old_description,'description: '+json.dumps('Optimize BigQuery capacity, storage and SQL for a concrete cost, partitioning, clustering, reservation, edition or acceleration decision. Raw usage reporting, query-plan diagnostics and job-error troubleshooting are separate tasks; resolve those against available native tools and current official documentation.')+ '\n',1)
+   preserved=out/'NATIVE-ORIGINALS';preserved.mkdir(exist_ok=True)
+   (preserved/'bigquery-SKILL.md.original').write_text(original_metadata_source)
    start=s.index('6.  **Companion Skills Installation**');end=s.index('\n## ',start)
    s=s[:start]+'6. Use the selected leaf and its relevant references only. Do not install companion collections. Native read-only APIs cover ordinary telemetry.\n'+s[end:]
   # Port attribution instructions in support references too, preserving command/data guidance.

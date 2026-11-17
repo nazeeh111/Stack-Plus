@@ -152,7 +152,7 @@ The overlapping work, domain and artifact views are navigation, not exclusive fo
 | godot-project-validation | Validate Godot serialization and runtime behavior with gameplay capture | validate, operate | games, software | source-code, video |  |
 | google-cloud-cli | Construct or operate Google Cloud CLI commands with scoped validation | operate, validate, plan | operations | environments, source-code |  |
 | google-maps-scraper | Extract public business listings, contacts and reviews from Google Maps | discover, transform | marketing, data | datasets |  |
-| google-workspace-cli | Use shared Google Workspace CLI authentication, flags and output conventions | operate | knowledge, operations | documents, environments |  |
+| google-workspace-cli | Use Google Workspace CLI for an explicit selection or a native operation gap | operate | knowledge, operations | documents, environments | Native connected service first; shared CLI guidance for the selected missing operation. |
 | gradio-python-web-apps | Build Python Gradio demos with components, layouts and event behavior | design, implement | web, ml | source-code, interfaces |  |
 | huggingface-dataset-viewer-api | Query Dataset Viewer splits, rows, filters, statistics and Parquet links | discover, operate, transform | ml, data | datasets |  |
 | huggingface-hub-cli | Operate named Hugging Face Hub repositories, assets and authorized jobs | operate | ml, operations | datasets, models, environments |  |
@@ -216,7 +216,7 @@ The overlapping work, domain and artifact views are navigation, not exclusive fo
 | presentation-visual-design | Design a presentation's visual identity, typography, slide composition and data treatment | design, create, review | graphics, knowledge | presentations | Presentation art direction alongside the existing authoring provider; preserve editable content and use separate PPTX quality gates for local files. |
 | product-discovery-consultation | Frame a product problem and compare practical design directions | investigate, plan, design | product, software | reports, models | Product framing and alternatives, rather than an engineering plan review or code audit. |
 | product-launch-strategy | Plan a product launch, announcement or release strategy | plan, design | product, marketing | workflows, documents |  |
-| product-marketing-context | Record product audience, positioning and shared marketing context | investigate, plan, create | product, marketing | documents, notes |  |
+| product-marketing-context | Record product audience, positioning and shared marketing context | investigate, plan, create | product, marketing | documents, notes | Shared marketing positioning context, not setup for unrelated projects or generic lessons. |
 | product-pricing-strategy | Evaluate pricing, packaging, value metrics and monetization choices | investigate, design, review | product, finance, marketing | models, reports |  |
 | property-based-testing | Test invariants over generated input domains and interpret shrunk failures | validate, diagnose | software, mathematics | source-code, proofs | Generated-domain invariants; not binary fuzzing, static analysis or a benchmark. |
 | qiskit-quantum-circuits | Build, transpile and evaluate Qiskit circuits against explicit targets | create, implement, validate | quantum | source-code, models | Circuit compilation and IBM-target workflows; open-system dynamics and differentiable quantum ML differ. |
@@ -260,7 +260,7 @@ The overlapping work, domain and artifact views are navigation, not exclusive fo
 | strix-security-testing | Apply Strix methods to an authorized application, API or code security assessment | investigate, review, validate | software, web, security | source-code, reports |  |
 | study-eligibility-screening | Screen study records against explicit eligibility rules and reconcile reviewer decisions | investigate, review, validate | research | datasets, reports | Protocol-driven eligibility and study-selection records; not a substitute for full literature synthesis. |
 | technical-seo-audit | Audit site crawlability, indexability, rendering and technical SEO | review, diagnose | web, marketing | reports, interfaces | Technical crawl, index and rendering questions; excludes content strategy and backlinks. |
-| test-driven-development | Implement changes through failing tests, minimal fixes and refactoring | implement, validate | software | source-code |  |
+| test-driven-development | Implement test-first changes through failing behavioral tests and minimal fixes | implement, validate | software | source-code | Test-first implementation; integration-test-only coverage can use the existing project workflow. |
 | tla-state-machine-checking | Model system states in TLA+ and expose invariant-breaking execution paths | design, validate | software, mathematics | models, proofs, diagrams | Checks an explicit finite/state model and counterexample paths; not proof of arbitrary implementation behavior. |
 | train-sentence-transformers | Train retrieval, embedding, reranking or pair-scoring models | implement, measure, validate | ml, data | models, source-code |  |
 | trigger-authoring-tasks | Implement durable Trigger.dev jobs with retries, waits and cancellation | design, implement | software, operations, agents, automation | source-code, workflows |  |

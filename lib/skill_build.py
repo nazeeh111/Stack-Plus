@@ -11,6 +11,10 @@ def patch_p001(out,name):
  if name=='diagnosing-bugs':
   pass  # The reproduction/minimization gates are the upstream diagnostic method.
  elif name=='tdd':
+  original_tdd=text
+  text=replace(text,"**Test only at pre-agreed seams.** Before writing any test, write down the seams under test and confirm them with the user. No test is written at an unconfirmed seam. You can't test everything, so agreeing the seams up front is how testing effort lands on the critical paths and complex logic instead of every edge case.",'**Test public seams within the requested scope.** Identify the interfaces under test from the user request and project contracts, and record what each check covers and misses. Use already supplied interface choices and testing authority. Ask only when a consequential seam remains unresolved; routine authorized coverage does not require another confirmation.')
+  preserved=out/'NATIVE-ORIGINALS';preserved.mkdir(exist_ok=True)
+  (preserved/'tdd-SKILL.md.original').write_text(original_tdd)
   text=replace(text,'call the Skill tool with "codebase-design"','read the selected "codebase-design" skill')
  elif name=='codebase-design':
   deep=out/'DEEPENING.md'

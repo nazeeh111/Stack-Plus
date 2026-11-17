@@ -1,0 +1,46 @@
+[
+  {
+    "name": "test-driven-development",
+    "url": "https://raw.githubusercontent.com/mattpocock/skills/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/skills/engineering/tdd/SKILL.md",
+    "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+    "source_path": "skills/engineering/tdd/SKILL.md",
+    "sha256": "5505d25bbaa8fc14a79e4d20163936958992a2995b7f1dd1d6197edc9ed722e0",
+    "license": "MIT",
+    "file": "test-driven-development.original.md",
+    "license_file": "LICENSE-TDD.txt",
+    "license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+  },
+  {
+    "name": "bigquery-optimization",
+    "url": "https://raw.githubusercontent.com/google/skills/0b14183791fb3d017b06b7c7718078d82a4afc33/skills/cloud/bigquery-optimization/SKILL.md",
+    "revision": "0b14183791fb3d017b06b7c7718078d82a4afc33",
+    "source_path": "skills/cloud/bigquery-optimization/SKILL.md",
+    "sha256": "c3ab16164631beeec73cf34d4bf9a6d248bd9e1a8ec0c12e6d4fa1dc8cba9c2f",
+    "license": "Apache-2.0",
+    "file": "bigquery-optimization.original.md",
+    "license_file": "LICENSE-BIGQUERY.txt",
+    "license_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  {
+    "name": "google-workspace-cli",
+    "url": "https://raw.githubusercontent.com/googleworkspace/cli/cd3697e07eb520056dcf142d0c7439bbb9ba32e9/skills/gws-shared/SKILL.md",
+    "revision": "cd3697e07eb520056dcf142d0c7439bbb9ba32e9",
+    "source_path": "skills/gws-shared/SKILL.md",
+    "sha256": "87abfb41cdcc300b7f2f733d1558a8af8d3c2a7cca1512f9eba244965fad98b2",
+    "file": "google-workspace-cli.original.md",
+    "license": "Apache-2.0",
+    "license_file": "LICENSE-GWS.txt",
+    "license_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  {
+    "name": "product-marketing-context",
+    "url": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/88c79f6528a9347420e57ceb1fff9a60de651768/skills/product-marketing/SKILL.md",
+    "revision": "88c79f6528a9347420e57ceb1fff9a60de651768",
+    "source_path": "skills/product-marketing/SKILL.md",
+    "sha256": "19ece0fa75c72a5a8b6e90db80f506586f54cc93bae6bffbb1bd2ef4ae7d603c",
+    "file": "product-marketing-context.original.md",
+    "license": "MIT",
+    "license_file": "LICENSE-PRODUCT-MARKETING.txt",
+    "license_sha256": "b70d71e24e40fce5da8f4b6f9cd862096a048e433db7f3c8cac5e348e6d34591"
+  }
+]
