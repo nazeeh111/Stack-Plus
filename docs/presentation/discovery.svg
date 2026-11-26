@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="426" viewBox="0 0 840 426" role="img" aria-labelledby="t d">
+  <title id="t">An open nstack registry record</title>
+  <desc id="d">Search for web-ui-design. Component L010 points to two Apache-2.0 skills at revision ca45fc4 of anthropics/skills. Each skill has its own acceptance checks.</desc>
+  <defs>
+    <pattern id="grid" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#5b635a"/></pattern>
+    <pattern id="edge" width="7" height="7" patternUnits="userSpaceOnUse"><path d="M-1 1l3-3m-2 9 8-8m-2 9 3-3" stroke="#8d9c82" fill="none"/></pattern>
+  </defs>
+  <rect width="840" height="426" fill="#24342e"/>
+  <rect width="840" height="426" fill="url(#grid)"/>
+  <!-- The lower cards remain visibly distinct as the registry opens. -->
+  <path d="M48 104h740v282H48z" fill="url(#edge)" stroke="#b3beab" stroke-width="2"/>
+  <path d="M54 90h728v286H54z" fill="#a8b6a0" stroke="#1a3029" stroke-width="2"/>
+  <path d="M60 78h716v287H60z" fill="#c9cbb5" stroke="#1a3029" stroke-width="2"/>
+  <path d="M67 64V41h214l22 23h498v289H67z" fill="#f7f2da" stroke="#182e27" stroke-width="3"/>
+  <g fill="#24342e" font-family="Menlo,Consolas,monospace">
+    <text x="88" y="61" font-weight="bold" font-size="21">nstack / index</text>
+    <text x="88" y="108" font-size="25">component</text>
+    <text x="86" y="188" font-family="Helvetica,Arial,sans-serif" font-weight="700" font-size="91" letter-spacing="-5">L010</text>
+    <text x="90" y="229" font-size="25">source</text>
+    <text x="90" y="261" font-size="25" font-weight="bold">anthropics/skills</text>
+    <text x="90" y="299" font-size="24">@ca45fc4</text>
+    <path d="M384 83v246" stroke="#949b87" stroke-dasharray="3 6" stroke-width="2"/>
+    <text x="411" y="108" font-size="25">selected skills</text>
+    <path d="M425 129v72h21m-21-51h21" stroke="#3b6250" stroke-width="3" fill="none"/>
+    <circle cx="425" cy="128" r="5" fill="#3b6250"/>
+    <text x="455" y="158" font-size="31" font-weight="bold">web-ui-design</text>
+    <text x="455" y="210" font-size="31" font-weight="bold">mcp-builder</text>
+    <path d="M411 240h333" stroke="#949b87" stroke-width="2"/>
+    <text x="411" y="275" font-size="25">license · both leaves</text>
+    <text x="411" y="312" font-size="31" font-weight="bold">Apache-2.0</text>
+  </g>
+</svg>

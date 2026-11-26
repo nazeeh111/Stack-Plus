@@ -33,3 +33,12 @@ Default-branch head: `c7f6c73bb3ae7fd5aba7c9bd41d8514a932926b7`
 
 The presentation changes only documentation and its assets. This record does
 not assert that an unpublished engineering successor is merged into the default.
+
+## Reading the illustration
+
+The [editable registry card](discovery.svg) depicts one search result. Its
+component identifier and two native names come from `search.json`. The
+seven-character revision is the prefix of the full `show.json` revision.
+The rights label covers the two selected source paths only. The original
+vector artwork uses system fonts and is distributed under the repository's
+[MIT license](../../LICENSE). No upstream artwork or font files are bundled.

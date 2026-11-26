@@ -1,72 +1,44 @@
 # nstack
 
-**Find the right specialist. Keep the host in charge.**
+A skill registry for Codex and OpenCode. Start with a task, inspect the exact
+source and license behind a matching skill, then decide whether to use it in
+your host.
 
-nstack helps Codex discover reviewed skills and prepare tools for a specific
-task. Source identities, licenses, prerequisites and acceptance checks travel
-with the capability. Ordinary work stays with the host; heavy runtimes stay
-on demand. An optional OpenCode adapter shares the collection.
+![Registry record L010 maps anthropics/skills at ca45fc4 to web-ui-design and mcp-builder. Both selected skills have Apache-2.0 rights.](docs/presentation/discovery.svg)
 
-[Try read-only discovery](#explore-before-installing) · [Set up a Mac](#install-on-a-mac) · [Runtime routes](#on-demand-routes) · [Recovery](#roll-back-from-terminal)
-
-## A task becomes an inspectable route
-
-Start with `web-ui-design`. Search returns **L010**, a registry component whose
-selected native skills are `web-ui-design` and `mcp-builder`. The next two
-commands expose its pinned source, per-skill rights, prerequisites and concrete
-checks before any preparation or activation:
-
-1. **Find a match:** `search web-ui-design --brief` returns a component and its selected skill names.
-2. **Inspect its source:** `show L010` exposes the pinned source, rights, adaptations and staged-build state.
-3. **Read the route:** `route L010` explains preparation, activation, verification and retirement.
-
-[Inspect the captured JSON session](docs/presentation/README.md). This discovery
-run reads the public checkout with an absent disposable state path; it installs,
-fetches and activates nothing. A source route is available guidance, not proof
-that a runtime is installed or accepted for a real task.
-
-The current Mac workflow uses Codex and optionally OpenCode. Retained legacy
-Claude Code compatibility source is documented separately.
+[Rehearse a Mac setup](docs/ONBOARDING.md) · [Inspect the recorded outputs](docs/presentation/README.md) · [Restore a setup](docs/RESTORE.md)
 
 ## Explore before installing
 
-From a source checkout with Python 3.11 or newer, search the registry without
-installing, activating or fetching anything:
+From a checkout with Python 3.11 or newer, try a frontend design task. The
+commands below read the registry with an unused state path and leave it absent.
 
 ```sh
-NSTACK_STATE="$PWD/.nstack-demo-state" python3 nstack.py search web-ui-design --brief
-NSTACK_STATE="$PWD/.nstack-demo-state" python3 nstack.py show L010
-NSTACK_STATE="$PWD/.nstack-demo-state" python3 nstack.py route L010
+(
+  export NSTACK_STATE="$PWD/.nstack-demo-state"
+  [ ! -e "$NSTACK_STATE" ] && [ ! -L "$NSTACK_STATE" ] || exit 1
+  python3 nstack.py search web-ui-design --brief
+  python3 nstack.py show L010
+  python3 nstack.py route L010
+)
 ```
 
-The first command includes this result:
+**What to look for in the output**
 
-```json
-{
-  "id": "L010",
-  "summary": "Anthropic specialist skills and packaging examples.",
-  "admission": "on demand",
-  "selected_native_names": ["web-ui-design", "mcp-builder"]
-}
-```
+| Command | What the record tells you |
+| --- | --- |
+| [`search`](docs/presentation/search.json) | `web-ui-design` and `mcp-builder` belong to component `L010`. |
+| [`show`](docs/presentation/show.json) | The two selected source paths share a pinned revision. The upstream document skill has different rights and is excluded. |
+| [`route`](docs/presentation/route.json) | For frontend work, check mobile layout, keyboard use and reduced motion in the actual interface. The runtime still needs separate verification. |
 
-`L010` identifies a **component** in the registry; `web-ui-design` is a
-selected native skill name. A component can contain several selected skills.
-`show` explains source, license, use conditions and selected paths; `route`
-shows prerequisites and possible actions. Catalog availability does not mean a
-skill is installed or its runtime has passed target-specific checks. These
-commands read the checked-in registry. `show` also checks for any staged builds
-in the selected state directory; the example uses an absent local path and
-creates no state. Once installed, replace `python3 nstack.py` with `nstack`.
+## Use it in a project
 
-Search ranks entries matching more terms first. Use `--all` to include excluded
-and consultation-only entries; those results are not permission to install
-them. Omit `--brief` for the complete JSON record. Trial and substitute
-entries remain locked until their specific acceptance gates are implemented.
+- **Set up a host.** Rehearse a single skill in a temporary home, then choose your permanent collection. [Mac onboarding](docs/ONBOARDING.md) · [OpenCode adapter](docs/OPENCODE.md)
+- **Follow a worked example.** A synthetic clap becomes an editable decay plot and an independently checked measurement. [Room-decay example](examples/clap/README.md)
+- **Inspect a change.** Read how selection, pinned source, backups and rollback work. [Source fidelity](docs/SOURCE_FIDELITY.md) · [Transaction design](docs/TRANSACTIONS.md)
 
-For portable backup coverage and the complete 216-method selection, see
-[restore guidance](docs/RESTORE.md). Private data and local recovery records
-need a separate backup.
+<details>
+<summary><strong>Operator reference</strong> · CLI bootstrap, runtime commands, recovery and platform support</summary>
 
 ## Install on a Mac
 
@@ -79,7 +51,7 @@ source; that host is not part of the current Mac workflow.
 analysis addition; its static tooling and rebuild workflows have distinct checks.
 
 
-Requirements: Git, Python 3.11 or later, and existing Codex subscription access.
+Requirements: Git, Python 3.11 or later, and a compatible Codex or OpenCode host.
 Run the installer with that supported Python explicitly if `python3` resolves
 to an older system version. The installed `nstack` launcher binds the installing
 interpreter, so later PATH changes do not select another Python. Keep that
@@ -96,19 +68,22 @@ Python runtime recipes; Node/npm and browser downloads are needed only for the
 selected JavaScript recipes. The FFmpeg recipe uses the existing Apple compiler
 and make.
 
-The following cutover replaces the user-managed skill collection and retires
-the previous collection into private recovery storage. Inspect the staged
-result and retain the recovery files before running the cutover command.
-It preserves built-ins and unrelated configuration; it is not needed for the
-read-only discovery example above.
-
-From this checkout, stage and install the base collection:
+Use [onboarding](docs/ONBOARDING.md) to inspect the complete native skill
+profile, rehearse it in an isolated home, and install it for Codex or OpenCode.
+The legacy CLI cutover is separate. To stage the toolkit and pinned Apple
+Silicon CLI without applying changes to the host profile:
 
 ```sh
-python3 -m unittest discover -s tests -p 'test_*.py'
 python3 install.py install --stage-only --bootstrap-cli
+```
+
+If you explicitly intend the older CLI cutover, review its staged result and
+retain recovery files before applying it. The `--retire-personal` option moves
+the previous user-managed collection into private recovery storage. Skip this
+cutover for an existing compatible setup or when you only want native skills.
+
+```sh
 python3 install.py install --bootstrap-cli --retire-personal --run-id cutover
-python3 native_setup.py install --replace --agent-reach --repository-docs
 "$HOME/.local/bin/nstack" doctor
 ```
 
@@ -409,3 +384,5 @@ desktop backend have separate loaders; a backend inventory is not a desktop UI
 check. Trial, proprietary, hardware-specific, provider and large model lanes are
 conditional on their own rights, platform, resources and output checks. These
 sources do not imply that every target runtime has been installed or tested.
+
+</details>
