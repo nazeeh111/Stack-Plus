@@ -34,6 +34,48 @@ class DiscoveryCLI(unittest.TestCase):
                 self.assertEqual(json.loads(result.stdout)['id'], 'L010')
                 self.assertFalse(state.exists())
 
+    def test_ui_task_and_unmatched_phrase_recover_to_read_only_discovery(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            state = Path(tmp) / 'absent'
+            for terms in [('audit keyboard focus on a mobile layout',),
+                          ('keyboard', 'layout', 'accessibility')]:
+                hit = self.run_cli(state, 'search', *terms, '--brief', '--limit', '1')
+                self.assertEqual(hit.returncode, 0, hit.stderr)
+                row, = json.loads(hit.stdout)
+                self.assertEqual(row['id'], 'P202')
+                self.assertIn('ui-quality-audit', row['selected_native_names'])
+            missing = self.run_cli(state, 'search', 'nonexistent layout phrase', '--brief')
+            self.assertEqual(json.loads(missing.stdout), [])
+            self.assertIn('separate words', missing.stderr)
+            self.assertFalse(state.exists())
+
+    def test_ui_task_card_source_mapping_matches_its_selected_methods(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            state = Path(tmp) / 'absent'
+            card, = json.loads(self.run_cli(
+                state, 'search', 'ui-quality-audit', '--limit', '1').stdout)
+            component = json.loads(self.run_cli(state, 'show', 'P202').stdout)
+            brief, = json.loads(self.run_cli(
+                state, 'search', 'ui-quality-audit', '--brief', '--limit', '1').stdout)
+            self.assertEqual(set(card['native_method_sources']), set(brief['selected_native_names']))
+            self.assertEqual(card['source_license'], component['license']['spdx_metadata'])
+            selected = {leaf['source_path']: leaf for leaf in component['selected_paths']}
+            sys.path.insert(0, str(ROOT))
+            try:
+                from lib.skill_names import canonical
+                self.assertEqual(card['native_method_sources'], {
+                    canonical(leaf['native_name']): path for path, leaf in selected.items()
+                    if leaf.get('entry_kind') == 'skill'
+                })
+            finally:
+                sys.path.remove(str(ROOT))
+            for path in card['native_method_sources'].values():
+                self.assertIn(selected[path]['source_url'], card['sources'])
+                self.assertEqual(selected[path]['entry_kind'], 'skill')
+                self.assertEqual(selected[path]['revision'], card['revision'])
+            self.assertNotIn('skill/reference/craft-floor.md', card['native_method_sources'].values())
+            self.assertFalse(state.exists())
+
     def test_source_name_and_default_full_json_remain_available(self):
         with tempfile.TemporaryDirectory() as tmp:
             result = self.run_cli(Path(tmp)/'state', 'search', 'frontend-design')
