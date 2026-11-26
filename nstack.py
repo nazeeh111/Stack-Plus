@@ -269,7 +269,7 @@ def discovery_names():
 def main():
  p=argparse.ArgumentParser(description='Find reviewed capabilities and inspect their routes before use.',epilog='Start read-only: nstack search web-ui-design --brief, then nstack show COMPONENT_ID. Search and show do not install or activate anything.');sub=p.add_subparsers(dest='cmd',required=True,metavar='COMMAND')
  a=sub.add_parser('search',help='Find catalog entries by task, source or selected skill name',description='Search reviewed catalog entries. Results are JSON; selected names describe available catalog leaves, not installed skills.')
- a.add_argument('terms',nargs='+',help='Words or names to match; entries matching more terms rank first');a.add_argument('--all',action='store_true',help='Include excluded and consultation-only entries');a.add_argument('--limit',type=int,default=12,help='Maximum results (1–535; default 12)');a.add_argument('--brief',action='store_true',help='Show component ID, summary, admission and selected native names')
+ a.add_argument('terms',nargs='+',help='Pass distinctive words separately, or quote a phrase to match it literally; entries matching more terms rank first');a.add_argument('--all',action='store_true',help='Include excluded and consultation-only entries');a.add_argument('--limit',type=int,default=12,help='Maximum results (1–535; default 12)');a.add_argument('--brief',action='store_true',help='Show component ID, summary, admission and selected native names')
  a=sub.add_parser('show',help='Inspect an admitted component, its paths and prerequisites');a.add_argument('id',help='Component ID from search, for example P001')
  a=sub.add_parser('route',help='Inspect source, prerequisites and actions for an admitted component');a.add_argument('id',help='Component ID from search')
  a=sub.add_parser('inventory',help='Inspect project and native tool availability');a.add_argument('project',nargs='?',default=str(P.cwd()));a.add_argument('--binary');a.add_argument('--plugins',action='store_true')
@@ -301,7 +301,11 @@ def main():
    selected=[r for _,r in sorted(result,key=lambda x:-x[0])][:args.limit]
    if args.brief:
     selected=[{'id':r['id'],'summary':r['summary'],'admission':r['admission'],'selected_native_names':names.get(r['id'],[])} for r in selected]
-    if not selected:print('No matches. Try broader terms or --all for excluded and consultation-only entries.',file=sys.stderr)
+    if not selected:
+     if any(len(term.split()) > 1 for term in terms):
+      print('No matches for the literal phrase(s). Try broader terms as separate words. Example: nstack search keyboard layout accessibility --brief',file=sys.stderr)
+     else:
+      print('No matches. Try broader terms or --all for excluded and consultation-only entries.',file=sys.stderr)
    print(json.dumps(selected,indent=2,ensure_ascii=not args.brief))
   elif args.cmd=='show':
    c=component(args.id);rows=[]

@@ -31,6 +31,11 @@ commands below read the registry with an unused state path and leave it absent.
 | [`show`](docs/presentation/show.json) | The two selected source paths share a pinned revision. The upstream document skill has different rights and is excluded. |
 | [`route`](docs/presentation/route.json) | For frontend work, check mobile layout, keyboard use and reduced motion in the actual interface. The runtime still needs separate verification. |
 
+If you know the task but not the skill name, try
+`python3 nstack.py search keyboard layout accessibility --brief --limit 1`.
+The [keyboard and mobile-layout walkthrough](docs/presentation/ui-audit.md)
+connects that result to the exact audit source, its license and a one-skill rehearsal.
+
 ## Use it in a project
 
 - **Set up a host.** Rehearse a single skill in a temporary home, then choose your permanent collection. [Mac onboarding](docs/ONBOARDING.md) · [OpenCode adapter](docs/OPENCODE.md)

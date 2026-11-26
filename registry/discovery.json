@@ -3349,7 +3349,17 @@
   {
     "id": "P202",
     "repository": "pbakaus/impeccable",
-    "summary": "Independent UI audit and production hardening",
+    "summary": "Review a rendered UI for keyboard accessibility, responsive layout and failure states.",
+    "example_tasks": [
+      "Audit keyboard focus on a mobile layout",
+      "Check focus order on a phone",
+      "Review accessible names and contrast on a rendered page"
+    ],
+    "native_method_sources": {
+      "ui-quality-audit": "skill/reference/audit.md",
+      "ui-reliability": "skill/reference/harden.md"
+    },
+    "source_license": "Apache-2.0",
     "trigger": "Consequential UI review or implementation of accessibility, responsive, error, empty, long-text, RTL and internationalization behavior.",
     "non_use": "Not the owner of all frontend work; no automatic installation of Impeccable runtime/engine/hooks.",
     "acceptance_checks": [
