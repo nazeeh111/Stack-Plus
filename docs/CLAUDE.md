@@ -12,10 +12,13 @@ checkout, choose the complete set of addons you want:
 python3 claude_setup.py install --adaptive-routing
 ```
 
-This example includes the reviewed base selection plus `01`. Optional switches
-match `native_setup.py`; use [ONBOARDING.md](ONBOARDING.md) for the complete
-selection, including Playwright MCP. Keep every desired switch on later installs;
-an omitted addon is removed only from this adapter's owned links.
+This example includes the reviewed base selection plus `01`. See
+`python3 claude_setup.py install --help` for the adapter's supported add-on
+flags. The base and add-on selections are listed in
+[the current profile](../profiles/complete-skills.json). Its `--replace` and
+`--extra-skill` arguments are specific to the shared native installer. Keep
+every desired supported switch on later installs. An omitted add-on is removed
+only from this adapter's owned links.
 `--only NAME` can be repeated for a deliberately limited base selection. With no
 `--only`, the full reviewed base is selected. Use `--home` and `--state` only for
 an explicitly chosen target installation. `--claude-home /absolute/config-dir`
