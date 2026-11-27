@@ -1,5 +1,5 @@
 """Per-operation local runtimes. Only explicitly implemented adapters execute."""
-import hashlib,importlib.util,json,pathlib,subprocess,os,sys,wave,struct,math
+import errno,hashlib,importlib.util,json,pathlib,stat,subprocess,os,sys,wave,struct,math
 P=pathlib.Path
 
 def admitted(n,id,r):
@@ -172,6 +172,51 @@ def check(n,id,op):
  n.dump(n.STATE/'checks'/f'{id}-{op}.json',result);return result
 
 
+def move_for_retirement(n, prefix, destination, intentfile, intent, adapter):
+ """Move an owned runtime, preserving the mode of a sealed helper on macOS."""
+ active = prefix.exists()
+ if active and destination.exists():
+  raise ValueError('Both runtime retirement locations exist; preserve and reconcile')
+ if not active and not destination.is_dir():
+  raise ValueError('Neither runtime retirement location exists; preserve evidence')
+ seal = intent.get('pending_helper_seal')
+ if seal is None:
+  if not active:
+   return
+  try:
+   os.rename(prefix, destination)
+   return
+  except PermissionError as error:
+   info = prefix.lstat()
+   if (sys.platform != 'darwin' or error.errno != errno.EACCES or adapter != 'stdlib-helper' or
+       info.st_uid != os.geteuid() or not stat.S_ISDIR(info.st_mode) or
+       stat.S_IMODE(info.st_mode) != 0o555):
+    raise
+   # local_helpers commissions this directory as 0555. macOS requires
+   # owner write to reparent it. Journal its identity before changing mode.
+   seal = [info.st_dev, info.st_ino]
+   intent['pending_helper_seal'] = seal
+   n.dump(intentfile, intent)
+ location = prefix if active else destination
+ fd = os.open(location, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
+ try:
+  info = os.fstat(fd)
+  if (adapter != 'stdlib-helper' or [info.st_dev, info.st_ino] != seal or
+      stat.S_IMODE(info.st_mode) not in (0o555, 0o755)):
+   raise ValueError('Runtime directory changed during retirement; preserve and reconcile')
+  try:
+   if active:
+    os.fchmod(fd, 0o755)
+    os.rename(prefix, destination)
+  finally:
+   if stat.S_IMODE(os.fstat(fd).st_mode) != 0o555:
+    os.fchmod(fd, 0o555)
+   del intent['pending_helper_seal']
+   n.dump(intentfile, intent)
+ finally:
+  os.close(fd)
+
+
 def remove(n,id,op):
  """Retire only the exact owned runtime into private recovery storage."""
  import time
@@ -182,12 +227,10 @@ def remove(n,id,op):
   def finish(intent):
    destination=P(intent['destination'])
    if intent.get('id')!=id or intent.get('operation')!=op or intent.get('original')!=str(prefix) or destination.parent!=n.STATE/'retired-runtimes' or not destination.name.startswith(f'{id}-{op}-') or destination.is_symlink():raise ValueError('Runtime retirement intent differs from owned coordinates')
+   if destination.parent.resolve()!=destination.parent.absolute():raise ValueError('Linked runtime retirement directory')
    if receiptfile.exists() and n.sha(receiptfile.read_bytes())!=intent['receipt_sha256']:raise ValueError('Active receipt changed during retirement')
    if prefix.is_symlink() or prefix.resolve()!=prefix.absolute():raise ValueError('Linked runtime root')
-   if prefix.exists():
-    if destination.exists():raise ValueError('Both runtime retirement locations exist; preserve and reconcile')
-    os.rename(prefix,destination)
-   elif not destination.is_dir():raise ValueError('Neither runtime retirement location exists; preserve evidence')
+   move_for_retirement(n,prefix,destination,intentfile,intent,r['adapter'])
    # The external intent is also the recovery metadata. Never write inside
    # retained bytes: even a same-named unexpected user note must survive.
    if receiptfile.exists():receiptfile.unlink()

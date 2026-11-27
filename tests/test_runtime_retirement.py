@@ -1,8 +1,60 @@
-import importlib.util,pathlib,tempfile,sys,json,unittest
+import errno,importlib.util,os,pathlib,stat,tempfile,sys,json,unittest
 from unittest.mock import patch
 P=pathlib.Path;ROOT=P(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'lib'));import runtime
 spec=importlib.util.spec_from_file_location('nstack',ROOT/'nstack.py');n=importlib.util.module_from_spec(spec);spec.loader.exec_module(n)
 class Retirement(unittest.TestCase):
+ def test_sealed_helper_move_failure_and_retry(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   root=P(tmp).resolve()
+   source=root/'active/helper'; source.mkdir(parents=True)
+   target=root/'retired/helper'; target.parent.mkdir()
+   note=source/'inputs.txt'; note.write_text('local input\n'); note.chmod(0o640)
+   source.chmod(0o555)
+   journal=root/'intent.json'; intent={}
+   rename=os.rename
+   calls=[]
+   def reject_sealed(src,dst):
+    mode=stat.S_IMODE(src.stat().st_mode)
+    calls.append(mode)
+    if mode==0o555:
+     raise PermissionError(errno.EACCES,'read-only source directory')
+    if len(calls)==2:
+     raise OSError(errno.EIO,'simulated move failure')
+    return rename(src,dst)
+   with patch.object(runtime.sys,'platform','darwin'), patch.object(runtime.os,'rename',side_effect=reject_sealed):
+    with self.assertRaisesRegex(OSError,'simulated move failure'):
+     runtime.move_for_retirement(n,source,target,journal,intent,'stdlib-helper')
+    self.assertEqual(stat.S_IMODE(source.stat().st_mode),0o555)
+    self.assertNotIn('pending_helper_seal',n.load(journal))
+    runtime.move_for_retirement(n,source,target,journal,intent,'stdlib-helper')
+   self.assertEqual(calls,[0o555,0o755,0o555,0o755])
+   self.assertEqual(stat.S_IMODE(target.stat().st_mode),0o555)
+   self.assertEqual((target/note.name).read_text(),'local input\n')
+   self.assertEqual(stat.S_IMODE((target/note.name).stat().st_mode),0o640)
+
+ def test_resume_temporarily_unsealed_move_checks_saved_identity(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   root=P(tmp).resolve(); source=root/'active'; target=root/'retired'
+   target.mkdir(); target.chmod(0o755)
+   info=target.stat(); journal=root/'intent.json'
+   intent={'pending_helper_seal':[info.st_dev,info.st_ino]}
+   n.dump(journal,intent)
+   wrong={'pending_helper_seal':[info.st_dev,info.st_ino+1]}
+   with self.assertRaisesRegex(ValueError,'directory changed'):
+    runtime.move_for_retirement(n,source,target,journal,wrong,'stdlib-helper')
+   self.assertEqual(stat.S_IMODE(target.stat().st_mode),0o755)
+   runtime.move_for_retirement(n,source,target,journal,n.load(journal),'stdlib-helper')
+   self.assertEqual(stat.S_IMODE(target.stat().st_mode),0o555)
+   self.assertNotIn('pending_helper_seal',n.load(journal))
+
+ def test_caller_selected_directory_mode_is_never_overridden(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   root=P(tmp).resolve(); source=root/'active';source.mkdir();source.chmod(0o550)
+   with patch.object(runtime.os,'rename',side_effect=PermissionError(errno.EACCES,'access denied')):
+    with self.assertRaises(PermissionError):
+     runtime.move_for_retirement(n,source,root/'retired',root/'intent.json',{},'stdlib-helper')
+   self.assertEqual(stat.S_IMODE(source.stat().st_mode),0o550)
+   self.assertFalse((root/'intent.json').exists())
  def test_interruption_after_rename_reconciles_without_losing_bytes(self):
   original=n.STATE
   try:

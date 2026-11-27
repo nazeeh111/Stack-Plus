@@ -5,9 +5,8 @@ P = pathlib.Path
 ROOT = P(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / 'lib'))
 from transaction import Transaction, atomic_json, copy, fingerprint, same
-import install as profile_install
 
-LAUNCHER_VERSIONS = ('2.2.6', '2.3.0', '2.4.1')
+LAUNCHER_VERSIONS = ('2.2.6', '2.3.0', '2.4.1', '2.4.2')
 
 
 def local_provider_settings(value):
@@ -96,7 +95,9 @@ def knowledge_permissions(config, home, vault, write=None):
     return {**config, 'permissions': rows, 'agents': agents}
 
 
-def plan(home, state, cli, codex=None, vault=None, vault_write=None):
+def plan(home, state, cli, codex=None, vault=None, vault_write=None, harness_only=False):
+    if harness_only and (not codex or vault is not None or vault_write is not None):
+        raise ValueError("A launcher-only installation takes the existing Codex executable and no vault options")
     if vault_write is not None and vault is None:
         raise ValueError('An explicit vault is required for its write policy')
     home, state, cli = P(home).resolve(), P(state).resolve(), P(cli).absolute()
@@ -116,7 +117,7 @@ def plan(home, state, cli, codex=None, vault=None, vault_write=None):
     files = {}
     serena = state / 'native-tools/serena'
     command = serena / 'venv/bin/serena'
-    if command.is_file():
+    if command.is_file() and not harness_only:
         context = serena / 'opencode.yml'
         prompts = serena / 'opencode-home/prompt_templates/system_prompt.yml'
         files[context] = (ROOT / 'templates/serena/codex.yml').read_bytes().replace(b'for Codex', b'for coding agents')
@@ -143,6 +144,23 @@ def plan(home, state, cli, codex=None, vault=None, vault_write=None):
         plugin = directory / 'plugins/nstack-codex'
         for name in ('package.json', 'gui-experimental.cjs'):
             files[plugin / name] = (ROOT / 'integrations/opencode-codex' / name).read_bytes()
+        if harness_only:
+            # Global packages are auto-discovered. Bind the already selected executable without
+            # rewriting the caller's JSON/JSONC, policies, disabled plugins, or existing guidance.
+            gui = plugin / 'gui-experimental.cjs'
+            selector = b'const binary = ctx.options.codex;'
+            if files[gui].count(selector) != 1:
+                raise ValueError('Review the Codex executable binding in the updated GUI module')
+            fallback = json.dumps(str(codex)).encode()
+            files[gui] = files[gui].replace(selector, b'const binary = ctx.options.codex ?? ' + fallback + b';')
+            if plugin.resolve() != plugin or (plugin.exists() and not plugin.is_dir()):
+                raise ValueError('Existing launcher directory is preserved')
+            for path, data in files.items():
+                if path.is_symlink() or (path.exists() and (not path.is_file() or path.read_bytes() != data)):
+                    raise ValueError('Existing launcher file is preserved: ' + str(path))
+            if plugin.exists() and set(plugin.iterdir()) - set(files):
+                raise ValueError('Existing launcher package has additional files and is preserved')
+            return files, {}, version
         config['plugins'] = [{'package': str(plugin), 'options': {'codex': str(codex)}}]
     configured = (json.dumps(config, indent=2) + '\n').encode()
     existing_config = None
@@ -201,20 +219,24 @@ def plan(home, state, cli, codex=None, vault=None, vault_write=None):
     return files, links, version
 
 
-def apply(home, state, cli, codex=None, vault=None, vault_write=None):
+def apply(home, state, cli, codex=None, vault=None, vault_write=None, harness_only=False):
     home, state = P(home).resolve(), P(state).resolve()
-    files, links, version = plan(home, state, cli, codex, vault, vault_write)
+    files, links, version = plan(home, state, cli, codex, vault, vault_write, harness_only)
     if all(p.is_file() and p.read_bytes() == d for p, d in files.items()) and all(
             p.is_symlink() and os.readlink(p) == str(t) for p, t in links.items()):
         return {'changed': False, 'version': version, 'shared_skills': str(home / '.agents/skills')}
     key = hashlib.sha256(json.dumps({str(p): hashlib.sha256(d).hexdigest() for p, d in files.items()} |
             {str(p): str(t) for p, t in links.items()}, sort_keys=True).encode()).hexdigest()[:16]
-    code = profile_install.stage(state)
+    import install as profile_install
+    # The narrow command's durable helper only runs rollback; its transaction
+    # engine and the repository license are the entire recovery dependency set.
+    recovery = (P('opencode_setup.py'), P('lib/transaction.py'), P('lib/transaction_paths.py'), P('LICENSE'))
+    code = profile_install.stage(state, selected_files=recovery) if harness_only else profile_install.stage(state)
     run = state / 'runs' / ('opencode-' + key)
     tx = Transaction(run)
     with tx.lock():
         # Revalidate after acquiring the shared profile writer lock.
-        checked_files, checked_links, checked_version = plan(home, state, cli, codex, vault, vault_write)
+        checked_files, checked_links, checked_version = plan(home, state, cli, codex, vault, vault_write, harness_only)
         if checked_files != files or checked_links != links or checked_version != version:
             raise ValueError('OpenCode configuration changed during preparation; preserved for review')
         before = {p: fingerprint(p) for p in [*files, *links]}
@@ -268,11 +290,12 @@ def main():
     install.add_argument('--state', default=str(P.home() / 'Library/Application Support/nstack'))
     install.add_argument('--cli', default='/Applications/OpenCode.app/Contents/Resources/opencode-cli')
     install.add_argument('--codex-harness', metavar='EXECUTABLE', help='Add a native Codex terminal command in OpenCode Desktop ' + ', '.join(LAUNCHER_VERSIONS))
+    install.add_argument('--harness-only', action='store_true', help='Install only the auto-discovered Codex Desktop command, preserving the OpenCode profile')
     install.add_argument('--vault', metavar='DIRECTORY', help='Share the explicit vault directory; preserve its write choice, initially ask')
     install.add_argument('--vault-write', choices=('ask', 'allow'), help='Explicit vault edit choice for build/general only; otherwise preserve its current policy')
     undo = sub.add_parser('rollback'); undo.add_argument('run'); undo.add_argument('--chain', action='store_true')
     args = parser.parse_args()
-    result = apply(args.home, args.state, args.cli, args.codex_harness, args.vault, args.vault_write) if args.command == 'install' else rollback(args.run, args.chain)
+    result = apply(args.home, args.state, args.cli, args.codex_harness, args.vault, args.vault_write, args.harness_only) if args.command == 'install' else rollback(args.run, args.chain)
     print(json.dumps(result, indent=2))
 
 if __name__ == '__main__': main()

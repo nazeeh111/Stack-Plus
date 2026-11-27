@@ -211,7 +211,8 @@ class OpenCodeSetupTests(unittest.TestCase):
             base = P(tmp).resolve(); home, state, cli = self.fixture(base)
             codex = base / 'codex'; codex.write_text('#!/bin/sh\necho "codex-cli 0.167.0"\n'); codex.chmod(0o755)
             result = m.apply(home, state, cli, codex)
-            code = m.profile_install.stage(state)
+            import install as profile_install
+            code = profile_install.stage(state)
             self.assertEqual((code / 'integrations/opencode-codex/gui-experimental.cjs').read_bytes(),
                              (ROOT / 'integrations/opencode-codex/gui-experimental.cjs').read_bytes())
             journal = P(result['run']) / 'journal.json'; before = journal.read_bytes()
@@ -248,6 +249,53 @@ class OpenCodeSetupTests(unittest.TestCase):
 
     def test_v241_repeat_preserves_privacy_settings_and_denials(self):
         self.check_launcher_upgrade('2.4.1')
+
+    def test_v242_repeat_preserves_privacy_settings_and_denials(self):
+        self.check_launcher_upgrade('2.4.2')
+
+    def test_launcher_only_preserves_customized_profile_and_foreign_files(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            home, state, cli = self.fixture(P(tmp).resolve())
+            cli.write_text('#!/bin/sh\necho "opencode v2.4.2"\n')
+            codex = home.parent / 'custom codex'
+            codex.write_text('#!/bin/sh\necho "codex-cli fixture"\n')
+            codex.chmod(0o755)
+            config = home / '.config/opencode/opencode.jsonc'
+            config.parent.mkdir(parents=True)
+            config.write_text('// customized\n{"plugins":["-nstack-codex"]}\n')
+            initial = config.read_bytes()
+            plugin = config.parent / 'plugins/nstack-codex'
+            result = m.apply(home, state, cli, codex, harness_only=True)
+            self.assertEqual(config.read_bytes(), initial)
+            self.assertFalse((config.parent / 'opencode.json').exists())
+            self.assertFalse((config.parent / 'AGENTS.md').exists())
+            self.assertEqual(sorted(p.name for p in plugin.iterdir()), ['gui-experimental.cjs','package.json'])
+            gui = plugin / 'gui-experimental.cjs'
+            self.assertIn(json.dumps(str(codex)), gui.read_text())
+            self.assertFalse(m.apply(home, state, cli, codex, harness_only=True)['changed'])
+            recovery, = (state / 'releases').iterdir()
+            recovery_files = {str(p.relative_to(recovery)) for p in recovery.rglob('*') if p.is_file()}
+            self.assertEqual(recovery_files, {'opencode_setup.py','lib/transaction.py',
+                                             'lib/transaction_paths.py','LICENSE','INSTALL-MANIFEST.json'})
+            # The subprocess must resolve everything from the frozen recovery release.
+            subprocess.run([str(state/'rollback.sh')], cwd=home, check=True, capture_output=True)
+            self.assertFalse(gui.exists())
+            self.assertEqual(config.read_bytes(), initial)
+            plugin.mkdir(parents=True, exist_ok=True)
+            owned = plugin/'package.json'
+            original = (ROOT/'integrations/opencode-codex/package.json').read_bytes()
+            owned.write_bytes(original)
+            owned.chmod(0o640)
+            restored = m.apply(home, state, cli, codex, harness_only=True)
+            self.assertTrue(restored['changed'])
+            subprocess.run([str(state/'rollback.sh')], cwd=home, check=True, capture_output=True)
+            self.assertEqual(owned.read_bytes(), original)
+            self.assertEqual(owned.stat().st_mode & 0o777, 0o640)
+            self.assertFalse(gui.exists())
+            gui.write_text('user override')
+            with self.assertRaisesRegex(ValueError, 'preserved'):
+                m.apply(home, state, cli, codex, harness_only=True)
+            self.assertEqual(gui.read_text(), 'user override')
 
     def check_launcher_upgrade(self, version):
         with tempfile.TemporaryDirectory() as tmp:

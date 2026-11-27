@@ -36,8 +36,9 @@ def portable_files():
   if p.name=='INSTALL-MANIFEST.json':continue
   if p.is_file() and (rel.parts[0] in ('addons','integrations') or p.suffix in ['.py','.cjs','.mjs','.json','.md','.txt','.in','.lock','.sh','.yml','.yaml','.base','.canvas','.patch'] or rel == P('stack+') or p.name in ('LICENSE','NOTICE','COPYING','INTEGRATION-LICENSE','METADATA','RECORD','WHEEL','py.typed')):yield p,rel
 
-def stage(state):
- files=list(portable_files());hashes={str(rel):hashlib.sha256(p.read_bytes()).hexdigest() for p,rel in files};addon_exec={str(rel):bool(p.stat().st_mode & 0o111) for p,rel in files if rel.parts[0]=='addons'}
+def stage(state, *, selected_files=None):
+ files=list(portable_files()) if selected_files is None else [(ROOT/rel,rel) for rel in selected_files]
+ hashes={str(rel):hashlib.sha256(p.read_bytes()).hexdigest() for p,rel in files};addon_exec={str(rel):bool(p.stat().st_mode & 0o111) for p,rel in files if rel.parts[0]=='addons'}
  if P('stack+') in (rel for _,rel in files):addon_exec['stack+']=True
  digest=hashlib.sha256(json.dumps({'files':hashes,'addon_executable':addon_exec},sort_keys=True).encode()).hexdigest();dest=state/'releases'/digest
  if dest.exists() or dest.is_symlink():

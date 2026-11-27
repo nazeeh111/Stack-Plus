@@ -13,7 +13,7 @@ opencode api skill.list
 opencode mcp list
 ```
 
-Earlier adapter checks covered OpenCode 2.2.6 and 2.3.0. OpenCode 2.4.1 also admitted an explicitly selected 01 from the shared skill root, kept a fresh session independent and honored a same-name project override. The optional native Codex terminal launcher accepts these three qualified versions. It uses the installed desktop
+The Desktop launcher is qualified for OpenCode 2.2.6, 2.3.0, 2.4.1 and 2.4.2. It uses the installed desktop
 CLI, not another package installation. Pass `--cli /absolute/executable` for a
 different existing V2 installation. The selected model, provider, effort,
 credentials, conversations and native permissions are untouched.
@@ -111,36 +111,25 @@ For a correction, update the owned canonical note once with its new generation
 and source. Each host re-reads that note before reuse. This is shared knowledge,
 not automatic synchronization of native memories. See [Work local access](https://learn.chatgpt.com/docs/get-started-with-work).
 
-## Actual Codex harness
+<a name="actual-codex-harness"></a>
 
-The optional Desktop launcher starts the installed native Codex CLI in an
-OpenCode session terminal. It adds `/codex` and **Open Codex harness** to the
-desktop command palette. This is a separate native Codex conversation beside
-the OpenCode chat. It does not replace OpenCode's own agent engine.
+## Open native Codex inside OpenCode Desktop
+
+In a saved project chat, type **`/codex`** and choose **Open Codex harness**. The native Codex terminal opens in the same project. Select **`$01`** there and describe the outcome. In the OpenCode chat itself, select **`@01`**. Each chat uses its own instructions, credentials, history and permissions. A project handoff file can carry the work between them.
+
+For an existing profile, install only the two GUI package files from this checkout:
 
 ```sh
-python3 opencode_setup.py install --codex-harness "$(command -v codex)"
+python3 opencode_setup.py install --harness-only --codex-harness "$(command -v codex)" \
+  --state "$HOME/.local/share/nstack/opencode-harness"
 ```
 
-The launcher was checked against OpenCode Desktop 2.2.6 and 2.3.0's experimental
-GUI and persistent terminal APIs, with the signed official Codex0.169.0 pair.
-Recheck it before upgrading either host. It runs only from a saved
-session on the app's own server, in that session's current project directory.
-Repeating the command selects its running Codex terminal. A normal OpenCode TUI
-terminal can run `codex` directly; the desktop command is not a TUI extension.
+OpenCode discovers the global package at `~/.config/opencode/plugins/nstack-codex`. A matching native allow rule must already exist when the profile denies plugins by default. This installer preserves the configuration, local overrides, existing policies and GUI settings. If the app has not picked up the package yet, open a new session in the project and use **Settings → Extensions → Plugins** to inspect the desktop extension. OpenCode documents native plugin discovery and reloading. [OpenCode plugin guide](https://opencode.ai/docs/plugins/)
 
-No model request is made by opening the terminal. Codex inherits its own account,
-model/effort, instructions, discovered skills and permissions. The launcher
-does not send the OpenCode transcript or composer draft to another agent.
-Use the project's current task handoff file to continue work across hosts;
-review it in Codex and give the objective there. Both hosts still read the same
-shared skill collection and canonical vault. Their native chats and generated
-memories remain separate. Native refusals are reported without alternate routes.
+The command works on the app’s built-in server. Running it again selects the existing project terminal. It starts the chosen executable directly with the session directory and no arguments or permission overrides. The complete-profile installer also accepts `--codex-harness` when installing a new profile. To reverse the launcher-only command above, run `"$HOME/.local/share/nstack/opencode-harness/rollback.sh"`. The recorded rollback preserves pre-existing files and detects subsequent edits.
 
-The installer accepts the exact original nstack adapter configuration or the
-exact desired launcher configuration. User-owned `permissions` and `policies`
-are retained; other customized configuration or plugin bytes require a scoped merge. Installation backups and rollback cover the two plugin files
-and configuration, while the existing adapter and user data remain recoverable.
+On OpenCode Desktop 2.4.2, selecting the actual slash command opened the native Codex CLI. Codex selected 01, read a synthetic exhibit’s project skill, and wrote its handoff code while preserving the original opening hours. A separate file read and the native saved Codex turn confirmed the result. The OpenCode chat sent no provider request. [Pinned OpenCode terminal API](https://github.com/anomalyco/opencode/blob/fc31a485317970bcf6be7b431a9830aaef875731/packages/protocol/src/groups/persistent-pty.ts)
+
 See [the harness decision](HARNESSES.md) for the alternatives reviewed.
 
 Codex's account connectors, app tools, built-ins, permissions, model support and

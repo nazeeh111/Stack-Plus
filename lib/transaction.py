@@ -220,7 +220,7 @@ class Transaction:
     row['retained']=str(retained);self.save();parent_identity(path,row.get('parent'));same(path,row['before']);os.rename(path.name,retained,src_dir_fd=parent.fd);same(retained,row['before'])
   row.pop('rollback_result',None);row.pop('rollback_expected',None);row['phase']='applied';self.save()
  def rollback(self):
-  self.require_lock();import config_merge as cm
+  self.require_lock()
   # Refuse known namespace drift before restoring any otherwise valid target.
   for row in self.rows:
    if row['phase'] not in ('rolled-back','backup-preparing'):parent_identity(P(row['path']),row.get('parent'))
@@ -241,6 +241,7 @@ class Transaction:
     same(path,row['rollback_expected']);self.preserve_attempt(stage,'rollback')
    row.update(rollback_expected=current,rollback_stage=str(stage),phase='rollback-staging');self.save()
    if row['kind']=='config' and current['kind']=='file' and current!=row['after']:
+    import config_merge as cm
     if row['before']['kind'] not in ('file','absent'):raise ValueError('Changed replacement of linked config requires manual reconciliation; preserving both current bytes and original link backup')
     before=P(row['backup']).read_text() if row['before']['kind']=='file' else '';after=P(row['config_after']).read_text();settings=row['config'];updates=[(p,cm.MISSING if v=={'nstack_absent':True} else v) for p,v in settings['updates']]
     merged=cm.inverse(path.read_text(),before,after,updates,settings['retire']);same(path,current);copy(path,stage)

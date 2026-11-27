@@ -1,49 +1,25 @@
 # Restore the portable setup
 
-GitHub stores the toolkit code, pinned source/provenance, selected method sources,
-and optional runtime recipes. It does not back up private notes, conversations,
-credentials, macOS apps/privacy grants, installed environments, container volumes,
-or the original local recovery journals. Keep a separate verified private backup
-for those. A successful source restore does not make a broad folder cleanup safe.
+GitHub stores the toolkit, source pins and portable recipes. Keep a verified private backup of notes, conversations, credentials, app permissions, runtime environments, container volumes and the original recovery journals.
 
-Use a fresh checkout and Python 3.11 or later. Follow the
-[onboarding steps](ONBOARDING.md) to inspect the selection, rehearse in a
-separate home and apply to the intended host. The
-[complete-skills profile](../profiles/complete-skills.json) records 170 base
-skills, 34 add-ons and 12 specialist skills. A clean complete install exposes
-216 methods. An existing personal installation may instead keep the twelve
-specialist copies it already owns and use 204 methods from the shared root.
-Avoid duplicate active copies and check the selected list before any explicit
-replacement.
+## Roll back the portable installation
 
-The portable tests can be run before applying the profile:
+Run the rollback helper printed by the installer. For the default management state, run the following command.
+
+```sh
+"$HOME/Library/Application Support/nstack/rollback.sh"
+```
+
+The helper uses the private ownership journal and pinned release chain. It restores recorded changes and preserves unrelated later edits. A conflicting edit to an owned setting or a replaced parent directory needs reconciliation before retrying. Keep the backup after rollback. [Transaction ownership and recovery](TRANSACTIONS.md)
+
+## Restore onto another Mac
+
+Use a fresh checkout and Python 3.11 or newer. Rehearse the intended selection, then verify that the host discovers 01 and that the restored runtime can produce the project's required output. Existing registry installations can consult their saved profiles. The [historical complete profile](../profiles/complete-skills.json) recorded a 216-method selection distinct from the current on-demand library. [Onboarding](ONBOARDING.md) · [Registry commands](REGISTRY.md)
+
+From the checkout, run the portable regression suite in a disposable environment.
 
 ```sh
 python3 -m unittest discover -s tests -p 'test_*.py'
 ```
 
-Use [OpenCode's guide](OPENCODE.md) after restoring shared skills, and see
-[storage maintenance](storage.md) for recovery and local retention. Check
-any configuration conflict before proceeding. Host model, effort,
-permissions, credentials and account connections stay with their host.
-
-Extra methods can be selected separately with repeated `--extra-skill NAME`:
-ui-design-hallmark, pixel-art-effects, design-specification-workflow,
-presentation-visual-design, iphone-mirroring-automation, agent-ui-streaming and
-typed-graph-workflows. The five focused discipline additions are computational-photonics-verification, signal-and-control-verification, causal-and-temporal-validation, quantum-error-correction and production-observability-release. See [discipline coverage](DISCIPLINE_COVERAGE.md) for their scope. EGM provides design,
-review, resolution and drift checks. 01 selects methods as needed.
-Pixelfx source is bundled; existing Node is sufficient for its normal PNG tools.
-Hallmark optional rendering needs a compatible browser/Puppeteer available in the
-chosen project. Presentation methods use a selected native authoring provider.
-Mirroir's exact source-build steps are in its add-on RUNTIME.md. No phone pairing,
-private-screen observation, TCC grant or service registration follows installation.
-
-Check actual post-restore skill paths/bodies, selected outputs and each required
-runtime operation. OpenCode needs bounded asynchronous registration readback;
-its global reload can cancel active work. Use the documented project-only idle
-refresh when needed. Neither a GitHub commit nor a source snapshot proves a
-complete machine restore or every runtime/account path.
-
-AG-UI supplies an optional app/frontend interaction method; it does not add a
-new native coordinator or SDK/service installation. Its pinned 1.0 rules differ
-from some older concept pages. Omnigraph instructions restore independently of its CLI. The reviewed macOS arm64 CLI pin is edge-20261117-54ced5d, matching source 54ced5d3 and storage format 17. The optional local runner verifies the pinned bytes, requires one explicit project/target, fresh configuration and a native network/filesystem boundary. Its enduring setup and limits are in the add-on RUNTIME.md. No server, MCP connection, credentials or service is enabled. Stable 0.15.0 cannot read format-17 graphs: preserve original data and use the version matched to a graph. Do not infer cluster/auth/policy or hardware acceptance from the standalone trial.
+Restore project data with the tool version that wrote it. For example, Omnigraph format 17 requires a compatible build. Preserve the original graph when changing versions. For OpenCode, check the restored skill in a fresh project session. Use project-only idle refresh when active work would be interrupted by a service reload. [Omnigraph format and runtime](../addons/typed-graph-workflows/RUNTIME.md) · [OpenCode recovery](OPENCODE.md) · [Storage maintenance](storage.md)

@@ -1,41 +1,16 @@
-# 01 adaptive routing
+<a name="01-adaptive-routing"></a>
 
-The current Stack+ lead can be installed on its own with `python3 native_setup.py install --only 01`. The [project and on-demand support finder](../addons/01/references/method-families.md) rechecks scope before opening a method. [Review packets](STACKPLUS-REVIEW.md) support independent decisions and handoffs. The existing adaptive-routing flag remains available for larger managed collections.
+# How 01 runs an evolving task
 
-`01` is an explicitly invoked skill, not another agent engine. Select `$01` in Codex,
-`@01` in OpenCode's skill picker, or `/01` in Claude, with the desired result. Its instructions stay relevant to later
-requests in that session until the user disables 01. A saved task status
-does not activate it in an unrelated session. For substantial work, the existing task entrypoint retains whether 01 is active or disabled and its actual SKILL.md path. After compaction or resume, reread it if its instructions are no longer in context. Selection is continuous during active work; this does not start background execution.
+Select `$01` in Codex or `@01` in OpenCode once. Describe the outcome, the material you have and who will act on the result. The lead stays responsible for the finished work across follow-ups and supported resumes. Say “turn 01 off” to end it in that chat.
 
-For nontrivial work, it inspects the actual inputs and works backward from the
-result to the consequential decisions, transformations and checks. It selects
-useful capabilities for those contributions, orders dependencies and executes.
-The route stays internal or in the existing task entrypoint; advice alone is
-a deliverable only when the user requested advice.
+A routine edit can finish with a single change and readback. An unfamiliar task may need several contributions. The lead works backward from the recipient's decision, looks for techniques in project skills and their support files, and checks which native tools, connectors, runtimes and specialists are eligible. A remaining capability gap can trigger a scoped search through `find-skills`. New evidence can open a different line of work or retire an earlier one while preserving valid results. [Installed method](../addons/01/SKILL.md) · [Discovery and scopes](stackplus-selections.md)
 
-It keeps ordinary requests direct. For substantial or specialist work, it
-examines relevant expertise and verification methods before choosing a route,
-then reads and applies the selected complete skills and needed support.
-It reconsiders capabilities at stage changes, failures, new evidence or a
-materially better option. It combines complementary expertise, uses independent
-scrutiny when useful and checks actual outputs rather than trusting success
-messages. The active host executes work with the user's existing model,
-reasoning effort, account and permissions; 01 does not switch harnesses. No daemon, hook or compulsory plan,
-team, report, global memory store or automatic self-edit is installed.
-
-01 refines weak metadata matches first and applies find-skills for a remaining concrete capability gap. A justified addition stays project-scoped and proceeds through source review, verification and actual task use within existing authority. No second skill invocation is required.
+When an independent interpretation can change the result, use Elephant–Goldfish to pin the input and artifact. A fresh reader tests what a recipient would understand, and the lead resolves the finding in the actual handoff. The crew-booking case shows why a correct calculation can still produce an unusable instruction. [Project review](STACKPLUS-REVIEW.md) · [Acceptance case](../evals/01/acceptance-handoff/README.md)
 
 ## Install
 
-Include `--adaptive-routing` in the single complete selection from
-[ONBOARDING.md](ONBOARDING.md), keeping every addition you intend to retain.
-The transaction backs up the actual skill root and instructions,
-rehearses restoration and preserves other selected bundles and support. A
-second install with unchanged inputs is a no-op. Terminal recovery remains:
-
-```sh
-"$HOME/Library/Application Support/nstack/rollback.sh"
-```
+Use `python3 native_setup.py install --only 01` for the single-lead setup. For a larger native profile, include `--adaptive-routing` with all the selections you intend to retain. The installer prints its recovery path. [Rehearse in a disposable home](ONBOARDING.md)
 
 The shared collection also exposes 01 to OpenCode. Its
 `metadata.opencode/autoinvoke: false` setting preserves explicit selection in
@@ -200,6 +175,6 @@ The November 16 refinement explicitly separates host/plugin discovery from the l
 
 ## Functional views and evolving combinations
 
-The [complete functional catalog](CAPABILITY_CATALOG.md) organizes 204 methods by 13 contribution roles, 20 domains and 20 artifact types. These overlapping views expose cross-disciplinary contributions without exclusive task buckets. 01 compares compatible combinations by unresolved need, actual inputs/outputs, checks and marginal benefit. It retains valid work while changing the route after new requirements, failures or changed capabilities.
+The [earlier functional catalog](CAPABILITY_CATALOG.md) organizes its 204 methods by 13 contribution roles, 20 domains and 20 artifact types. These overlapping views expose cross-disciplinary contributions without exclusive task buckets. 01 compares compatible combinations by unresolved need, actual inputs/outputs, checks and marginal benefit. It retains valid work while changing the route after new requirements, failures or changed capabilities.
 
 `capabilities.py --need "measurement uncertainty" --need "asynchronous race"` returns separate candidate lists. `--browse domains` (also `work` or `artifacts`) returns full group member IDs plus bounded detailed examples. Optional `--work`, `--domains` and `--artifacts` filters are navigation only; remove filters for new/unclassified capabilities. Function cards bind to exact current description values, and stale cards are ignored. A stable description does not prove a stable method body. Distinguishing limits and facets never add rank weight; selected complete sources and actual interfaces remain controlling.
