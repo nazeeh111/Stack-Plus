@@ -1,5 +1,7 @@
 # 01 adaptive routing
 
+The current Stack+ lead can be installed on its own with `python3 native_setup.py install --only 01`. The [project and on-demand support finder](../addons/01/references/method-families.md) rechecks scope before opening a method. [Review packets](STACKPLUS-REVIEW.md) support independent decisions and handoffs. The existing adaptive-routing flag remains available for larger managed collections.
+
 `01` is an explicitly invoked skill, not another agent engine. Select `$01` in Codex,
 `@01` in OpenCode's skill picker, or `/01` in Claude, with the desired result. Its instructions stay relevant to later
 requests in that session until the user disables 01. A saved task status
@@ -175,9 +177,6 @@ relevant. No generic decision checklist or mandatory planning ceremony is added.
 This follows OpenAI’s guidance on [concise project instructions](https://learn.chatgpt.com/guides/best-practices),
 [progressive skill disclosure](https://learn.chatgpt.com/docs/build-skills) and
 [testing skills through real outcomes](https://developers.openai.com/blog/eval-skills).
-The [September 2026 prompt review](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra)
-also motivates removing repeated orchestration prose. Its Astra-specific behavior
-claims are not assumed for other models; the user’s model and effort stay intact.
 
 Comparable Superpowers, Everything Claude Code and gstack workflows were reviewed
 for routing and evaluation ideas. Their bootstrap hooks, compulsory roles and

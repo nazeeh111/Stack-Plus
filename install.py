@@ -34,10 +34,12 @@ def portable_files():
    if hashlib.sha256(p.read_bytes()).hexdigest()!=original['sha256']:raise ValueError('Archived addon provenance changed')
   if p.is_symlink():raise ValueError('Portable source must not contain linked files')
   if p.name=='INSTALL-MANIFEST.json':continue
-  if p.is_file() and (rel.parts[0] in ('addons','integrations') or p.suffix in ['.py','.cjs','.mjs','.json','.md','.txt','.in','.lock','.sh','.yml','.yaml','.base','.canvas','.patch'] or p.name in ('LICENSE','NOTICE','COPYING','INTEGRATION-LICENSE','METADATA','RECORD','WHEEL','py.typed')):yield p,rel
+  if p.is_file() and (rel.parts[0] in ('addons','integrations') or p.suffix in ['.py','.cjs','.mjs','.json','.md','.txt','.in','.lock','.sh','.yml','.yaml','.base','.canvas','.patch'] or rel == P('stack+') or p.name in ('LICENSE','NOTICE','COPYING','INTEGRATION-LICENSE','METADATA','RECORD','WHEEL','py.typed')):yield p,rel
 
 def stage(state):
- files=list(portable_files());hashes={str(rel):hashlib.sha256(p.read_bytes()).hexdigest() for p,rel in files};addon_exec={str(rel):bool(p.stat().st_mode & 0o111) for p,rel in files if rel.parts[0]=='addons'};digest=hashlib.sha256(json.dumps({'files':hashes,'addon_executable':addon_exec},sort_keys=True).encode()).hexdigest();dest=state/'releases'/digest
+ files=list(portable_files());hashes={str(rel):hashlib.sha256(p.read_bytes()).hexdigest() for p,rel in files};addon_exec={str(rel):bool(p.stat().st_mode & 0o111) for p,rel in files if rel.parts[0]=='addons'}
+ if P('stack+') in (rel for _,rel in files):addon_exec['stack+']=True
+ digest=hashlib.sha256(json.dumps({'files':hashes,'addon_executable':addon_exec},sort_keys=True).encode()).hexdigest();dest=state/'releases'/digest
  if dest.exists() or dest.is_symlink():
   seal=dest/'INSTALL-MANIFEST.json'
   if dest.is_symlink() or not dest.is_dir():raise ValueError('Installed code release is not a regular directory')
@@ -61,7 +63,7 @@ def stage(state):
    # Addon payload modes are part of native identity. Preserve their source
    # executable bits; code entrypoints outside addons remain directly runnable.
    addon=p.relative_to(dest).parts[0]=='addons'
-   executable=bool(p.stat().st_mode & 0o111) if addon else p.suffix in ['.py','.sh']
+   executable=bool(p.stat().st_mode & 0o111) if addon else (p.suffix in ['.py','.sh'] or p.relative_to(dest)==P('stack+'))
    p.chmod(0o555 if p.is_dir() or executable else 0o444)
   dest.chmod(0o555)
  return dest
@@ -197,6 +199,10 @@ def install(args):
   if len(set(targets))!=len(targets):raise ValueError('Duplicate retirement target')
   cli_entry=P(args.cli_path).expanduser().absolute() if getattr(args,'cli_path',None) else bin_dir/'codex'
   planned=[(config,('file','absent')),(instructions,('file','link','absent')),(bin_dir/'nstack',('file','link','absent'))]
+  # An existing Stack+ command can belong to another toolkit or local profile.
+  product_alias=bin_dir/'stack+'
+  create_alias=not product_alias.exists() and not product_alias.is_symlink() and (pinned_cli is None or product_alias!=cli_entry)
+  if create_alias:planned.append((product_alias,('absent',)))
   if pinned_cli is not None:planned += [(cli_entry,('file','link','absent')),(cli_entry.with_name('codex-code-mode-host'),('file','link','absent'))]
   planned += [(target,('directory','file','link','absent')) for target in targets]
   baselines={}
@@ -221,6 +227,7 @@ def install(args):
   tx.replace_file(config,after.encode(),0o600,config_spec,expected=config_baseline,prepared=prepared_config)
   tx.replace_file(instructions,new.encode(),instructions_mode,expected=instructions_baseline,prepared=prepared_instructions)
   tx.replace_file(bin_dir/'nstack',launcher,0o755,expected=baselines[bin_dir/'nstack'],prepared=prepared_launcher)
+  if create_alias:tx.link(product_alias,bin_dir/'nstack',expected=baselines[product_alias])
   if pinned_cli is not None:
    tx.link(cli_entry,pinned_cli,expected=baselines[cli_entry])
    companion=cli_entry.with_name('codex-code-mode-host');tx.link(companion,pinned_cli.with_name('codex-code-mode-host'),expected=baselines[companion])

@@ -53,6 +53,77 @@ class KnowledgeContinuityTests(unittest.TestCase):
     def g(self, *args):
         return subprocess.run([self.git, *args], cwd=self.vault, capture_output=True, check=True).stdout
 
+    def test_standalone_writer_saves_and_replays_outside_project(self):
+        settings = self.root / "settings.json"
+        settings.write_text(json.dumps(self.cfg))
+        candidate = self.root / "candidate.json"
+        candidate.write_text(json.dumps(self.candidate))
+        (self.vault / "existing.md").write_text("keep staged bytes\n")
+        self.g("add", "existing.md")
+        (self.vault / "existing.md").write_text("keep working bytes\n")
+        before = self.g("diff", "--cached", "--binary")
+        command = [sys.executable, "-I", "-B", str(SOURCE / "knowledge.py"),
+                   "--settings", str(settings), "capture", "--candidate", str(candidate),
+                   "--host", "codex", "--session", "fixture-session", "--event", "fixture-event"]
+
+        def invoke():
+            result = subprocess.run(command, cwd=self.root, capture_output=True, timeout=30,
+                                    env={"PATH": os.defpath, "GIT_CONFIG_NOSYSTEM": "1",
+                                         "GIT_CONFIG_GLOBAL": os.devnull})
+            self.assertEqual(result.returncode, 0, result.stderr.decode())
+            return json.loads(result.stdout)
+
+        saved = invoke()
+        note = (self.vault / self.candidate["note"]).read_bytes()
+        meta, body = k.metadata(note)
+        key = k.identity("codex", "fixture-session", "fixture-event")
+        self.assertEqual((saved["status"], saved["key"], saved["note_sha256"]),
+                         ("saved", key, k.digest(note)))
+        self.assertEqual((meta["capture_event"], meta["source_sha256"], meta["generation"]),
+                         (key, self.candidate["source_sha256"], "1"))
+        self.assertEqual(body.strip(), self.candidate["body"].strip())
+        self.assertEqual(self.g("show", "HEAD:" + self.candidate["note"]), note)
+        self.assertEqual(invoke(), saved)
+        self.assertEqual(self.g("rev-parse", "HEAD").decode().strip(), saved["checkpoint"])
+        self.assertEqual(self.g("diff", "--cached", "--binary"), before)
+        self.assertEqual((self.vault / "existing.md").read_text(), "keep working bytes\n")
+
+    def test_writer_uses_own_dependency_without_touching_other_imports(self):
+        before = list(sys.path)
+        other = SimpleNamespace()
+        with patch.dict(sys.modules, {"transaction_paths": other}):
+            fs = k.filesystem_tools()
+            self.assertEqual(fs.parent_identity.__globals__["__file__"], str(ROOT / "lib/transaction_paths.py"))
+            self.assertIs(sys.modules["transaction_paths"], other)
+            self.assertEqual(before, sys.path)
+
+    def test_redirected_writer_dependency_rejects_before_creating_event_journal(self):
+        library = self.root / "release/lib"
+        library.mkdir(parents=True)
+        (library / "transaction_paths.py").symlink_to(ROOT / "lib/transaction_paths.py")
+        writer = library.parent / "integrations/knowledge-continuity/knowledge.py"
+        with patch.object(k, "__file__", str(writer)), self.assertRaisesRegex(k.Rejected, "symlink/noncanonical"):
+            self.save()
+        self.assertFalse((self.state / "transactions" / k.identity("codex", "session1", "turn1")).exists())
+        self.assertFalse((self.vault / self.candidate["note"]).exists())
+
+    def test_reuse_private_empty_interrupted_journal(self):
+        transactions = k.transaction_root(self.state)
+        journal = transactions / k.identity("codex", "session1", "turn1")
+        journal.mkdir(mode=0o700)
+        self.assertEqual(self.save()["status"], "saved")
+        self.assertTrue((self.vault / self.candidate["note"]).is_file())
+
+    def test_preserve_partial_interrupted_journal(self):
+        transactions = k.transaction_root(self.state)
+        journal = transactions / k.identity("codex", "session1", "turn1")
+        journal.mkdir(mode=0o700)
+        (journal / "before.md").write_text("preexisting recovery evidence")
+        with self.assertRaisesRegex(k.Rejected, "requires reviewed recovery"):
+            self.save()
+        self.assertEqual((journal / "before.md").read_text(), "preexisting recovery evidence")
+        self.assertFalse((self.vault / self.candidate["note"]).exists())
+
     def save(self, candidate=None, *, host="codex", event="turn1", verify=False):
         return k.capture(self.cfg, candidate or self.candidate, host, "session1", event, verify_obsidian=verify)
 

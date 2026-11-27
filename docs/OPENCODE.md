@@ -1,5 +1,9 @@
 # OpenCode V2
 
+For Stack+ project or on-demand discovery, run `stack+ find --host opencode "technical contribution"` from the project. Use the active `--session ID` or `--agent ID` when available. The finder queries OpenCode’s native location, skill and permission APIs using `opencode` on PATH. If the current client cannot supply an effective permission projection, the search stops before reading skill content. A narrower `--eligible /absolute/SKILL.md` still requires native permission. Reuse the same host and scope when opening a match. [Project and shelf discovery](../addons/01/references/method-families.md)
+
+
+
 Install nstack's native skill collection first, then run:
 
 ```sh
@@ -9,8 +13,7 @@ opencode api skill.list
 opencode mcp list
 ```
 
-The adapter and shared skill discovery were checked against OpenCode 2.2.6 and
-2.3.0, including Playwright MCP and 01's explicit-selection policy. It uses the installed desktop
+Earlier adapter checks covered OpenCode 2.2.6 and 2.3.0. OpenCode 2.4.1 also admitted an explicitly selected 01 from the shared skill root, kept a fresh session independent and honored a same-name project override. The optional native Codex terminal launcher accepts these three qualified versions. It uses the installed desktop
 CLI, not another package installation. Pass `--cli /absolute/executable` for a
 different existing V2 installation. The selected model, provider, effort,
 credentials, conversations and native permissions are untouched.

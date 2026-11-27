@@ -267,7 +267,16 @@ def discovery_names():
  return names
 
 def main():
+ if sys.argv[1:2]==['selections']:
+  from lib.selected_catalog import main as selections_main
+  return selections_main(sys.argv[2:])
+ from lib import review_packets
+ sys.path.insert(0,str(ROOT/'addons/01/scripts'))
+ import project_find
  p=argparse.ArgumentParser(description='Find reviewed capabilities and inspect their routes before use.',epilog='Start read-only: nstack search web-ui-design --brief, then nstack show COMPONENT_ID. Search and show do not install or activate anything.');sub=p.add_subparsers(dest='cmd',required=True,metavar='COMMAND')
+ sub.add_parser('selections', help='Inspect portable scope and pinned sources for selected methods')
+ project_find.arguments(sub.add_parser('find',help='Search eligible project skill instructions and references'))
+ review_packets.add_arguments(sub.add_parser('review', help='Pin, read and verify local Elephant–Goldfish review packets'))
  a=sub.add_parser('search',help='Find catalog entries by task, source or selected skill name',description='Search reviewed catalog entries. Results are JSON; selected names describe available catalog leaves, not installed skills.')
  a.add_argument('terms',nargs='+',help='Pass distinctive words separately, or quote a phrase to match it literally; entries matching more terms rank first');a.add_argument('--all',action='store_true',help='Include excluded and consultation-only entries');a.add_argument('--limit',type=int,default=12,help='Maximum results (1–535; default 12)');a.add_argument('--brief',action='store_true',help='Show component ID, summary, admission and selected native names')
  a=sub.add_parser('show',help='Inspect an admitted component, its paths and prerequisites');a.add_argument('id',help='Component ID from search, for example P001')
@@ -287,9 +296,12 @@ def main():
   a=sub.add_parser(command,help={'commission':'Prepare a selected runtime', 'run':'Run a commissioned operation', 'check':'Check a commissioned operation', 'remove-runtime':'Remove an owned runtime'}[command]);a.add_argument('id');a.add_argument('operation');
   if command=='run':a.add_argument('arguments',nargs=argparse.REMAINDER)
  a=sub.add_parser('doctor',help='Show registry, state and executable locations')
+ a.add_argument('--runtime-paths',action='store_true',help='Check recorded absolute invocation paths without starting any runtime')
  a=sub.add_parser('knowledge',help='Read or update project-scoped knowledge');a.add_argument('action',choices=['set','read','delete']);a.add_argument('project');a.add_argument('id');a.add_argument('--claim');a.add_argument('--source');a.add_argument('--expected-generation',type=int,default=0)
  args=p.parse_args()
  try:
+  if args.cmd=='review':return review_packets.command(args)
+  if args.cmd=='find':return project_find.run(args,sys.modules[__name__])
   if args.cmd=='search':
    rows=load(ROOT/'registry/discovery.json');terms=[t.lower() for t in args.terms]
    names=discovery_names()
@@ -355,6 +367,10 @@ def main():
     result=knowledge.change(args.project,args.id,args.claim,args.source,args.action=='delete',dump,args.expected_generation)
    print(json.dumps(result,indent=2))
   elif args.cmd=='doctor':
-   m=manifest();print(json.dumps({'registry':str(ROOT/'registry/manifest.json'),'manifest_version':m['version'],'components':len(m['components']),'paths':len(m['skills']),'decisions':len(load(ROOT/'registry/discovery.json')),'state':str(STATE),'codex':shutil.which('codex'),'git':shutil.which('git'),'python':sys.version.split()[0]},indent=2))
+   m=manifest();report={'registry':str(ROOT/'registry/manifest.json'),'manifest_version':m['version'],'components':len(m['components']),'paths':len(m['skills']),'decisions':len(load(ROOT/'registry/discovery.json')),'state':str(STATE),'codex':shutil.which('codex'),'git':shutil.which('git'),'python':sys.version.split()[0]}
+   if args.runtime_paths:
+    from lib.runtime_paths import audit
+    report['runtime_paths']=audit(STATE)
+   print(json.dumps(report,indent=2))
  except (ValueError,OSError,subprocess.CalledProcessError) as e:p.exit(1,str(e)+'\n')
-if __name__=='__main__':main()
+if __name__=='__main__':sys.exit(main())

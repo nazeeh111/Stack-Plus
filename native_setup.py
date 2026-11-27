@@ -356,11 +356,11 @@ def apply(args):
         if existing_profile.get("codex_home", str(home / ".codex")) != str(codex_home):
             raise ValueError("Native state belongs to another Codex instructions path; reconcile before changing it")
     chosen = selection()
-    if args.only:
-        names = {skill_names.canonical(name) for name in args.only}
-        if names - {name for name, _ in chosen}:
+    only_names = {skill_names.canonical(name) for name in (args.only or [])}
+    if only_names:
+        if only_names - {name for name, _ in chosen} - {"01"}:
             raise ValueError("Unknown or non-installable selected skill name")
-        chosen = [(name, s) for name, s in chosen if name in names]
+        chosen = [(name, s) for name, s in chosen if name in only_names]
     addons = [name for name, enabled in [("agent-reach", args.agent_reach), ("repository-docs", args.repository_docs)] if enabled]
     if getattr(args, "academic_research", False):
         import academic_addon
@@ -382,7 +382,7 @@ def apply(args):
         addons.append("game-systems-review")
     if getattr(args, "untangle_codebase", False):
         addons.append("untangle-codebase")
-    if getattr(args, "adaptive_routing", False):
+    if getattr(args, "adaptive_routing", False) or "01" in only_names:
         addons.append("01")
     if getattr(args, "craft_anything", False):
         addons.append("craft-anything")

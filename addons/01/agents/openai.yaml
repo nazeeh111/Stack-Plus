@@ -1,5 +1,5 @@
 interface:
-  display_name: "01"
+  display_name: "01 · Stack+"
   short_description: "One activation; adaptive skills, plugins and tools"
   default_prompt: "Use $01 throughout this chat. Select and apply useful skills, plugins and tools as my requests evolve, and verify the result."
 policy:

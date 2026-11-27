@@ -1,34 +1,19 @@
-# Install nstack on a Mac
+# Install Stack+ on a Mac
 
-Use your existing Codex or OpenCode installation. From that host you can ask:
+Use a reviewed checkout of [Stack+](https://github.com/nazeeh111/Stack-Plus), Python 3.11 or newer and your existing Codex or OpenCode host. You can use `./stack+ selections`, `./stack+ find` and `./stack+ review` from that checkout. Each specialist’s scope and source are listed in the [portable selection catalog](stackplus-selections.md).
 
-```text
-Set up https://github.com/nazeeh111/nstack on this Mac using docs/ONBOARDING.md.
-Show me the selected skill profile and rehearse it in a separate directory
-before changing my current setup. Preserve my personal skills and settings, and
-verify discovery in my chosen host.
-```
-
-You need Git, Python 3.11 or later, and access to the pinned public sources.
-Run the commands below from a reviewed nstack checkout. Keep your existing
-host, model, effort, personal instructions and projects. See
-[everyday setup](EVERYDAY_SETUP.md) for optional tools and
-[source fidelity](SOURCE_FIDELITY.md) for provenance and licenses.
-
-## 1. Inspect the selection
+## 1. Rehearse the one-skill selection
 
 ```sh
-python3 -m json.tool profiles/complete-skills.json
+preview=$(mktemp -d)
+python3 native_setup.py install --only 01 \
+  --home "$preview/home" --codex-home "$preview/home/.codex" --state "$preview/state"
+python3 -m json.tool "$preview/state/native-profile.json"
 ```
 
-[The complete-skills profile](../profiles/complete-skills.json) records the
-current portable selection of 216 methods: 170 base skills, 34 add-ons and
-12 specialist skills. Inspecting the JSON reads the selection without fetching
-source or changing profiles.
+Confirm the profile’s single selected skill is `01`. To use that selection in a new shared root, run `python3 native_setup.py install --only 01`, then inspect the normal skill picker in your project. Existing shared collections require deliberate reconciliation. Keep the rollback path printed by the installer. Select `$01` in Codex or `@01` from OpenCode’s skill picker. Project-specific evidence and packet files stay in the project.
 
-The profile selects skill instructions and support files. It does not enable
-specialist runtimes, account connections, services or device permissions.
-Review each selected runtime separately when a workflow needs it.
+The following sections describe the historical registry installers for people choosing a different collection. Additions keep their individual source, license, tooling requirements and activation policy. [Source fidelity](SOURCE_FIDELITY.md)
 
 ## 2. Try one skill in a separate home
 
@@ -56,12 +41,11 @@ rollback path. The preview stays in its temporary directory for inspection.
 
 ## 3. Choose the permanent selection
 
-For the same single-skill selection in a new shared root, run
+For this alternative design-skill example in a new shared root, run
 `python3 native_setup.py install --only web-ui-design` when ready. The
 default installation without `--only` selects all 170 base skills.
 
-For a larger collection, use `python3 native_setup.py install --help` and
-the [portable profile](../profiles/complete-skills.json) to review additions.
+For a larger collection, use `python3 native_setup.py install --help` to inspect available additions. Existing profiles can continue using their recorded selections.
 Supply selected add-on flags and repeated `--extra-skill NAME` pairs on the
 same install command. Leave a group flag out to omit its whole group. Omit
 `--academic-research` if the five academic skills’ CC BY-NC 4.0 license

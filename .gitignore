@@ -17,3 +17,5 @@ node_modules/
 auth.json
 .opencode/auth.json
 .opencode/secrets/
+
+.stackplus-review/

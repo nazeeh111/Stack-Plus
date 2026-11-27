@@ -7,6 +7,8 @@ sys.path.insert(0, str(ROOT / 'lib'))
 from transaction import Transaction, atomic_json, copy, fingerprint, same
 import install as profile_install
 
+LAUNCHER_VERSIONS = ('2.2.6', '2.3.0', '2.4.1')
+
 
 def local_provider_settings(value):
     """Accept only nonsecret tuning of the built-in local Ollama provider."""
@@ -130,8 +132,9 @@ def plan(home, state, cli, codex=None, vault=None, vault_write=None):
     previous_config = (json.dumps(config, indent=2) + '\n').encode()
     if codex is not None:
         codex = P(codex).absolute()
-        if version not in ('opencode v2.2.6', 'opencode v2.3.0'):
-            raise ValueError('The optional Codex terminal launcher is checked against OpenCode 2.2.6 and 2.3.0')
+        if version.removeprefix('opencode v') not in LAUNCHER_VERSIONS:
+            raise ValueError('The optional Codex terminal launcher requires a checked OpenCode version: '
+                             + ', '.join(LAUNCHER_VERSIONS))
         if not codex.is_file() or not os.access(codex, os.X_OK):
             raise ValueError('An existing executable native Codex CLI is required')
         native_version = subprocess.run([str(codex), '--version'], check=True, text=True, capture_output=True).stdout.strip()
@@ -264,7 +267,7 @@ def main():
     install = sub.add_parser('install'); install.add_argument('--home', default=str(P.home()))
     install.add_argument('--state', default=str(P.home() / 'Library/Application Support/nstack'))
     install.add_argument('--cli', default='/Applications/OpenCode.app/Contents/Resources/opencode-cli')
-    install.add_argument('--codex-harness', metavar='EXECUTABLE', help='Add an explicit native Codex terminal command in verified OpenCode Desktop 2.2.6 or 2.3.0')
+    install.add_argument('--codex-harness', metavar='EXECUTABLE', help='Add a native Codex terminal command in OpenCode Desktop ' + ', '.join(LAUNCHER_VERSIONS))
     install.add_argument('--vault', metavar='DIRECTORY', help='Share the explicit vault directory; preserve its write choice, initially ask')
     install.add_argument('--vault-write', choices=('ask', 'allow'), help='Explicit vault edit choice for build/general only; otherwise preserve its current policy')
     undo = sub.add_parser('rollback'); undo.add_argument('run'); undo.add_argument('--chain', action='store_true')

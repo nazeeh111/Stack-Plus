@@ -1,5 +1,12 @@
 # Distinguish useful contributions
 
+## Search supporting files in an eligible project skill
+
+Use `stack+ find --json "technical contribution"` from the relevant project. The command returns a file, line, excerpt and match ID. Reopen the complete method and matching support with `stack+ find --read MATCH_ID`. Repeat the original project, host, agent/session and any narrower eligibility options. Add `--bundle NAME` to narrow a large search. An individually selected explicit-only leaf also requires `--bundle NAME --explicit` on both commands.
+
+The project lookup checks local skill roots, nearer overrides, disabled entries and the published project link’s ownership when invoked through the management CLI. With only the native skill installed, use `python3 scripts/project_find.py` from this skill’s directory and specify `--project PATH`; that standalone path reads physical project leaves. OpenCode resolves the native winner and current agent or session permissions. Supply `--session ID` or `--agent ID` when available. An optional `--eligible /path/to/SKILL.md` narrows an already permitted selection. Use native discovery separately for user-wide skills and connected operations.
+
+
 These overlapping views help compare methods. They do not prescribe combinations or replace complete skills. Use current native IDs; prior IDs remain lookup aliases. Runtime readiness and authority must be checked separately.
 
 | Need | Candidate contribution | Difference that changes the choice |
@@ -59,3 +66,16 @@ Queries match words, phrases and simple plurals; an exact identifier is a lookup
 For a concrete remaining method gap, select find-skills without requiring the user to name it. Read its complete current method/native binding, identify the need, search the public directory with specific terms and inspect promising source. Popularity is a lead, not quality evidence. Reuse installed methods when adequate; carry a justified acquisition through source/dependency/rights review, required admission/trial checks and actual use within authority. Keep private context out of external searches and heavy dependencies project-scoped. An unsuitable search result is a reason to work directly or report the gap, not to install a weak match.
 
 Domains now include explicit reverse-engineering, automation and workflow groups. These overlap the existing design, media, coding, research and infrastructure views; a group is not a required pipeline. Additional user-owned methods are attached only when their current description matches a navigation card. Skills supplied dynamically by a host/plugin still require native discovery.
+
+## Reopen a reviewed bundle from the local library
+
+To make a permitted on-demand selection available across projects, stage it intentionally in its own named library directory. For example, from the checkout:
+
+```sh
+library="${XDG_DATA_HOME:-$HOME/.local/share}/stackplus/library"
+mkdir -p "$library"
+./stack+ selections --stage design-specification-workflow "$library/design-specification-workflow"
+./stack+ find --project PROJECT --json "independent specification drift review"
+```
+
+This location stays outside native skill roots. A project declaration with the same name takes precedence. Codex’s effective name/path rules apply to the staged entry. Explicit-only methods require individual selection and the matching flags. Project-scoped and conditional methods remain off the general shelf. For a project that qualifies for one, stage its complete package inside that project and link its returned `bundle/skills/NAME` into the project’s native skill root, preserving existing entries and host controls. The finder can then read a directly cited shared file listed for that leaf in the pinned catalog. It rechecks the document digest in the stage receipt. The native-only helper without the management checkout reads authorized physical project leaves.

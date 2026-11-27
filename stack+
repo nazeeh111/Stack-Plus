@@ -1,0 +1,6 @@
+#!/usr/bin/env python3
+"""Run the Stack+ management CLI from this checkout."""
+from nstack import main
+
+if __name__ == "__main__":
+    raise SystemExit(main())

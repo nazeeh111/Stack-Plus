@@ -244,10 +244,16 @@ class OpenCodeSetupTests(unittest.TestCase):
             m.rollback(result['run']); self.assertEqual(config.read_bytes(), raw)
 
     def test_v230_repeat_preserves_privacy_settings_and_denials(self):
+        self.check_launcher_upgrade('2.3.0')
+
+    def test_v241_repeat_preserves_privacy_settings_and_denials(self):
+        self.check_launcher_upgrade('2.4.1')
+
+    def check_launcher_upgrade(self, version):
         with tempfile.TemporaryDirectory() as tmp:
             home, state, cli = self.fixture(P(tmp).resolve())
             m.apply(home, state, cli)
-            cli.write_text('#!/bin/sh\necho "opencode v2.3.0"\n')
+            cli.write_text(f'#!/bin/sh\necho "opencode v{version}"\n')
             config = home / '.config/opencode/opencode.json'
             data = json.loads(config.read_text())
             privacy = {'share': 'disabled', 'update': 'notify', 'snapshots': True,

@@ -28,6 +28,18 @@ class CachedCodeIntegrity(unittest.TestCase):
         tool.chmod(0o755)
         return source
 
+    def test_public_checkout_launcher_survives_staging(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            base = Path(temporary).resolve()
+            source = self.fixture(base)
+            (source/'stack+').write_bytes((ROOT/'stack+').read_bytes())
+            (source/'nstack.py').write_text('def main():\n    print("Staged Stack+")\n')
+            with patch.object(install, 'ROOT', source):
+                release = install.stage(base/'state')
+                import subprocess
+                self.assertEqual(subprocess.check_output([release/'stack+'],text=True).strip(),'Staged Stack+')
+                self.assertEqual(install.stage(base/'state'),release)
+
     def test_normal_cached_repeat_preserves_release_and_seal(self):
         with tempfile.TemporaryDirectory() as temporary:
             base = Path(temporary).resolve()

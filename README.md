@@ -1,8 +1,29 @@
-# nstack
+# Stack+
 
-A skill registry for Codex and OpenCode. Start with a task, inspect the exact
-source and license behind a matching skill, then decide whether to use it in
-your host.
+Stack+ is a portable skill toolkit for Codex and OpenCode. Select **01** once, describe the outcome, and steer the same conversation as the work changes. The lead can combine project methods, host tools and checked runtimes, then verify the result in the interface that consumes it. A simple edit stays simple.
+
+## Start from the checkout
+
+Use Python 3.11 or later. The checkout launcher works before installation.
+
+```sh
+git clone https://github.com/nazeeh111/Stack-Plus.git
+cd Stack-Plus
+./stack+ --help
+./stack+ selections
+./stack+ review guide
+```
+
+To install just the explicitly invoked lead, rehearse `python3 native_setup.py install --only 01` in a disposable home first. This selection uses bundled source. The installer checks the existing shared skill root before changing it. Select `$01` in Codex or `@01` in OpenCode. Say “turn 01 off” to end its role in that conversation. [Install and verify one native skill](docs/ONBOARDING.md) · [OpenCode adapter](docs/OPENCODE.md)
+
+| Need | Portable entry point |
+|---|---|
+| Find a contribution inside an eligible project method or staged on-demand library bundle | `./stack+ find --project PROJECT --json "technical contribution"`. Reopen a result with `--read MATCH_ID` under the same scope. Codex uses native project paths and effective skill rules. The off-root library preserves each selected method’s scope. OpenCode resolves its native skill winner and agent/session permissions. [Discovery details](addons/01/references/method-families.md) |
+| Check a consequential design, implementation or handoff | `./stack+ review pack --project PROJECT --artifact design.md`, then `./stack+ review verify ID --project PROJECT --current`. A fresh reader can inspect the exact pinned bytes. [Elephant–Goldfish workflow](docs/STACKPLUS-REVIEW.md) |
+| Look up the selected scope, source and prerequisites for a method | `./stack+ selections` and `./stack+ selections QUERY --json`. The catalog identifies what can be obtained and under which terms. Availability and live operation depend on the recipient's project, host, grants and runtimes. [Selection and portability guide](docs/stackplus-selections.md) |
+| Use the existing registry, installation and recovery interfaces | The historical `nstack` command, `python3 nstack.py`, state paths and installer options remain supported. The management installer also creates `stack+` in an unused command slot. [Transaction and recovery](docs/RESTORE.md) |
+
+The material below documents the existing registry and optional installation profiles. The Stack+ starting selection above contains one lead. Specialist bundles earn a place in each project through their source, prerequisites and a checked result.
 
 ![Registry record L010 maps anthropics/skills at ca45fc4 to web-ui-design and mcp-builder. Both selected skills have Apache-2.0 rights.](docs/presentation/discovery.svg)
 
@@ -115,7 +136,7 @@ Choose optional additions in that single `native_setup.py` command rather than
 running successive replacements: `--academic-research`, `--ecc`, `--unslop`,
 `--maps-scraper`, `--untangle-codebase`, `--raea`, `--adaptive-routing`,
 `--llm-council`, `--roast-room`, `--council-of-high-intelligence`,
-`--cloudflare-security-audit`, `--strix`, `--skillspector`, `--rea`, `--craft-anything`,
+`--skillspector`, `--rea`, `--craft-anything`,
 `--creative-reframing`, `--playwright-mcp`, `--agent-orchestration`,
 `--dream-loop`, `--fpga`, `--cirq`, `--formal-verification`, `--research-engines`,
 `--agent-desktop` and `--game-systems-review`.
@@ -206,10 +227,7 @@ critique and reversed-order checks. It uses available native workflows; its
 offline helper makes no model requests. Multi-provider use needs its own
 connection, data scope and budget. No simulator or extra service is started.
 
-The optional [security methods](docs/SECURITY-METHODS.md) add one Cloudflare
-repository-audit skill and one Strix skill shared by both hosts. They preserve
-the complete licensed method references without activating scanners, cloud
-accounts or paid providers. Routine security review keeps its existing route.
+For a security-sensitive change, the [selected defensive methods](profiles/stackplus/defensive/) cover static review, remediation and independent checks with conventional project tests. Stage the one that fits the change.
 
 Optional [SkillSpector](docs/SKILLSPECTOR.md) audits agent instructions and their
 bundled source with the pinned NVIDIA static scanner and source-aware review.

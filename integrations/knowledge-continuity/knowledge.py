@@ -7,6 +7,7 @@ No model, network, transcript, credential or generated-memory access exists here
 from __future__ import annotations
 
 import argparse
+import builtins
 import copy
 import datetime as dt
 import fcntl
@@ -45,13 +46,24 @@ def require_enabled(cfg: dict) -> None:
 
 
 def filesystem_tools():
-    """Load the existing source-owned metadata/copy utility only for writer work."""
-    source = safe_absolute(str(Path(__file__).resolve().parents[2] / "lib/transaction.py"))
-    module = types.ModuleType("nstack_knowledge_transaction")
-    module.__file__ = str(source)
-    # Compile the recorded local module without creating cache files in immutable code.
-    exec(compile(regular_bytes(source, 1024 * 1024), str(source), "exec"), module.__dict__)
-    return module
+    """Bind the writer's utilities to this release without changing Python's import path."""
+    library = Path(__file__).resolve().parents[2] / "lib"
+    paths = types.ModuleType("nstack_knowledge_transaction_paths")
+    transaction = types.ModuleType("nstack_knowledge_transaction")
+
+    def release_import(name, globals=None, locals=None, fromlist=(), level=0):
+        if name == "transaction_paths" and level == 0:
+            return paths
+        return builtins.__import__(name, globals, locals, fromlist, level)
+
+    # transaction.py imports its sibling by its standalone name. Scope that
+    # binding to this module so callers' import paths and module caches stay intact.
+    transaction.__dict__["__builtins__"] = {**vars(builtins), "__import__": release_import}
+    for module, filename in ((paths, "transaction_paths.py"), (transaction, "transaction.py")):
+        source = safe_absolute(str(library / filename))
+        module.__file__ = str(source)
+        exec(compile(regular_bytes(source, 1024 * 1024), str(source), "exec"), module.__dict__)
+    return transaction
 
 
 def regular_bytes(path: Path, limit: int) -> bytes:
@@ -289,6 +301,23 @@ def transaction_root(state: Path) -> Path:
     return folder
 
 
+def prepare_journal(path: Path) -> None:
+    """The writer lock is held. Only an empty, private pre-write journal is reusable."""
+    try:
+        path.mkdir(mode=0o700)
+    except FileExistsError:
+        safe_absolute(str(path))
+        fd = os.open(path, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
+        try:
+            info = os.fstat(fd)
+            if (info.st_uid != os.geteuid() or stat.S_IMODE(info.st_mode) != 0o700
+                    or os.listdir(fd)):
+                raise Rejected("existing event journal requires reviewed recovery")
+        finally:
+            os.close(fd)
+    safe_absolute(str(path))
+
+
 def require_completed_duplicate(cfg: dict, vault: Path, target: Path, before: bytes, transactions: Path) -> None:
     rel = str(target.relative_to(vault))
     git_preflight(cfg, vault, rel)
@@ -449,10 +478,9 @@ def capture(cfg: dict, candidate: dict, host: str, session: str, event_id: str, 
             return receipt(cfg, host, session, event_id, "skip", reason="duplicate", note=candidate["note"], note_sha256=digest(before), candidate_sha256=digest(json.dumps(candidate, sort_keys=True).encode()))
         vault = safe_absolute(cfg["vault"])
         head_before = git_preflight(cfg, vault, candidate["note"])
-        journal = transactions / key
-        journal.mkdir(mode=0o700, exist_ok=False)
-        safe_absolute(str(journal))
         fs = filesystem_tools()
+        journal = transactions / key
+        prepare_journal(journal)
         baseline = fs.fingerprint(target)
         if (before and (baseline.get("kind") != "file" or baseline.get("sha256") != digest(before))) or (not before and baseline.get("kind") != "absent"):
             raise Rejected("note changed before backup")

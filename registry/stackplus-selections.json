@@ -1,0 +1,2817 @@
+{
+  "version": 1,
+  "explicit_lead": "01",
+  "methods": [
+    {
+      "name": "ab-testing",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "coreyhaines31/marketingskills",
+        "revision": "88c79f6528a9347420e57ceb1fff9a60de651768",
+        "path": "skills/ab-testing/SKILL.md"
+      }
+    },
+    {
+      "name": "accessibility-and-inclusive-visualization",
+      "scope": "Project method for an interactive data display",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/build-web-data-visualization/skills/accessibility-and-inclusive-visualization"
+      },
+      "leaf": "plugins/build-web-data-visualization/skills/accessibility-and-inclusive-visualization",
+      "shared": "openai/plugins:plugins/build-web-data-visualization@981b02c0c440"
+    },
+    {
+      "name": "agent-evaluation-harness",
+      "scope": "On demand",
+      "source": {
+        "repository": "affaan-m/ECC",
+        "revision": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
+        "path": "skills/eval-harness/SKILL.md"
+      },
+      "leaf": "skills/eval-harness"
+    },
+    {
+      "name": "agents-sdk",
+      "scope": "On demand (match by name)",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/openai-developers/skills/agents-sdk"
+      },
+      "leaf": "plugins/openai-developers/skills/agents-sdk",
+      "shared": "openai/plugins:plugins/openai-developers@981b02c0c440"
+    },
+    {
+      "name": "analytics",
+      "scope": "On demand",
+      "source": {
+        "repository": "coreyhaines31/marketingskills",
+        "revision": "2bf95edb4ebd37198ab7fd18b99ba95c2145ec64",
+        "path": "skills/analytics"
+      },
+      "leaf": "skills/analytics"
+    },
+    {
+      "name": "analyze-data-quality",
+      "scope": "Project method for a data analysis",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/data-analytics/skills/analyze-data-quality"
+      },
+      "leaf": "plugins/data-analytics/skills/analyze-data-quality",
+      "shared": "openai/plugins:plugins/data-analytics@981b02c0c440"
+    },
+    {
+      "name": "application-test-fix-verify",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "garrytan/gstack",
+        "revision": "622e8b1f76d293b647eca7b33d9dd060ab618b21",
+        "path": "qa/SKILL.md"
+      }
+    },
+    {
+      "name": "assess-patch-risk",
+      "scope": "On demand (match by name)",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/codex-security/skills/assess-patch-risk"
+      },
+      "checkout_bundle": "profiles/stackplus/defensive/assess-patch-risk",
+      "edition": "Stack+ defensive adaptation"
+    },
+    {
+      "name": "audit-ios-readiness",
+      "scope": "Conditional on a native migration",
+      "source": {
+        "repository": "openai/community-plugins",
+        "revision": "6ab9f2066b527e6bc295f638c5b74553a4bf5e05",
+        "path": "plugins/react-native-to-swiftui/skills/audit-ios-readiness"
+      },
+      "leaf": "plugins/react-native-to-swiftui/skills/audit-ios-readiness",
+      "shared": "openai/community-plugins:plugins/react-native-to-swiftui@6ab9f2066b52"
+    },
+    {
+      "name": "auto-editor-audio-video-cuts",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "WyattBlue/auto-editor",
+        "revision": "5ad05f9ee76bc9fe4126bd25463eada082576f88",
+        "path": "skills/auto-editor/SKILL.md"
+      }
+    },
+    {
+      "name": "auto-editor-timeline-conversion",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "WyattBlue/auto-editor",
+        "revision": "5ad05f9ee76bc9fe4126bd25463eada082576f88",
+        "path": "skills/auto-editor-export/SKILL.md"
+      }
+    },
+    {
+      "name": "bigquery-optimization",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "google/skills",
+        "revision": "0b14183791fb3d017b06b7c7718078d82a4afc33",
+        "path": "skills/cloud/bigquery-optimization/SKILL.md"
+      }
+    },
+    {
+      "name": "blender-2d-drawing-animation",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "scenario-labs/skills",
+        "revision": "e24bc7d40be97b428e7b9fd467c415366e1dd974",
+        "path": "skills/dcc/blender/scenario-blender-grease-pencil/SKILL.md"
+      }
+    },
+    {
+      "name": "blender-animation",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "scenario-labs/skills",
+        "revision": "e24bc7d40be97b428e7b9fd467c415366e1dd974",
+        "path": "skills/dcc/blender/scenario-blender-animation/SKILL.md"
+      }
+    },
+    {
+      "name": "blender-asset-export",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "scenario-labs/skills",
+        "revision": "e24bc7d40be97b428e7b9fd467c415366e1dd974",
+        "path": "skills/dcc/blender/scenario-blender-export/SKILL.md"
+      }
+    },
+    {
+      "name": "blender-hard-surface-modeling",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "scenario-labs/skills",
+        "revision": "e24bc7d40be97b428e7b9fd467c415366e1dd974",
+        "path": "skills/dcc/blender/scenario-blender-hard-surface/SKILL.md"
+      }
+    },
+    {
+      "name": "blender-lighting-rendering",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "scenario-labs/skills",
+        "revision": "e24bc7d40be97b428e7b9fd467c415366e1dd974",
+        "path": "skills/dcc/blender/scenario-blender-lighting-rendering/SKILL.md"
+      }
+    },
+    {
+      "name": "blender-previs-storyboarding",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "scenario-labs/skills",
+        "revision": "e24bc7d40be97b428e7b9fd467c415366e1dd974",
+        "path": "skills/dcc/blender/scenario-blender-previs-storyboard/SKILL.md"
+      }
+    },
+    {
+      "name": "blender-production-workflows",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "scenario-labs/skills",
+        "revision": "e24bc7d40be97b428e7b9fd467c415366e1dd974",
+        "path": "skills/dcc/blender/scenario-blender-expert/SKILL.md"
+      }
+    },
+    {
+      "name": "blender-rigging",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "scenario-labs/skills",
+        "revision": "e24bc7d40be97b428e7b9fd467c415366e1dd974",
+        "path": "skills/dcc/blender/scenario-blender-rigging/SKILL.md"
+      }
+    },
+    {
+      "name": "blender-texturing-shading",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "scenario-labs/skills",
+        "revision": "e24bc7d40be97b428e7b9fd467c415366e1dd974",
+        "path": "skills/dcc/blender/scenario-blender-texturing-shading/SKILL.md"
+      }
+    },
+    {
+      "name": "build-run-debug",
+      "scope": "Project method for a native Mac deliverable",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/build-macos-apps/skills/build-run-debug"
+      },
+      "leaf": "plugins/build-macos-apps/skills/build-run-debug",
+      "shared": "openai/plugins:plugins/build-macos-apps@981b02c0c440"
+    },
+    {
+      "name": "career-ops-job-search",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "career-ops-hq/career-ops",
+        "revision": "9a72d7261255ccd46d732d1fe5a5c3c9376d3ceb",
+        "path": ".agents/skills/career-ops/SKILL.md"
+      }
+    },
+    {
+      "name": "causal-and-temporal-validation",
+      "scope": "Project-scoped",
+      "checkout_bundle": "addons/causal-and-temporal-validation",
+      "source": {
+        "repository": "nazeeh111/Stack-Plus",
+        "revision": "29976c3b2293001e97f4e09a65ee91df1506d72f",
+        "path": "addons/causal-and-temporal-validation"
+      }
+    },
+    {
+      "name": "change-impact-review",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "cursor/plugins",
+        "revision": "bb68f2365eceafa0cb2d253112f675acf5f144cc",
+        "path": "harness/pstack/claude-code/skills/blast-radius/SKILL.md"
+      }
+    },
+    {
+      "name": "cirq-quantum-simulation",
+      "scope": "On demand",
+      "checkout_bundle": "addons/cirq",
+      "source": {
+        "repository": "K-Dense-AI/scientific-agent-skills",
+        "revision": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+        "path": "skills/cirq"
+      }
+    },
+    {
+      "name": "citation-management",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "K-Dense-AI/scientific-agent-skills",
+        "revision": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+        "path": "skills/citation-management/SKILL.md"
+      }
+    },
+    {
+      "name": "cli-anything-harnesses",
+      "scope": "Recurring workflow only",
+      "native_base": true,
+      "source": {
+        "repository": "HKUDS/CLI-Anything",
+        "revision": "34f519533bc175d2fe287ab8316b0dd99bb9cc43",
+        "path": "codex-skill/SKILL.md"
+      }
+    },
+    {
+      "name": "code-unit-scaling-audit",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "trailofbits/skills",
+        "revision": "470419e16f97e112d01fc32f4898aea1755015d9",
+        "path": "plugins/dimensional-analysis/skills/dimensional-analysis/SKILL.md"
+      }
+    },
+    {
+      "name": "codeql-security-analysis",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "trailofbits/skills",
+        "revision": "470419e16f97e112d01fc32f4898aea1755015d9",
+        "path": "plugins/static-analysis/skills/codeql/SKILL.md"
+      }
+    },
+    {
+      "name": "cold-email-drafts",
+      "scope": "Authorized campaign",
+      "native_base": true,
+      "source": {
+        "repository": "coreyhaines31/marketingskills",
+        "revision": "88c79f6528a9347420e57ceb1fff9a60de651768",
+        "path": "skills/cold-email/SKILL.md"
+      }
+    },
+    {
+      "name": "component-datasheet-extraction",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "aklofas/kicad-happy",
+        "revision": "c451943f72d91a4a9fbf4aa48bda0f730011f6d8",
+        "path": "skills/datasheets/SKILL.md"
+      }
+    },
+    {
+      "name": "computational-photonics-verification",
+      "scope": "Project-scoped",
+      "checkout_bundle": "addons/computational-photonics-verification",
+      "source": {
+        "repository": "nazeeh111/Stack-Plus",
+        "revision": "29976c3b2293001e97f4e09a65ee91df1506d72f",
+        "path": "addons/computational-photonics-verification"
+      }
+    },
+    {
+      "name": "concurrent-state-ownership",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "cursor/plugins",
+        "revision": "bb68f2365eceafa0cb2d253112f675acf5f144cc",
+        "path": "harness/pstack/claude-code/skills/principle-separate-before-serializing-shared-state/SKILL.md"
+      }
+    },
+    {
+      "name": "content-strategy",
+      "scope": "On demand",
+      "source": {
+        "repository": "coreyhaines31/marketingskills",
+        "revision": "2bf95edb4ebd37198ab7fd18b99ba95c2145ec64",
+        "path": "skills/content-strategy"
+      },
+      "leaf": "skills/content-strategy"
+    },
+    {
+      "name": "create-data-context",
+      "scope": "Project method for a data analysis",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/data-analytics/skills/create-data-context"
+      },
+      "leaf": "plugins/data-analytics/skills/create-data-context",
+      "shared": "openai/plugins:plugins/data-analytics@981b02c0c440"
+    },
+    {
+      "name": "create-verification-skill",
+      "scope": "On demand",
+      "source": {
+        "repository": "cursor/plugins",
+        "revision": "bb68f2365eceafa0cb2d253112f675acf5f144cc",
+        "path": "pstack/skills/create-verification-skill"
+      },
+      "leaf": "pstack/skills/create-verification-skill"
+    },
+    {
+      "name": "creative-reframing",
+      "scope": "On demand",
+      "checkout_bundle": "addons/creative-reframing",
+      "source": {
+        "repository": "KorroAi/claude-creativity",
+        "revision": "2e7aaa496c5c7824e5fdcb466b8cfb05a333817e",
+        "path": "SKILL.md"
+      }
+    },
+    {
+      "name": "customer-interview-script",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "phuryn/pm-skills",
+        "revision": "2a12295a7717569baa7be181b4cfebe3ca38a6bb",
+        "path": "pm-product-discovery/skills/interview-script/SKILL.md"
+      }
+    },
+    {
+      "name": "customer-research",
+      "scope": "On demand",
+      "source": {
+        "repository": "coreyhaines31/marketingskills",
+        "revision": "2bf95edb4ebd37198ab7fd18b99ba95c2145ec64",
+        "path": "skills/customer-research"
+      },
+      "leaf": "skills/customer-research"
+    },
+    {
+      "name": "data-visualization",
+      "scope": "Project method for an interactive data display",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/build-web-data-visualization/skills/data-visualization"
+      },
+      "leaf": "plugins/build-web-data-visualization/skills/data-visualization",
+      "shared": "openai/plugins:plugins/build-web-data-visualization@981b02c0c440"
+    },
+    {
+      "name": "debug-optimize-lcp",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "ChromeDevTools/chrome-devtools-mcp",
+        "revision": "0877ee00d2e43c1c04bba275e7d08cc1033e36e9",
+        "path": "skills/debug-optimize-lcp/SKILL.md"
+      }
+    },
+    {
+      "name": "deep-learning-training-diagnostics",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "google-research/tuning_playbook",
+        "revision": "7554a51f5d3002ba90308d39701b586f5a9b962e",
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "design-specification-workflow",
+      "scope": "On demand",
+      "checkout_bundle": "addons/design-specification-workflow",
+      "source": {
+        "repository": "google/elephant-goldfish-model",
+        "revision": "72d06f52a2482885d9a64bd24b291c6e8628942c",
+        "path": "."
+      }
+    },
+    {
+      "name": "diagnosing-bugs",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "mattpocock/skills",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "path": "skills/engineering/diagnosing-bugs/SKILL.md"
+      }
+    },
+    {
+      "name": "editorial-svg-diagrams",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "cathrynlavery/diagram-design",
+        "revision": "f24d98b05e2d7a5e68c2dedfe46e5b7173f50118",
+        "path": "skills/diagram-design/SKILL.md"
+      }
+    },
+    {
+      "name": "educational-comics",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "JimLiu/baoyu-skills",
+        "revision": "5792c7dc8d09a28d6969e8970166c5eb090ce6ad",
+        "path": "skills/baoyu-comic/SKILL.md"
+      }
+    },
+    {
+      "name": "email-sequences",
+      "scope": "Authorized campaign",
+      "native_base": true,
+      "source": {
+        "repository": "coreyhaines31/marketingskills",
+        "revision": "88c79f6528a9347420e57ceb1fff9a60de651768",
+        "path": "skills/emails/SKILL.md"
+      }
+    },
+    {
+      "name": "embedded-systems",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "Jeffallan/claude-skills",
+        "revision": "078a25cc5bfd8011459be7b91d004e900c1d02d3",
+        "path": "skills/embedded-systems/SKILL.md"
+      }
+    },
+    {
+      "name": "engineer-subsystem",
+      "scope": "Project selection for engineering geometry handoff",
+      "source": {
+        "repository": "openai/community-plugins",
+        "revision": "6ab9f2066b527e6bc295f638c5b74553a4bf5e05",
+        "path": "plugins/physical-engineering/skills/engineer-subsystem"
+      },
+      "leaf": "plugins/physical-engineering/skills/engineer-subsystem",
+      "shared": "openai/community-plugins:plugins/physical-engineering@6ab9f2066b52"
+    },
+    {
+      "name": "euclidean-geometry-ddar-solving",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "google-deepmind/alphageometry",
+        "revision": "6777cb586cbb46beed28db12dc72c69770b68337",
+        "path": "ddar.py"
+      }
+    },
+    {
+      "name": "evaluate-plugin",
+      "scope": "Setup-time candidate for an actual plugin change",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/plugin-eval/skills/evaluate-plugin"
+      },
+      "leaf": "plugins/plugin-eval/skills/evaluate-plugin",
+      "shared": "openai/plugins:plugins/plugin-eval@981b02c0c440"
+    },
+    {
+      "name": "evaluate-skill",
+      "scope": "Setup-time candidate for an actual plugin change",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/plugin-eval/skills/evaluate-skill"
+      },
+      "leaf": "plugins/plugin-eval/skills/evaluate-skill",
+      "shared": "openai/plugins:plugins/plugin-eval@981b02c0c440"
+    },
+    {
+      "name": "experiment-audit",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "wanshuiyin/Auto-claude-code-research-in-sleep",
+        "revision": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+        "path": "skills/skills-codex/experiment-audit/SKILL.md"
+      }
+    },
+    {
+      "name": "experiment-claim-validation",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "wanshuiyin/Auto-claude-code-research-in-sleep",
+        "revision": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+        "path": "skills/skills-codex/result-to-claim/SKILL.md"
+      }
+    },
+    {
+      "name": "experimental-design",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "K-Dense-AI/scientific-agent-skills",
+        "revision": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+        "path": "skills/experimental-design/SKILL.md"
+      }
+    },
+    {
+      "name": "figma-code-connect",
+      "scope": "Reserve for an existing collaborator-owned Figma source",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/figma/skills/figma-code-connect"
+      },
+      "leaf": "plugins/figma/skills/figma-code-connect",
+      "shared": "openai/plugins:plugins/figma@981b02c0c440"
+    },
+    {
+      "name": "figma-design-to-code",
+      "scope": "Reserve for an existing collaborator-owned Figma source",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/figma/skills/figma-design-to-code"
+      },
+      "leaf": "plugins/figma/skills/figma-design-to-code",
+      "shared": "openai/plugins:plugins/figma@981b02c0c440"
+    },
+    {
+      "name": "figma-implement-motion",
+      "scope": "Reserve for an existing collaborator-owned Figma source",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/figma/skills/figma-implement-motion"
+      },
+      "leaf": "plugins/figma/skills/figma-implement-motion",
+      "shared": "openai/plugins:plugins/figma@981b02c0c440"
+    },
+    {
+      "name": "figma-use",
+      "scope": "Reserve for an existing collaborator-owned Figma source",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/figma/skills/figma-use"
+      },
+      "leaf": "plugins/figma/skills/figma-use",
+      "shared": "openai/plugins:plugins/figma@981b02c0c440"
+    },
+    {
+      "name": "finance-3-statement-completion",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "anthropics/financial-services",
+        "revision": "60565064557ca77b12f62aa7877f365d111c129d",
+        "path": "plugins/vertical-plugins/financial-analysis/skills/3-statement-model/SKILL.md"
+      },
+      "description": "Complete an existing financial workbook by linking profit, cash movements and the balance sheet. Fill missing formulas across the income statement, balance sheet and cash flow statement, then reconcile all three statements."
+    },
+    {
+      "name": "finance-comparable-company-valuation",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "anthropics/financial-services",
+        "revision": "60565064557ca77b12f62aa7877f365d111c129d",
+        "path": "plugins/vertical-plugins/financial-analysis/skills/comps-analysis/SKILL.md"
+      }
+    },
+    {
+      "name": "finance-dcf-model",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "anthropics/financial-services",
+        "revision": "60565064557ca77b12f62aa7877f365d111c129d",
+        "path": "plugins/vertical-plugins/financial-analysis/skills/dcf-model/SKILL.md"
+      },
+      "description": "Build an editable discounted cash flow valuation workbook from projected operating cash flows. Estimate what a business is worth, vary growth and discount rates, and check formulas, terminal value and sensitivity."
+    },
+    {
+      "name": "find-skills",
+      "scope": "External discovery",
+      "native_base": true,
+      "source": {
+        "repository": "vercel-labs/skills",
+        "revision": "9197d919034d19010ae303cf96bf19ad087dd4be",
+        "path": "skills/find-skills/SKILL.md"
+      }
+    },
+    {
+      "name": "fix-finding",
+      "scope": "On demand (match by name)",
+      "checkout_bundle": "profiles/stackplus/defensive/fix-finding"
+    },
+    {
+      "name": "formula-derivation",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "wanshuiyin/Auto-claude-code-research-in-sleep",
+        "revision": "f76ec8d6b77792e2242cca049e08d0cbb7d54e19",
+        "path": "skills/skills-codex/formula-derivation/SKILL.md"
+      }
+    },
+    {
+      "name": "frontend-app-builder",
+      "scope": "Project method for a web application",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/build-web-apps/skills/frontend-app-builder"
+      },
+      "leaf": "plugins/build-web-apps/skills/frontend-app-builder",
+      "shared": "openai/plugins:plugins/build-web-apps@981b02c0c440"
+    },
+    {
+      "name": "frontend-testing-debugging",
+      "scope": "Project method for a web application",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/build-web-apps/skills/frontend-testing-debugging"
+      },
+      "leaf": "plugins/build-web-apps/skills/frontend-testing-debugging",
+      "shared": "openai/plugins:plugins/build-web-apps@981b02c0c440"
+    },
+    {
+      "name": "game-art-bible",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "Donchitos/Claude-Code-Game-Studios",
+        "revision": "05ad7c8a5b8aa2aa86bbd3439ae7cf7295cac418",
+        "path": ".claude/skills/art-bible/SKILL.md"
+      }
+    },
+    {
+      "name": "game-asset-spec",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "Donchitos/Claude-Code-Game-Studios",
+        "revision": "05ad7c8a5b8aa2aa86bbd3439ae7cf7295cac418",
+        "path": ".claude/skills/asset-spec/SKILL.md"
+      }
+    },
+    {
+      "name": "game-playtest",
+      "scope": "Project method for editable game delivery",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/game-studio/skills/game-playtest"
+      },
+      "leaf": "plugins/game-studio/skills/game-playtest",
+      "shared": "openai/plugins:plugins/game-studio@981b02c0c440"
+    },
+    {
+      "name": "game-playtest-report",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "Donchitos/Claude-Code-Game-Studios",
+        "revision": "05ad7c8a5b8aa2aa86bbd3439ae7cf7295cac418",
+        "path": ".claude/skills/playtest-report/SKILL.md"
+      }
+    },
+    {
+      "name": "game-studio",
+      "scope": "Project method for editable game delivery",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/game-studio/skills/game-studio"
+      },
+      "leaf": "plugins/game-studio/skills/game-studio",
+      "shared": "openai/plugins:plugins/game-studio@981b02c0c440"
+    },
+    {
+      "name": "game-systems-review",
+      "scope": "On demand",
+      "checkout_bundle": "addons/game-systems-review",
+      "source": {
+        "repository": "Donchitos/Claude-Code-Game-Studios",
+        "revision": "abc0de79d6ceb0b5d7aa693945849b3937afbe6a",
+        "path": "."
+      }
+    },
+    {
+      "name": "game-ui-frontend",
+      "scope": "Project method for editable game delivery",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/game-studio/skills/game-ui-frontend"
+      },
+      "leaf": "plugins/game-studio/skills/game-ui-frontend",
+      "shared": "openai/plugins:plugins/game-studio@981b02c0c440"
+    },
+    {
+      "name": "gdsfactory-component-designer",
+      "scope": "Project-scoped",
+      "source": {
+        "repository": "gdsfactory/gdsfactory",
+        "revision": "7407836dd5d872c704fc06f38562a2ffc88049dc",
+        "path": ".agents/skills/gdsfactory-component-designer"
+      },
+      "leaf": ".agents/skills/gdsfactory-component-designer"
+    },
+    {
+      "name": "github-actions-ci-repair",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "openai/skills",
+        "revision": "49f948faa9258a0c61caceaf225e179651397431",
+        "path": "skills/.curated/gh-fix-ci/SKILL.md"
+      }
+    },
+    {
+      "name": "github-pr-comment-resolution",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "openai/skills",
+        "revision": "49f948faa9258a0c61caceaf225e179651397431",
+        "path": "skills/.curated/gh-address-comments/SKILL.md"
+      }
+    },
+    {
+      "name": "godot-project-validation",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "htdt/godogen",
+        "revision": "40542b6c8efbdc40112c2b004fbaa6d67141846d",
+        "path": "engines/godot-gdscript.md"
+      },
+      "description": "Verify a Godot game opens after import, its scripts load and its main scene runs. Check saved resources, engine errors and a reproducible gameplay capture before handoff."
+    },
+    {
+      "name": "google-docs",
+      "scope": "On demand (match by name)",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/google-drive/skills/google-docs"
+      },
+      "leaf": "plugins/google-drive/skills/google-docs",
+      "shared": "openai/plugins:plugins/google-drive@981b02c0c440"
+    },
+    {
+      "name": "google-drive",
+      "scope": "On demand (match by name)",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/google-drive/skills/google-drive"
+      },
+      "leaf": "plugins/google-drive/skills/google-drive",
+      "shared": "openai/plugins:plugins/google-drive@981b02c0c440"
+    },
+    {
+      "name": "google-sheets",
+      "scope": "On demand (match by name)",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/google-drive/skills/google-sheets"
+      },
+      "leaf": "plugins/google-drive/skills/google-sheets",
+      "shared": "openai/plugins:plugins/google-drive@981b02c0c440"
+    },
+    {
+      "name": "google-slides",
+      "scope": "On demand (match by name)",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/google-drive/skills/google-slides"
+      },
+      "leaf": "plugins/google-drive/skills/google-slides",
+      "shared": "openai/plugins:plugins/google-drive@981b02c0c440"
+    },
+    {
+      "name": "handoff-fusion-engineering",
+      "scope": "Conditional on real local bridge",
+      "source": {
+        "repository": "openai/community-plugins",
+        "revision": "6ab9f2066b527e6bc295f638c5b74553a4bf5e05",
+        "path": "plugins/autodesk-fusion/skills/handoff-fusion-engineering"
+      },
+      "leaf": "plugins/autodesk-fusion/skills/handoff-fusion-engineering",
+      "shared": "openai/community-plugins:plugins/autodesk-fusion@6ab9f2066b52"
+    },
+    {
+      "name": "huggingface-dataset-viewer-api",
+      "scope": "Input discovery",
+      "native_base": true,
+      "source": {
+        "repository": "huggingface/skills",
+        "revision": "25910b3d0ba31a2ba102f901cdc9e008c278a69c",
+        "path": "skills/huggingface-datasets/SKILL.md"
+      }
+    },
+    {
+      "name": "huggingface-hub-cli",
+      "scope": "Input discovery",
+      "native_base": true,
+      "source": {
+        "repository": "huggingface/skills",
+        "revision": "25910b3d0ba31a2ba102f901cdc9e008c278a69c",
+        "path": "skills/hf-cli/SKILL.md"
+      }
+    },
+    {
+      "name": "huggingface-model-memory",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "huggingface/skills",
+        "revision": "25910b3d0ba31a2ba102f901cdc9e008c278a69c",
+        "path": "skills/hf-mem/SKILL.md"
+      }
+    },
+    {
+      "name": "hyperframes-media",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "heygen-com/hyperframes",
+        "revision": "3d78ac0fa6671c31ba69186d084951aeb8dc8e18",
+        "path": "skills/media-use/SKILL.md"
+      }
+    },
+    {
+      "name": "hyperframes-video-cli",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "heygen-com/hyperframes",
+        "revision": "3d78ac0fa6671c31ba69186d084951aeb8dc8e18",
+        "path": "skills/hyperframes-cli/SKILL.md"
+      }
+    },
+    {
+      "name": "hyperframes-video-components",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "heygen-com/hyperframes",
+        "revision": "3d78ac0fa6671c31ba69186d084951aeb8dc8e18",
+        "path": "skills/hyperframes-registry/SKILL.md"
+      }
+    },
+    {
+      "name": "hyperframes-video-production",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "heygen-com/hyperframes",
+        "revision": "3d78ac0fa6671c31ba69186d084951aeb8dc8e18",
+        "path": "skills/hyperframes/SKILL.md"
+      }
+    },
+    {
+      "name": "hypothesis-generation",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "K-Dense-AI/scientific-agent-skills",
+        "revision": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+        "path": "skills/hypothesis-generation/SKILL.md"
+      }
+    },
+    {
+      "name": "idempotent-operation-design",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "cursor/plugins",
+        "revision": "bb68f2365eceafa0cb2d253112f675acf5f144cc",
+        "path": "harness/pstack/claude-code/skills/principle-make-operations-idempotent/SKILL.md"
+      }
+    },
+    {
+      "name": "improve-skill",
+      "scope": "Setup-time candidate for an actual plugin change",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/plugin-eval/skills/improve-skill"
+      },
+      "leaf": "plugins/plugin-eval/skills/improve-skill",
+      "shared": "openai/plugins:plugins/plugin-eval@981b02c0c440"
+    },
+    {
+      "name": "infographic-creator",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "antvis/Infographic",
+        "revision": "5ae0d9394ac6280cb688eb4b4345881e291b9209",
+        "path": "skills/infographic-creator/SKILL.md"
+      }
+    },
+    {
+      "name": "inspect-fusion-design",
+      "scope": "Conditional on real local bridge",
+      "source": {
+        "repository": "openai/community-plugins",
+        "revision": "6ab9f2066b527e6bc295f638c5b74553a4bf5e05",
+        "path": "plugins/autodesk-fusion/skills/inspect-fusion-design"
+      },
+      "leaf": "plugins/autodesk-fusion/skills/inspect-fusion-design",
+      "shared": "openai/community-plugins:plugins/autodesk-fusion@6ab9f2066b52"
+    },
+    {
+      "name": "inspect-infrastructure-health",
+      "scope": "Conditional on an owned Grafana installation",
+      "source": {
+        "repository": "openai/community-plugins",
+        "revision": "6ab9f2066b527e6bc295f638c5b74553a4bf5e05",
+        "path": "plugins/grafana-observability/skills/inspect-infrastructure-health"
+      },
+      "leaf": "plugins/grafana-observability/skills/inspect-infrastructure-health",
+      "shared": "openai/community-plugins:plugins/grafana-observability@6ab9f2066b52"
+    },
+    {
+      "name": "interactive-mechanism-explainers",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "madearga/colorfigures",
+        "revision": "3a520817c1cc4277954715e69d993e1f950da1b8",
+        "path": "SKILL.md"
+      }
+    },
+    {
+      "name": "investigate-application-performance",
+      "scope": "Conditional on an owned Grafana installation",
+      "source": {
+        "repository": "openai/community-plugins",
+        "revision": "6ab9f2066b527e6bc295f638c5b74553a4bf5e05",
+        "path": "plugins/grafana-observability/skills/investigate-application-performance"
+      },
+      "leaf": "plugins/grafana-observability/skills/investigate-application-performance",
+      "shared": "openai/community-plugins:plugins/grafana-observability@6ab9f2066b52"
+    },
+    {
+      "name": "ios-debugger-agent",
+      "scope": "Project method for an iOS deliverable",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/build-ios-apps/skills/ios-debugger-agent"
+      },
+      "leaf": "plugins/build-ios-apps/skills/ios-debugger-agent",
+      "shared": "openai/plugins:plugins/build-ios-apps@981b02c0c440"
+    },
+    {
+      "name": "ios-simulator-browser",
+      "scope": "Project method for an iOS deliverable",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/build-ios-apps/skills/ios-simulator-browser"
+      },
+      "leaf": "plugins/build-ios-apps/skills/ios-simulator-browser",
+      "shared": "openai/plugins:plugins/build-ios-apps@981b02c0c440"
+    },
+    {
+      "name": "javascript-memory-leaks",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "ChromeDevTools/chrome-devtools-mcp",
+        "revision": "0877ee00d2e43c1c04bba275e7d08cc1033e36e9",
+        "path": "skills/memory-leak-debugging/SKILL.md"
+      }
+    },
+    {
+      "name": "json-canvas",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "kepano/obsidian-skills",
+        "revision": "3ccff5338ea700537839b21900aa5358a0402c98",
+        "path": "skills/json-canvas/SKILL.md"
+      }
+    },
+    {
+      "name": "jupyter-notebook",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "openai/skills",
+        "revision": "49f948faa9258a0c61caceaf225e179651397431",
+        "path": "skills/.curated/jupyter-notebook/SKILL.md"
+      }
+    },
+    {
+      "name": "kicad-pcb-schematic-analysis",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "aklofas/kicad-happy",
+        "revision": "c451943f72d91a4a9fbf4aa48bda0f730011f6d8",
+        "path": "skills/kicad/SKILL.md"
+      }
+    },
+    {
+      "name": "lab-hardware-cad",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "K-Dense-AI/scientific-agent-skills",
+        "revision": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+        "path": "skills/lab-hardware-cad/SKILL.md"
+      }
+    },
+    {
+      "name": "lab-instrument-control",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "pyvisa/pyvisa",
+        "revision": "a5b56ab857115e44e59f240f99207b305f77c459",
+        "path": "pyvisa/highlevel.py"
+      }
+    },
+    {
+      "name": "lean-proof",
+      "scope": "Project-scoped",
+      "source": {
+        "repository": "leanprover/skills",
+        "revision": "7d3da0282e7b724b07620e45cf212f2e05e19334",
+        "path": "skills/lean-proof"
+      },
+      "leaf": "skills/lean-proof"
+    },
+    {
+      "name": "literature-review",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "K-Dense-AI/scientific-agent-skills",
+        "revision": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+        "path": "skills/literature-review/SKILL.md"
+      }
+    },
+    {
+      "name": "manim-math-animation",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "ManimCommunity/manim",
+        "revision": "16ea443e2a5f1d79db0a721161411ce916d6e733",
+        "path": "docs/source/tutorials/quickstart.rst"
+      }
+    },
+    {
+      "name": "marketing-copywriting",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "coreyhaines31/marketingskills",
+        "revision": "88c79f6528a9347420e57ceb1fff9a60de651768",
+        "path": "skills/copywriting/SKILL.md"
+      }
+    },
+    {
+      "name": "mcp-dependency-review",
+      "scope": "Explicit selection required",
+      "native_base": true,
+      "source": {
+        "repository": "affaan-m/ECC",
+        "revision": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
+        "path": "skills/mcp-dependency-review/SKILL.md"
+      }
+    },
+    {
+      "name": "metric-diagnostics",
+      "scope": "Project method for a data analysis",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/data-analytics/skills/metric-diagnostics"
+      },
+      "leaf": "plugins/data-analytics/skills/metric-diagnostics",
+      "shared": "openai/plugins:plugins/data-analytics@981b02c0c440"
+    },
+    {
+      "name": "migration-planning",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "alirezarezvani/claude-skills",
+        "revision": "c85b17e1fb621ba760478baaacc4fcb9be225e74",
+        "path": "engineering/skills/migration-architect/SKILL.md"
+      }
+    },
+    {
+      "name": "mlx-lm-development",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "ml-explore/mlx-lm",
+        "revision": "736ab0d8c1d0edc79c3d798044fe6904e2fa23be",
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "module-interface-design",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "mattpocock/skills",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "path": "skills/engineering/codebase-design/SKILL.md"
+      }
+    },
+    {
+      "name": "motion-canvas-vector-animation",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "motion-canvas/motion-canvas",
+        "revision": "7b91435c301d530351dcf5ebb91dd139c002e405",
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "multi-model-agent-orchestration",
+      "scope": "On demand",
+      "checkout_bundle": "addons/agent-orchestration",
+      "source": {
+        "repository": "nazeeh111/Stack-Plus",
+        "revision": "29976c3b2293001e97f4e09a65ee91df1506d72f",
+        "path": "addons/agent-orchestration"
+      }
+    },
+    {
+      "name": "n8n-workflow-validation",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "czlonkowski/n8n-skills",
+        "revision": "e037563e101749e630e6688d121d04529fe6ee7b",
+        "path": "skills/n8n-validation-expert/SKILL.md"
+      }
+    },
+    {
+      "name": "new-product-assumption-review",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "phuryn/pm-skills",
+        "revision": "2a12295a7717569baa7be181b4cfebe3ca38a6bb",
+        "path": "pm-product-discovery/skills/identify-assumptions-new/SKILL.md"
+      }
+    },
+    {
+      "name": "obsidian-bases",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "kepano/obsidian-skills",
+        "revision": "3ccff5338ea700537839b21900aa5358a0402c98",
+        "path": "skills/obsidian-bases/SKILL.md"
+      }
+    },
+    {
+      "name": "obsidian-cli",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "kepano/obsidian-skills",
+        "revision": "3ccff5338ea700537839b21900aa5358a0402c98",
+        "path": "skills/obsidian-cli/SKILL.md"
+      }
+    },
+    {
+      "name": "obsidian-markdown",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "kepano/obsidian-skills",
+        "revision": "3ccff5338ea700537839b21900aa5358a0402c98",
+        "path": "skills/obsidian-markdown/SKILL.md"
+      }
+    },
+    {
+      "name": "openai-api-troubleshooting",
+      "scope": "On demand (match by name)",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/openai-developers/skills/openai-api-troubleshooting"
+      },
+      "leaf": "plugins/openai-developers/skills/openai-api-troubleshooting",
+      "shared": "openai/plugins:plugins/openai-developers@981b02c0c440"
+    },
+    {
+      "name": "packaging-notarization",
+      "scope": "Project method for a native Mac deliverable",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/build-macos-apps/skills/packaging-notarization"
+      },
+      "leaf": "plugins/build-macos-apps/skills/packaging-notarization",
+      "shared": "openai/plugins:plugins/build-macos-apps@981b02c0c440"
+    },
+    {
+      "name": "paper-lookup",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "K-Dense-AI/scientific-agent-skills",
+        "revision": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+        "path": "skills/paper-lookup/SKILL.md"
+      }
+    },
+    {
+      "name": "pcb-emc-risk-review",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "aklofas/kicad-happy",
+        "revision": "c451943f72d91a4a9fbf4aa48bda0f730011f6d8",
+        "path": "skills/emc/SKILL.md"
+      }
+    },
+    {
+      "name": "pennylane-differentiable-circuits",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "K-Dense-AI/scientific-agent-skills",
+        "revision": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+        "path": "skills/pennylane/SKILL.md"
+      }
+    },
+    {
+      "name": "performance-benchmark-review",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "cursor/plugins",
+        "revision": "bb68f2365eceafa0cb2d253112f675acf5f144cc",
+        "path": "harness/pstack/claude-code/skills/benchmark-checklist/SKILL.md"
+      }
+    },
+    {
+      "name": "performance-optimization",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "addyosmani/agent-skills",
+        "revision": "301b02b12bff98e4688e6984af6556802322bbde",
+        "path": "skills/performance-optimization/SKILL.md"
+      }
+    },
+    {
+      "name": "physical-ai-physics-selection",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "NVIDIA/skills",
+        "revision": "48323fc47698107ec105fbb9fc4f5dc883100948",
+        "path": "skills/physical-ai-physics-selection/SKILL.md"
+      }
+    },
+    {
+      "name": "playwright-cli",
+      "scope": "Project-scoped",
+      "source": {
+        "repository": "microsoft/playwright-cli",
+        "revision": "dc5f4d5616ab5a28ded12fd7101a4d49bd59a820",
+        "path": "skills/playwright-cli"
+      },
+      "leaf": "skills/playwright-cli"
+    },
+    {
+      "name": "port-react-native-slice",
+      "scope": "Conditional on a native migration",
+      "source": {
+        "repository": "openai/community-plugins",
+        "revision": "6ab9f2066b527e6bc295f638c5b74553a4bf5e05",
+        "path": "plugins/react-native-to-swiftui/skills/port-react-native-slice"
+      },
+      "leaf": "plugins/react-native-to-swiftui/skills/port-react-native-slice",
+      "shared": "openai/community-plugins:plugins/react-native-to-swiftui@6ab9f2066b52"
+    },
+    {
+      "name": "postgres-performance-and-design",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "supabase/agent-skills",
+        "revision": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+        "path": "skills/supabase-postgres-best-practices/SKILL.md"
+      }
+    },
+    {
+      "name": "pptx-quality-gates",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "wshobson/agents",
+        "revision": "7e2fb559cf4b824b27f1fec49fe88f7511066d26",
+        "path": "plugins/pptx-deck-creation/skills/pptx-quality-gates/SKILL.md"
+      },
+      "description": "Check and repair an editable slide presentation before delivery. Reopen the PowerPoint file, inspect rendering, clipped labels, slide bounds and accessibility, and validate its OOXML package."
+    },
+    {
+      "name": "prepare-engineering-handoff",
+      "scope": "Project selection for engineering geometry handoff",
+      "source": {
+        "repository": "openai/community-plugins",
+        "revision": "6ab9f2066b527e6bc295f638c5b74553a4bf5e05",
+        "path": "plugins/physical-engineering/skills/prepare-engineering-handoff"
+      },
+      "leaf": "plugins/physical-engineering/skills/prepare-engineering-handoff",
+      "shared": "openai/community-plugins:plugins/physical-engineering@6ab9f2066b52"
+    },
+    {
+      "name": "prepare-pcba-handoff",
+      "scope": "Project selection for a manufacturing package",
+      "source": {
+        "repository": "openai/community-plugins",
+        "revision": "6ab9f2066b527e6bc295f638c5b74553a4bf5e05",
+        "path": "plugins/pcba-engineering/skills/prepare-pcba-handoff"
+      },
+      "leaf": "plugins/pcba-engineering/skills/prepare-pcba-handoff",
+      "shared": "openai/community-plugins:plugins/pcba-engineering@6ab9f2066b52"
+    },
+    {
+      "name": "presentation-visual-design",
+      "scope": "On demand",
+      "checkout_bundle": "addons/presentation-visual-design",
+      "source": {
+        "repository": "blisse-code/presentation-design-skill",
+        "revision": "53224b199cbe14ea179fd8a4f1f87c73f5f81f90",
+        "path": "skill/SKILL.md"
+      }
+    },
+    {
+      "name": "product-launch-strategy",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "coreyhaines31/marketingskills",
+        "revision": "88c79f6528a9347420e57ceb1fff9a60de651768",
+        "path": "skills/launch/SKILL.md"
+      }
+    },
+    {
+      "name": "product-marketing-context",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "coreyhaines31/marketingskills",
+        "revision": "88c79f6528a9347420e57ceb1fff9a60de651768",
+        "path": "skills/product-marketing/SKILL.md"
+      }
+    },
+    {
+      "name": "product-pricing-strategy",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "coreyhaines31/marketingskills",
+        "revision": "88c79f6528a9347420e57ceb1fff9a60de651768",
+        "path": "skills/pricing/SKILL.md"
+      }
+    },
+    {
+      "name": "production-observability-release",
+      "scope": "Project-scoped",
+      "checkout_bundle": "addons/production-observability-release",
+      "source": {
+        "repository": "nazeeh111/Stack-Plus",
+        "revision": "29976c3b2293001e97f4e09a65ee91df1506d72f",
+        "path": "addons/production-observability-release"
+      }
+    },
+    {
+      "name": "property-based-testing",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "trailofbits/skills",
+        "revision": "470419e16f97e112d01fc32f4898aea1755015d9",
+        "path": "plugins/property-based-testing/skills/property-based-testing/SKILL.md"
+      }
+    },
+    {
+      "name": "qiskit-quantum-circuits",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "K-Dense-AI/scientific-agent-skills",
+        "revision": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+        "path": "skills/qiskit/SKILL.md"
+      }
+    },
+    {
+      "name": "quantum-error-correction",
+      "scope": "Project-scoped",
+      "checkout_bundle": "addons/quantum-error-correction",
+      "source": {
+        "repository": "nazeeh111/Stack-Plus",
+        "revision": "29976c3b2293001e97f4e09a65ee91df1506d72f",
+        "path": "addons/quantum-error-correction"
+      }
+    },
+    {
+      "name": "quarto-authoring",
+      "scope": "Project-scoped",
+      "source": {
+        "repository": "posit-dev/skills",
+        "revision": "951959403f4ecc9d0274adf35538fc67153b6f31",
+        "path": "quarto/quarto-authoring"
+      },
+      "leaf": "quarto/quarto-authoring"
+    },
+    {
+      "name": "qutip-quantum-dynamics",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "K-Dense-AI/scientific-agent-skills",
+        "revision": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+        "path": "skills/qutip/SKILL.md"
+      }
+    },
+    {
+      "name": "react-best-practices",
+      "scope": "Project method for a web application",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/build-web-apps/skills/react-best-practices"
+      },
+      "leaf": "plugins/build-web-apps/skills/react-best-practices",
+      "shared": "openai/plugins:plugins/build-web-apps@981b02c0c440"
+    },
+    {
+      "name": "react-composition-patterns",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "vercel-labs/agent-skills",
+        "revision": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+        "path": "skills/composition-patterns/SKILL.md"
+      }
+    },
+    {
+      "name": "react-nextjs-performance",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "vercel-labs/agent-skills",
+        "revision": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+        "path": "skills/react-best-practices/SKILL.md"
+      }
+    },
+    {
+      "name": "remotion-animation-markup",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "remotion-dev/remotion",
+        "revision": "682cad29c569d7c36c2445e27ec07cb433f06b32",
+        "path": "packages/skills/skills/remotion-markup/SKILL.md"
+      }
+    },
+    {
+      "name": "remotion-captions",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "remotion-dev/remotion",
+        "revision": "682cad29c569d7c36c2445e27ec07cb433f06b32",
+        "path": "packages/skills/skills/remotion-captions/SKILL.md"
+      },
+      "description": "Time subtitles to speech and highlight the current spoken word as the video plays. Transcribe audio, group timestamped captions and animate them in Remotion."
+    },
+    {
+      "name": "remotion-docs",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "remotion-dev/remotion",
+        "revision": "682cad29c569d7c36c2445e27ec07cb433f06b32",
+        "path": "packages/skills/skills/remotion-docs/SKILL.md"
+      }
+    },
+    {
+      "name": "remotion-editable-video-markup",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "remotion-dev/remotion",
+        "revision": "682cad29c569d7c36c2445e27ec07cb433f06b32",
+        "path": "packages/skills/skills/remotion-interactivity/SKILL.md"
+      }
+    },
+    {
+      "name": "remotion-license",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "remotion-dev/remotion",
+        "revision": "682cad29c569d7c36c2445e27ec07cb433f06b32",
+        "path": "packages/skills/skills/remotion-license/SKILL.md"
+      }
+    },
+    {
+      "name": "remotion-media-processing",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "remotion-dev/remotion",
+        "revision": "682cad29c569d7c36c2445e27ec07cb433f06b32",
+        "path": "packages/skills/skills/remotion-multimedia/SKILL.md"
+      }
+    },
+    {
+      "name": "remotion-video-creation",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "remotion-dev/remotion",
+        "revision": "682cad29c569d7c36c2445e27ec07cb433f06b32",
+        "path": "packages/skills/skills/remotion-create/SKILL.md"
+      }
+    },
+    {
+      "name": "remotion-video-export",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "remotion-dev/remotion",
+        "revision": "682cad29c569d7c36c2445e27ec07cb433f06b32",
+        "path": "packages/skills/skills/remotion-render/SKILL.md"
+      }
+    },
+    {
+      "name": "remotion-video-preview",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "remotion-dev/remotion",
+        "revision": "682cad29c569d7c36c2445e27ec07cb433f06b32",
+        "path": "packages/skills/skills/remotion-studio/SKILL.md"
+      }
+    },
+    {
+      "name": "remotion-video-workflows",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "remotion-dev/remotion",
+        "revision": "682cad29c569d7c36c2445e27ec07cb433f06b32",
+        "path": "packages/skills/skills/remotion-best-practices/SKILL.md"
+      }
+    },
+    {
+      "name": "repomix-handoff",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "yamadashy/repomix",
+        "revision": "758c3d716907abff2b902aff0447c347e455a2da",
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "repository-docs",
+      "scope": "On demand",
+      "checkout_bundle": "addons/repository-docs",
+      "source": {
+        "repository": "nazeeh111/Stack-Plus",
+        "revision": "29976c3b2293001e97f4e09a65ee91df1506d72f",
+        "path": "addons/repository-docs"
+      }
+    },
+    {
+      "name": "resolve-dependency-alert",
+      "scope": "On demand (match by name)",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/codex-security/skills/resolve-dependency-alert"
+      },
+      "checkout_bundle": "profiles/stackplus/defensive/resolve-dependency-alert",
+      "edition": "Stack+ defensive adaptation"
+    },
+    {
+      "name": "review-pcba-package",
+      "scope": "Project selection for a manufacturing package",
+      "source": {
+        "repository": "openai/community-plugins",
+        "revision": "6ab9f2066b527e6bc295f638c5b74553a4bf5e05",
+        "path": "plugins/pcba-engineering/skills/review-pcba-package"
+      },
+      "leaf": "plugins/pcba-engineering/skills/review-pcba-package",
+      "shared": "openai/community-plugins:plugins/pcba-engineering@6ab9f2066b52"
+    },
+    {
+      "name": "revise-pcba-assembly",
+      "scope": "Project selection for a manufacturing package",
+      "source": {
+        "repository": "openai/community-plugins",
+        "revision": "6ab9f2066b527e6bc295f638c5b74553a4bf5e05",
+        "path": "plugins/pcba-engineering/skills/revise-pcba-assembly"
+      },
+      "leaf": "plugins/pcba-engineering/skills/revise-pcba-assembly",
+      "shared": "openai/community-plugins:plugins/pcba-engineering@6ab9f2066b52"
+    },
+    {
+      "name": "rtl-fpga-engineering",
+      "scope": "Project-scoped",
+      "checkout_bundle": "addons/fpga-development",
+      "source": {
+        "repository": "magnus919/agent-skills",
+        "revision": "6e472b033750c23e3139fd83744e089a6ee66ad1",
+        "path": "fpga-development"
+      }
+    },
+    {
+      "name": "sales-account-prospecting",
+      "scope": "Authorized campaign",
+      "native_base": true,
+      "source": {
+        "repository": "coreyhaines31/marketingskills",
+        "revision": "88c79f6528a9347420e57ceb1fff9a60de651768",
+        "path": "skills/prospecting/SKILL.md"
+      }
+    },
+    {
+      "name": "scientific-brainstorming",
+      "scope": "On demand",
+      "source": {
+        "repository": "K-Dense-AI/scientific-agent-skills",
+        "revision": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+        "path": "skills/scientific-brainstorming"
+      },
+      "leaf": "skills/scientific-brainstorming"
+    },
+    {
+      "name": "scientific-visualization",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "K-Dense-AI/scientific-agent-skills",
+        "revision": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+        "path": "skills/scientific-visualization/SKILL.md"
+      }
+    },
+    {
+      "name": "scientific-writing",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "K-Dense-AI/scientific-agent-skills",
+        "revision": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+        "path": "skills/scientific-writing/SKILL.md"
+      }
+    },
+    {
+      "name": "security-change-review",
+      "scope": "Project-scoped",
+      "checkout_bundle": "profiles/stackplus/defensive/security-change-review"
+    },
+    {
+      "name": "security-diff-scan",
+      "scope": "On demand (match by name)",
+      "checkout_bundle": "profiles/stackplus/defensive/security-diff-scan"
+    },
+    {
+      "name": "security-finding-verification",
+      "scope": "Project-scoped",
+      "checkout_bundle": "profiles/stackplus/defensive/security-finding-verification"
+    },
+    {
+      "name": "semgrep-security-scan",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "trailofbits/skills",
+        "revision": "470419e16f97e112d01fc32f4898aea1755015d9",
+        "path": "plugins/static-analysis/skills/semgrep/SKILL.md"
+      }
+    },
+    {
+      "name": "setup-autodesk-fusion",
+      "scope": "Conditional on real local bridge",
+      "source": {
+        "repository": "openai/community-plugins",
+        "revision": "6ab9f2066b527e6bc295f638c5b74553a4bf5e05",
+        "path": "plugins/autodesk-fusion/skills/setup-autodesk-fusion"
+      },
+      "leaf": "plugins/autodesk-fusion/skills/setup-autodesk-fusion",
+      "shared": "openai/community-plugins:plugins/autodesk-fusion@6ab9f2066b52"
+    },
+    {
+      "name": "setup-grafana-observability",
+      "scope": "Conditional on an owned Grafana installation",
+      "source": {
+        "repository": "openai/community-plugins",
+        "revision": "6ab9f2066b527e6bc295f638c5b74553a4bf5e05",
+        "path": "plugins/grafana-observability/skills/setup-grafana-observability"
+      },
+      "leaf": "plugins/grafana-observability/skills/setup-grafana-observability",
+      "shared": "openai/community-plugins:plugins/grafana-observability@6ab9f2066b52"
+    },
+    {
+      "name": "signal-and-control-verification",
+      "scope": "Project-scoped",
+      "checkout_bundle": "addons/signal-and-control-verification",
+      "source": {
+        "repository": "nazeeh111/Stack-Plus",
+        "revision": "29976c3b2293001e97f4e09a65ee91df1506d72f",
+        "path": "addons/signal-and-control-verification"
+      }
+    },
+    {
+      "name": "signing-entitlements",
+      "scope": "Project method for a native Mac deliverable",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/build-macos-apps/skills/signing-entitlements"
+      },
+      "leaf": "plugins/build-macos-apps/skills/signing-entitlements",
+      "shared": "openai/plugins:plugins/build-macos-apps@981b02c0c440"
+    },
+    {
+      "name": "skill-source-audit",
+      "scope": "Explicit selection required",
+      "checkout_bundle": "addons/skillspector",
+      "source": {
+        "repository": "NVIDIA/skillspector",
+        "revision": "9dbf4fc75386169275e5f18c47686cb0d7274afa",
+        "path": "skills/skill-inspector/SKILL.md"
+      }
+    },
+    {
+      "name": "slidev-presentations",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "slidevjs/slidev",
+        "revision": "a42aff28dd75f26eb5abbf3d616ea022c3d08924",
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "social",
+      "scope": "On demand",
+      "source": {
+        "repository": "coreyhaines31/marketingskills",
+        "revision": "2bf95edb4ebd37198ab7fd18b99ba95c2145ec64",
+        "path": "skills/social"
+      },
+      "leaf": "skills/social"
+    },
+    {
+      "name": "spice-circuit-simulation",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "aklofas/kicad-happy",
+        "revision": "c451943f72d91a4a9fbf4aa48bda0f730011f6d8",
+        "path": "skills/spice/SKILL.md"
+      }
+    },
+    {
+      "name": "spreadsheet-formula-audit",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "anthropics/financial-services",
+        "revision": "60565064557ca77b12f62aa7877f365d111c129d",
+        "path": "plugins/vertical-plugins/financial-analysis/skills/audit-xls/SKILL.md"
+      }
+    },
+    {
+      "name": "statistical-analysis",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "K-Dense-AI/scientific-agent-skills",
+        "revision": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+        "path": "skills/statistical-analysis/SKILL.md"
+      }
+    },
+    {
+      "name": "statistical-and-uncertainty-visualization",
+      "scope": "Project method for an interactive data display",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/build-web-data-visualization/skills/statistical-and-uncertainty-visualization"
+      },
+      "leaf": "plugins/build-web-data-visualization/skills/statistical-and-uncertainty-visualization",
+      "shared": "openai/plugins:plugins/build-web-data-visualization@981b02c0c440"
+    },
+    {
+      "name": "statistical-power",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "K-Dense-AI/scientific-agent-skills",
+        "revision": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+        "path": "skills/statistical-power/SKILL.md"
+      }
+    },
+    {
+      "name": "study-eligibility-screening",
+      "scope": "On demand",
+      "source": {
+        "repository": "Imbad0202/academic-research-skills",
+        "revision": "6d9388674de1ad0437ad95db3d52f92b92204d84",
+        "path": "sr-screener/SKILL.md"
+      },
+      "leaf": "sr-screener"
+    },
+    {
+      "name": "swiftpm-macos",
+      "scope": "Project method for a native Mac deliverable",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/build-macos-apps/skills/swiftpm-macos"
+      },
+      "leaf": "plugins/build-macos-apps/skills/swiftpm-macos",
+      "shared": "openai/plugins:plugins/build-macos-apps@981b02c0c440"
+    },
+    {
+      "name": "swiftui-performance-audit",
+      "scope": "Project method for an iOS deliverable",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/build-ios-apps/skills/swiftui-performance-audit"
+      },
+      "leaf": "plugins/build-ios-apps/skills/swiftui-performance-audit",
+      "shared": "openai/plugins:plugins/build-ios-apps@981b02c0c440"
+    },
+    {
+      "name": "swiftui-pro",
+      "scope": "Project-scoped",
+      "source": {
+        "repository": "twostraws/SwiftUI-Agent-Skill",
+        "revision": "f2920b63995263f57b3e198674e89a602efba6d2",
+        "path": "swiftui-pro"
+      },
+      "leaf": "swiftui-pro"
+    },
+    {
+      "name": "swiftui-ui-patterns",
+      "scope": "Project method for an iOS deliverable",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/build-ios-apps/skills/swiftui-ui-patterns"
+      },
+      "leaf": "plugins/build-ios-apps/skills/swiftui-ui-patterns",
+      "shared": "openai/plugins:plugins/build-ios-apps@981b02c0c440"
+    },
+    {
+      "name": "systematic-debugging",
+      "scope": "Selected leaves; compare with the other selected methods",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/superpowers/skills/systematic-debugging"
+      },
+      "leaf": "plugins/superpowers/skills/systematic-debugging",
+      "shared": "openai/plugins:plugins/superpowers@981b02c0c440"
+    },
+    {
+      "name": "temporal-cloud-setup",
+      "scope": "Conditional on durable deployed workflows",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/temporal/skills/temporal-cloud-setup"
+      },
+      "leaf": "plugins/temporal/skills/temporal-cloud-setup",
+      "shared": "openai/plugins:plugins/temporal@981b02c0c440"
+    },
+    {
+      "name": "temporal-developer",
+      "scope": "Conditional on durable deployed workflows",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/temporal/skills/temporal-developer"
+      },
+      "leaf": "plugins/temporal/skills/temporal-developer",
+      "shared": "openai/plugins:plugins/temporal@981b02c0c440"
+    },
+    {
+      "name": "temporal-ops",
+      "scope": "Conditional on durable deployed workflows",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/temporal/skills/temporal-ops"
+      },
+      "leaf": "plugins/temporal/skills/temporal-ops",
+      "shared": "openai/plugins:plugins/temporal@981b02c0c440"
+    },
+    {
+      "name": "temporal-serverless",
+      "scope": "Conditional on durable deployed workflows",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/temporal/skills/temporal-serverless"
+      },
+      "leaf": "plugins/temporal/skills/temporal-serverless",
+      "shared": "openai/plugins:plugins/temporal@981b02c0c440"
+    },
+    {
+      "name": "test-triage",
+      "scope": "Project method for a native Mac deliverable",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/build-macos-apps/skills/test-triage"
+      },
+      "leaf": "plugins/build-macos-apps/skills/test-triage",
+      "shared": "openai/plugins:plugins/build-macos-apps@981b02c0c440"
+    },
+    {
+      "name": "testing-data-visualizations",
+      "scope": "Project method for an interactive data display",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/build-web-data-visualization/skills/testing-data-visualizations"
+      },
+      "leaf": "plugins/build-web-data-visualization/skills/testing-data-visualizations",
+      "shared": "openai/plugins:plugins/build-web-data-visualization@981b02c0c440"
+    },
+    {
+      "name": "tla-state-machine-checking",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "cursor/plugins",
+        "revision": "bb68f2365eceafa0cb2d253112f675acf5f144cc",
+        "path": "harness/pstack/claude-code/skills/statechart/SKILL.md"
+      }
+    },
+    {
+      "name": "trigger-authoring-tasks",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "triggerdotdev/trigger.dev",
+        "revision": "41ad1995b30573a9b55cfaab80c3293b7c35c1f8",
+        "path": "packages/trigger-sdk/skills/trigger-authoring-tasks/SKILL.md"
+      }
+    },
+    {
+      "name": "ui-art-direction",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "Leonxlnx/taste-skill",
+        "revision": "12af471f627f866411b4bd785b19646d3672784c",
+        "path": "skills/taste-skill/SKILL.md"
+      }
+    },
+    {
+      "name": "ui-polish",
+      "scope": "Project-scoped",
+      "checkout_bundle": "addons/unslop",
+      "source": {
+        "repository": "heydamir/unslop",
+        "revision": "97daa3eb365670ea3f87ed85356cbfcee18105a5",
+        "path": "skills/unslop"
+      }
+    },
+    {
+      "name": "ui-quality-audit",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "pbakaus/impeccable",
+        "revision": "5af4319c4e7a7ee3e5e2b9fe899bcfb21c6190cb",
+        "path": "skill/reference/audit.md"
+      }
+    },
+    {
+      "name": "ui-reliability",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "pbakaus/impeccable",
+        "revision": "5af4319c4e7a7ee3e5e2b9fe899bcfb21c6190cb",
+        "path": "skill/reference/harden.md"
+      }
+    },
+    {
+      "name": "uncertainty-and-units",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "K-Dense-AI/scientific-agent-skills",
+        "revision": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+        "path": "skills/uncertainty-and-units/SKILL.md"
+      }
+    },
+    {
+      "name": "user-research-synthesis",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "anthropics/knowledge-work-plugins",
+        "revision": "d900840716eb262e1feb17c6f4406c9ce0e06bcf",
+        "path": "product-management/skills/synthesize-research/SKILL.md"
+      }
+    },
+    {
+      "name": "validate-data",
+      "scope": "Project method for a data analysis",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/data-analytics/skills/validate-data"
+      },
+      "leaf": "plugins/data-analytics/skills/validate-data",
+      "shared": "openai/plugins:plugins/data-analytics@981b02c0c440"
+    },
+    {
+      "name": "validated-html-diagrams-and-explainers",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "tt-a1i/archify",
+        "revision": "a4065941f12be7967436261d9934784e381d423c",
+        "path": "archify/SKILL.md"
+      }
+    },
+    {
+      "name": "verify-engineering-design",
+      "scope": "Project selection for engineering geometry handoff",
+      "source": {
+        "repository": "openai/community-plugins",
+        "revision": "6ab9f2066b527e6bc295f638c5b74553a4bf5e05",
+        "path": "plugins/physical-engineering/skills/verify-engineering-design"
+      },
+      "leaf": "plugins/physical-engineering/skills/verify-engineering-design",
+      "shared": "openai/community-plugins:plugins/physical-engineering@6ab9f2066b52"
+    },
+    {
+      "name": "verify-fix",
+      "scope": "On demand (match by name)",
+      "checkout_bundle": "profiles/stackplus/defensive/verify-fix"
+    },
+    {
+      "name": "verify-swiftui-parity",
+      "scope": "Conditional on a native migration",
+      "source": {
+        "repository": "openai/community-plugins",
+        "revision": "6ab9f2066b527e6bc295f638c5b74553a4bf5e05",
+        "path": "plugins/react-native-to-swiftui/skills/verify-swiftui-parity"
+      },
+      "leaf": "plugins/react-native-to-swiftui/skills/verify-swiftui-parity",
+      "shared": "openai/community-plugins:plugins/react-native-to-swiftui@6ab9f2066b52"
+    },
+    {
+      "name": "video-shotcraft",
+      "scope": "Project-scoped",
+      "native_base": true,
+      "source": {
+        "repository": "Vincentwei1021/video-shotcraft",
+        "revision": "1266a3ec4831289c4d893d42dd5102723658039a",
+        "path": "SKILL.md"
+      }
+    },
+    {
+      "name": "visual-target-development",
+      "scope": "Project-scoped",
+      "checkout_bundle": "addons/dream-loop",
+      "source": {
+        "repository": "achimala/dream-loop",
+        "revision": "9bddb901f7d071cfefdd21e264267c757177a9df",
+        "path": "."
+      }
+    },
+    {
+      "name": "visualization-strategy-and-critique",
+      "scope": "Project method for an interactive data display",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/build-web-data-visualization/skills/visualization-strategy-and-critique"
+      },
+      "leaf": "plugins/build-web-data-visualization/skills/visualization-strategy-and-critique",
+      "shared": "openai/plugins:plugins/build-web-data-visualization@981b02c0c440"
+    },
+    {
+      "name": "visualize-data",
+      "scope": "Project method for a data analysis",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/data-analytics/skills/visualize-data"
+      },
+      "leaf": "plugins/data-analytics/skills/visualize-data",
+      "shared": "openai/plugins:plugins/data-analytics@981b02c0c440"
+    },
+    {
+      "name": "web-3d-asset-pipeline",
+      "scope": "Project method for editable game delivery",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/game-studio/skills/web-3d-asset-pipeline"
+      },
+      "leaf": "plugins/game-studio/skills/web-3d-asset-pipeline",
+      "shared": "openai/plugins:plugins/game-studio@981b02c0c440"
+    },
+    {
+      "name": "window-management",
+      "scope": "Project method for a native Mac deliverable",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/build-macos-apps/skills/window-management"
+      },
+      "leaf": "plugins/build-macos-apps/skills/window-management",
+      "shared": "openai/plugins:plugins/build-macos-apps@981b02c0c440"
+    },
+    {
+      "name": "worktrunk-git-worktrees",
+      "scope": "On demand",
+      "native_base": true,
+      "source": {
+        "repository": "max-sixty/worktrunk",
+        "revision": "3bf9166a6e3b74db0de25c2a1f9aeeae54d2873a",
+        "path": "skills/worktrunk/SKILL.md"
+      }
+    },
+    {
+      "name": "Zotero",
+      "scope": "Conditional on a project needing bibliography access",
+      "source": {
+        "repository": "openai/plugins",
+        "revision": "981b02c0c44058b595f3b4180002c3ae3c806d40",
+        "path": "plugins/zotero/skills/zotero"
+      },
+      "leaf": "plugins/zotero/skills/zotero",
+      "shared": "openai/plugins:plugins/zotero@981b02c0c440"
+    }
+  ],
+  "host_skills": [
+    "computer-history:computer-history",
+    "create-statusline",
+    "documents:documents",
+    "imagegen",
+    "openai-docs",
+    "pdf:pdf",
+    "plan:plan",
+    "presentations:Presentations",
+    "review-agent",
+    "skill-creator",
+    "skill-installer",
+    "spreadsheets:excel-live-control",
+    "spreadsheets:Spreadsheets",
+    "template-creator:template-creator",
+    "visualize:visualize"
+  ],
+  "shared_support": {
+    "openai/plugins:plugins/build-web-data-visualization@981b02c0c440": [
+      "plugins/build-web-data-visualization/assets/app-icon.svg",
+      "plugins/build-web-data-visualization/assets/data-visualization-small.svg",
+      "plugins/build-web-data-visualization/assets/templates/accessibility-review-checklist.md",
+      "plugins/build-web-data-visualization/assets/templates/advanced-interactive-visualization-contract.md",
+      "plugins/build-web-data-visualization/assets/templates/chart-brief.md",
+      "plugins/build-web-data-visualization/assets/templates/critique-checklist.md",
+      "plugins/build-web-data-visualization/assets/templates/editorial-evaluation-rubric.md",
+      "plugins/build-web-data-visualization/assets/templates/editorial-infographic-brief.md",
+      "plugins/build-web-data-visualization/assets/templates/editorial-infographic-examples.md",
+      "plugins/build-web-data-visualization/assets/templates/export-checklist.md",
+      "plugins/build-web-data-visualization/assets/templates/html-report-starter.html",
+      "plugins/build-web-data-visualization/assets/templates/human-visual-review-checklist.md",
+      "plugins/build-web-data-visualization/assets/templates/image-generation-visual-asset-brief.md",
+      "plugins/build-web-data-visualization/assets/templates/interactive-editorial-storyboard.md",
+      "plugins/build-web-data-visualization/assets/templates/interactive-uml-test-plan.md",
+      "plugins/build-web-data-visualization/assets/templates/live-dashboard-review-checklist.md",
+      "plugins/build-web-data-visualization/assets/templates/playwright-pdf-starter.ts",
+      "plugins/build-web-data-visualization/assets/templates/playwright-starters.test.ts",
+      "plugins/build-web-data-visualization/assets/templates/playwright-visual-regression-starter.ts",
+      "plugins/build-web-data-visualization/assets/templates/uml-diagram-brief.md",
+      "plugins/build-web-data-visualization/assets/templates/visual-design-contract.md",
+      "plugins/build-web-data-visualization/assets/templates/visualization-test-plan.md",
+      "plugins/build-web-data-visualization/references/foundations/art-directed-interactive-visual-stories.md",
+      "plugins/build-web-data-visualization/references/foundations/domain-contextual-surfaces.md",
+      "plugins/build-web-data-visualization/references/foundations/editorial-infographic-system.md",
+      "plugins/build-web-data-visualization/references/foundations/embedded-visualization-self-use.md",
+      "plugins/build-web-data-visualization/references/foundations/fictional-data-story-simulation.md",
+      "plugins/build-web-data-visualization/references/foundations/implementation-design-and-tradeoffs.md",
+      "plugins/build-web-data-visualization/references/foundations/interaction-models-and-progressive-disclosure.md",
+      "plugins/build-web-data-visualization/references/foundations/layout-hierarchy-and-self-explanatory-ux.md",
+      "plugins/build-web-data-visualization/references/foundations/meaning-preserving-visual-design-workflow.md",
+      "plugins/build-web-data-visualization/references/foundations/mobile-first-responsive-visualization.md",
+      "plugins/build-web-data-visualization/references/foundations/operational-visualization-workspaces.md",
+      "plugins/build-web-data-visualization/references/foundations/perception-color-and-encoding.md",
+      "plugins/build-web-data-visualization/references/foundations/sensitive-geopolitical-and-humanitarian-stories.md",
+      "plugins/build-web-data-visualization/references/foundations/shareable-state-and-persistence.md",
+      "plugins/build-web-data-visualization/references/foundations/storytelling-annotation-and-critique.md",
+      "plugins/build-web-data-visualization/references/foundations/task-abstraction-and-chart-selection.md",
+      "plugins/build-web-data-visualization/references/foundations/theory-and-principles.md",
+      "plugins/build-web-data-visualization/references/source-index/export-and-automation-sources.md",
+      "plugins/build-web-data-visualization/references/source-index/official-implementation-docs.md",
+      "plugins/build-web-data-visualization/references/source-index/practitioner-guides.md",
+      "plugins/build-web-data-visualization/references/source-index/theory-books-and-papers.md"
+    ],
+    "openai/plugins:plugins/openai-developers@981b02c0c440": [
+      "plugins/openai-developers/README.md",
+      "plugins/openai-developers/assets/logo.png",
+      "plugins/openai-developers/assets/openai-platform.png",
+      "plugins/openai-developers/mcp/server.mjs",
+      "plugins/openai-developers/scripts/openai-platform-api-key.mjs"
+    ],
+    "openai/plugins:plugins/data-analytics@981b02c0c440": [
+      "plugins/data-analytics/.gitignore",
+      "plugins/data-analytics/AGENTS.md",
+      "plugins/data-analytics/README.md",
+      "plugins/data-analytics/assets/datascience-artifact-widget.html",
+      "plugins/data-analytics/assets/datascience-artifact-widget.html.gz.b64.part001",
+      "plugins/data-analytics/assets/datascience-artifact-widget.html.gz.b64.part002",
+      "plugins/data-analytics/assets/datascience-artifact-widget.html.gz.b64.part003",
+      "plugins/data-analytics/assets/datascience-artifact-widget.html.gz.b64.part004",
+      "plugins/data-analytics/assets/datascience-artifact-widget.html.gz.b64.part005",
+      "plugins/data-analytics/assets/datascience-artifact-widget.html.gz.b64.part006",
+      "plugins/data-analytics/assets/datascience-chart-widget.html",
+      "plugins/data-analytics/assets/datascience-chart-widget.html.gz.b64.part001",
+      "plugins/data-analytics/assets/datascience-chart-widget.html.gz.b64.part002",
+      "plugins/data-analytics/assets/datascience-chart-widget.html.gz.b64.part003",
+      "plugins/data-analytics/assets/datascience-chart-widget.html.gz.b64.part004",
+      "plugins/data-analytics/assets/datascience-chart-widget.html.gz.b64.part005",
+      "plugins/data-analytics/assets/datascience-chart-widget.html.gz.b64.part006",
+      "plugins/data-analytics/assets/datascience-chart-widget.html.gz.b64.part007",
+      "plugins/data-analytics/assets/datascience-small.svg",
+      "plugins/data-analytics/assets/datascience-table-widget.html",
+      "plugins/data-analytics/assets/datascience-table-widget.html.gz.b64.part001",
+      "plugins/data-analytics/assets/datascience-table-widget.html.gz.b64.part002",
+      "plugins/data-analytics/assets/datascience-table-widget.html.gz.b64.part003",
+      "plugins/data-analytics/assets/datascience-table-widget.html.gz.b64.part004",
+      "plugins/data-analytics/assets/datascience.png",
+      "plugins/data-analytics/assets/datascience.svg",
+      "plugins/data-analytics/assets/demo-product-growth.csv",
+      "plugins/data-analytics/assets/portable-artifact-reader.html",
+      "plugins/data-analytics/assets/portable-artifact-reader.html.gz.b64.part001",
+      "plugins/data-analytics/assets/portable-artifact-reader.html.gz.b64.part002",
+      "plugins/data-analytics/assets/portable-artifact-reader.html.gz.b64.part003",
+      "plugins/data-analytics/mcp/server.cjs",
+      "plugins/data-analytics/package-lock.json",
+      "plugins/data-analytics/package.json",
+      "plugins/data-analytics/scripts/normalize-widget-assets.mjs",
+      "plugins/data-analytics/src/DESIGN.md",
+      "plugins/data-analytics/src/analytics-app-core.md",
+      "plugins/data-analytics/src/analytics-app/App.tsx",
+      "plugins/data-analytics/src/analytics-app/analytics-layout.test.mjs",
+      "plugins/data-analytics/src/analytics-app/charting/ChartFrame.tsx",
+      "plugins/data-analytics/src/analytics-app/charting/ChartLegend.tsx",
+      "plugins/data-analytics/src/analytics-app/charting/ChartRenderer.tsx",
+      "plugins/data-analytics/src/analytics-app/charting/ChartTooltip.tsx",
+      "plugins/data-analytics/src/analytics-app/charting/chart-app-helpers.tsx",
+      "plugins/data-analytics/src/analytics-app/charting/chart-capabilities.ts",
+      "plugins/data-analytics/src/analytics-app/charting/chart-compatibility.ts",
+      "plugins/data-analytics/src/analytics-app/charting/chart-contract.ts",
+      "plugins/data-analytics/src/analytics-app/charting/chart-theme.ts",
+      "plugins/data-analytics/src/analytics-app/charting/chart-tokens.css",
+      "plugins/data-analytics/src/analytics-app/charting/chart-transforms.ts",
+      "plugins/data-analytics/src/analytics-app/charting/tooltipPositioning.ts",
+      "plugins/data-analytics/src/analytics-app/fonts/SystemSansVariableVF.woff2",
+      "plugins/data-analytics/src/analytics-app/handoff.mjs",
+      "plugins/data-analytics/src/analytics-app/handoff.test.mjs",
+      "plugins/data-analytics/src/analytics-app/imageExport.portable.ts",
+      "plugins/data-analytics/src/analytics-app/imageExport.ts",
+      "plugins/data-analytics/src/analytics-app/layout/AnalyticsLayoutCanvas.tsx",
+      "plugins/data-analytics/src/analytics-app/layout/RichMarkdown.portable.tsx",
+      "plugins/data-analytics/src/analytics-app/layout/RichMarkdown.tsx",
+      "plugins/data-analytics/src/analytics-app/layout/analyticsLayoutCore.ts",
+      "plugins/data-analytics/src/analytics-app/main.tsx",
+      "plugins/data-analytics/src/analytics-app/runtimeEnvironment.portable.ts",
+      "plugins/data-analytics/src/analytics-app/runtimeEnvironment.ts",
+      "plugins/data-analytics/src/analytics-app/scripts/chart_contract.py",
+      "plugins/data-analytics/src/analytics-app/scripts/check_analytics_app_runtime_links.py",
+      "plugins/data-analytics/src/analytics-app/scripts/design_contract.py",
+      "plugins/data-analytics/src/analytics-app/scripts/package_utils.py",
+      "plugins/data-analytics/src/analytics-app/scripts/tests/test_package_utils.py",
+      "plugins/data-analytics/src/analytics-app/styles.css",
+      "plugins/data-analytics/src/analytics-app/tables/DataTable.d.ts",
+      "plugins/data-analytics/src/analytics-app/tables/DataTable.jsx",
+      "plugins/data-analytics/src/analytics-app/tables/data-table.css",
+      "plugins/data-analytics/src/analytics-app/tables/tableSizing.ts",
+      "plugins/data-analytics/src/analytics-app/tokens.css",
+      "plugins/data-analytics/src/analytics-app/types.ts",
+      "plugins/data-analytics/src/codex-style-contract.md",
+      "plugins/data-analytics/src/datascience-artifact-widget.html",
+      "plugins/data-analytics/src/datascience-artifact-widget.jsx",
+      "plugins/data-analytics/src/datascience-chart-widget.css",
+      "plugins/data-analytics/src/datascience-chart-widget.html",
+      "plugins/data-analytics/src/datascience-chart-widget.js",
+      "plugins/data-analytics/src/datascience-table-widget.css",
+      "plugins/data-analytics/src/datascience-table-widget.html",
+      "plugins/data-analytics/src/datascience-table-widget.js",
+      "plugins/data-analytics/src/mcp-host.js",
+      "plugins/data-analytics/src/portable-artifact-reader.html",
+      "plugins/data-analytics/src/portable-artifact-reader.tsx",
+      "plugins/data-analytics/src/recharts-config.js",
+      "plugins/data-analytics/src/recharts-renderer.jsx",
+      "plugins/data-analytics/src/sql-source-view.css",
+      "plugins/data-analytics/src/sql-source-view.js",
+      "plugins/data-analytics/src/styles/codex-theme.css",
+      "plugins/data-analytics/src/table-renderer.jsx",
+      "plugins/data-analytics/tsconfig.json",
+      "plugins/data-analytics/vite.config.ts"
+    ],
+    "openai/community-plugins:plugins/react-native-to-swiftui@6ab9f2066b52": [
+      "plugins/react-native-to-swiftui/LICENSE",
+      "plugins/react-native-to-swiftui/README.md",
+      "plugins/react-native-to-swiftui/assets/icon.svg",
+      "plugins/react-native-to-swiftui/fixtures/synthetic/README.md",
+      "plugins/react-native-to-swiftui/fixtures/synthetic/ambiguous-source/FirstStableCounter.tsx",
+      "plugins/react-native-to-swiftui/fixtures/synthetic/ambiguous-source/SecondStableCounter.tsx",
+      "plugins/react-native-to-swiftui/fixtures/synthetic/ambiguous-target/approved-contract.json",
+      "plugins/react-native-to-swiftui/fixtures/synthetic/stable-counter/approved-contract.json",
+      "plugins/react-native-to-swiftui/fixtures/synthetic/stable-counter/source/StableCounter.tsx",
+      "plugins/react-native-to-swiftui/fixtures/synthetic/stable-counter/swift-target/DemoApp/Domain/CounterState.swift",
+      "plugins/react-native-to-swiftui/fixtures/synthetic/stable-counter/swift-target/DemoApp/UI/StableCounterView.swift",
+      "plugins/react-native-to-swiftui/fixtures/synthetic/stable-counter/swift-target/DemoAppUITests/StableCounterUITests.swift",
+      "plugins/react-native-to-swiftui/scripts/native-port.mjs"
+    ],
+    "openai/plugins:plugins/build-macos-apps@981b02c0c440": [
+      "plugins/build-macos-apps/README.md",
+      "plugins/build-macos-apps/assets/app-icon.png",
+      "plugins/build-macos-apps/assets/build-macos-apps-small.svg"
+    ],
+    "openai/community-plugins:plugins/physical-engineering@6ab9f2066b52": [
+      "plugins/physical-engineering/LICENSE",
+      "plugins/physical-engineering/README.md",
+      "plugins/physical-engineering/THIRD_PARTY_NOTICES.md",
+      "plugins/physical-engineering/assets/icon.svg",
+      "plugins/physical-engineering/fixtures/drone-module/drawing.py",
+      "plugins/physical-engineering/fixtures/drone-module/exports.py",
+      "plugins/physical-engineering/fixtures/drone-module/model.py",
+      "plugins/physical-engineering/fixtures/drone-module/requirements.json",
+      "plugins/physical-engineering/fixtures/drone-module/transfer-requirements.json",
+      "plugins/physical-engineering/fixtures/sensor-plate/exports.py",
+      "plugins/physical-engineering/fixtures/sensor-plate/model.py",
+      "plugins/physical-engineering/fixtures/sensor-plate/requirements.json",
+      "plugins/physical-engineering/fixtures/sensor-plate/transfer-requirements.json",
+      "plugins/physical-engineering/references/brief-template.md",
+      "plugins/physical-engineering/references/compatibility.md",
+      "plugins/physical-engineering/references/custom-part.md",
+      "plugins/physical-engineering/references/design-rationale.md",
+      "plugins/physical-engineering/references/drone-brief.md",
+      "plugins/physical-engineering/references/session-guide.md",
+      "plugins/physical-engineering/scripts/cad_backend.py",
+      "plugins/physical-engineering/scripts/compare_geometry.py",
+      "plugins/physical-engineering/scripts/engineering.py",
+      "plugins/physical-engineering/scripts/pdf_readback.py",
+      "plugins/physical-engineering/scripts/requirements.txt",
+      "plugins/physical-engineering/scripts/verify_geometry.py",
+      "plugins/physical-engineering/scripts/verify_mechanical.py"
+    ],
+    "openai/plugins:plugins/plugin-eval@981b02c0c440": [
+      "plugins/plugin-eval/.gitignore",
+      "plugins/plugin-eval/README.md",
+      "plugins/plugin-eval/assets/plugin-eval.svg",
+      "plugins/plugin-eval/fixtures/coverage-samples/coverage-final.json",
+      "plugins/plugin-eval/fixtures/coverage-samples/coverage.xml",
+      "plugins/plugin-eval/fixtures/coverage-samples/lcov.info",
+      "plugins/plugin-eval/fixtures/metric-pack/emit-pack.js",
+      "plugins/plugin-eval/fixtures/metric-pack/manifest.json",
+      "plugins/plugin-eval/fixtures/minimal-plugin/.codex-plugin/plugin.json",
+      "plugins/plugin-eval/fixtures/minimal-plugin/assets/minimal.svg",
+      "plugins/plugin-eval/fixtures/minimal-plugin/skills/minimal-plugin-skill/SKILL.md",
+      "plugins/plugin-eval/fixtures/minimal-skill/SKILL.md",
+      "plugins/plugin-eval/fixtures/minimal-skill/references/details.md",
+      "plugins/plugin-eval/fixtures/multi-skill-plugin/.codex-plugin/plugin.json",
+      "plugins/plugin-eval/fixtures/multi-skill-plugin/assets/multi.svg",
+      "plugins/plugin-eval/fixtures/multi-skill-plugin/skills/alpha/SKILL.md",
+      "plugins/plugin-eval/fixtures/multi-skill-plugin/skills/beta/SKILL.md",
+      "plugins/plugin-eval/fixtures/observed-usage/responses.jsonl",
+      "plugins/plugin-eval/fixtures/ts-python-sample/src/sample.py",
+      "plugins/plugin-eval/fixtures/ts-python-sample/src/sample.ts",
+      "plugins/plugin-eval/fixtures/ts-python-sample/tests/sample.test.ts",
+      "plugins/plugin-eval/fixtures/ts-python-sample/tests/test_sample.py",
+      "plugins/plugin-eval/package.json",
+      "plugins/plugin-eval/references/benchmark-harness.md",
+      "plugins/plugin-eval/references/chat-first-workflows.md",
+      "plugins/plugin-eval/references/evaluation-result-schema.md",
+      "plugins/plugin-eval/references/metric-pack-manifest.md",
+      "plugins/plugin-eval/references/observed-usage.md",
+      "plugins/plugin-eval/references/technical-design.md",
+      "plugins/plugin-eval/scripts/plugin-eval.js",
+      "plugins/plugin-eval/src/cli.js",
+      "plugins/plugin-eval/src/core/analyze.js",
+      "plugins/plugin-eval/src/core/baseline.js",
+      "plugins/plugin-eval/src/core/benchmark-events.js",
+      "plugins/plugin-eval/src/core/benchmark-workspace.js",
+      "plugins/plugin-eval/src/core/benchmark.js",
+      "plugins/plugin-eval/src/core/budget.js",
+      "plugins/plugin-eval/src/core/compare.js",
+      "plugins/plugin-eval/src/core/improvement-brief.js",
+      "plugins/plugin-eval/src/core/measurement-plan.js",
+      "plugins/plugin-eval/src/core/metric-packs.js",
+      "plugins/plugin-eval/src/core/observed-usage.js",
+      "plugins/plugin-eval/src/core/presentation.js",
+      "plugins/plugin-eval/src/core/schema.js",
+      "plugins/plugin-eval/src/core/scoring.js",
+      "plugins/plugin-eval/src/core/target.js",
+      "plugins/plugin-eval/src/core/workflow-guide.js",
+      "plugins/plugin-eval/src/evaluators/code.js",
+      "plugins/plugin-eval/src/evaluators/coverage.js",
+      "plugins/plugin-eval/src/evaluators/plugin.js",
+      "plugins/plugin-eval/src/evaluators/python.js",
+      "plugins/plugin-eval/src/evaluators/skill.js",
+      "plugins/plugin-eval/src/evaluators/typescript.js",
+      "plugins/plugin-eval/src/index.js",
+      "plugins/plugin-eval/src/lib/files.js",
+      "plugins/plugin-eval/src/lib/frontmatter.js",
+      "plugins/plugin-eval/src/lib/tokens.js",
+      "plugins/plugin-eval/src/renderers/html.js",
+      "plugins/plugin-eval/src/renderers/index.js",
+      "plugins/plugin-eval/src/renderers/markdown.js"
+    ],
+    "openai/plugins:plugins/figma@981b02c0c440": [
+      "plugins/figma/LICENSE.txt",
+      "plugins/figma/README.md",
+      "plugins/figma/assets/app-icon.png",
+      "plugins/figma/assets/figma-plugin-large.svg",
+      "plugins/figma/assets/figma-plugin-small.svg",
+      "plugins/figma/assets/figma-small.svg",
+      "plugins/figma/assets/figma.png",
+      "plugins/figma/assets/icon.svg",
+      "plugins/figma/assets/logo-padded.png",
+      "plugins/figma/plugin.lock.json",
+      "plugins/figma/scripts/post_write_figma_parity_check.sh",
+      "plugins/figma/ui/figma-workbench.html"
+    ],
+    "openai/plugins:plugins/build-web-apps@981b02c0c440": [
+      "plugins/build-web-apps/README.md",
+      "plugins/build-web-apps/assets/app-icon.png",
+      "plugins/build-web-apps/assets/build-web-apps-small.svg"
+    ],
+    "openai/plugins:plugins/game-studio@981b02c0c440": [
+      "plugins/game-studio/assets/app-icon.png",
+      "plugins/game-studio/assets/game-studio.svg",
+      "plugins/game-studio/references/alternative-3d-engines.md",
+      "plugins/game-studio/references/engine-selection.md",
+      "plugins/game-studio/references/frontend-prompts.md",
+      "plugins/game-studio/references/gltf-loading-starter.md",
+      "plugins/game-studio/references/phaser-architecture.md",
+      "plugins/game-studio/references/playtest-checklist.md",
+      "plugins/game-studio/references/rapier-integration-starter.md",
+      "plugins/game-studio/references/react-three-fiber-stack.md",
+      "plugins/game-studio/references/react-three-fiber-starter.md",
+      "plugins/game-studio/references/sprite-pipeline.md",
+      "plugins/game-studio/references/three-hud-layout-patterns.md",
+      "plugins/game-studio/references/three-webgl-architecture.md",
+      "plugins/game-studio/references/threejs-stack.md",
+      "plugins/game-studio/references/threejs-vanilla-starter.md",
+      "plugins/game-studio/references/web-3d-asset-pipeline.md",
+      "plugins/game-studio/references/webgl-debugging-and-performance.md",
+      "plugins/game-studio/scripts/build_sprite_edit_canvas.py",
+      "plugins/game-studio/scripts/normalize_sprite_strip.py",
+      "plugins/game-studio/scripts/render_sprite_preview_sheet.py"
+    ],
+    "openai/plugins:plugins/google-drive@981b02c0c440": [
+      "plugins/google-drive/OWNERS",
+      "plugins/google-drive/assets/google-drive.svg",
+      "plugins/google-drive/assets/logo.png"
+    ],
+    "openai/community-plugins:plugins/autodesk-fusion@6ab9f2066b52": [
+      "plugins/autodesk-fusion/.gitignore",
+      "plugins/autodesk-fusion/LICENSE",
+      "plugins/autodesk-fusion/README.md",
+      "plugins/autodesk-fusion/SECURITY.md",
+      "plugins/autodesk-fusion/THIRD_PARTY_NOTICES.txt",
+      "plugins/autodesk-fusion/addin/CodexFusionInterop/CodexFusionInterop.manifest",
+      "plugins/autodesk-fusion/addin/CodexFusionInterop/CodexFusionInterop.py",
+      "plugins/autodesk-fusion/addin/CodexFusionInterop/__init__.py",
+      "plugins/autodesk-fusion/addin/CodexFusionInterop/bridge.py",
+      "plugins/autodesk-fusion/addin/CodexFusionInterop/private_storage.py",
+      "plugins/autodesk-fusion/addin/README.md",
+      "plugins/autodesk-fusion/addin/tests/protocol_fixture.py",
+      "plugins/autodesk-fusion/addin/tests/test_bridge.py",
+      "plugins/autodesk-fusion/assets/icon.svg",
+      "plugins/autodesk-fusion/dist/addin/CodexFusionInterop/CodexFusionInterop.manifest",
+      "plugins/autodesk-fusion/dist/addin/CodexFusionInterop/CodexFusionInterop.py",
+      "plugins/autodesk-fusion/dist/addin/CodexFusionInterop/__init__.py",
+      "plugins/autodesk-fusion/dist/addin/CodexFusionInterop/bridge.py",
+      "plugins/autodesk-fusion/dist/addin/CodexFusionInterop/fusion_runtime.py",
+      "plugins/autodesk-fusion/dist/addin/CodexFusionInterop/handler-manifest.json",
+      "plugins/autodesk-fusion/dist/addin/CodexFusionInterop/private_storage.py",
+      "plugins/autodesk-fusion/dist/build-receipt.json",
+      "plugins/autodesk-fusion/dist/chunk-7P6ASYW6.mjs",
+      "plugins/autodesk-fusion/dist/chunk-KPHHJXNH.mjs",
+      "plugins/autodesk-fusion/dist/chunk-LNNNQITG.mjs",
+      "plugins/autodesk-fusion/dist/chunk-XEZVKDHW.mjs",
+      "plugins/autodesk-fusion/dist/cli.mjs",
+      "plugins/autodesk-fusion/dist/index.d.mts",
+      "plugins/autodesk-fusion/dist/index.mjs",
+      "plugins/autodesk-fusion/dist/server.mjs",
+      "plugins/autodesk-fusion/dist/types/addin.d.ts",
+      "plugins/autodesk-fusion/dist/types/artifact-validation.d.ts",
+      "plugins/autodesk-fusion/dist/types/artifacts.d.ts",
+      "plugins/autodesk-fusion/dist/types/bom.d.ts",
+      "plugins/autodesk-fusion/dist/types/catalog.d.ts",
+      "plugins/autodesk-fusion/dist/types/cli.d.ts",
+      "plugins/autodesk-fusion/dist/types/cloud-automation.d.ts",
+      "plugins/autodesk-fusion/dist/types/cloud-batches.d.ts",
+      "plugins/autodesk-fusion/dist/types/cloud-coordinator.d.ts",
+      "plugins/autodesk-fusion/dist/types/cloud-http.d.ts",
+      "plugins/autodesk-fusion/dist/types/cloud-tools.d.ts",
+      "plugins/autodesk-fusion/dist/types/cloud.d.ts",
+      "plugins/autodesk-fusion/dist/types/credentials.d.ts",
+      "plugins/autodesk-fusion/dist/types/engine.d.ts",
+      "plugins/autodesk-fusion/dist/types/fixture.d.ts",
+      "plugins/autodesk-fusion/dist/types/handoff.d.ts",
+      "plugins/autodesk-fusion/dist/types/index.d.ts",
+      "plugins/autodesk-fusion/dist/types/manage-drafts.d.ts",
+      "plugins/autodesk-fusion/dist/types/native-script.d.ts",
+      "plugins/autodesk-fusion/dist/types/native-security.d.ts",
+      "plugins/autodesk-fusion/dist/types/native.d.ts",
+      "plugins/autodesk-fusion/dist/types/oauth.d.ts",
+      "plugins/autodesk-fusion/dist/types/profile.d.ts",
+      "plugins/autodesk-fusion/dist/types/qualification.d.ts",
+      "plugins/autodesk-fusion/dist/types/retention.d.ts",
+      "plugins/autodesk-fusion/dist/types/runtime.d.ts",
+      "plugins/autodesk-fusion/dist/types/safety.d.ts",
+      "plugins/autodesk-fusion/dist/types/server.d.ts",
+      "plugins/autodesk-fusion/dist/types/storage.d.ts",
+      "plugins/autodesk-fusion/dist/types/types.d.ts",
+      "plugins/autodesk-fusion/dist/webapi-UDI3LYLY.mjs",
+      "plugins/autodesk-fusion/docs/artifact-fidelity.md",
+      "plugins/autodesk-fusion/docs/autodesk-fusion-360-plugin-implementation-plan.md",
+      "plugins/autodesk-fusion/docs/autodesk-fusion-implementation-status.md",
+      "plugins/autodesk-fusion/docs/batches.md",
+      "plugins/autodesk-fusion/docs/cad-features.md",
+      "plugins/autodesk-fusion/docs/enterprise.md",
+      "plugins/autodesk-fusion/docs/handoffs.md",
+      "plugins/autodesk-fusion/docs/manage-drafts.md",
+      "plugins/autodesk-fusion/docs/native-builds.md",
+      "plugins/autodesk-fusion/docs/native-dependencies.json",
+      "plugins/autodesk-fusion/docs/operation-catalog.json",
+      "plugins/autodesk-fusion/docs/operations.md",
+      "plugins/autodesk-fusion/docs/performance.md",
+      "plugins/autodesk-fusion/docs/qualification.md",
+      "plugins/autodesk-fusion/docs/retention.md",
+      "plugins/autodesk-fusion/docs/software-inventory.json",
+      "plugins/autodesk-fusion/docs/support-matrix.md",
+      "plugins/autodesk-fusion/docs/workflow-evaluation.md",
+      "plugins/autodesk-fusion/handlers/fusion_runtime.py",
+      "plugins/autodesk-fusion/mcp/server.mjs",
+      "plugins/autodesk-fusion/native/UPSTREAM_NOTICES.txt",
+      "plugins/autodesk-fusion/native/build-manifest.json",
+      "plugins/autodesk-fusion/native/community-credential-errors.patch",
+      "plugins/autodesk-fusion/native/keyring.darwin-arm64.node",
+      "plugins/autodesk-fusion/native/keyring.darwin-x64.node",
+      "plugins/autodesk-fusion/native/receipts/keyring.darwin-arm64.build.json",
+      "plugins/autodesk-fusion/native/receipts/keyring.darwin-x64.build.json",
+      "plugins/autodesk-fusion/native/source-manifest.json",
+      "plugins/autodesk-fusion/native/source/Cargo.lock",
+      "plugins/autodesk-fusion/native/source/Cargo.toml",
+      "plugins/autodesk-fusion/native/source/LICENSE",
+      "plugins/autodesk-fusion/native/source/build.rs",
+      "plugins/autodesk-fusion/native/source/src/async_entry.rs",
+      "plugins/autodesk-fusion/native/source/src/credential_result.rs",
+      "plugins/autodesk-fusion/native/source/src/entry.rs",
+      "plugins/autodesk-fusion/native/source/src/lib.rs",
+      "plugins/autodesk-fusion/native/source/src/linux_credential_builder.rs",
+      "plugins/autodesk-fusion/package-lock.json",
+      "plugins/autodesk-fusion/package.json",
+      "plugins/autodesk-fusion/profiles/fixture-scenario.json",
+      "plugins/autodesk-fusion/profiles/live-cad-scenario.json",
+      "plugins/autodesk-fusion/recipes/README.md",
+      "plugins/autodesk-fusion/recipes/parameterized-plate/README.md",
+      "plugins/autodesk-fusion/recipes/parameterized-plate/main.ts",
+      "plugins/autodesk-fusion/recipes/parameterized-plate/manifest.template.json",
+      "plugins/autodesk-fusion/scripts/benchmark-local.mjs",
+      "plugins/autodesk-fusion/scripts/build-native.mjs",
+      "plugins/autodesk-fusion/scripts/build.mjs",
+      "plugins/autodesk-fusion/scripts/evaluate-workflows.mjs",
+      "plugins/autodesk-fusion/scripts/evaluation-observations.mjs",
+      "plugins/autodesk-fusion/scripts/fusionctl.mjs",
+      "plugins/autodesk-fusion/scripts/reassess-workflows.mjs",
+      "plugins/autodesk-fusion/scripts/test-python.mjs",
+      "plugins/autodesk-fusion/scripts/verify-native.mjs",
+      "plugins/autodesk-fusion/src/addin.ts",
+      "plugins/autodesk-fusion/src/artifact-validation.ts",
+      "plugins/autodesk-fusion/src/artifacts.ts",
+      "plugins/autodesk-fusion/src/bom.ts",
+      "plugins/autodesk-fusion/src/catalog.ts",
+      "plugins/autodesk-fusion/src/cli.ts",
+      "plugins/autodesk-fusion/src/cloud-automation.ts",
+      "plugins/autodesk-fusion/src/cloud-batches.ts",
+      "plugins/autodesk-fusion/src/cloud-coordinator.ts",
+      "plugins/autodesk-fusion/src/cloud-http.ts",
+      "plugins/autodesk-fusion/src/cloud-tools.ts",
+      "plugins/autodesk-fusion/src/cloud.ts",
+      "plugins/autodesk-fusion/src/credentials.ts",
+      "plugins/autodesk-fusion/src/engine.ts",
+      "plugins/autodesk-fusion/src/fixture.ts",
+      "plugins/autodesk-fusion/src/handoff.ts",
+      "plugins/autodesk-fusion/src/index.ts",
+      "plugins/autodesk-fusion/src/manage-drafts.ts",
+      "plugins/autodesk-fusion/src/native-script.ts",
+      "plugins/autodesk-fusion/src/native-security.ts",
+      "plugins/autodesk-fusion/src/native.ts",
+      "plugins/autodesk-fusion/src/oauth.ts",
+      "plugins/autodesk-fusion/src/profile.ts",
+      "plugins/autodesk-fusion/src/qualification.ts",
+      "plugins/autodesk-fusion/src/retention.ts",
+      "plugins/autodesk-fusion/src/runtime.ts",
+      "plugins/autodesk-fusion/src/safety.ts",
+      "plugins/autodesk-fusion/src/server.ts",
+      "plugins/autodesk-fusion/src/storage.ts",
+      "plugins/autodesk-fusion/src/types.ts",
+      "plugins/autodesk-fusion/tsconfig.json"
+    ],
+    "openai/community-plugins:plugins/grafana-observability@6ab9f2066b52": [
+      "plugins/grafana-observability/LICENSE",
+      "plugins/grafana-observability/README.md",
+      "plugins/grafana-observability/THIRD_PARTY_NOTICES.txt",
+      "plugins/grafana-observability/assets/icon.svg",
+      "plugins/grafana-observability/mcp/server.mjs",
+      "plugins/grafana-observability/mcp/server.mjs.source.part-000",
+      "plugins/grafana-observability/mcp/server.mjs.source.part-001",
+      "plugins/grafana-observability/mcp/server.mjs.source.part-002",
+      "plugins/grafana-observability/mcp/server.mjs.source.part-003",
+      "plugins/grafana-observability/mcp/server.mjs.source.part-004",
+      "plugins/grafana-observability/mcp/server.mjs.source.part-005",
+      "plugins/grafana-observability/mcp/server.mjs.source.part-006",
+      "plugins/grafana-observability/mcp/server.mjs.source.part-007",
+      "plugins/grafana-observability/mcp/server.mjs.source.part-008",
+      "plugins/grafana-observability/mcp/server.mjs.source.part-009",
+      "plugins/grafana-observability/mcp/server.mjs.source.part-010",
+      "plugins/grafana-observability/mcp/server.mjs.source.part-011",
+      "plugins/grafana-observability/mcp/server.mjs.source.part-012",
+      "plugins/grafana-observability/mcp/server.mjs.source.part-013",
+      "plugins/grafana-observability/native/keyring.darwin-arm64.node",
+      "plugins/grafana-observability/schemas/adapter-package.schema.json",
+      "plugins/grafana-observability/schemas/analysis-draft.schema.json",
+      "plugins/grafana-observability/schemas/common.schema.json",
+      "plugins/grafana-observability/schemas/contradiction.schema.json",
+      "plugins/grafana-observability/schemas/coverage.schema.json",
+      "plugins/grafana-observability/schemas/evidence-envelope.schema.json",
+      "plugins/grafana-observability/schemas/evidence-link.schema.json",
+      "plugins/grafana-observability/schemas/investigation.schema.json",
+      "plugins/grafana-observability/schemas/manifest.schema.json",
+      "plugins/grafana-observability/schemas/monitoring-evidence-detail.schema.json",
+      "plugins/grafana-observability/schemas/monitoring-workspace-snapshot.schema.json",
+      "plugins/grafana-observability/schemas/operation-snapshot.schema.json",
+      "plugins/grafana-observability/schemas/patch-status.schema.json",
+      "plugins/grafana-observability/schemas/provider-capability-pack.schema.json",
+      "plugins/grafana-observability/schemas/resolved-evidence-link.schema.json",
+      "plugins/grafana-observability/schemas/run-record.schema.json",
+      "plugins/grafana-observability/schemas/trust-bundle.schema.json",
+      "plugins/grafana-observability/schemas/trusted-profile.schema.json",
+      "plugins/grafana-observability/schemas/workflow-event.schema.json",
+      "plugins/grafana-observability/schemas/workflow-request.schema.json",
+      "plugins/grafana-observability/schemas/workflow-result.schema.json",
+      "plugins/grafana-observability/schemas/workflow-summary.schema.json",
+      "plugins/grafana-observability/scripts/grafana-authorityctl.mjs",
+      "plugins/grafana-observability/scripts/grafana-authorityctl.mjs.source.part-000",
+      "plugins/grafana-observability/scripts/grafana-authorityctl.mjs.source.part-001",
+      "plugins/grafana-observability/scripts/grafana-authorityctl.mjs.source.part-002",
+      "plugins/grafana-observability/scripts/grafana-authorityctl.mjs.source.part-003",
+      "plugins/grafana-observability/scripts/grafana-authorityctl.mjs.source.part-004",
+      "plugins/grafana-observability/scripts/grafana-authorityctl.mjs.source.part-005",
+      "plugins/grafana-observability/scripts/grafana-authorityctl.mjs.source.part-006",
+      "plugins/grafana-observability/scripts/grafana-authorityctl.mjs.source.part-007",
+      "plugins/grafana-observability/scripts/grafana-authorityctl.mjs.source.part-008",
+      "plugins/grafana-observability/scripts/observabilityctl.mjs",
+      "plugins/grafana-observability/scripts/observabilityctl.mjs.source.part-000",
+      "plugins/grafana-observability/workers/provider-worker.mjs",
+      "plugins/grafana-observability/workers/provider-worker.mjs.source.part-000",
+      "plugins/grafana-observability/workers/provider-worker.mjs.source.part-001",
+      "plugins/grafana-observability/workers/provider-worker.mjs.source.part-002",
+      "plugins/grafana-observability/workers/provider-worker.mjs.source.part-003",
+      "plugins/grafana-observability/workers/provider-worker.mjs.source.part-004",
+      "plugins/grafana-observability/workers/provider-worker.mjs.source.part-005",
+      "plugins/grafana-observability/workers/provider-worker.mjs.source.part-006",
+      "plugins/grafana-observability/workers/provider-worker.mjs.source.part-007",
+      "plugins/grafana-observability/workers/provider-worker.mjs.source.part-008",
+      "plugins/grafana-observability/workers/provider-worker.mjs.source.part-009",
+      "plugins/grafana-observability/workers/provider-worker.mjs.source.part-010"
+    ],
+    "openai/plugins:plugins/build-ios-apps@981b02c0c440": [
+      "plugins/build-ios-apps/README.md",
+      "plugins/build-ios-apps/assets/app-icon.png",
+      "plugins/build-ios-apps/assets/build-ios-apps-small.svg"
+    ],
+    "openai/community-plugins:plugins/pcba-engineering@6ab9f2066b52": [
+      "plugins/pcba-engineering/LICENSE",
+      "plugins/pcba-engineering/README.md",
+      "plugins/pcba-engineering/assets/icon.svg",
+      "plugins/pcba-engineering/lib/csv.mjs",
+      "plugins/pcba-engineering/lib/domain.mjs",
+      "plugins/pcba-engineering/lib/kicad.mjs",
+      "plugins/pcba-engineering/lib/project.mjs",
+      "plugins/pcba-engineering/lib/render.mjs",
+      "plugins/pcba-engineering/lib/version.mjs",
+      "plugins/pcba-engineering/plugin.json",
+      "plugins/pcba-engineering/references/dataset-sources.md",
+      "plugins/pcba-engineering/references/workflow.md",
+      "plugins/pcba-engineering/schemas/check-report.v1.json",
+      "plugins/pcba-engineering/schemas/package.v1.json",
+      "plugins/pcba-engineering/scripts/pcba.mjs"
+    ],
+    "openai/plugins:plugins/superpowers@981b02c0c440": [
+      "plugins/superpowers/CODE_OF_CONDUCT.md",
+      "plugins/superpowers/LICENSE",
+      "plugins/superpowers/README.md",
+      "plugins/superpowers/assets/app-icon.png",
+      "plugins/superpowers/assets/superpowers-small.svg"
+    ],
+    "openai/plugins:plugins/temporal@981b02c0c440": [
+      "plugins/temporal/LICENSE",
+      "plugins/temporal/assets/.gitkeep",
+      "plugins/temporal/assets/temporal-logo.svg"
+    ],
+    "openai/plugins:plugins/zotero@981b02c0c440": [
+      "plugins/zotero/assets/icon.png"
+    ]
+  }
+}
