@@ -1,0 +1,2 @@
+# Preserve the exact payload covered by the detached fixture signature on every checkout.
+fixture/* text eol=lf

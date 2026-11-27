@@ -43,3 +43,5 @@ The result has a `bundle/skills/NAME` entry, its `bundle/package/` material, and
 The catalog records the selected source and intended activation. Earlier broader profiles retain their original compatibility paths. The 219-method catalog is an on-demand library. Only deliberately chosen project or recurring entries belong in a host’s native list.
 
 The release check built the 122 base methods together in a clean temporary home, staged the 23 checked-in bundles, and compared every selected Git file for the 74 direct leaves against twelve publisher revisions. A representative assembly package also ran its shared command and produced a handoff whose placement CSV was reopened independently. The [late-method evaluation](../evals/01/late-method/README.md) exercises a separate question: what happens to the completed work when a skill becomes useful after the first turn?
+
+The [acceptance handoff evaluation](../evals/01/acceptance-handoff/README.md) checks whether the desk can act on a calculated recommendation. Its controls cover signed, unsigned and subsequently altered evidence.

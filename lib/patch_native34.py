@@ -200,7 +200,9 @@ def materialize(source,out,s,c):
   for title,key in [('Prerequisites','dependencies'),('Target configuration','essential_settings'),('Required adaptations','adaptations'),('Verification','acceptance_checks')]:
    value=c.get(key)
    if value:body+='### '+title+'\n\n'+(value if isinstance(value,str) else json.dumps(value,indent=2,ensure_ascii=False))+'\n\n'
-  body+='Use `nstack route '+s['candidate_id']+'` for the exact acquisition and invocation route. Source availability is not runtime acceptance. Keep heavy dependencies dormant until the stated task trigger; an unavailable runtime remains unverified.\n'
+  body+=('From the Stack+ checkout, run `./stack+ route '+s['candidate_id']+'` for acquisition and invocation details. '
+         'An installed management profile also supports `nstack route '+s['candidate_id']+'`. '
+         'Check the actual runtime and resulting artifact in the intended project.\n')
   (leaf/'SKILL.md').write_text(front(body,s['candidate_id'].lower()+'-'+name,c.get('role')))
   notices(source,out,origin)
   (out/'SOURCE-PORT.json').write_text(json.dumps({'source_path':str(rel),'source_sha256':hashlib.sha256(origin.read_bytes()).hexdigest(),'revision':s['revision'],'entry':str(leaf.relative_to(out)),'raw_reference_root':'upstream','adaptation':'Authored native operational entry, original source preserved separately.'},indent=2)+'\n')
