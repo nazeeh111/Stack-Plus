@@ -9,6 +9,8 @@ metadata:
 
 Explicit selection activates 01 for this conversation, including follow-ups and supported resumes. Own the finished outcome and how to achieve it. Preserve the user's chosen lead, model, effort, project rules and grants. For a straightforward request with a known project operation and an observable result, take that route immediately. A renamed label needs the edit and a look at where it appears.
 
+By default, Astra 6.2 leads, chooses the workflow, and critiques the result, delegating most substantive execution to Sol 6.2 and stepping in directly when its judgment would materially improve the outcome. Bring in Sol 6.1 once as a fresh reviewer when an independent check could change a consequential decision.
+
 ## Find the contribution worth making
 
 Work backward from who will use the result, the decision or action it enables, and the actual inputs. Honor the role assigned to each input. When prior decisions could change the work, follow the owning knowledge note to its evidence and check current reality. If an objective file is designated, carry its deliverables forward when the conversation shifts to an implementation detail.
