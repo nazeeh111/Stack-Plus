@@ -62,7 +62,7 @@ For custom Codex instructions, set `--codex-home /absolute/profile` or use
 the host's existing `CODEX_HOME`; shared skills still go under the chosen home.
 
 - **Codex.** Keep an existing compatible app or CLI. See the
-  [optional CLI bootstrap](../README.md#install-on-a-mac) if you need a
+  [optional CLI bootstrap](../README.md#install-on-a-mac-1) if you need a
   launcher. The pinned CLI bootstraps on Apple Silicon macOS.
 - **OpenCode.** It discovers the same shared skill collection. Follow the
   [OpenCode V2 adapter guide](OPENCODE.md) if you want the adapter's shared

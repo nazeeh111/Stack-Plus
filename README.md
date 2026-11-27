@@ -1,29 +1,44 @@
 # Stack+
 
-Stack+ is a portable skill toolkit for Codex and OpenCode. Select **01** once, describe the outcome, and steer the same conversation as the work changes. The lead can combine project methods, host tools and checked runtimes, then verify the result in the interface that consumes it. A simple edit stays simple.
+**Select 01 once. Give your lead the outcome you want.** You can ask for a decision, a working application, a research result or an artifact someone else will use. Your lead works out what the result requires and which of your available skills, tools, plugins, MCP servers or specialists can contribute. You can change direction in the same conversation.
 
-## Start from the checkout
+| In Codex | In OpenCode | To end it |
+|---|---|---|
+| Select `$01` | Select `@01` | Say “turn 01 off” |
 
-Use Python 3.11 or later. The checkout launcher works before installation.
+Work in the project that owns the result. Describe what someone needs to be able to do with it, give the lead the inputs you have, and mention any real constraints. You can leave the implementation open. A fresh chat starts independently.
+
+## What changes when the goal changes
+
+Consider a shift planner who asks for the cheapest crew that can finish before opening. The lead initially recommends Lark at $100 and files the morning dispatch. Then operations changes the requirement. The public must be able to use the equipment by 09:32. Mechanical completion alone no longer settles the booking.
+
+In the tested case, the old project method had been withdrawn. The lead found a new method named `linen-sheet` through a receiver-acceptance technique in its supporting files. It ran the calculator and matched observations to crew bids. The desk could reproduce all three ready times. Lark was ready at 09:50, Wren at 09:30 and Ibis at 09:15. Wren at $125 became the cheapest projected choice. The original dispatch stayed filed.
+
+One more fact changed what the desk could do. Operations required signed observations. A calculation could price Wren without authorizing the booking. The first draft's wording blurred that distinction. A fresh reader caught it. The revised dispatch held the booking and kept Wren as the priced contingency. The signed control supported release and the unsigned control called for a hold. The public regression lets you reproduce both decisions and change one observation after signing. [Run the acceptance case](evals/01/acceptance-handoff/README.md)
+
+A spelling correction needs a much shorter workflow. In the timetable control, 01 changed one Saturday destination, checked the saved file and left the two similar neighboring entries alone. It used no specialist. An open-ended task earns more discovery and independent review when those contributions can change the result.
+
+## Where the expertise comes from
+
+- **Start with the actual project.** The lead can use its native methods, existing code, connected services and authorized tools. Project overrides and disables govern which capabilities it can use.
+- **Discover expertise by the work it does.** The 219 selected methods can live in versioned bundles outside the default prompt. Search can reach a technique in supporting files, even when the bundle name gives little away. New methods can enter discovery without changing 01. [Selections, scopes and staging](docs/stackplus-selections.md)
+- **Follow evidence across disciplines.** An engineer can calculate a result, a reader can test whether the proposed action follows from it, and the lead can revise the handoff. Elephant–Goldfish makes that independent check reproducible when the stakes justify it. It also works when 01 is off. [Project review](docs/STACKPLUS-REVIEW.md)
+- **Keep durable decisions small.** Working state and test artifacts stay with the project. An authorized private knowledge writer can retain a lasting decision and link back to its evidence. [Knowledge integration](integrations/knowledge-continuity/README.md)
+
+## Install on a Mac
+
+With Git and Python 3.11 or newer, open the public checkout and try a selection lookup.
 
 ```sh
 git clone https://github.com/nazeeh111/Stack-Plus.git
 cd Stack-Plus
-./stack+ --help
-./stack+ selections
-./stack+ review guide
+./stack+ selections review-pcba --json
 ```
 
-To install just the explicitly invoked lead, rehearse `python3 native_setup.py install --only 01` in a disposable home first. This selection uses bundled source. The installer checks the existing shared skill root before changing it. Select `$01` in Codex or `@01` in OpenCode. Say “turn 01 off” to end its role in that conversation. [Install and verify one native skill](docs/ONBOARDING.md) · [OpenCode adapter](docs/OPENCODE.md)
+To add 01 to a new shared skill root, use `python3 native_setup.py install --only 01`. For an existing collection, follow the disposable rehearsal and preservation steps first. The installer prints its rollback path. Skills that depend on an account, application or device need that resource in the project where they run. [Install and verify](docs/ONBOARDING.md) · [OpenCode](docs/OPENCODE.md) · [Restore](docs/RESTORE.md)
 
-| Need | Portable entry point |
-|---|---|
-| Find a contribution inside an eligible project method or staged on-demand library bundle | `./stack+ find --project PROJECT --json "technical contribution"`. Reopen a result with `--read MATCH_ID` under the same scope. Codex uses native project paths and effective skill rules. The off-root library preserves each selected method’s scope. OpenCode resolves its native skill winner and agent/session permissions. [Discovery details](addons/01/references/method-families.md) |
-| Check a consequential design, implementation or handoff | `./stack+ review pack --project PROJECT --artifact design.md`, then `./stack+ review verify ID --project PROJECT --current`. A fresh reader can inspect the exact pinned bytes. [Elephant–Goldfish workflow](docs/STACKPLUS-REVIEW.md) |
-| Look up the selected scope, source and prerequisites for a method | `./stack+ selections` and `./stack+ selections QUERY --json`. The catalog identifies what can be obtained and under which terms. Availability and live operation depend on the recipient's project, host, grants and runtimes. [Selection and portability guide](docs/stackplus-selections.md) |
-| Use the existing registry, installation and recovery interfaces | The historical `nstack` command, `python3 nstack.py`, state paths and installer options remain supported. The management installer also creates `stack+` in an unused command slot. [Transaction and recovery](docs/RESTORE.md) |
-
-The material below documents the existing registry and optional installation profiles. The Stack+ starting selection above contains one lead. Specialist bundles earn a place in each project through their source, prerequisites and a checked result.
+<details>
+<summary>Registry reference, optional installation profiles and historical compatibility</summary>
 
 ![Registry record L010 maps anthropics/skills at ca45fc4 to web-ui-design and mcp-builder. Both selected skills have Apache-2.0 rights.](docs/presentation/discovery.svg)
 
@@ -407,5 +422,7 @@ desktop backend have separate loaders; a backend inventory is not a desktop UI
 check. Trial, proprietary, hardware-specific, provider and large model lanes are
 conditional on their own rights, platform, resources and output checks. These
 sources do not imply that every target runtime has been installed or tested.
+
+</details>
 
 </details>
