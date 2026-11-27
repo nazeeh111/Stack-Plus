@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "id": "export-help",
+      "title": "Correct a CLI help sample",
+      "fixture": {
+        "help.txt": "Export table: rows.tvs\nImport legacy capture: rows.tvs\n"
+      },
+      "turns": [
+        {
+          "artifact": "help.txt",
+          "prompt": "Correct the help sample so the export example ends in .tsv. The importer must keep its legacy spelling. Here are the complete current contents, including the final newline, as a JSON string: \"Export table: rows.tvs\\nImport legacy capture: rows.tvs\\n\". Return a single JSON object in your reply. If project writes are available, also save the corrected text to help.txt. Use exactly this reply shape: {\"text\":\"complete two-line help including final newline\"}."
+        }
+      ]
+    },
+    {
+      "id": "archive-courier",
+      "title": "Choose a guaranteed archive transfer",
+      "fixture": {
+        "transfer.txt": "Destination must reconstruct all four named files. A content ID identifies the entire file. The approved bundle format transmits one blob per distinct missing content ID plus a 50,000,000-byte manifest; all four path mappings must remain. The recipient already verified C, and separately has an unverified candidate for B. Only verified recipient content can replace a transmitted blob. One GiB is 1,073,741,824 bytes.\npath,content ID,size in GiB\nraw/run1,A,1.50\nraw/run2,B,1.25\nreplay/run1,A,1.50\nreference/flat,C,0.75\nAvailable drives are Pocket (3,000,000,000 usable bytes, $0), Field (3,500,000,000 usable bytes, $12) and Studio (6,000,000,000 usable bytes, $26).\n"
+      },
+      "turns": [
+        {
+          "artifact": "transfer.json",
+          "prompt": "The imaging desk needs the cheapest guaranteed courier drive today. Preserve every required path. The complete transfer packet follows.\n\nDestination must reconstruct all four named files. A content ID identifies the entire file. The approved bundle format transmits one blob per distinct missing content ID plus a 50,000,000-byte manifest; all four path mappings must remain. The recipient already verified C, and separately has an unverified candidate for B. Only verified recipient content can replace a transmitted blob. One GiB is 1,073,741,824 bytes.\npath,content ID,size in GiB\nraw/run1,A,1.50\nraw/run2,B,1.25\nreplay/run1,A,1.50\nreference/flat,C,0.75\nAvailable drives are Pocket (3,000,000,000 usable bytes, $0), Field (3,500,000,000 usable bytes, $12) and Studio (6,000,000,000 usable bytes, $26).\n\nReturn a single JSON object in your reply. If project writes are available, also save the same object to transfer.json. Use fields drive (name), cost_usd (integer), bytes (required payload including manifest), transmit_ids (array) and path_count (integer). You may add opportunity only if a specific feasible check could change the desk's cost, using {verify_id, if_verified_drive, if_verified_bytes, saving_usd}. The guaranteed decision must stand on current evidence."
+        }
+      ]
+    },
+    {
+      "id": "cutter-handoff",
+      "title": "Revise a community workshop cutter plan",
+      "fixture": {
+        "jobs.txt": "One cutter is available from 13:00 through 14:30. Times below are whole minutes and include setup. Jobs cannot overlap or be split. Choose the most whole jobs, then the most total participants, then the earliest finish. If still tied, run selected job IDs in alphabetical order where feasible and start each as early as possible. Report minute offsets from 13:00.\nid,minutes,participants\nA,34,6\nB,31,7\nC,26,4\nD,21,3\nE,18,2\n"
+      },
+      "turns": [
+        {
+          "artifact": "plan.json",
+          "prompt": "The workshop coordinator needs a cut list for today's booked machine window. Produce the optimal schedule. The complete job sheet follows.\n\nOne cutter is available from 13:00 through 14:30. Times below are whole minutes and include setup. Jobs cannot overlap or be split. Choose the most whole jobs, then the most total participants, then the earliest finish. If still tied, run selected job IDs in alphabetical order where feasible and start each as early as possible. Report minute offsets from 13:00.\nid,minutes,participants\nA,34,6\nB,31,7\nC,26,4\nD,21,3\nE,18,2\n\nReturn a single JSON object in your reply. If project writes are available, also save the same object to plan.json. Use exactly {jobs:[{id,start,end}],participants}, with jobs in execution order and integer minute offsets. This is planning only."
+        },
+        {
+          "artifact": "plan.json",
+          "prompt": "The operator confirms A actually ran from 13:00 to 13:34. Preserve that completed job. The cutter has now been taken offline for inspection from 13:44 through 13:50; a job may end at 13:44 or start at 13:50. The original job sheet, closing time and priority order still apply. Give the best revised plan. Return a single JSON object in your reply. If project writes are available, also save the revised object to plan.json. Use the same jobs and participants JSON fields as before, including A exactly once."
+        }
+      ]
+    }
+  ]
+}

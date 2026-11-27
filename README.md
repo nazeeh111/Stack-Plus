@@ -18,7 +18,7 @@ A shift planner asked for the cheapest crew that could finish before opening. Th
 
 The original project method had been withdrawn. The lead found its replacement, `linen-sheet`, through the receiver-acceptance technique in a supporting file. Its calculator put Lark at 09:50, Wren at 09:30 and Ibis at 09:15. Wren at $125 became the cheapest projected choice. The filed dispatch stayed intact.
 
-The first draft still sounded like an instruction to book. A fresh reviewer checked the desk's rule and found a missing signature. The revised handoff held the booking and kept Wren as the priced contingency. With a valid signature, the desk could release Wren. The public fixture reproduces both outcomes and tests what happens if an observation changes after signing. [Run the acceptance case](evals/01/acceptance-handoff/README.md)
+The first draft still sounded like an instruction to book. A fresh reviewer checked the desk's rule and found a missing signature. The revised handoff held the booking and kept Wren as the priced contingency. With a valid signature, the desk could release Wren. The public fixture reproduces both outcomes and tests what happens if an observation changes after signing. [Run the acceptance case](evals/01/acceptance-handoff/README.md) · [Compare Stack+ with Codex answering from the prompt alone](evals/01/outcome-bench/README.md)
 
 A nearby routine test asked for a spelling correction on one Saturday timetable service. The lead edited that entry directly, checked the saved file and left the Friday service and Saturday staff service alone.
 
