@@ -42,6 +42,21 @@ class SourceFidelity(unittest.TestCase):
      self.assertEqual((out/row['diff']).read_text(),expected)
     self.assertIn('License',(out/'LICENSE').read_text())
 
+ def test_selected_marketing_leaf_archives_every_remaining_publisher_file_as_data(self):
+  source=self.sources['P343']
+  for leaf in ('prospecting','cold-email'):
+   out=self.outputs[leaf][0]
+   index=json.loads((out/'SOURCE-REFERENCES.json').read_text())
+   expected={str(p.relative_to(source)) for p in (source/'skills'/leaf).rglob('*') if p.is_file()}-set(FILES)
+   self.assertEqual({r['source'] for r in index['files']},expected)
+   for row in index['files']:
+    stored=out/row['archive']
+    self.assertTrue(stored.is_relative_to(out/'upstream'))
+    self.assertEqual(stored.suffix,'.txt')
+    self.assertEqual(stored.read_bytes(),(source/row['source']).read_bytes())
+    self.assertEqual(hashlib.sha256(stored.read_bytes()).hexdigest(),row['sha256'])
+   self.assertEqual({str(p.relative_to(out)) for p in (out/'skills').rglob('*') if p.is_file()},set(FILES))
+
  def test_office_actual_format_methods_are_retained_byte_for_byte(self):
   spans={'officecli':[('## L1: Create, Read & Inspect','## Watch & Interactive Selection'),('## L2: DOM Operations','## L3: Raw XML')],
    'officecli-docx':[('### Fields (PAGE','### Headers & Footers'),('### Tables','### Lists'),('## Raw-set XML appendix','### Help pointer')],
