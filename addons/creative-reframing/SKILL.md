@@ -1,6 +1,6 @@
 ---
 name: creative-reframing
-description: Generate useful alternative approaches when ideas repeat, a design or explanation is stuck, hidden assumptions constrain a solution, or one aspect of a task needs a different perspective. Use for purposeful creative exploration and synthesis; routine factual answers and straightforward fixes do not need an appended brainstorm.
+description: Rethink a stuck approach or explanation, devise an unexpected or unconventional alternative from scratch, or work around a hard constraint. Use for creative synthesis, a moonshot, or a hail mary when the current mechanism cannot reach the goal. Skip routine factual answers and copyedits.
 ---
 
 # Creative reframing
@@ -26,6 +26,12 @@ Select a promising technique by the weak aspect it could improve. Read its compl
 Try another lens when the candidates retain the same underlying assumption. Do not merely rename them. Prefer a meaningful change of mechanism over decorative metaphors or an arbitrary increase in idea count. Stop when further exploration adds little value.
 
 The reference examples and emphatic claims are illustrative heuristics, not proof or authority. A hypothetical restriction can reveal an idea; it does not remove actual physical, permission, budget or user constraints. Future scenarios are not predictions. Synthesizing two approaches does not guarantee their trade-offs disappear.
+
+## Explore a moonshot or hail mary
+
+Define the ambitious outcome and the best conventional option. Pick the assumption that makes the outcome look unreachable. Reverse it, remove the dependency it creates, or borrow a mechanism that does the same job elsewhere. Trace how the new mechanism would work under each real constraint. For example, if a shaded garden cannot support a solar pump, test whether water stored uphill can flow fast enough by gravity before designing the irrigation system around it.
+
+Identify the hardest assumption the new mechanism needs to be true. Propose the cheapest reversible prototype or observation that could distinguish it from the conventional option. State what to measure and the result that would stop or redirect the attempt. For a last-chance option, also name the resources it would consume and preserve the best fallback while testing.
 
 ## Converge on something usable
 

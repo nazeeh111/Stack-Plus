@@ -1,6 +1,6 @@
 # Stack+
 
-**Select 01 once. Tell your lead what you want to achieve.** A correction can take one edit and a readback. A harder goal can draw on project skills, plugins, tools, MCP servers and independent specialists. When you steer, the lead can change the workflow, keep verified work and check what the recipient can actually do with the result.
+**Select 01 once for a complex goal. Describe the outcome in your own words.** Your lead works backward from what the recipient needs, finds relevant expertise across your setup, and tests alternatives where the choice matters. When a requirement changes, the lead can bring in a new skill, tool or specialist, keep the work that still holds, and verify the revised handoff.
 
 <a name="opencode"></a><a name="use-it-in-a-project"></a>
 

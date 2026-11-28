@@ -3,7 +3,7 @@
   "revision": "2e7aaa496c5c7824e5fdcb466b8cfb05a333817e",
   "source_path": "SKILL.md",
   "license": "MIT",
-  "installation_adaptation": "Purposeful per-aspect creative exploration, source-backed techniques and feasibility/convergence. Replaces broad response injection, persona, fixed quotas and unsupported superiority with bounded useful-result checks. Complete original support retained; no code/runtime/provider or mandatory output activated.",
+  "installation_adaptation": "Purposeful per-aspect creative exploration, source-backed techniques and feasibility/convergence. Replaces broad response injection, persona, fixed quotas and unsupported superiority with bounded useful-result checks. Complete original support retained; no code/runtime/provider or mandatory output activated. Adds moonshot and hail mary discovery with assumption reversal, a reversible test and a stop signal.",
   "upstream_files": {
     "LICENSE": {
       "source_path": "LICENSE",
@@ -132,7 +132,7 @@
       "modification": "Unchanged bytes; support relocated where stated"
     }
   },
-  "port_patch_sha256": "7c3e7a8fc578b9d7658daeeafe7946024cfbadaf767eab4a8494ec34502f3c04",
+  "port_patch_sha256": "9e702b9e4055fafc934880a7b6f2ccc9dd2949cafd2c93c2e2987fd8779c8c2e",
   "native_files": [
     "SKILL.md",
     "PORT.patch"

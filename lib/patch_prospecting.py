@@ -127,6 +127,37 @@ Use relevant professional role, attributable firmographic facts and verified tec
     else: text = BOUNDARY + text
     return text.rstrip() + '\n'
 
+def retain_leaf_references(source, out, source_path, revision):
+    """Keep the complete selected publisher leaf while separating original reference data from the eight active files."""
+    leaf = P(source_path).parent
+    if leaf.as_posix() not in ('skills/cold-email', 'skills/prospecting'):
+        raise ValueError('Unknown sales reference scope')
+    records = []
+    for path in sorted((source/leaf).rglob('*')):
+        rel = path.relative_to(source)
+        if path.is_dir() or rel.as_posix() in FILES:
+            continue
+        if (path.is_symlink() or rel.relative_to(leaf).parts[0] not in ('evals', 'references')
+                or path.suffix not in ('.md', '.json')):
+            raise ValueError(f'Review the non-operative publisher file before archiving: {rel}')
+        data = path.read_bytes()
+        retained = out/'upstream'/rel.with_suffix(rel.suffix+'.txt')
+        retained.parent.mkdir(parents=True, exist_ok=True)
+        if retained.exists():
+            if retained.is_symlink() or retained.read_bytes() != data:
+                raise ValueError(f'Retained publisher reference differs: {rel}')
+        else:
+            retained.write_bytes(data)
+        records.append({'source':rel.as_posix(), 'archive':retained.relative_to(out).as_posix(),
+                        'sha256':hashlib.sha256(data).hexdigest()})
+    if len(records) != 9:
+        raise ValueError('Expected nine additional references from the selected pinned leaf')
+    receipt = {'publisher':'coreyhaines31/marketingskills', 'revision':revision,
+               'scope':'Original publisher reference data only. The eight active research and drafting files keep their existing scope.',
+               'files':records}
+    (out/'SOURCE-REFERENCES.json').write_text(json.dumps(receipt,indent=2)+'\n')
+
+
 def materialize(source, out, s):
     if 'Copyright (c) 2025 Corey Haines' not in (source/'LICENSE').read_text(): raise ValueError('P343 required MIT notice changed')
     records=[]
@@ -138,5 +169,6 @@ def materialize(source, out, s):
         diffpath=P('patches')/P(rel).with_suffix('.patch');diff=out/diffpath;diff.parent.mkdir(parents=True,exist_ok=True);diff.write_text(''.join(difflib.unified_diff(raw.decode().splitlines(True),adapted.splitlines(True),fromfile=rel,tofile=rel)))
         records.append({'source_path':rel,'source_sha256':hashlib.sha256(raw).hexdigest(),'archive':str(archive.relative_to(out)),'active_path':rel,'active_sha256':hashlib.sha256(adapted.encode()).hexdigest(),'diff':str(diffpath)})
     shutil.copy2(source/'LICENSE',out/'LICENSE')
+    retain_leaf_references(source,out,s['source_path'],s['revision'])
     (out/'SOURCE-ADAPTATION.json').write_text(json.dumps({'repository':s['source_repository'],'revision':s['revision'],'scope':'Exactly the eight selected research/draft files; excluded provider/channel playbooks remain excluded. Source methods retained within that scope.','files':records},sort_keys=True,indent=2)+'\n')
     return str(P(s['source_path']).parent)
