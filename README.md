@@ -1,6 +1,6 @@
 # Stack+
 
-**Select 01 once for a complex goal. Describe the outcome in your own words.** Your lead works backward from what the recipient needs, finds relevant expertise across your setup, and tests alternatives where the choice matters. When a requirement changes, the lead can bring in a new skill, tool or specialist, keep the work that still holds, and verify the revised handoff.
+**Select 01 once and describe the outcome in your own words.** For everyday coding, the lead can make the edit and run its check directly. For a complex goal, it works backward from what the recipient needs, finds relevant expertise across your setup, and tests alternatives where the choice matters. When a requirement changes, the lead can bring in a new skill, tool or specialist, keep the work that still holds, and verify the revised handoff.
 
 <a name="opencode"></a><a name="use-it-in-a-project"></a>
 
